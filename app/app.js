@@ -80,7 +80,24 @@ function vehicleCard(v) {
   if (v.detail) actions.append(linkButton("Ficha y salidas", "?vehicle=" + encodeURIComponent(v.id), true));
   actions.append(linkButton("Programador", "PROGRAMADOR.html", false));
 
-  body.append(titleRow, metaGrid, actions);
+  const shortcuts = element("div", "channel-shortcuts");
+  if (v.detail) {
+    [
+      ["WhatsApp", "whatsapp"],
+      ["Marketplace", "marketplace"],
+      ["Post", "post"],
+      ["Feed", "feed"],
+      ["Historias", "stories"],
+      ["Reel", "reel"],
+      ["TikTok", "tiktok"]
+    ].forEach(function(pair) {
+      shortcuts.append(linkButton(pair[0], "?vehicle=" + encodeURIComponent(v.id) + "#channel-" + pair[1], false));
+    });
+  }
+
+  body.append(titleRow, metaGrid);
+  if (v.detail) body.append(shortcuts);
+  body.append(actions);
   card.append(wrap, body);
   return card;
 }
@@ -238,7 +255,7 @@ function makeDeliverables(v) {
 
     const controls = element("div", "deliverable-controls no-print");
     const select = element("select", "status-select");
-    ["PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"].forEach(function(s) {
+    (d.key === "whatsapp" ? ["OCULTO","PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"] : ["PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"]).forEach(function(s) {
       const option = element("option", "", labelStatus(s));
       option.value = s;
       option.selected = s === effectiveStatus;
@@ -487,6 +504,12 @@ async function renderVehicle(id) {
     const shell = element("div", "shell");
     shell.append(vehicleDetail(data));
     root.replaceChildren(shell);
+    if (location.hash) {
+      requestAnimationFrame(function() {
+        const target = document.querySelector(location.hash);
+        if (target) target.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    }
   } catch (error) {
     const shell = element("div", "shell");
     const box = element("div", "error");
