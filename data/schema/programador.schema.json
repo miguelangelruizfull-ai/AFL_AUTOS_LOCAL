@@ -14,7 +14,10 @@
       "type": "string"
     },
     "source": {
-      "const": "GOOGLE_CALENDAR"
+      "enum": [
+        "GOOGLE_CALENDAR",
+        "MULTI_SOURCE"
+      ]
     },
     "calendarWins": {
       "type": "boolean"
@@ -28,7 +31,6 @@
           "title",
           "date",
           "start",
-          "end",
           "timezone",
           "status",
           "type"
@@ -47,7 +49,10 @@
             "type": "string"
           },
           "end": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "timezone": {
             "type": "string"
@@ -60,9 +65,21 @@
           },
           "links": {
             "type": "object"
+          },
+          "source": {
+            "type": "string"
+          },
+          "externalId": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
+    },
+    "rules": {
+      "type": "object"
     }
   }
 }
