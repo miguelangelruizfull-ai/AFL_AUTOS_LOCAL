@@ -22,6 +22,13 @@ function publicVehicleThumbnailUrl(v) {
   catch (error) { return vehicleThumbnailPath(v); }
 }
 
+function configurationSummary(v) {
+  const c = (v && v.vehicle && v.vehicle.configuration) || {};
+  return [c.engine, c.transmission, c.drivetrain].filter(function(x) {
+    return x != null && String(x).trim() && String(x).toUpperCase() !== "PENDIENTE";
+  }).join(" · ") || "Configuración pendiente de confirmar";
+}
+
 function detectOperationalPattern(v) {
   const c = v.checkpoint || {};
   const status = String((v.status && v.status.vehicle) || c.state || "").toUpperCase();
@@ -629,7 +636,7 @@ function vehicleDetail(v) {
   headText.append(
     element("div", "eyebrow", v.id),
     element("h1", "", v.vehicle.publicTitle),
-    element("p", "subtitle", v.vehicle.configuration.engine + " · " + v.vehicle.configuration.transmission + " · " + v.vehicle.configuration.drivetrain)
+    element("p", "subtitle", configurationSummary(v))
   );
   const detailThumbWrap = element("div", "detail-thumb-wrap");
   const detailThumb = element("img", "detail-thumb");
