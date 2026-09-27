@@ -7,6 +7,7 @@
   "invocation": "NUEVO_VEHICULO",
   "prompt": [
     "Opera un vehículo nuevo dentro de AFL Autos.",
+    "ANTES DE CUALQUIER OTRA ACCIÓN: al iniciar NUEVO_VEHICULO, resuelve en Google Drive la carpeta autorizada AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID y proporciona al usuario su enlace de carga para subir por primera vez el material disponible. No persistir el ID ni la URL privada de Drive en JSON público, repositorio público, URLs públicas ni HOME.",
     "1. Revisa primero Google Drive en AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID. Trabaja únicamente con el lote/material que corresponda a esta unidad y no mezcles vehículos.",
     "2. Identifica solo con evidencia: marca, modelo, año, versión/trim si puede confirmarse, color, motor, transmisión, tracción, equipamiento visible, documentos disponibles y condición relevante. No inventes datos.",
     "3. El VIN completo es PRIVADO. Puede usarse solo para verificación autorizada. Si está confirmado, genera el AFL-ID preferentemente como AFL-<ultimos_6_del_VIN>. Nunca escribas el VIN completo en el repositorio público, URLs, respuestas públicas o JSON público.",
@@ -70,7 +71,11 @@
     "publicPrivateDocuments": false,
     "duplicateCalendarEvents": false,
     "authorizedFieldEdit": "MIGUEL_EXPLICIT",
-    "authorizedEditAutoPublish": false
+    "authorizedEditAutoPublish": false,
+    "provideInitialUploadFolderAtStart": true,
+    "initialUploadFolderPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
+    "resolveInitialUploadFolderUrlAtRuntime": true,
+    "persistPrivateDriveUrlPublicly": false
   },
   "recommendationAuthority": "CHATGPT_CURRENT"
 }
