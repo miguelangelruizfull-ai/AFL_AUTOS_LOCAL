@@ -258,7 +258,13 @@
       "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
       "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
       "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque.",
-      "Al PROGRAMAR o PUBLICAR una pieza, actualizar el archivo real correspondiente dentro de 02_SALIDAS/AFL-ID/<CANAL> con copy final, estado, fecha/hora e identificador disponible."
+      "Al PROGRAMAR o PUBLICAR una pieza, actualizar el archivo real correspondiente dentro de 02_SALIDAS/AFL-ID/<CANAL> con copy final, estado, fecha/hora e identificador disponible.",
+      "Al cerrar cualquier operación del vehículo, mostrar SIEMPRE al final una sección de opciones.",
+      "La primera opción debe ser la SIGUIENTE ACCIÓN RECOMENDADA por el ChatGPT actual cuando exista una recomendación concreta.",
+      "Después mostrar las demás opciones operativas relevantes del vehículo.",
+      "Si no existe una recomendación concreta, mostrar las demás opciones sin inventar una recomendación.",
+      "Las opciones deben incluir enlaces operativos cuando existan.",
+      "El cierre no se considera completo si el estado cambió y las opciones finales no reflejan el nuevo checkpoint."
     ],
     "rules": [
       "No mezclar vehículos.",
@@ -268,7 +274,16 @@
       "Los cambios autorizados por Miguel se limitan al campo y valor indicados.",
       "PROGRAMADA no equivale a PUBLICADO; MEDICION_7D inicia desde PUBLICADO_CONFIRMADO_POR_MIGUEL."
     ],
-    "responseLinks": []
+    "responseLinks": [],
+    "closureMenuPolicy": {
+      "alwaysShowOptionsAtEnd": true,
+      "recommendedFirst": true,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "showOtherRelevantOptions": true,
+      "omitRecommendedWhenNone": true,
+      "includeOperationalLinks": true,
+      "mustReflectLatestCheckpoint": true
+    }
   },
   "promptMenu": [
     {
