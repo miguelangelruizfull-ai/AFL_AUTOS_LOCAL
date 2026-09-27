@@ -163,3 +163,16 @@ Al confirmar publicación real, cambiar la pieza a `PUBLICADO_CONFIRMADO_POR_MIG
 Después del cierre, mostrar la siguiente acción solo cuando el ChatGPT actual tenga una recomendación concreta; en ese caso devolver después el menú/opciones del vehículo. Si no existe recomendación, omitir ese retorno.
 
 Toda programación, publicación o cambio autorizado debe dejar HOME actualizado antes de cerrar.
+
+
+## MENU FINAL OBLIGATORIO
+
+Después de persistir y verificar cualquier cambio operativo:
+
+1. determinar si existe una siguiente acción concreta con la evidencia y checkpoint vigentes;
+2. si existe, mostrarla primero como **RECOMENDADA**;
+3. mostrar después las demás opciones relevantes de la unidad;
+4. usar enlaces operativos vigentes cuando existan;
+5. si no existe una recomendación concreta, omitir la etiqueta/recomendación y mostrar solamente las opciones restantes.
+
+El menú se genera después de sincronizar Drive ↔ JSON vehículo ↔ HOME ↔ documentación aplicable, por lo que siempre debe representar el estado recién persistido.
