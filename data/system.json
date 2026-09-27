@@ -128,6 +128,18 @@
       "label": "Auditar sincronización",
       "description": "Comparar Drive, expediente y HOME sin publicar.",
       "prompt": "Audita únicamente <AFL-ID>. Compara CONTROL OPERATIVO, data/vehicles/<AFL-ID>.json y data/vehicles/index.json. Corrige contradicciones verificables sin publicar y devuelve los cambios."
+    },
+    {
+      "key": "schedulePost",
+      "label": "Registrar post programado",
+      "description": "Persistir una programación confirmada y actualizar Drive + vehículo + HOME + Programador.",
+      "prompt": "REGISTRAR_PUBLICACION_PROGRAMADA\\nAFL-ID: <AFL-ID>\\nPLATAFORMA: <PLATAFORMA>\\nCANAL: <CANAL>\\nFECHA_HORA: <ISO_LOCAL>\\nID_EXTERNO: <ID_SI_EXISTE>\\nMiguel confirma la programación. Registra PROGRAMADA, sincroniza Drive + JSON vehículo + HOME + data/programador.json. PROGRAMADA no equivale a PUBLICADA y no inicia MEDICION_7D. Si recomiendas una siguiente acción, muéstrala y luego regresa al menú; si no, omite ese bloque."
+    },
+    {
+      "key": "confirmPublished",
+      "label": "Confirmar publicación",
+      "description": "Cambiar una pieza programada a publicada y activar medición 7D.",
+      "prompt": "CONFIRMAR_PUBLICACION\\nAFL-ID: <AFL-ID>\\nPLATAFORMA: <PLATAFORMA>\\nID/URL: <EVIDENCIA>\\nMiguel confirma que la publicación ya está activa. Cambia a PUBLICADO_CONFIRMADO_POR_MIGUEL, sincroniza Drive + JSON vehículo + HOME + Programador y activa MEDICION_7D. No crear 24H/72H rutinarios."
     }
   ],
   "publicationSync": {
