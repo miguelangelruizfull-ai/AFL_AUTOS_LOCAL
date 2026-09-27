@@ -391,3 +391,24 @@ No incluir:
 → 02_SALIDAS/AFL-ID/00_CONTENIDO_DISPONIBLE
 → MARKETPLACE / IMAGENES / POST / FEED / HISTORIAS / PORTADAS / REEL / TIKTOK / WHATSAPP / PARA_ENVIAR
 ```
+
+
+## CONTROL DE MUSICA
+
+No se crea una carpeta de música en Drive.
+
+Para evitar repetir audios ya publicados se usa un registro global:
+
+[MUSICA_USADA.md](MUSICA_USADA.md)
+
+Regla:
+
+```text
+ANTES DE REEL / TIKTOK / HISTORIA CON AUDIO
+→ CONSULTAR MUSICA_USADA.md
+→ EVITAR AUDIO CON ESTADO PUBLICADO
+→ PUBLICAR
+→ REGISTRAR USO
+```
+
+No almacenar archivos musicales en Drive o GitHub por esta función.
