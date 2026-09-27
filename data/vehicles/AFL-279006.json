@@ -124,10 +124,10 @@
     ]
   },
   "outputs": {
-    "marketplace": "PENDIENTE",
+    "marketplace": "EN_PRODUCCION",
     "images": "PENDIENTE",
-    "post": "PENDIENTE",
-    "feed": "PENDIENTE",
+    "post": "EN_PRODUCCION",
+    "feed": "EN_PRODUCCION",
     "stories": "PENDIENTE",
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
@@ -169,7 +169,7 @@
       "key": "marketplace",
       "label": "Marketplace",
       "folder": "10_MARKETPLACE",
-      "status": "PENDIENTE",
+      "status": "EN_PRODUCCION",
       "url": "https://drive.google.com/drive/folders/1CVD3zkzj3RTN9ZqjZ6N0VCHv5ibsnzqE"
     },
     {
@@ -183,14 +183,14 @@
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
-      "status": "PENDIENTE",
+      "status": "EN_PRODUCCION",
       "url": "https://drive.google.com/drive/folders/16xMBQIiojE2Ugg05pvmbP0ZLMY6186S_"
     },
     {
       "key": "feed",
       "label": "Feed",
       "folder": "40_FEED",
-      "status": "PENDIENTE",
+      "status": "EN_PRODUCCION",
       "url": "https://drive.google.com/drive/folders/1FDvj03RfScOy-SKOyjCrOfX6ZR2CDRw8"
     },
     {
