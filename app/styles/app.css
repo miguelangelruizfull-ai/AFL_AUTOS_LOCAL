@@ -125,3 +125,16 @@ button.btn{cursor:pointer;color:inherit;font:inherit}
 
 .channel-shortcuts{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
 .channel-shortcuts .btn{padding:7px 9px;font-size:.78rem;flex:1 1 auto}
+
+
+.home-checkpoint{margin:8px 0 2px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#0d131b;color:var(--muted);font-size:.78rem;font-weight:800}
+.prompt-menu-panel{scroll-margin-top:90px}
+.checkpoint-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.checkpoint-grid .kv{display:block;background:#0d131b;border:1px solid var(--line);border-radius:10px;padding:10px}
+.checkpoint-grid .kv span,.checkpoint-grid .kv strong{display:block}
+.checkpoint-grid .kv strong{margin-top:5px;overflow-wrap:anywhere}
+.prompt-menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.prompt-menu-card{background:#0d131b;border:1px solid var(--line);border-radius:12px;padding:13px}
+.prompt-menu-card .actions{grid-template-columns:1fr}
+@media(max-width:900px){.checkpoint-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.checkpoint-grid,.prompt-menu-grid{grid-template-columns:1fr}}
