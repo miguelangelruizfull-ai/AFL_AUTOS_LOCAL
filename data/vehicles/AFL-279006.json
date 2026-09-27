@@ -121,7 +121,8 @@
       "80_TIKTOK",
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
-    ]
+    ],
+    "controlDocument": "AFL-279006 — CONTROL OPERATIVO"
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -242,5 +243,72 @@
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
-  }
+  },
+  "checkpoint": {
+    "phase": "PRECAPTURA_CON_BORRADORES",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-09-27",
+    "lastCompleted": "Marketplace, Post y Feed en EN_PRODUCCION como BORRADOR_PRECAPTURA; WhatsApp OCULTO con ficha preparada; Drive y repositorio sincronizados.",
+    "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+    "resumeFrom": "Realizar trabajo de campo y subir material nuevo únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
+    "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
+  },
+  "promptProtocol": {
+    "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
+    "minimalSources": [
+      "data/vehicles/AFL-279006.json",
+      "data/vehicles/index.json",
+      "ACTIVOS/AFL-279006/ESTADO.md",
+      "ACTIVOS/AFL-279006/PLAN_CONTENIDO.md",
+      "Drive: 01_ENTRADAS/AFL-279006",
+      "Drive: 02_SALIDAS/AFL-279006",
+      "Drive: documento AFL-279006 — CONTROL OPERATIVO"
+    ],
+    "afterEveryPrompt": [
+      "Actualizar en Drive los archivos/documentos afectados y el CONTROL OPERATIVO del vehículo.",
+      "Actualizar data/vehicles/AFL-279006.json con el nuevo checkpoint y estados.",
+      "Actualizar data/vehicles/index.json para que HOME refleje el checkpoint, estado y siguiente acción.",
+      "Actualizar los .md operativos relevantes cuando corresponda.",
+      "Verificar que Drive, JSON del vehículo y HOME coincidan antes de cerrar."
+    ],
+    "rules": [
+      "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
+      "No releer todo el proyecto salvo que una inconsistencia concreta lo requiera.",
+      "No depender de la memoria de ChatGPT como fuente de estado.",
+      "No publicar automáticamente.",
+      "No exponer VIN completo, odómetro, documentos privados o PII."
+    ]
+  },
+  "promptMenu": [
+    {
+      "key": "resume",
+      "label": "1. Reanudar desde aquí",
+      "description": "Continúa exactamente desde el checkpoint actual sin releer todo el proyecto.",
+      "instruction": "Reanuda la operación desde el checkpoint actual. Ejecuta solamente el siguiente paso pendiente que pueda realizarse con evidencia disponible. Si el paso requiere trabajo físico aún no realizado, indica la acción de campo exacta y conserva los estados."
+    },
+    {
+      "key": "captureUploaded",
+      "label": "2. Ya subí nueva captura",
+      "description": "Procesa material recién cargado en 20_NUEVA_CAPTURA.",
+      "instruction": "Confirma que existe material nuevo en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA. Registra MATERIAL_NUEVO_SUBIDO y ejecuta REVISION_MATERIAL sin mezclar material de otras unidades. Clasifica aprobado, rechazado, duplicado y privado; no publiques."
+    },
+    {
+      "key": "finalSelection",
+      "label": "3. Revisar y seleccionar material",
+      "description": "Cierra faltantes y arma la selección final por canal.",
+      "instruction": "Revisa la nueva captura junto con el material aprobado previo, identifica faltantes obligatorios y realiza SELECCION_FINAL. Actualiza las mejores tomas para Marketplace, Post, Feed y WhatsApp. Si siguen faltando tomas obligatorias, conserva CAPTURA_PENDIENTE."
+    },
+    {
+      "key": "finishOutputs",
+      "label": "4. Terminar piezas",
+      "description": "Actualiza borradores y genera derivados que ya tengan material suficiente.",
+      "instruction": "Actualiza Marketplace, Post y Feed con la SELECCION_FINAL; genera IMAGENES_COMERCIALES y, solo si existe video vertical suficiente, prepara Reel/TikTok. WhatsApp debe permanecer OCULTO hasta validación. No pasar una pieza a LISTO sin revisión final."
+    },
+    {
+      "key": "syncAudit",
+      "label": "5. Auditar sincronización",
+      "description": "Comprueba que Drive, ficha, Home y documentación muestran el mismo estado.",
+      "instruction": "Audita exclusivamente AFL-279006. Compara Drive, data/vehicles/AFL-279006.json, data/vehicles/index.json y documentación operativa. Corrige contradicciones de estado, siguiente acción o entregables sin publicar nada."
+    }
+  ]
 }
