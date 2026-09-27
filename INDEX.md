@@ -2,6 +2,11 @@
 
 Actualizado: 2026-09-27
 
+## INICIO
+- [START_HERE](START_HERE.md)
+- [PROGRAMADOR](_SISTEMA/PROGRAMADOR.md)
+- [REGLAS](_SISTEMA/REGLAS.md)
+
 | Código | Vehículo | Estado | WhatsApp | Precio | Siguiente |
 |---|---|---|---|---:|---|
 | AFL-279006 | Chevrolet Colorado Work Truck 2016 | CAPTURA_PENDIENTE | OCULTO | $325,000 | CAPTURA |
@@ -37,6 +42,8 @@ Actualizado: 2026-09-27
 - No guardar URLs ni IDs privados de Drive mientras este repositorio sea público.
 
 ## Regla
-`INDEX.md` sirve para navegar.  
-`ESTADO.md` sirve para indexación rápida.  
+`START_HERE.md` es el punto de entrada.
+`INDEX.md` sirve para navegar.
+`ESTADO.md` sirve para indexación rápida.
 `PUENTE.md` conserva la verdad vigente completa.
+Google Calendar conserva programación y recordatorios vigentes.
