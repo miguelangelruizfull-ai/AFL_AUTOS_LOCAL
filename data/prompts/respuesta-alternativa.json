@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "GENERAR_RESPUESTA_ALTERNATIVA_HOME",
+  "updated": "2026-09-27",
+  "title": "Generar otra respuesta o alternativa desde HOME",
+  "purpose": "Generar una respuesta distinta para la misma pregunta comercial. Si existe expediente del vehículo, usarlo como fuente. Si todavía no existe expediente, permitir un fallback manual con nombre del vehículo, precio y CTA sin inventar datos ni crear una ficha canónica por inferencia.",
+  "invocation": "GENERAR_RESPUESTA_ALTERNATIVA",
+  "inputs": {
+    "question": "Pregunta o mensaje original del cliente",
+    "aflId": "Opcional. Usar cuando exista expediente en data/vehicles.",
+    "vehicleName": "Fallback manual cuando no exista expediente.",
+    "price": "Fallback manual opcional. Usarlo solo si Miguel lo proporciona para la respuesta.",
+    "cta": "Fallback manual opcional.",
+    "mode": [
+      "OTRA_RESPUESTA",
+      "ALTERNATIVA_BREVE"
+    ]
+  },
+  "sourceResolution": [
+    "Si AFL-ID existe en data/vehicles, leer el expediente vigente y usarlo como autoridad para datos del vehículo.",
+    "Si AFL-ID no existe o no se proporciona, usar exclusivamente los datos manuales ingresados en HOME.",
+    "Los datos manuales de fallback sirven para generar la respuesta y no crean ni actualizan por sí solos un expediente, HOME, Drive o catálogo."
+  ],
+  "rules": [
+    "Responder a la misma intención del cliente con redacción diferente; no repetir mecánicamente la respuesta anterior.",
+    "No inventar año, versión, motor, transmisión, tracción, disponibilidad, documentación, ubicación, precio ni CTA faltantes.",
+    "Si se proporciona precio manual, incluirlo únicamente cuando corresponda a la pregunta y conservar exactamente el valor dado.",
+    "Si se proporciona CTA manual, usarlo exactamente como fue ingresado y no inferir otro.",
+    "Si no existe expediente, identificar la respuesta como basada en datos manuales disponibles; no fingir que existe una ficha canónica.",
+    "No convertir el precio manual en precio de catálogo o WhatsApp persistente sin autorización separada.",
+    "No crear AFL-ID, expediente ni estructura Drive automáticamente.",
+    "No enviar ni publicar automáticamente."
+  ],
+  "output": [
+    "Una respuesta lista para copiar y pegar.",
+    "Una sola alternativa por ejecución, adaptada al modo solicitado.",
+    "Sin notas internas dentro del texto destinado al cliente."
+  ]
+}
