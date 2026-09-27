@@ -15,10 +15,10 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA; sin transición de estado.",
+        "lastCompleted": "FACEBOOK_POST_PUBLICADO_CONFIRMADO_POR_MIGUEL; checkpoint de captura conservado.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-09-27T17:08:00-06:00"
+        "lastVerifiedAt": "2026-09-27T17:22:14-06:00"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
@@ -26,11 +26,14 @@
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "publication": {
         "facebook": {
-          "status": "PROGRAMADA",
+          "status": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
           "channel": "POST",
           "scheduledAt": "2026-09-29T19:00:00-06:00",
           "timezone": "America/Mexico_City",
-          "artifactStatus": "SINCRONIZADO"
+          "artifactStatus": "SINCRONIZADO_PUBLICADO",
+          "publishedAt": "2026-09-27T17:22:14-06:00",
+          "measurementStatus": "ACTIVA",
+          "measurementDueAt": "2026-10-04T17:22:14-06:00"
         }
       }
     },
