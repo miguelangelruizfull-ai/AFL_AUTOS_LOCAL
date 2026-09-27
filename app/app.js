@@ -169,12 +169,118 @@ function makeAuthorizedEditPanel(v) {
   return panel;
 }
 
+function buildAlternativeResponsePrompt(system, mode, question, aflId, vehicleName, price, cta) {
+  const promptPath = (system && system.features && system.features.alternativeResponsePrompt) || "data/prompts/respuesta-alternativa.json";
+  const q = String(question || "").trim() || "<PREGUNTA_O_MENSAJE>";
+  const id = String(aflId || "").trim();
+  const name = String(vehicleName || "").trim();
+  const priceText = String(price || "").trim();
+  const ctaText = String(cta || "").trim();
+  return [
+    "GENERAR_RESPUESTA_ALTERNATIVA",
+    "CONTRATO: " + promptPath,
+    "MODO: " + (mode || "OTRA_RESPUESTA"),
+    "",
+    "PREGUNTA_O_MENSAJE:",
+    q,
+    "",
+    "EXPEDIENTE:",
+    "- AFL-ID: " + (id || "NO_PROPORCIONADO"),
+    "",
+    "FALLBACK MANUAL — usar solo si no existe expediente:",
+    "- NOMBRE_VEHICULO: " + (name || "NO_PROPORCIONADO"),
+    "- PRECIO_MXN: " + (priceText || "NO_PROPORCIONADO"),
+    "- CTA: " + (ctaText || "NO_PROPORCIONADO"),
+    "",
+    "REGLAS:",
+    "- Si el AFL-ID existe en data/vehicles, usa el expediente vigente como fuente de datos.",
+    "- Si no existe expediente, usa únicamente los datos manuales proporcionados arriba.",
+    "- No inventes datos faltantes ni finjas que existe un expediente.",
+    "- Nombre, precio y CTA manuales sirven para esta respuesta; no crean ni actualizan automáticamente expediente, HOME, Drive, catálogo o WhatsApp.",
+    "- Si hay precio manual, úsalo exactamente como fue escrito y solo cuando sea pertinente a la pregunta.",
+    "- Si hay CTA manual, úsalo exactamente como fue escrito.",
+    "- Genera una respuesta distinta a la anterior, lista para copiar y pegar.",
+    "- No envíes ni publiques automáticamente."
+  ].join("\n");
+}
+
+function makeAlternativeResponsePanel(system) {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "alternative";
+  panel.hidden = true;
+
+  panel.append(
+    element("div", "eyebrow", "RESPUESTA COMERCIAL"),
+    element("h2", "", "Generar otra respuesta / alternativa"),
+    element("p", "subtitle", "Usa el expediente si existe. Si aún no está en Vehículos, captura nombre, precio y CTA como datos manuales para esa respuesta.")
+  );
+
+  const grid = element("div", "authorized-edit-grid");
+
+  const questionBox = element("label", "form-field");
+  questionBox.append(element("span", "", "Pregunta o mensaje recibido"));
+  const questionInput = element("textarea");
+  questionInput.rows = 4;
+  questionInput.placeholder = "Ej. ¿Cuál es el precio y dónde se encuentra?";
+  questionBox.append(questionInput);
+
+  const idBox = element("label", "form-field");
+  idBox.append(element("span", "", "AFL-ID / expediente (opcional)"));
+  const idInput = element("input");
+  idInput.type = "text";
+  idInput.placeholder = "Ej. AFL-279006";
+  idBox.append(idInput);
+
+  const nameBox = element("label", "form-field");
+  nameBox.append(element("span", "", "Nombre del vehículo (fallback)"));
+  const nameInput = element("input");
+  nameInput.type = "text";
+  nameInput.placeholder = "Ej. Chevrolet Colorado 2016";
+  nameBox.append(nameInput);
+
+  const priceBox = element("label", "form-field");
+  priceBox.append(element("span", "", "Precio MXN (fallback)"));
+  const priceInput = element("input");
+  priceInput.type = "text";
+  priceInput.inputMode = "numeric";
+  priceInput.placeholder = "Ej. 330000";
+  priceBox.append(priceInput);
+
+  const ctaBox = element("label", "form-field");
+  ctaBox.append(element("span", "", "CTA (fallback)"));
+  const ctaInput = element("textarea");
+  ctaInput.rows = 3;
+  ctaInput.placeholder = "Ej. Mándanos mensaje por WhatsApp para más información.";
+  ctaBox.append(ctaInput);
+
+  grid.append(questionBox, idBox, nameBox, priceBox, ctaBox);
+  panel.append(grid);
+
+  const status = element("span", "copy-status", "");
+  const actions = element("div", "actions");
+  actions.append(
+    actionButton("Copiar prompt · otra respuesta", function() {
+      copyText(buildAlternativeResponsePrompt(system, "OTRA_RESPUESTA", questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
+    }, true),
+    actionButton("Copiar prompt · alternativa breve", function() {
+      copyText(buildAlternativeResponsePrompt(system, "ALTERNATIVA_BREVE", questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
+    }, false)
+  );
+  panel.append(
+    element("p", "deliverable-note", "Si no hay expediente, los datos manuales son solo fallback de redacción: no crean ficha ni autorizan publicación."),
+    actions,
+    status
+  );
+  return panel;
+}
+
 function makeHomeTabs(system) {
   const wrap = element("div", "home-tabs");
   const nav = element("div", "home-tabs-nav");
   const rootButton = actionButton("ROOT", function(){ activate("root"); }, true);
   const quickButton = actionButton("Respuestas rápidas", function(){ activate("quick"); }, false);
-  nav.append(rootButton, quickButton);
+  const alternativeButton = actionButton("Otra respuesta", function(){ activate("alternative"); }, false);
+  nav.append(rootButton, quickButton, alternativeButton);
 
   const rootPanel = element("div", "home-tab-panel");
   rootPanel.dataset.tab = "root";
@@ -200,14 +306,18 @@ function makeHomeTabs(system) {
   });
   quickPanel.append(quickGrid);
 
+  const alternativePanel = makeAlternativeResponsePanel(system);
+
   function activate(name) {
     rootPanel.hidden = name !== "root";
     quickPanel.hidden = name !== "quick";
+    alternativePanel.hidden = name !== "alternative";
     rootButton.classList.toggle("primary", name === "root");
     quickButton.classList.toggle("primary", name === "quick");
+    alternativeButton.classList.toggle("primary", name === "alternative");
   }
 
-  wrap.append(nav, rootPanel, quickPanel);
+  wrap.append(nav, rootPanel, quickPanel, alternativePanel);
   return wrap;
 }
 
