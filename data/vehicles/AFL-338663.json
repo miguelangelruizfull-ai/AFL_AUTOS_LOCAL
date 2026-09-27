@@ -24,7 +24,7 @@
     "captureExecution": "PENDIENTE",
     "whatsapp": "LISTO",
     "outputsDrive": "PREPARADAS",
-    "publish": false
+    "publish": true
   },
   "commercial": {
     "availability": "PENDIENTE",
