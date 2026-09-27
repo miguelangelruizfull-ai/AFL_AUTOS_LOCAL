@@ -54,11 +54,19 @@ function detectPhone(inputPhone,message){
     country="México"; national=digits;
     const a2=national.slice(0,2), a3=national.slice(0,3);
     area=CONFIG.mexicoLada[a2]?a2:a3; region=CONFIG.mexicoLada[area]||null;
-  }else if((digits.startsWith("1")&&digits.length===11) || digits.length===10){
+  }else if(digits.startsWith("1")&&digits.length===11){
     country="EE. UU./Canadá (NANP)";
-    national=digits.startsWith("1")?digits.slice(1):digits;
+    national=digits.slice(1);
     area=national.slice(0,3); region=CONFIG.nanpArea[area]||null;
-    if(digits.length===10) digits="1"+digits;
+  }else if(digits.length===10){
+    const nanp=digits.slice(0,3);
+    if(CONFIG.nanpArea[nanp]){
+      country="EE. UU./Canadá (NANP)";
+      area=nanp; region=CONFIG.nanpArea[area]||null; digits="1"+digits;
+    }else{
+      country="PAIS_PENDIENTE";
+      area=digits.slice(0,3);
+    }
   }else if(digits.startsWith("34")) country="España";
   else if(digits.startsWith("57")) country="Colombia";
   else if(digits.startsWith("54")) country="Argentina";
