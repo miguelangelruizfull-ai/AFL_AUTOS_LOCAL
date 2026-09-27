@@ -105,10 +105,22 @@ function priority(intent){
 function publicPrice(v){
   if(!v) return null;
   const c=v.commercial||{}, w=v.whatsapp||{};
-  if(c.catalogPrice!=null && String(c.catalogPricePolicy||"").toUpperCase()!=="OMITIR") return {value:c.catalogPrice,currency:c.currency||"MXN"};
-  if(w.price!=null && String(w.status||"").toUpperCase()!=="OCULTO") return {value:w.price,currency:c.currency||"MXN"};
+  if(c.catalogPrice!=null && String(c.catalogPricePolicy||"").toUpperCase()!=="OMITIR") return {value:Number(c.catalogPrice),currency:c.currency||"MXN",scope:"PUBLIC"};
+  if(w.price!=null && String(w.status||"").toUpperCase()!=="OCULTO") return {value:Number(w.price),currency:c.currency||"MXN",scope:"PUBLIC"};
   return null;
 }
+function privatePrice(v){
+  if(!v) return null;
+  const c=v.commercial||{};
+  const value=Number(c.priceInternal);
+  if(c.priceInternal==null || c.priceInternal==="" || !Number.isFinite(value) || value<=0) return null;
+  return {value:value,currency:c.currency||"MXN",scope:"PRIVATE_INTERNAL"};
+}
+function priceForChannel(v,channel){
+  if(["MESSENGER","WHATSAPP","LLAMADA"].includes(channel)) return privatePrice(v)||publicPrice(v);
+  return publicPrice(v);
+}
+
 function availability(v){
   if(!v) return null;
   const x=String((v.commercial||{}).availability||"").toUpperCase();
@@ -119,7 +131,8 @@ function outsideMexico(p){ return p.captured && p.country && p.country!=="Méxic
 
 function responseType(channel,intent,verified){
   if(channel==="WHATSAPP") return "WHATSAPP_PRIVADA";
-  if(channel==="MESSENGER") return "INBOX_PRIVADA";
+  if(channel==="MESSENGER") return "INBOX_MESSENGER_PRIVADA";
+  if(channel==="LLAMADA") return "LLAMADA_PRIVADA";
   if(["UBICACION","FINANCIAMIENTO","CAMBIO_TOMA_A_CUENTA"].includes(intent)) return "PUBLICA";
   return verified?"PUBLICA":"PUBLICA_SEGURA_CON_CONTINUIDAD_PRIVADA";
 }
@@ -130,7 +143,13 @@ function responseES(ctx){
   if(ctx.intent==="FINANCIAMIENTO") return "Por el momento AFL AUTOS trabaja únicamente venta de contado; no manejamos financiamiento.";
   if(ctx.intent==="CAMBIO_TOMA_A_CUENTA") return "Por el momento AFL AUTOS no toma vehículos a cuenta.";
   if(ctx.intent==="PRECIO"){
-    if(ctx.price) return vehicleTitle(ctx.vehicle)+" tiene un precio vigente publicable de "+new Intl.NumberFormat("es-MX",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value)+".";
+    if(ctx.price){
+      const amount=new Intl.NumberFormat("es-MX",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value);
+      if(ctx.channel==="COMENTARIO") return vehicleTitle(ctx.vehicle)+" tiene un precio público vigente de "+amount+". Si te interesa, te envío por inbox la información confirmada de la unidad.";
+      const follow=ctx.availability==="DISPONIBLE" ? " ¿Qué día te queda bien para venir a verla?" : " ¿Quieres que te comparta las fotos autorizadas de la unidad?";
+      return "El precio vigente confirmado de "+vehicleTitle(ctx.vehicle)+" es "+amount+"."+follow;
+    }
+    if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "Te mando por inbox el precio vigente y la información confirmada de "+vehicleTitle(ctx.vehicle)+".";
     return "Voy a confirmar el precio vigente de esa unidad antes de darte una cifra para asegurar que recibas la información correcta.";
   }
   if(ctx.intent==="DISPONIBILIDAD"){
@@ -156,12 +175,22 @@ function responseES(ctx){
   if(ctx.intent==="CONTACTO") return ctx.phone.captured ? "Ya tenemos registrado tu contacto; no necesitas volver a enviarlo. Continúo con el siguiente paso de tu solicitud." : "Podemos continuar por este medio y, si facilita el siguiente paso, pasar la atención a WhatsApp.";
   return "Gracias por tu mensaje. Voy a verificar la unidad y la información vigente para responderte correctamente.";
 }
+
 function responseEN(ctx){
   if(outsideMexico(ctx.phone)) return "Thank you. We already have your contact information, so you do not need to send it again. AFL AUTOS sells its vehicles in Mexico. Will the purchase be completed in Mexico?";
   if(ctx.intent==="UBICACION") return "We are located at "+CONFIG.publicLocation+" Would you like to arrange a visit?";
   if(ctx.intent==="FINANCIAMIENTO") return "AFL AUTOS currently works with cash sales only; we do not offer financing.";
   if(ctx.intent==="CAMBIO_TOMA_A_CUENTA") return "AFL AUTOS does not currently accept trade-ins.";
-  if(ctx.intent==="PRECIO") return ctx.price ? vehicleTitle(ctx.vehicle)+" has a current publishable price of "+new Intl.NumberFormat("en-US",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value)+"." : "I’m confirming the current price of that exact vehicle before giving you a figure.";
+  if(ctx.intent==="PRECIO"){
+    if(ctx.price){
+      const amount=new Intl.NumberFormat("en-US",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value);
+      if(ctx.channel==="COMENTARIO") return vehicleTitle(ctx.vehicle)+" has a current public price of "+amount+". I can send you the confirmed vehicle information by inbox.";
+      const follow=ctx.availability==="DISPONIBLE" ? " What day works for you to come see it?" : " Would you like me to send the approved photos of the vehicle?";
+      return "The current confirmed price of "+vehicleTitle(ctx.vehicle)+" is "+amount+"."+follow;
+    }
+    if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "I’ll send you the current price and confirmed information for "+vehicleTitle(ctx.vehicle)+" by inbox.";
+    return "I’m confirming the current price of that exact vehicle before giving you a figure.";
+  }
   if(ctx.intent==="DISPONIBILIDAD") return ctx.availability==="DISPONIBLE" ? "Yes, the vehicle is currently listed as available. I can share the confirmed information and approved media." : "I’m confirming the vehicle’s current availability before I assure you it is available.";
   if(ctx.intent==="FOTOS_VIDEO") return ctx.vehicle && ctx.vehicle.media && Number(ctx.vehicle.media.whatsappSelectedPhotos||0)>0 ? "Yes, we have approved media for that vehicle. I can share the available photos." : "I’m checking which approved photos or videos are available for that vehicle.";
   if(ctx.intent==="VISITA") return "We can arrange a visit. I’ll first confirm the exact vehicle and its availability.";
@@ -177,7 +206,16 @@ function nextAction(ctx){
   if(ctx.intent==="NEGOCIACION") return "ESCALAR_NEGOCIACION_HUMANA";
   if(ctx.intent==="VISITA") return "PROPONER_VISITA";
   if(ctx.intent==="FOTOS_VIDEO") return ctx.vehicle&&ctx.vehicle.media&&Number(ctx.vehicle.media.whatsappSelectedPhotos||0)>0 ? "ENVIAR_FOTOS" : "PREPARAR_FOTOS";
-  if(ctx.intent==="PRECIO") return ctx.price?"RESPONDER_PRECIO":"CONFIRMAR_PRECIO";
+  if(ctx.intent==="PRECIO"){
+    if(ctx.price){
+      if(ctx.channel==="COMENTARIO") return "RESPONDER_PRECIO_PUBLICO";
+      if(ctx.availability==="DISPONIBLE") return "PROPONER_VISITA";
+      if(ctx.vehicle&&ctx.vehicle.media&&Number(ctx.vehicle.media.whatsappSelectedPhotos||0)>0) return "ENVIAR_FOTOS";
+      return "RESPONDER_EN_CANAL";
+    }
+    if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "MOVER_A_INBOX_PRECIO";
+    return "CONFIRMAR_PRECIO";
+  }
   if(ctx.intent==="DISPONIBILIDAD") return ctx.availability?"RESPONDER_DISPONIBILIDAD":"CONFIRMAR_DISPONIBILIDAD";
   if(ctx.intent==="DOCUMENTACION") return "CONFIRMAR_DOCUMENTACION";
   if(ctx.intent==="MOTOR_ESPECIFICACIONES") return ctx.vehicle?"RESPONDER_ESPECIFICACIONES_CONFIRMADAS":"CONFIRMAR_UNIDAD";
@@ -185,6 +223,7 @@ function nextAction(ctx){
   if(ctx.intent==="UBICACION") return "ENVIAR_UBICACION";
   return ctx.vehicle?"RESPONDER_EN_CANAL":"CONFIRMAR_UNIDAD";
 }
+
 function routeFor(action,ctx){
   const id=ctx.vehicle&&ctx.vehicle.id;
   const vehicleUrl=id?"index.html?vehicle="+encodeURIComponent(id)+"#prompt-menu":"index.html";
@@ -223,7 +262,7 @@ function render(){
   formPanel.append(element("div","eyebrow","Entrada"),element("h2","","Generar respuesta"));
   const grid=element("div","copy-form-grid");
   const channel=element("select");
-  channel.append(option("COMENTARIO","Comentario público"),option("MESSENGER","Inbox / Messenger"),option("WHATSAPP","WhatsApp"));
+  channel.append(option("COMENTARIO","Comentario público"),option("MESSENGER","Inbox / Messenger"),option("WHATSAPP","WhatsApp"),option("LLAMADA","Llamada"));
   const vehicle=element("select");
   vehicle.append(option("","Unidad no seleccionada / verificar"));
   VEHICLES.forEach(function(v){vehicle.append(option(v.id,v.id+" · "+v.title));});
@@ -237,7 +276,7 @@ function render(){
   const rules=element("article","copy-panel");
   rules.append(element("div","eyebrow","Reglas activas"),element("h2","","Guardrails"));
   const badges=element("div","copy-badges");
-  ["NO REPETIR DATOS","VERIFICAR UNIDAD","PRECIO PUBLICABLE","PII PRIVADA","VENTA EN MÉXICO","NO AUTOENVÍO"].forEach(function(x,i){badges.append(element("span","copy-badge "+(i<2?"ok":"info"),x));});
+  ["NO REPETIR DATOS","VERIFICAR UNIDAD","PRECIO SEGÚN CANAL","PII PRIVADA","VENTA EN MÉXICO","NO AUTOENVÍO"].forEach(function(x,i){badges.append(element("span","copy-badge "+(i<2?"ok":"info"),x));});
   rules.append(badges);
 
   function emptyPanel(msg){
@@ -252,7 +291,7 @@ function render(){
     if(!raw){right.replaceChildren(emptyPanel("Escribe o pega un mensaje antes de analizar."));return;}
     const lang=detectLanguage(raw), phoneCtx=detectPhone(phone.value,raw), intent=detectIntent(raw);
     const vehicleData=await loadVehicle(vehicle.value);
-    const price=publicPrice(vehicleData), avail=availability(vehicleData);
+    const price=priceForChannel(vehicleData,channel.value), avail=availability(vehicleData);
     const verified=Boolean(price||avail||(vehicleData&&intent==="MOTOR_ESPECIFICACIONES"));
     const ctx={channel:channel.value,message:raw,lang:lang,phone:phoneCtx,intent:intent,vehicle:vehicleData,price:price,availability:avail};
     ctx.type=responseType(ctx.channel,intent,verified);
@@ -291,6 +330,7 @@ function render(){
     if(ctx.phone.captured) notes.push("Contacto ya capturado: no volver a pedirlo.");
     if(!ctx.vehicle && ["PRECIO","DISPONIBILIDAD","DOCUMENTACION","MOTOR_ESPECIFICACIONES"].includes(ctx.intent)) notes.push("La unidad exacta no está verificada.");
     if(outsideMexico(ctx.phone)) notes.push("Lead fuera de México: confirmar si la compra se realizará en México.");
+    if(ctx.price && ctx.price.scope==="PRIVATE_INTERNAL") notes.push("Precio interno vigente autorizado para canal privado; no convertirlo en precio de catálogo ni publicación.");
     if(notes.length) action.append(element("p","copy-note",notes.join(" ")));
     const aa=element("div","actions");
     if(ctx.route) aa.append(link("Ir a siguiente acción · "+ctx.route.label,ctx.route.url,true));
