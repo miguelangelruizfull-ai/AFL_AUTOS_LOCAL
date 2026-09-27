@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-09-27",
+  "driveRoot": "AFL_AUTOS_MULTIMEDIA",
+  "inputTemplate": {
+    "root": "01_ENTRADAS/{AFL-ID}",
+    "folders": [
+      {
+        "name": "00_MATERIAL_DISPONIBLE_LOCAL",
+        "purpose": "ingesta inicial"
+      },
+      {
+        "name": "10_APROBADOS",
+        "purpose": "material revisado"
+      },
+      {
+        "name": "20_NUEVA_CAPTURA",
+        "purpose": "material nuevo de campo"
+      },
+      {
+        "name": "90_RECHAZADOS",
+        "purpose": "material no útil"
+      },
+      {
+        "name": "95_DUPLICADOS",
+        "purpose": "copias exactas o redundantes"
+      }
+    ]
+  },
+  "outputTemplate": {
+    "root": "02_SALIDAS/{AFL-ID}",
+    "folders": [
+      "00_CONTENIDO_DISPONIBLE",
+      "10_MARKETPLACE",
+      "20_IMAGENES_COMERCIALES",
+      "30_POST",
+      "40_FEED",
+      "50_HISTORIAS",
+      "60_PORTADAS",
+      "70_REEL",
+      "80_TIKTOK",
+      "90_WHATSAPP_OCULTO",
+      "95_PARA_ENVIAR"
+    ]
+  },
+  "rules": {
+    "originalsImmutable": true,
+    "autoDeleteRejected": false,
+    "autoDeleteDuplicates": false,
+    "pendingReviewNotForProduction": true,
+    "autoPublish": false
+  }
+}
