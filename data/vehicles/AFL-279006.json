@@ -246,24 +246,25 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "lastEvidenceCheck": {
-      "checkedAt": "2026-09-27T14:42:00-06:00",
+      "checkedAt": "2026-09-27T15:25:35-06:00",
       "folder": "01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA",
       "result": "VACIA_REVALIDADA",
       "materialNewUploaded": false,
       "stateTransition": false,
       "requiredAction": "CAPTURA_COMERCIAL_COMPLETA el 2026-09-28 10:00–11:00 y subir el material nuevo únicamente a 20_NUEVA_CAPTURA",
-      "calendarEventConfirmed": true
+      "calendarEventConfirmed": true,
+      "postArtifactVerified": true
     }
   },
   "checkpoint": {
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA + EVENTO_CAPTURA_CONFIRMADO_EN_CALENDAR; sin transición de estado.",
+    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA + EVENTO_CAPTURA_CONFIRMADO_EN_CALENDAR + 30_POST_PROGRAMADO_VERIFICADO; sin transición de estado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-09-27T14:42:00-06:00"
+    "lastVerifiedAt": "2026-09-27T15:25:35-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
@@ -526,7 +527,8 @@
       },
       "driveArtifactStatus": "SINCRONIZADO",
       "driveArtifact": "30_POST / AFL-279006 — POST FACEBOOK PROGRAMADO",
-      "lastSyncedAt": "2026-09-27T14:50:00-06:00"
+      "lastSyncedAt": "2026-09-27T14:50:00-06:00",
+      "lastVerifiedAt": "2026-09-27T15:25:35-06:00"
     }
   }
 }
