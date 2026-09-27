@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "updated": "2026-09-27",
   "app": "AFL_AUTOS_LOCAL",
   "mode": "json-driven",
@@ -84,31 +84,43 @@
       "key": "editAuthorized",
       "label": "Editar información autorizada",
       "description": "Actualizar cualquier campo autorizado por Miguel y sincronizar Drive + JSON + HOME.",
-      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <CAMPO>\\nNUEVO_VALOR: <NUEVO_VALOR>\\nMiguel autoriza explícitamente este cambio. Ejecuta el contrato data/prompts/editar-informacion-autorizada.json y verifica Drive ↔ JSON ↔ HOME antes de cerrar."
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: <CAMPO>\nNUEVO_VALOR: <NUEVO_VALOR>\nMiguel autoriza explícitamente este cambio. Ejecuta el contrato data/prompts/editar-informacion-autorizada.json y verifica Drive ↔ JSON ↔ HOME antes de cerrar."
     },
     {
       "key": "price",
       "label": "Actualizar precio",
       "description": "Atajo para precio interno; no cambia precio de catálogo ni publicación.",
-      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: commercial.priceInternal\\nNUEVO_VALOR: <PRECIO_MXN>\\nMiguel autoriza explícitamente este cambio. Sincroniza HOME y conserva publicación en NO salvo autorización separada."
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: commercial.priceInternal\nNUEVO_VALOR: <PRECIO_MXN>\nMiguel autoriza explícitamente este cambio. Sincroniza HOME y conserva publicación en NO salvo autorización separada."
     },
     {
       "key": "availability",
       "label": "Actualizar disponibilidad",
       "description": "Cambiar disponibilidad confirmada sin alterar otros campos.",
-      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: commercial.availability\\nNUEVO_VALOR: <VALOR>\\nMiguel autoriza explícitamente este cambio. Sincroniza Drive + JSON + HOME."
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: commercial.availability\nNUEVO_VALOR: <VALOR>\nMiguel autoriza explícitamente este cambio. Sincroniza Drive + JSON + HOME."
     },
     {
       "key": "technical",
       "label": "Actualizar dato técnico",
       "description": "Motor, transmisión, tracción, color, cabina u otro dato confirmado.",
-      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <vehicle.configuration.* o vehicle.color>\\nNUEVO_VALOR: <VALOR_CONFIRMADO>\\nMiguel autoriza explícitamente este cambio. No inventes datos adicionales."
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: <vehicle.configuration.* o vehicle.color>\nNUEVO_VALOR: <VALOR_CONFIRMADO>\nMiguel autoriza explícitamente este cambio. No inventes datos adicionales."
+    },
+    {
+      "key": "title",
+      "label": "Actualizar título / descripción",
+      "description": "Cambiar título público o descripción comercial autorizada y sincronizar las superficies dependientes.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: <vehicle.publicTitle o whatsapp.description>\nNUEVO_VALOR: <TEXTO_AUTORIZADO>\nMiguel autoriza explícitamente este cambio. Actualiza solo el campo indicado y sus resúmenes dependientes."
+    },
+    {
+      "key": "whatsapp",
+      "label": "Actualizar WhatsApp",
+      "description": "Cambiar un campo de la ficha WhatsApp sin publicar automáticamente.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: <whatsapp.title o whatsapp.description o whatsapp.status>\nNUEVO_VALOR: <VALOR>\nMiguel autoriza explícitamente este cambio. WhatsApp no se publica automáticamente."
     },
     {
       "key": "status",
       "label": "Actualizar estado / siguiente",
       "description": "Solo cuando Miguel autorice expresamente el cambio operativo.",
-      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <status.vehicle o checkpoint.nextAction>\\nNUEVO_VALOR: <VALOR>\\nMiguel autoriza explícitamente este cambio. Revalida evidencia y sincroniza Drive + JSON + HOME."
+      "prompt": "EDITAR_INFO_AUTORIZADA\nAFL-ID: <AFL-ID>\nCAMPO: <status.vehicle o checkpoint.nextAction>\nNUEVO_VALOR: <VALOR>\nMiguel autoriza explícitamente este cambio. Revalida evidencia y sincroniza Drive + JSON + HOME."
     },
     {
       "key": "sync",
