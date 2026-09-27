@@ -5,6 +5,8 @@ const root = document.getElementById("multimedia-app");
 function button(label, href, primary) {
   const a = element("a", primary ? "btn primary" : "btn", label);
   a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
   return a;
 }
 
