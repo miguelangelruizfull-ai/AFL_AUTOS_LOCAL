@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "1.1.0",
+  "updated": "2026-09-27",
+  "id": "AFL-338663",
+  "vehicle": {
+    "make": "Chevrolet",
+    "model": "Silverado",
+    "trim": null,
+    "year": 2016,
+    "color": null,
+    "publicTitle": "2016 Chevrolet Silverado Cabina Regular 4x4",
+    "configuration": {
+      "cab": "Cabina regular",
+      "engine": "5.3 L V8 gasolina",
+      "transmission": null,
+      "drivetrain": "4x4"
+    }
+  },
+  "status": {
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "PENDIENTE",
+    "classification": "PENDIENTE",
+    "captureType": "COMERCIAL",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "outputsDrive": "PREPARADAS",
+    "publish": false
+  },
+  "commercial": {
+    "availability": "PENDIENTE",
+    "priceInternal": 310000,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "totalFiles": null,
+    "totalJpeg": null,
+    "totalVideo": null,
+    "unique": null,
+    "approvedUnique": null,
+    "commercialCandidates": null,
+    "privateNoPublish": null,
+    "duplicates": null,
+    "rejected": null,
+    "realVideo": false,
+    "whatsappSelectedPhotos": 0
+  },
+  "capture": {
+    "scheduled": false,
+    "source": "GOOGLE_CALENDAR",
+    "date": null,
+    "start": null,
+    "end": null,
+    "timezone": "America/Mexico_City",
+    "type": "CAPTURA_COMERCIAL",
+    "checklist": [
+      "HERO limpio",
+      "Color comercial exacto",
+      "Versión/trim visible si existe",
+      "Transmisión visible",
+      "Interior/equipamiento",
+      "Caja/trasera",
+      "Motor/arranque",
+      "Video comercial vertical"
+    ],
+    "requiredVideo": {
+      "format": "9:16",
+      "walkaroundSeconds": "20-30",
+      "shots": [
+        "HERO",
+        "Exterior",
+        "Caja/trasera",
+        "Interior",
+        "Motor/arranque"
+      ]
+    },
+    "privateEvidence": [
+      "VIN",
+      "Etiqueta técnica",
+      "Odómetro",
+      "Documentos"
+    ]
+  },
+  "drive": {
+    "inputRoot": "01_ENTRADAS/AFL-338663",
+    "outputRoot": "02_SALIDAS/AFL-338663",
+    "inputs": [
+      "00_MATERIAL_DISPONIBLE_LOCAL",
+      "10_APROBADOS",
+      "20_NUEVA_CAPTURA",
+      "90_RECHAZADOS",
+      "95_DUPLICADOS"
+    ],
+    "outputs": [
+      "00_CONTENIDO_DISPONIBLE",
+      "10_MARKETPLACE",
+      "20_IMAGENES_COMERCIALES",
+      "30_POST",
+      "40_FEED",
+      "50_HISTORIAS",
+      "60_PORTADAS",
+      "70_REEL",
+      "80_TIKTOK",
+      "90_WHATSAPP_OCULTO",
+      "95_PARA_ENVIAR"
+    ],
+    "controlDocument": "AFL-338663 — CONTROL OPERATIVO"
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE",
+    "tiktok": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "whatsapp": {
+    "status": "OCULTO",
+    "title": "2016 Chevrolet Silverado Cabina Regular 4x4",
+    "description": "Chevrolet Silverado 2016 de cabina regular, configuración 4x4 y motor V8 5.3 L a gasolina.",
+    "price": null,
+    "selectedPhotos": 0,
+    "realVideo": false,
+    "targetState": "WHATSAPP_OCULTO_LISTO"
+  },
+  "music": {
+    "registry": "data/musica-usada.json",
+    "rule": "EVITAR_AUDIO_PUBLICADO"
+  },
+  "workflow": [
+    "CAPTURA_COMERCIAL",
+    "MATERIAL_NUEVO_SUBIDO",
+    "REVISION_MATERIAL",
+    "SELECCION_FINAL",
+    "CAPTURA_COMPLETA",
+    "WHATSAPP_OCULTO_LISTO",
+    "CONTENIDO_DISPONIBLE"
+  ],
+  "deliverables": [
+    {
+      "key": "contentAvailable",
+      "label": "Contenido disponible",
+      "folder": "00_CONTENIDO_DISPONIBLE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "marketplace",
+      "label": "Marketplace",
+      "folder": "10_MARKETPLACE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "images",
+      "label": "Imágenes comerciales",
+      "folder": "20_IMAGENES_COMERCIALES",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "post",
+      "label": "Post",
+      "folder": "30_POST",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "feed",
+      "label": "Feed",
+      "folder": "40_FEED",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "stories",
+      "label": "Historias",
+      "folder": "50_HISTORIAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "covers",
+      "label": "Portadas",
+      "folder": "60_PORTADAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "reel",
+      "label": "Reel",
+      "folder": "70_REEL",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "folder": "80_TIKTOK",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp oculto",
+      "folder": "90_WHATSAPP_OCULTO",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "sendPackage",
+      "label": "Para enviar",
+      "folder": "95_PARA_ENVIAR",
+      "status": "PENDIENTE"
+    }
+  ],
+  "fieldWork": {
+    "status": "PENDIENTE",
+    "canonicalState": "CAPTURA_PENDIENTE",
+    "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
+    "uploadFolder": "20_NUEVA_CAPTURA",
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
+  },
+  "checkpoint": {
+    "phase": "PRECAPTURA_ESTANDARIZADA",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-09-27",
+    "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
+    "nextAction": "CAPTURA_COMERCIAL",
+    "resumeFrom": "Ejecutar captura comercial y subir material nuevo únicamente a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA; verificar evidencia antes de cambiar de estado.",
+    "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO"
+  },
+  "editPolicy": {
+    "authority": "MIGUEL_EXPLICIT",
+    "prompt": "data/prompts/editar-informacion-autorizada.json",
+    "scope": "ANY_AUTHORIZED_OPERATIONAL_OR_COMMERCIAL_FIELD",
+    "syncTargets": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_MD"
+    ],
+    "preserveUnrelatedFields": true,
+    "preserveCheckpointUnlessAuthorized": true,
+    "autoPublish": false
+  },
+  "promptProtocol": {
+    "purpose": "Continuar AFL-338663 desde su checkpoint y permitir cambios autorizados sin depender de memoria del chat.",
+    "minimalSources": [
+      "data/vehicles/AFL-338663.json",
+      "data/vehicles/index.json",
+      "ACTIVOS/AFL-338663/ESTADO.md",
+      "ACTIVOS/AFL-338663/PLAN_CAPTURA.md",
+      "Drive: 01_ENTRADAS/AFL-338663",
+      "Drive: 02_SALIDAS/AFL-338663",
+      "Drive: documento AFL-338663 — CONTROL OPERATIVO"
+    ],
+    "afterEveryPrompt": [
+      "Actualizar Drive/CONTROL OPERATIVO cuando cambie información o estado.",
+      "Actualizar data/vehicles/AFL-338663.json.",
+      "Actualizar data/vehicles/index.json para HOME.",
+      "Actualizar .md operativo relevante.",
+      "Verificar Drive ↔ vehículo JSON ↔ HOME."
+    ],
+    "rules": [
+      "Trabajar únicamente con AFL-338663.",
+      "No publicar automáticamente.",
+      "No exponer VIN completo, odómetro, documentos privados o PII.",
+      "La recomendación operativa corresponde al ChatGPT actual.",
+      "Los cambios autorizados por Miguel se limitan al campo/valor indicado."
+    ],
+    "responseLinks": [
+      {
+        "key": "thumbnail",
+        "label": "Miniatura AFL-338663",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338663.jpg"
+      },
+      {
+        "key": "vehicleOptions",
+        "label": "Opciones de AFL-338663",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-338663#prompt-menu"
+      },
+      {
+        "key": "otherVehicle",
+        "label": "Abrir otro vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      },
+      {
+        "key": "newVehicle",
+        "label": "Nuevo vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+      },
+      {
+        "key": "rootGlobal",
+        "label": "Regresar a ROOT GLOBAL",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      }
+    ]
+  },
+  "promptMenu": [
+    {
+      "key": "resume",
+      "label": "1. Reanudar desde aquí",
+      "description": "Continuar desde el checkpoint vigente.",
+      "instruction": "Detecta el patrón desde checkpoint y evidencia; ejecuta únicamente el siguiente paso válido."
+    },
+    {
+      "key": "editAuthorized",
+      "label": "2. Editar información autorizada por Miguel",
+      "description": "Modificar cualquier campo autorizado y sincronizar Drive + JSON + HOME.",
+      "instruction": "Ejecuta data/prompts/editar-informacion-autorizada.json usando CAMPO y NUEVO_VALOR indicados por Miguel."
+    },
+    {
+      "key": "captureUploaded",
+      "label": "3. Ya subí nueva captura",
+      "description": "Procesar 20_NUEVA_CAPTURA.",
+      "instruction": "Confirma evidencia nueva antes de registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL."
+    },
+    {
+      "key": "finalSelection",
+      "label": "4. Revisar y seleccionar material",
+      "description": "Cerrar faltantes y seleccionar por canal.",
+      "instruction": "Ejecuta REVISION_MATERIAL/SELECCION_FINAL según evidencia."
+    },
+    {
+      "key": "finishOutputs",
+      "label": "5. Terminar piezas",
+      "description": "Actualizar salidas respaldadas por material.",
+      "instruction": "Genera únicamente piezas respaldadas por selección final; no publiques."
+    },
+    {
+      "key": "syncAudit",
+      "label": "6. Auditar sincronización",
+      "description": "Comprobar Drive, JSON y HOME.",
+      "instruction": "Corrige contradicciones verificables sin publicar."
+    }
+  ],
+  "quickResponses": [
+    {
+      "label": "Precio interno",
+      "field": "commercial.priceInternal"
+    },
+    {
+      "label": "Disponibilidad",
+      "field": "commercial.availability"
+    },
+    {
+      "label": "Color",
+      "field": "vehicle.color"
+    },
+    {
+      "label": "Título público",
+      "field": "vehicle.publicTitle"
+    },
+    {
+      "label": "Estado",
+      "field": "status.vehicle"
+    },
+    {
+      "label": "Siguiente acción",
+      "field": "checkpoint.nextAction"
+    },
+    {
+      "label": "WhatsApp descripción",
+      "field": "whatsapp.description"
+    }
+  ],
+  "operationalLinks": {
+    "vehicleOptions": {
+      "label": "Opciones de AFL-338663",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-338663#prompt-menu"
+    },
+    "otherVehicle": {
+      "label": "Abrir otro vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "newVehicle": {
+      "label": "Nuevo vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+    },
+    "rootGlobal": {
+      "label": "Regresar a ROOT GLOBAL",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "repository": {
+      "label": "Repositorio",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-338663.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338663.jpg",
+    "showInHome": true,
+    "showInVehicle": true,
+    "showInPrintChecklist": true,
+    "showInChatPrompt": true
+  },
+  "recommendationPolicy": {
+    "authority": "CHATGPT_CURRENT",
+    "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
+    "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
+    "staticMenuAuthority": false,
+    "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia."
+  }
+}
