@@ -84,3 +84,35 @@ Entrada del framework:
 - Staging Drive: `01_ENTRADAS/00_PENDIENTE_ID`
 
 No crear un AFL-ID definitivo si la identificación/VIN no está suficientemente confirmada.
+
+
+## CHECKPOINT Y PROMPTS OPERATIVOS
+
+Cada vehículo operativo debe poder reanudarse sin depender de memoria de ChatGPT.
+
+Fuente mínima por unidad:
+
+1. `data/vehicles/AFL-ID.json` — estado y checkpoint canónico de la web.
+2. `data/vehicles/index.json` — HOME.
+3. Drive `01_ENTRADAS/AFL-ID` y `02_SALIDAS/AFL-ID`.
+4. Documento Drive `AFL-ID — CONTROL OPERATIVO`.
+5. Los `.md` de `ACTIVOS/AFL-ID/` solo cuando sean relevantes al paso actual.
+
+### Contrato después de cada prompt operativo
+
+Todo prompt que cambie o revise el estado de una unidad debe cerrar en la misma operación:
+
+1. actualizar Drive y el `CONTROL OPERATIVO`;
+2. actualizar `data/vehicles/AFL-ID.json`;
+3. actualizar `data/vehicles/index.json` para que HOME muestre el checkpoint y siguiente acción vigentes;
+4. actualizar documentación operativa relevante;
+5. verificar consistencia Drive ↔ JSON vehículo ↔ HOME;
+6. dejar `checkpoint.nextAction` preparado para el siguiente chat.
+
+No se considera cerrado un prompt si solo se respondió en conversación y el estado no quedó persistido.
+
+Reglas:
+- no publicar automáticamente;
+- no depender de memoria de chat;
+- no releer todo el proyecto si el checkpoint y las fuentes mínimas son suficientes;
+- no exponer VIN completo, odómetro, documentación privada o PII.
