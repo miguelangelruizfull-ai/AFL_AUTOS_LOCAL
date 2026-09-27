@@ -15,7 +15,7 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "UI_MINIATURA_TARGET_BLANK_RECOMENDACION_CHATGPT_ACTUAL",
+        "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE"
       },
