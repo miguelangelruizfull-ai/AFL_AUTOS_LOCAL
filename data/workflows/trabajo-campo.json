@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "TRABAJO_CAMPO",
+  "updated": "2026-09-27",
+  "sourceOfSchedule": "GOOGLE_CALENDAR",
+  "states": [
+    "CAPTURA_PENDIENTE",
+    "CAPTURA_EN_CAMPO",
+    "MATERIAL_NUEVO_SUBIDO",
+    "REVISION_MATERIAL",
+    "SELECCION_FINAL",
+    "CAPTURA_COMPLETA"
+  ],
+  "transitionToMaterialUploaded": {
+    "from": [
+      "CAPTURA_PENDIENTE",
+      "CAPTURA_EN_CAMPO"
+    ],
+    "to": "MATERIAL_NUEVO_SUBIDO",
+    "preconditions": [
+      "Material nuevo cargado físicamente en 01_ENTRADAS/AFL-ID/20_NUEVA_CAPTURA",
+      "No asumir carga por haber terminado el evento de Calendar",
+      "Conservar originales",
+      "No publicar material antes de REVISION_MATERIAL"
+    ],
+    "next": "REVISION_MATERIAL"
+  },
+  "interface": {
+    "checklistProgress": "LOCAL_DEVICE_ONLY",
+    "canonicalWrites": "REQUIRE_REPO_UPDATE",
+    "autoPublish": false
+  }
+}
