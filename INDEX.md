@@ -9,7 +9,7 @@ Actualizado: 2026-09-27
 
 | Código | Vehículo | Estado | WhatsApp | Precio | Siguiente |
 |---|---|---|---|---:|---|
-| AFL-279006 | Chevrolet Colorado Work Truck 2016 | CAPTURA_PENDIENTE | OCULTO | $325,000 | CAPTURA |
+| AFL-279006 | Chevrolet Colorado Work Truck 2016 | CAPTURA_PENDIENTE | OCULTO | $325,000 | CAPTURA_COMPLETA |
 | AFL-338663 | Chevrolet Silverado 2016 Cabina Regular | CAPTURA_PENDIENTE | OCULTO | $310,000 | CAPTURA |
 | AFL-338732 | Chevrolet Silverado 1500 LTZ Texas Edition 2017 | REVISION_MATERIAL | OCULTO | PENDIENTE | REVISION_MATERIAL |
 
@@ -19,6 +19,7 @@ Actualizado: 2026-09-27
 - [PUENTE](ACTIVOS/AFL-279006/PUENTE.md)
 - [ESTADO](ACTIVOS/AFL-279006/ESTADO.md)
 - [Ficha WhatsApp](ACTIVOS/AFL-279006/FICHA_WHATSAPP.md)
+- [Captura completa](ACTIVOS/AFL-279006/CAPTURA_COMPLETA.md)
 - [Plan de captura](ACTIVOS/AFL-279006/PLAN_CAPTURA.md)
 
 ### AFL-338663
