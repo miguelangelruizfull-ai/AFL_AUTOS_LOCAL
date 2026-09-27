@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "id": "NUEVO_VEHICULO",
   "updated": "2026-09-27",
   "staging": "01_ENTRADAS/00_PENDIENTE_ID",
@@ -30,6 +30,7 @@
     "publication": "AUTORIZACION_EXPLICITA"
   },
   "repoWrites": [
+    "data/workflows/nuevo-vehiculo.runtime.json al resolver/entregar la carpeta inicial; solo checkpoint sanitizado",
     "data/vehicles/AFL-ID.json",
     "data/vehicles/index.json",
     "data/programador.json solo si existe programación autorizada",
@@ -51,6 +52,27 @@
     "source": "GOOGLE_DRIVE_RUNTIME",
     "provideClickableLinkToUser": true,
     "persistPrivateUrlInPublicRepo": false,
-    "before": "IDENTIFICAR"
+    "before": "IDENTIFICAR",
+    "repoSyncRequired": true,
+    "repoCheckpointPath": "data/workflows/nuevo-vehiculo.runtime.json",
+    "repoCheckpointMustExcludePrivateDriveIdOrUrl": true
+  },
+  "uploadInProgress": {
+    "startWithAvailableCompleteFiles": true,
+    "rescanBeforeClose": true,
+    "classifyUnavailableOrIncompleteFiles": false
+  },
+  "commercialEvidence": {
+    "visibleModificationsAndAccessories": "USAR_SOLO_SI_VISIBLES_O_CONFIRMADOS",
+    "allowedUses": [
+      "CAPTURA_COMERCIAL",
+      "GENERACION_TEXTOS"
+    ],
+    "doNotInferSpecs": true
+  },
+  "cleanup": {
+    "classifyBeforeCleanup": true,
+    "autoDelete": false,
+    "showNumberedOptionsBeforeDelete": true
   }
 }
