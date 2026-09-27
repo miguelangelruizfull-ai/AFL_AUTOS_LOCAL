@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "vehicle.schema.json",
+  "title": "AFL Autos Public Vehicle",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "id",
+    "vehicle",
+    "status",
+    "commercial",
+    "media",
+    "capture",
+    "drive",
+    "outputs",
+    "whatsapp",
+    "workflow"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^AFL-[A-Z0-9-]+$"
+    },
+    "vehicle": {
+      "type": "object"
+    },
+    "status": {
+      "type": "object"
+    },
+    "commercial": {
+      "type": "object"
+    },
+    "media": {
+      "type": "object"
+    },
+    "capture": {
+      "type": "object"
+    },
+    "drive": {
+      "type": "object"
+    },
+    "outputs": {
+      "type": "object"
+    },
+    "whatsapp": {
+      "type": "object"
+    },
+    "music": {
+      "type": "object"
+    },
+    "workflow": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}
