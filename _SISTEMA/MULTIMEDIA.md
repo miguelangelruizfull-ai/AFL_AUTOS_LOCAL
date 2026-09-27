@@ -269,3 +269,124 @@ Contenido posible después de revisión:
 - No borrar rechazados o duplicados automáticamente.
 - No mover material sin conservar trazabilidad.
 - Material `PENDIENTE_REVISION` no entra a producción.
+
+
+## 02_SALIDAS — PRODUCCION Y ENTREGA
+
+Después de `REVISION_MATERIAL` y `SELECCION_FINAL`, los derivados comerciales salen a:
+
+```text
+AFL_AUTOS_MULTIMEDIA/
+└── 02_SALIDAS/
+    └── AFL-ID/
+        ├── 00_CONTENIDO_DISPONIBLE/
+        ├── 10_MARKETPLACE/
+        ├── 20_IMAGENES_COMERCIALES/
+        ├── 30_POST/
+        ├── 40_FEED/
+        ├── 50_HISTORIAS/
+        ├── 60_PORTADAS/
+        ├── 70_REEL/
+        ├── 80_TIKTOK/
+        ├── 90_WHATSAPP_OCULTO/
+        └── 95_PARA_ENVIAR/
+```
+
+### 00_CONTENIDO_DISPONIBLE
+
+Material aprobado y listo para producir piezas derivadas.
+
+No es publicación automática.
+
+### 10_MARKETPLACE
+
+Paquete para Marketplace:
+- fotos seleccionadas;
+- imagen principal;
+- orden comercial;
+- copy/ficha de apoyo cuando corresponda.
+
+### 20_IMAGENES_COMERCIALES
+
+Derivados de imagen:
+- HERO;
+- exterior;
+- interior;
+- equipo;
+- caja;
+- motor;
+- versiones recortadas/optimizadas.
+
+### 30_POST
+
+Piezas de post individual:
+- imagen principal;
+- copy;
+- CTA;
+- versión final aprobada.
+
+### 40_FEED
+
+Carruseles y piezas 4:5 para feed.
+
+### 50_HISTORIAS
+
+Piezas 9:16:
+- secuencias;
+- CTA;
+- imágenes/video vertical.
+
+### 60_PORTADAS
+
+Portadas para:
+- Reel;
+- TikTok;
+- Facebook;
+- piezas promocionales.
+
+### 70_REEL
+
+Video vertical terminado para Reel.
+
+### 80_TIKTOK
+
+Video vertical terminado para TikTok.
+
+### 90_WHATSAPP_OCULTO
+
+Paquete de catálogo/atención:
+- fotos autorizadas;
+- video si existe;
+- ficha pública autorizada;
+- sin VIN completo;
+- sin odómetro;
+- sin documentación privada.
+
+### 95_PARA_ENVIAR
+
+Paquete listo para compartir directamente con cliente o lead:
+- selección corta de fotos;
+- video;
+- ficha comercial;
+- información confirmada;
+- CTA vigente.
+
+No incluir:
+- VIN completo;
+- documentación privada;
+- etiquetas sensibles;
+- material rechazado;
+- material pendiente de revisión.
+
+## FLUJO COMPLETO DRIVE
+
+```text
+01_ENTRADAS/AFL-ID
+→ REVISION_MATERIAL
+→ CLASIFICACION
+→ CAPTURA
+→ REVISION_MATERIAL
+→ SELECCION_FINAL
+→ 02_SALIDAS/AFL-ID/00_CONTENIDO_DISPONIBLE
+→ MARKETPLACE / IMAGENES / POST / FEED / HISTORIAS / PORTADAS / REEL / TIKTOK / WHATSAPP / PARA_ENVIAR
+```
