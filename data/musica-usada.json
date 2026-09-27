@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-09-27",
+  "purpose": "Evitar repetir audios ya publicados",
+  "blockStatuses": [
+    "PUBLICADO"
+  ],
+  "records": []
+}
