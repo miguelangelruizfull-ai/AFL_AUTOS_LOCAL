@@ -61,3 +61,17 @@ h3{margin:12px 0 8px}
 
 .prompt-box{white-space:pre-wrap;overflow-wrap:anywhere;background:#0d131b;border:1px solid var(--line);border-radius:10px;padding:14px;line-height:1.55;color:#d7dee7;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;max-height:520px;overflow:auto}
 .copy-status{display:block;color:var(--ok);margin-top:10px;font-weight:800}
+
+.print-only{display:none}
+button.btn{cursor:pointer;color:inherit;font:inherit}
+@media print{
+  body{background:#fff;color:#000}
+  .shell{width:100%;padding:0}
+  .detail-head,.panel:not(.print-checklist),.no-print{display:none!important}
+  .print-checklist{display:block!important;border:0;background:#fff;color:#000;padding:0}
+  .print-checklist h2,.print-checklist h3,.print-checklist li,.print-checklist p,.print-checklist .subtitle{color:#000}
+  .print-only{display:block!important;font-weight:700;margin:0 0 12px}
+  .checklist{color:#000}
+  .checklist li{margin:8px 0;padding-left:4px}
+  .checklist li::marker{content:"☐  "}
+}
