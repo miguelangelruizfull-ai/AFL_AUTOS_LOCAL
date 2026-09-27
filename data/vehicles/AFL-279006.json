@@ -22,7 +22,7 @@
     "classification": "COMPLETADA",
     "captureType": "COMPLETA",
     "captureExecution": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "outputsDrive": "PREPARADAS",
     "publish": false
   },
@@ -135,11 +135,11 @@
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "sendPackage": "PENDIENTE"
   },
   "whatsapp": {
-    "status": "OCULTO",
+    "status": "LISTO",
     "title": "2016 Chevrolet Colorado Work Truck",
     "description": "Chevrolet Colorado Work Truck 2016 de cabina extendida, motor 2.5 L de 4 cilindros a gasolina, transmisión manual de 6 velocidades y tracción 4x2.",
     "price": null,
@@ -228,7 +228,7 @@
       "key": "whatsapp",
       "label": "WhatsApp oculto",
       "folder": "90_WHATSAPP_OCULTO",
-      "status": "PENDIENTE",
+      "status": "LISTO",
       "url": "https://drive.google.com/drive/folders/1K1Kt-pkq1uNdErq4Jt3pxTih94UEwB1M"
     },
     {
