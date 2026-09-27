@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "NUEVO_VEHICULO",
+  "updated": "2026-09-27",
+  "staging": "01_ENTRADAS/00_PENDIENTE_ID",
+  "stateFlow": [
+    "PENDIENTE_ID",
+    "IDENTIFICAR",
+    "AFL_ID_CONFIRMADO",
+    "CREAR_ESTRUCTURA_DRIVE",
+    "CREAR_JSON_VEHICULO",
+    "REVISION_MATERIAL",
+    "PLAN_CAPTURA",
+    "CALENDAR_SI_AUTORIZADO",
+    "CAPTURA_DE_CAMPO",
+    "MATERIAL_NUEVO_SUBIDO",
+    "REVISION_MATERIAL",
+    "SELECCION_FINAL",
+    "CAPTURA_COMPLETA",
+    "WHATSAPP_OCULTO_LISTO",
+    "CONTENIDO_DISPONIBLE"
+  ],
+  "gates": {
+    "createFinalVehicle": "AFL_ID_CONFIRMADO",
+    "createCalendarEvent": "FECHA_HORA_AUTORIZADA",
+    "captureComplete": "COBERTURA_OBLIGATORIA_Y_VIDEO_REVISADOS",
+    "contentAvailable": "SELECCION_FINAL_APROBADA",
+    "publication": "AUTORIZACION_EXPLICITA"
+  },
+  "repoWrites": [
+    "data/vehicles/AFL-ID.json",
+    "data/vehicles/index.json",
+    "data/programador.json solo si existe programación autorizada",
+    "data/multimedia.json solo si cambia el contrato global",
+    "data/musica-usada.json solo después de publicar audio"
+  ],
+  "driveWrites": {
+    "input": "01_ENTRADAS/AFL-ID",
+    "output": "02_SALIDAS/AFL-ID",
+    "preserveOriginals": true,
+    "noAutoDelete": true
+  }
+}
