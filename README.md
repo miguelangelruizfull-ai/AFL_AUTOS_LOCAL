@@ -30,3 +30,13 @@ Este repositorio es público. No almacenar URLs/IDs privados de Drive o Calendar
 GitHub conserva estructura, estados y puentes. Drive conserva originales y derivados multimedia.
 Cada operación de captura debe cerrar mostrando opciones numeradas.
 No publicar automáticamente.
+
+
+## Evidencia profesional
+
+La evidencia técnica pública consolidada vive en:
+
+- [PORTAFOLIO/](PORTAFOLIO/) — casos y capacidades sanitizadas.
+- [PUBLIC_EVIDENCE.md](PUBLIC_EVIDENCE.md) — política de qué se muestra y qué permanece privado.
+
+Los repositorios internos pueden mantenerse privados sin romper esta evidencia pública.
