@@ -24,3 +24,7 @@
 .copy-status-line{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);font-size:.78rem;overflow-wrap:anywhere}
 @media(max-width:960px){.copy-layout{grid-template-columns:1fr}.copy-header-actions{min-width:0;width:100%}}
 @media(max-width:620px){.copy-form-grid,.copy-result-grid,.copy-options{grid-template-columns:1fr}}
+html.embedded body{background:transparent}
+html.embedded .shell{max-width:none;padding:10px}
+html.embedded .header,html.embedded .footer{display:none}
+html.embedded .copy-layout{margin-top:0}

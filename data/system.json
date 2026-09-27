@@ -41,7 +41,9 @@
     "copyPagePolicy": "data/copy-page.json",
     "copyPagePrompt": "data/prompts/copy-page-respuestas.json",
     "homeAlternativeResponse": true,
-    "alternativeResponsePrompt": "data/prompts/respuesta-alternativa.json"
+    "alternativeResponsePrompt": "data/prompts/respuesta-alternativa.json",
+    "homeResponseGenerator": true,
+    "homeResponseGeneratorTab": "Generador respuestas"
   },
   "rootAccess": [
     {
@@ -97,8 +99,8 @@
     {
       "key": "alternativeResponse",
       "label": "Otra respuesta / alternativa",
-      "description": "Responder de otra forma a la misma pregunta. Si no hay expediente, usar nombre del vehículo, precio y CTA capturados manualmente.",
-      "prompt": "GENERAR_RESPUESTA_ALTERNATIVA\\nPREGUNTA_O_MENSAJE: <TEXTO>\\nAFL-ID: <AFL-ID_OPCIONAL>\\nNOMBRE_VEHICULO_MANUAL: <NOMBRE_SI_NO_HAY_EXPEDIENTE>\\nPRECIO_MXN_MANUAL: <PRECIO_OPCIONAL>\\nCTA_MANUAL: <CTA_OPCIONAL>\\nMODO: OTRA_RESPUESTA\\nUsa data/prompts/respuesta-alternativa.json. Si existe expediente, úsalo como autoridad; si no existe, usa solo los datos manuales y no inventes ni crees expediente."
+      "description": "Responder de otra forma a la misma pregunta indicando canal. Si no hay expediente, usar nombre del vehículo, precio y CTA capturados manualmente.",
+      "prompt": "GENERAR_RESPUESTA_ALTERNATIVA\\nCANAL: <COMENTARIO|MESSENGER|WHATSAPP|LLAMADA>\\nPREGUNTA_O_MENSAJE: <TEXTO>\\nAFL-ID: <AFL-ID_OPCIONAL>\\nNOMBRE_VEHICULO_MANUAL: <NOMBRE_SI_NO_HAY_EXPEDIENTE>\\nPRECIO_MXN_MANUAL: <PRECIO_OPCIONAL>\\nCTA_MANUAL: <CTA_OPCIONAL>\\nMODO: OTRA_RESPUESTA\\nUsa data/prompts/respuesta-alternativa.json. En canal privado puede usarse commercial.priceInternal vigente; en comentario público no."
     },
     {
       "key": "editAuthorized",
@@ -213,7 +215,8 @@
       "channels": [
         "COMENTARIO",
         "MESSENGER",
-        "WHATSAPP"
+        "WHATSAPP",
+        "LLAMADA"
       ],
       "detectLanguage": true,
       "detectPhoneAreaCode": true,
@@ -222,7 +225,15 @@
       "actionLinksTargetBlank": true,
       "autoSend": false,
       "autoPublish": false,
-      "piiPersistence": "SESSION_ONLY"
+      "piiPersistence": "SESSION_ONLY",
+      "privatePriceChannels": [
+        "MESSENGER",
+        "WHATSAPP",
+        "LLAMADA"
+      ],
+      "privatePriceSource": "commercial.priceInternal",
+      "publicCommentUsesInternalPrice": false,
+      "privatePriceAuthorization": "AUTORIZADO_POR_MIGUEL_2026-09-27"
     },
     "alternativeResponse": {
       "prompt": "data/prompts/respuesta-alternativa.json",
@@ -234,7 +245,19 @@
       ],
       "manualFallbackDoesNotCreateExpedient": true,
       "autoSend": false,
-      "autoPublish": false
+      "autoPublish": false,
+      "channels": [
+        "COMENTARIO",
+        "MESSENGER",
+        "WHATSAPP",
+        "LLAMADA"
+      ],
+      "privatePriceChannels": [
+        "MESSENGER",
+        "WHATSAPP",
+        "LLAMADA"
+      ],
+      "publicCommentUsesInternalPrice": false
     }
   }
 }
