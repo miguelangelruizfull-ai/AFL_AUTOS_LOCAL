@@ -22,7 +22,7 @@
     "classification": "PENDIENTE",
     "captureType": "COMERCIAL",
     "captureExecution": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "outputsDrive": "PREPARADAS",
     "publish": false
   },
@@ -44,7 +44,7 @@
     "duplicates": null,
     "rejected": null,
     "realVideo": false,
-    "whatsappSelectedPhotos": 0
+    "whatsappSelectedPhotos": 8
   },
   "capture": {
     "scheduled": false,
@@ -116,15 +116,15 @@
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "sendPackage": "PENDIENTE"
   },
   "whatsapp": {
-    "status": "OCULTO",
+    "status": "LISTO",
     "title": "2016 Chevrolet Silverado Cabina Regular 4x4",
     "description": "Chevrolet Silverado 2016 de cabina regular, configuración 4x4 y motor V8 5.3 L a gasolina.",
     "price": null,
-    "selectedPhotos": 0,
+    "selectedPhotos": 8,
     "realVideo": false,
     "targetState": "WHATSAPP_OCULTO_LISTO"
   },
@@ -200,7 +200,7 @@
       "key": "whatsapp",
       "label": "WhatsApp oculto",
       "folder": "90_WHATSAPP_OCULTO",
-      "status": "PENDIENTE"
+      "status": "LISTO"
     },
     {
       "key": "sendPackage",
