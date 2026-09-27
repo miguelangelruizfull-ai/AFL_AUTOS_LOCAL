@@ -2,46 +2,72 @@
 
 Actualizado: 2026-09-27
 
-Este archivo es el punto de entrada obligatorio para operar el repositorio.
+Este archivo documenta cómo operar el repositorio.
 
-## ORDEN DE LECTURA
-1. `START_HERE.md`
-2. `INDEX.md`
-3. `_SISTEMA/REGLAS.md`
-4. `_SISTEMA/PROGRAMADOR.md`
-5. Para una unidad: `PUENTE.md` → `ESTADO.md` → `PLAN_CAPTURA.md` / `FICHA_WHATSAPP.md`
-6. Consultar Google Calendar para pendientes, capturas y recordatorios vigentes.
+## ARQUITECTURA VIGENTE
 
-## FUENTES
-- `PUENTE.md`: verdad vigente completa por unidad.
-- `ESTADO.md`: estado rápido/indexable.
-- Google Calendar: fecha y hora real de trabajos programados y recordatorios.
+La interfaz web es **JSON-driven**.
+
+Fuentes:
+
+- `Vehiculos` privado: identidad y datos confirmados canónicos.
 - Google Drive: originales y derivados multimedia.
-- `INDEX.md`: navegación global.
+- Google Calendar: fecha, hora y recordatorios vigentes.
+- `AFL_AUTOS_LOCAL/data/*.json`: copia pública sanitizada usada por la web.
+- archivos `.md`: documentación humana y respaldo; no deben alimentar directamente la interfaz.
 
-## REGLA DE CAPTURA
-Toda captura debe terminar mostrando opciones numeradas. Nunca terminar una captura sin ofrecer el siguiente paso.
+## DATOS WEB
 
-Opciones mínimas:
-1. VER PLAN DE CAPTURA
-2. VER PUENTE / ESTADO
-3. SUBIR O REVISAR MATERIAL NUEVO
-4. VER PENDIENTES Y RECORDATORIOS
-5. PROGRAMAR / AJUSTAR EN GOOGLE CALENDAR
-6. VOLVER A ROOT CONSOLE
+Entrada principal:
 
-## TRANSICION
-`CAPTURA_PENDIENTE` → captura de campo → carga de originales → `MATERIAL_NUEVO_SUBIDO` → `REVISION_MATERIAL`.
+`data/vehicles/index.json`
 
-No marcar una captura como completada solo porque llegó su hora en calendario.
+Expediente piloto:
 
-## CALENDARIO
-Al iniciar o retomar una captura:
-- Leer `_SISTEMA/PROGRAMADOR.md`.
-- Consultar Google Calendar para eventos próximos relacionados con AFL/captura.
-- Calendar manda sobre fecha/hora.
-- Repo manda sobre estado.
-- No copiar al repositorio público URLs privadas, IDs de eventos, IDs de Drive ni información sensible.
+`data/vehicles/AFL-279006.json`
+
+Programador:
+
+`data/programador.json`
+
+Multimedia:
+
+`data/multimedia.json`
+
+Música usada:
+
+`data/musica-usada.json`
+
+Contratos:
+
+- `data/schema/vehicle.schema.json`
+- `data/schema/programador.schema.json`
+
+## REGLA DE SINCRONIZACION
+
+1. Verificar fuente canónica privada.
+2. Verificar Drive/Calendar cuando aplique.
+3. Actualizar JSON público sanitizado.
+4. La web renderiza el JSON.
+5. Los `.md` pueden documentar el cambio, pero no son la base de datos de la interfaz.
+
+## PRIVACIDAD
+
+Nunca publicar en JSON:
+
+- VIN completo;
+- odómetro/millas/km;
+- documentación personal;
+- IDs o URLs privadas de Drive;
+- IDs o URLs privadas de Calendar;
+- PII.
+
+## CAPTURA
+
+`CAPTURA_PENDIENTE → campo → MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL → CAPTURA_COMPLETA`
+
+Un evento terminado en Calendar NO significa captura completada.
 
 ## PUBLICACION
+
 NO PUBLICAR AUTOMÁTICAMENTE.
