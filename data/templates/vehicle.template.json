@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "updated": null,
   "id": null,
   "vehicle": {
@@ -14,7 +14,10 @@
       "engine": null,
       "transmission": null,
       "drivetrain": null
-    }
+    },
+    "visibleModifications": [],
+    "visibleAccessories": [],
+    "commercialEvidenceNotes": []
   },
   "status": {
     "vehicle": "REVISION_MATERIAL",
@@ -44,7 +47,13 @@
     "duplicates": 0,
     "rejected": 0,
     "realVideo": false,
-    "whatsappSelectedPhotos": 0
+    "whatsappSelectedPhotos": 0,
+    "cleanupCandidates": 0,
+    "contentUse": {
+      "captureCommercial": true,
+      "textGeneration": true,
+      "finalProductionRequiresApprovedMaterial": true
+    }
   },
   "capture": {
     "scheduled": false,
