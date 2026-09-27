@@ -92,6 +92,7 @@
             "enum": [
               "PENDIENTE",
               "EN_PRODUCCION",
+              "PROGRAMADA",
               "LISTO",
               "PUBLICADO"
             ]
@@ -142,6 +143,9 @@
       "type": "object"
     },
     "recommendationPolicy": {
+      "type": "object"
+    },
+    "publication": {
       "type": "object"
     }
   },
