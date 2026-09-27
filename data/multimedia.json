@@ -49,5 +49,14 @@
     "autoDeleteDuplicates": false,
     "pendingReviewNotForProduction": true,
     "autoPublish": false
+  },
+  "staging": {
+    "root": "01_ENTRADAS/00_PENDIENTE_ID",
+    "purpose": "Material de vehículos que todavía no tienen AFL-ID confirmado",
+    "rules": [
+      "No mezclar unidades",
+      "No crear AFL-ID definitivo sin evidencia suficiente",
+      "Después de confirmar AFL-ID, consolidar material en 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL"
+    ]
   }
 }
