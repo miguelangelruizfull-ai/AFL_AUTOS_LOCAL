@@ -242,15 +242,23 @@
     "canonicalState": "CAPTURA_PENDIENTE",
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
-    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
+    "lastEvidenceCheck": {
+      "checkedAt": "2026-09-27T13:46:00-06:00",
+      "folder": "01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA",
+      "result": "VACIA",
+      "materialNewUploaded": false,
+      "stateTransition": false,
+      "requiredAction": "CAPTURA_COMERCIAL_COMPLETA y subir el material nuevo únicamente a 20_NUEVA_CAPTURA"
+    }
   },
   "checkpoint": {
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "MENÚ_DE_PROMPTS_PERSISTENTE implementado; CONTROL OPERATIVO creado en Drive; contrato de cierre Drive + vehículo JSON + HOME activo.",
+    "lastCompleted": "REANUDACIÓN_DESDE_CHECKPOINT_VALIDADA; 20_NUEVA_CAPTURA verificada vacía; sin transición de estado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
-    "resumeFrom": "Realizar trabajo de campo y subir material nuevo únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
+    "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo y video vertical 9:16; subir material nuevo únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
   },
   "promptProtocol": {
