@@ -1,16 +1,24 @@
 # REGLAS
 
+- `START_HERE.md` = punto de entrada obligatorio.
 - `PUENTE.md` = fuente de verdad vigente de la unidad.
 - `ESTADO.md` = resumen estructurado para indexación.
 - `INDEX.md` = navegación global.
+- `_SISTEMA/PROGRAMADOR.md` = reglas para leer pendientes y calendario.
+- Google Calendar = fuente vigente de fecha, hora y recordatorios programados.
 - `AFL_AUTOS_MULTIMEDIA` = root lógico de multimedia en Drive.
 - Material nuevo sin validar = `PENDIENTE_REVISION`.
 - Ningún material en `PENDIENTE_REVISION` pasa a producción/publicación hasta completar revisión.
+- Antes de una captura: leer START_HERE, PROGRAMADOR, PUENTE, ESTADO, PLAN_CAPTURA y eventos próximos en Google Calendar.
+- Después de toda captura u operación de captura: mostrar siempre opciones numeradas.
+- Un evento terminado en Calendar NO significa captura completada.
+- Solo material efectivamente subido puede avanzar a `MATERIAL_NUEVO_SUBIDO`.
 - Drive conserva originales y derivados; GitHub conserva puentes, estados, fichas y planes.
+- No crear recordatorios/eventos duplicados sin consultar primero Google Calendar.
 - No publicar automáticamente.
 - No publicar VIN completo.
 - No publicar millas/kilómetros.
 - No convertir material visual en prueba de datos no confirmados.
 - Originales nunca se sobrescriben.
 - Selección, retoque y producción deben permanecer separados.
-- No guardar URLs ni IDs privados de Drive en este repositorio mientras su visibilidad sea pública.
+- No guardar URLs/IDs privados de Drive o Calendar en este repositorio mientras su visibilidad sea pública.
