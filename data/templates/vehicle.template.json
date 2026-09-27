@@ -257,7 +257,8 @@
       "Persistir checkpoint.nextAction cuando cambie el flujo.",
       "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
       "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
-      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque."
+      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque.",
+      "Al PROGRAMAR o PUBLICAR una pieza, actualizar el archivo real correspondiente dentro de 02_SALIDAS/AFL-ID/<CANAL> con copy final, estado, fecha/hora e identificador disponible."
     ],
     "rules": [
       "No mezclar vehículos.",
