@@ -1,5 +1,7 @@
 # PROGRAMADOR — AFL AUTOS
 
+[Abrir Programador visual](../PROGRAMADOR.html)
+
 Actualizado: 2026-09-27
 
 ## FUENTE DE PROGRAMACION
