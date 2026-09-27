@@ -84,8 +84,12 @@
         "phase": "REVISION_MATERIAL_ESTANDARIZADA",
         "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
         "nextAction": "REVISION_MATERIAL",
-        "state": "REVISION_MATERIAL"
-      }
+        "state": "REVISION_MATERIAL",
+        "lastVerified": "2026-09-27",
+        "evidence": "ENTRADAS_CANONICAS_VACIAS; WHATSAPP_TEXTO_LISTO; MEDIA_PENDIENTE_SIN_ARCHIVOS"
+      },
+      "whatsappMediaStatus": "PENDIENTE_SIN_ARCHIVOS",
+      "whatsappSelectedPhotos": 0
     }
   ]
 }
