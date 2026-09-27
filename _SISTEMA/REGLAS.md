@@ -96,3 +96,18 @@ Todo vehículo actual o nuevo del framework debe tener:
 - Las opciones deben usar los enlaces operativos vigentes cuando existan.
 - Deben reflejar el checkpoint ya sincronizado; primero se actualiza Drive/repos/HOME y después se renderiza el menú final.
 - Esta regla aplica también después de PROGRAMAR, PUBLICAR, editar información autorizada, revisar material, cambiar estado o ejecutar cualquier transición operativa.
+
+
+## COPY PAGE / RESPUESTAS COMERCIALES
+
+- La Copy Page oficial es `COPY_PAGE.html`.
+- Debe detectar CANAL, IDIOMA, INTENCION, unidad seleccionada y, cuando exista teléfono, país + LADA/código de área sin persistir PII.
+- `DATO_YA_PROPORCIONADO → NO_VOLVER_A_PREGUNTAR`.
+- `UNIDAD_NO_VERIFICADA → NO_AFIRMAR_ESPECIFICACIONES`.
+- `PRECIO_NO_PUBLICABLE → NO_DAR_CIFRA`.
+- Comentario, Messenger y WhatsApp comparten motor de intención; el canal cambia privacidad, longitud y siguiente acción.
+- La clasificación del lead separa PRIORIDAD de ETAPA comercial.
+- Cada ejecución debe devolver una sola SIGUIENTE_ACCION principal y opciones adaptativas.
+- Los enlaces de siguiente acción abren con `target="_blank"`.
+- PII capturada en la Copy Page permanece únicamente en sesión; no se guarda en repo/HOME/localStorage.
+- La Copy Page no envía mensajes, no publica contenido y no cambia por sí sola estados persistentes.
