@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-09-27T16:45:00-06:00",
+  "workflow": "NUEVO_VEHICULO",
+  "state": "IDENTIFICACION_PENDIENTE",
+  "uploadState": "EN_CURSO",
+  "aflId": null,
+  "materialCountVisible": 0,
+  "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
+  "privateDriveReferenceStored": false,
+  "contentScope": {
+    "captureCommercial": true,
+    "textGeneration": true,
+    "finalProductionFromPendingReview": false
+  },
+  "evidencePolicy": {
+    "visibleModificationsAndAccessories": "ONLY_IF_VISIBLE_OR_CONFIRMED",
+    "inferUnverifiedSpecs": false
+  },
+  "cleanup": {
+    "autoDelete": false,
+    "classifyBeforeCleanup": true,
+    "showOptionsBeforeDelete": true
+  },
+  "nextAction": "REVISAR_ARCHIVOS_COMPLETOS_DISPONIBLES_Y_REESCANEAR"
+}
