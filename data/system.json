@@ -36,7 +36,10 @@
     ],
     "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
     "homeRootTabs": true,
-    "vehicleQuickResponses": true
+    "vehicleQuickResponses": true,
+    "copyPageUI": "COPY_PAGE.html",
+    "copyPagePolicy": "data/copy-page.json",
+    "copyPagePrompt": "data/prompts/copy-page-respuestas.json"
   },
   "rootAccess": [
     {
@@ -50,6 +53,10 @@
     {
       "label": "Multimedia",
       "url": "MULTIMEDIA.html"
+    },
+    {
+      "label": "Copy Page · Leads",
+      "url": "COPY_PAGE.html"
     },
     {
       "label": "Inventario JSON",
@@ -189,6 +196,21 @@
       "omitRecommendedActionWhenNone": true,
       "includeLinksWhenAvailable": true,
       "persistLatestStateBeforeRendering": true
+    },
+    "copyPage": {
+      "channels": [
+        "COMENTARIO",
+        "MESSENGER",
+        "WHATSAPP"
+      ],
+      "detectLanguage": true,
+      "detectPhoneAreaCode": true,
+      "noRepeatCapturedData": true,
+      "nextActionRouting": true,
+      "actionLinksTargetBlank": true,
+      "autoSend": false,
+      "autoPublish": false,
+      "piiPersistence": "SESSION_ONLY"
     }
   }
 }
