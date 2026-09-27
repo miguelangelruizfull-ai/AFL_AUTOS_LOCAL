@@ -1,0 +1,500 @@
+{
+  "schemaVersion": "1.2.0",
+  "updated": "2026-09-27",
+  "id": "AFL-053078",
+  "vehicle": {
+    "make": "Toyota",
+    "model": "Tacoma",
+    "trim": null,
+    "year": 2017,
+    "color": "Gris",
+    "publicTitle": "Toyota Tacoma 2017",
+    "configuration": {
+      "cab": "Doble cabina",
+      "engine": "V6",
+      "transmission": "Automática",
+      "drivetrain": null
+    },
+    "visibleModifications": [
+      "Llantas nuevas (confirmado por Miguel)"
+    ],
+    "visibleAccessories": [],
+    "commercialEvidenceNotes": [
+      "Precio vigente confirmado por conversación operativa adjunta.",
+      "Disponibilidad confirmada por Miguel."
+    ]
+  },
+  "status": {
+    "vehicle": "REVISION_MATERIAL",
+    "materialReview": "PENDIENTE",
+    "classification": "PENDIENTE",
+    "captureType": "COMPLEMENTARIA",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "outputsDrive": "PREPARADAS",
+    "publish": false
+  },
+  "commercial": {
+    "availability": "DISPONIBLE",
+    "priceInternal": 490000,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "totalFiles": 105,
+    "totalJpeg": 92,
+    "totalVideo": 0,
+    "unique": null,
+    "approvedUnique": 10,
+    "commercialCandidates": 10,
+    "privateNoPublish": 1,
+    "duplicates": 0,
+    "rejected": 0,
+    "realVideo": false,
+    "whatsappSelectedPhotos": 0,
+    "cleanupCandidates": 0,
+    "contentUse": {
+      "captureCommercial": true,
+      "textGeneration": true,
+      "finalProductionRequiresApprovedMaterial": true
+    }
+  },
+  "capture": {
+    "scheduled": false,
+    "source": "GOOGLE_CALENDAR",
+    "date": null,
+    "start": null,
+    "end": null,
+    "timezone": "America/Mexico_City",
+    "type": "CAPTURA_COMPLEMENTARIA",
+    "checklist": [
+      "Video vertical 9:16 walkaround 20–30 s",
+      "Video interior/tablero 9:16",
+      "Confirmar trim o versión exacta con evidencia",
+      "Confirmar tracción con evidencia",
+      "Confirmar documentación disponible"
+    ],
+    "requiredVideo": {
+      "format": "9:16",
+      "walkaroundSeconds": "20-30",
+      "shots": [
+        "HERO 3/4 frontal",
+        "Perfil",
+        "3/4 trasero",
+        "Interior/tablero",
+        "Caja"
+      ]
+    },
+    "privateEvidence": [
+      "VIN",
+      "Etiqueta técnica",
+      "Odómetro",
+      "Documentos"
+    ]
+  },
+  "drive": {
+    "inputRoot": "01_ENTRADAS/AFL-053078",
+    "outputRoot": "02_SALIDAS/AFL-053078",
+    "inputs": [
+      "00_MATERIAL_DISPONIBLE_LOCAL",
+      "10_APROBADOS",
+      "20_NUEVA_CAPTURA",
+      "90_RECHAZADOS",
+      "95_DUPLICADOS"
+    ],
+    "outputs": [
+      "00_CONTENIDO_DISPONIBLE",
+      "10_MARKETPLACE",
+      "20_IMAGENES_COMERCIALES",
+      "30_POST",
+      "40_FEED",
+      "50_HISTORIAS",
+      "60_PORTADAS",
+      "70_REEL",
+      "80_TIKTOK",
+      "90_WHATSAPP_OCULTO",
+      "95_PARA_ENVIAR"
+    ]
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE",
+    "tiktok": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "whatsapp": {
+    "status": "OCULTO",
+    "title": "Toyota Tacoma 2017",
+    "description": "Toyota Tacoma 2017 color gris, doble cabina, motor V6 y transmisión automática. Disponibilidad confirmada. No publicar automáticamente.",
+    "price": null,
+    "selectedPhotos": 0,
+    "realVideo": false,
+    "targetState": "WHATSAPP_OCULTO_LISTO"
+  },
+  "music": {
+    "registry": "data/musica-usada.json",
+    "rule": "EVITAR_AUDIO_PUBLICADO"
+  },
+  "workflow": [
+    "REVISION_MATERIAL",
+    "PLAN_CAPTURA",
+    "CAPTURA_DE_CAMPO",
+    "MATERIAL_NUEVO_SUBIDO",
+    "REVISION_MATERIAL",
+    "SELECCION_FINAL",
+    "CAPTURA_COMPLETA",
+    "WHATSAPP_OCULTO_LISTO",
+    "CONTENIDO_DISPONIBLE"
+  ],
+  "deliverables": [
+    {
+      "key": "contentAvailable",
+      "label": "Contenido disponible",
+      "folder": "00_CONTENIDO_DISPONIBLE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "marketplace",
+      "label": "Marketplace",
+      "folder": "10_MARKETPLACE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "images",
+      "label": "Imágenes comerciales",
+      "folder": "20_IMAGENES_COMERCIALES",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "post",
+      "label": "Post",
+      "folder": "30_POST",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "feed",
+      "label": "Feed",
+      "folder": "40_FEED",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "stories",
+      "label": "Historias",
+      "folder": "50_HISTORIAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "covers",
+      "label": "Portadas",
+      "folder": "60_PORTADAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "reel",
+      "label": "Reel",
+      "folder": "70_REEL",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "folder": "80_TIKTOK",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp oculto",
+      "folder": "90_WHATSAPP_OCULTO",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "sendPackage",
+      "label": "Para enviar",
+      "folder": "95_PARA_ENVIAR",
+      "status": "PENDIENTE"
+    }
+  ],
+  "fieldWork": {
+    "status": "PENDIENTE",
+    "canonicalState": "REVISION_MATERIAL",
+    "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
+    "uploadFolder": "20_NUEVA_CAPTURA",
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta cerrar revisión del material, confirmar faltantes y completar video requerido."
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-053078.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-053078.jpg",
+    "showInHome": true,
+    "showInVehicle": true,
+    "showInPrintChecklist": true,
+    "showInChatPrompt": true
+  },
+  "recommendationPolicy": {
+    "authority": "CHATGPT_CURRENT",
+    "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
+    "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
+    "staticMenuAuthority": false
+  },
+  "editPolicy": {
+    "authority": "MIGUEL_EXPLICIT",
+    "prompt": "data/prompts/editar-informacion-autorizada.json",
+    "scope": "ANY_AUTHORIZED_OPERATIONAL_OR_COMMERCIAL_FIELD",
+    "syncTargets": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_MD"
+    ],
+    "preserveUnrelatedFields": true,
+    "preserveCheckpointUnlessAuthorized": true,
+    "autoPublish": false
+  },
+  "checkpoint": {
+    "phase": "REVISION_MATERIAL_INICIAL",
+    "state": "REVISION_MATERIAL",
+    "updated": "2026-09-27",
+    "lastCompleted": "AFL_ID_VERIFICADO + ESTRUCTURA_DRIVE_CREADA + 105_IMAGENES_CONSOLIDADAS + 10_FOTOS_APROBADAS + CONTROL_OPERATIVO_CREADO",
+    "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
+    "resumeFrom": "Revisar el resto del material consolidado, confirmar clasificación y duplicados, y mantener CAPTURA_PENDIENTE si falta video vertical o evidencia de trim/tracción/documentos.",
+    "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO"
+  },
+  "promptProtocol": {
+    "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
+    "minimalSources": [
+      "data/vehicles/AFL-053078.json",
+      "data/vehicles/index.json",
+      "Drive: 01_ENTRADAS/AFL-053078",
+      "Drive: 02_SALIDAS/AFL-053078",
+      "Drive: documento AFL-053078 — CONTROL OPERATIVO"
+    ],
+    "afterEveryPrompt": [
+      "Actualizar Drive y CONTROL OPERATIVO cuando el prompt produzca un cambio.",
+      "Actualizar data/vehicles/AFL-053078.json.",
+      "Actualizar data/vehicles/index.json para HOME.",
+      "Actualizar documentación operativa relevante.",
+      "Verificar consistencia Drive ↔ vehículo JSON ↔ HOME.",
+      "Persistir checkpoint.nextAction cuando cambie el flujo.",
+      "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
+      "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
+      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque.",
+      "Al PROGRAMAR o PUBLICAR una pieza, actualizar el archivo real correspondiente dentro de 02_SALIDAS/AFL-053078/<CANAL> con copy final, estado, fecha/hora e identificador disponible.",
+      "Al cerrar cualquier operación del vehículo, mostrar SIEMPRE al final una sección de opciones.",
+      "La primera opción debe ser la SIGUIENTE ACCIÓN RECOMENDADA por el ChatGPT actual cuando exista una recomendación concreta.",
+      "Después mostrar las demás opciones operativas relevantes del vehículo.",
+      "Si no existe una recomendación concreta, mostrar las demás opciones sin inventar una recomendación.",
+      "Las opciones deben incluir enlaces operativos cuando existan.",
+      "El cierre no se considera completo si el estado cambió y las opciones finales no reflejan el nuevo checkpoint."
+    ],
+    "rules": [
+      "No mezclar vehículos.",
+      "No publicar automáticamente.",
+      "No exponer VIN completo, odómetro, documentos privados o PII.",
+      "La recomendación operativa corresponde al ChatGPT actual.",
+      "Los cambios autorizados por Miguel se limitan al campo y valor indicados.",
+      "PROGRAMADA no equivale a PUBLICADO; MEDICION_7D inicia desde PUBLICADO_CONFIRMADO_POR_MIGUEL.",
+      "En respuestas relacionadas con esta unidad, mostrar la miniatura pública al inicio cuando el cliente permita imágenes."
+    ],
+    "responseLinks": [
+      {
+        "key": "thumbnail",
+        "label": "Miniatura AFL-053078",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-053078.jpg"
+      },
+      {
+        "key": "vehicleOptions",
+        "label": "Opciones de AFL-053078",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-053078#prompt-menu"
+      },
+      {
+        "key": "otherVehicle",
+        "label": "Abrir otro vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      },
+      {
+        "key": "newVehicle",
+        "label": "Nuevo vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+      },
+      {
+        "key": "rootGlobal",
+        "label": "Regresar a ROOT GLOBAL",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      }
+    ],
+    "closureMenuPolicy": {
+      "alwaysShowOptionsAtEnd": true,
+      "recommendedFirst": true,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "showOtherRelevantOptions": true,
+      "omitRecommendedWhenNone": true,
+      "includeOperationalLinks": true,
+      "mustReflectLatestCheckpoint": true
+    }
+  },
+  "promptMenu": [
+    {
+      "key": "resume",
+      "label": "Reanudar desde aquí",
+      "description": "Continuar desde el checkpoint vigente.",
+      "instruction": "Detecta el patrón desde checkpoint y evidencia; ejecuta únicamente el siguiente paso válido."
+    },
+    {
+      "key": "editAuthorized",
+      "label": "Editar información autorizada por Miguel",
+      "description": "Modificar cualquier campo autorizado y sincronizar Drive + JSON + HOME.",
+      "instruction": "Ejecuta data/prompts/editar-informacion-autorizada.json con el CAMPO y NUEVO_VALOR indicados por Miguel."
+    },
+    {
+      "key": "captureUploaded",
+      "label": "Ya subí nueva captura",
+      "description": "Procesar material de 20_NUEVA_CAPTURA.",
+      "instruction": "Confirma evidencia nueva antes de registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL."
+    },
+    {
+      "key": "finalSelection",
+      "label": "Revisar y seleccionar material",
+      "description": "Revisar faltantes y seleccionar material por canal.",
+      "instruction": "Ejecuta REVISION_MATERIAL/SELECCION_FINAL según evidencia y conserva CAPTURA_PENDIENTE si faltan tomas obligatorias."
+    },
+    {
+      "key": "finishOutputs",
+      "label": "Terminar piezas",
+      "description": "Generar o actualizar salidas con material suficiente.",
+      "instruction": "Actualiza únicamente piezas respaldadas por selección final; WhatsApp permanece OCULTO hasta validación."
+    },
+    {
+      "key": "syncAudit",
+      "label": "Auditar sincronización",
+      "description": "Comprobar Drive, JSON y HOME.",
+      "instruction": "Corrige contradicciones verificables sin publicar."
+    },
+    {
+      "key": "publicationStatus",
+      "label": "Confirmar publicación / medición 7D",
+      "description": "Confirmar publicación real y preparar medición semanal.",
+      "instruction": "Cuando exista confirmación real, sincroniza publicación y HOME y activa MEDICION_7D; no crear 24H/72H rutinarios."
+    }
+  ],
+  "quickResponses": [
+    {
+      "label": "Precio interno",
+      "field": "commercial.priceInternal"
+    },
+    {
+      "label": "Disponibilidad",
+      "field": "commercial.availability"
+    },
+    {
+      "label": "Color",
+      "field": "vehicle.color"
+    },
+    {
+      "label": "Título público",
+      "field": "vehicle.publicTitle"
+    },
+    {
+      "label": "Estado",
+      "field": "status.vehicle"
+    },
+    {
+      "label": "Siguiente acción",
+      "field": "checkpoint.nextAction"
+    },
+    {
+      "label": "WhatsApp descripción",
+      "field": "whatsapp.description"
+    },
+    {
+      "label": "Publicación Facebook",
+      "field": "publication.facebook.status"
+    }
+  ],
+  "operationalLinks": {
+    "newCapture": null,
+    "vehicleOptions": {
+      "label": "Opciones de AFL-053078",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-053078#prompt-menu"
+    },
+    "outputs": null,
+    "control": null,
+    "otherVehicle": {
+      "label": "Abrir otro vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "newVehicle": {
+      "label": "Nuevo vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+    },
+    "rootGlobal": {
+      "label": "Regresar a ROOT GLOBAL",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "repository": {
+      "label": "Repositorio",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  },
+  "publication": {
+    "facebook": {
+      "status": "NO_PROGRAMADA",
+      "channel": null,
+      "source": null,
+      "postId": null,
+      "scheduledAt": null,
+      "timezone": "America/Mexico_City",
+      "audience": null,
+      "promotion": false,
+      "copyStatus": null,
+      "publicationConfirmationRequired": true,
+      "measurement": {
+        "cadence": "7D",
+        "status": "INACTIVA",
+        "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
+      }
+    }
+  },
+  "homeChecklist": [
+    {
+      "key": "identity",
+      "label": "AFL-ID / VIN privado",
+      "status": "OK"
+    },
+    {
+      "key": "price",
+      "label": "Precio actual",
+      "status": "OK"
+    },
+    {
+      "key": "availability",
+      "label": "Disponibilidad",
+      "status": "OK"
+    },
+    {
+      "key": "thumbnail",
+      "label": "Miniatura pública",
+      "status": "OK"
+    },
+    {
+      "key": "material",
+      "label": "Revisión total de material",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "video",
+      "label": "Video vertical",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "specs",
+      "label": "Trim / tracción / documentos",
+      "status": "PENDIENTE"
+    }
+  ]
+}
