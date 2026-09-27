@@ -73,3 +73,13 @@ Todo vehículo actual o nuevo del framework debe tener:
 4. expediente `data/vehicles/AFL-ID.json` basado en la plantilla vigente.
 5. resumen sincronizado en HOME.
 6. checkpoint, prompt de edición autorizada y respuestas rápidas estándar.
+
+
+## PROGRAMACION, PUBLICACION Y RETORNO AL MENU
+
+- `PROGRAMADA ≠ PUBLICADA`. Registrar una programación no inicia la medición 7D.
+- Después de confirmar una programación, una publicación real o una acción de cambio autorizada, actualizar siempre las fuentes afectadas y `data/vehicles/index.json` para que HOME refleje el estado vigente.
+- Si existe fecha/hora programada, actualizar también `data/programador.json` con la fuente real: Google Calendar para trabajo de campo y Meta Business Suite para publicaciones sociales.
+- Una publicación pasa a `PUBLICADO_CONFIRMADO_POR_MIGUEL` solo con confirmación de Miguel o evidencia verificable; desde ahí inicia `MEDICION_7D`.
+- Después del cierre, si el ChatGPT actual recomienda una siguiente acción concreta, mostrarla y regresar al menú/opciones del vehículo. Si no existe recomendación útil, omitir ese bloque.
+- Ninguna programación, publicación o edición habilita publicación automática de otras piezas.
