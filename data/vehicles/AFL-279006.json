@@ -289,7 +289,8 @@
       "Si el prompt es de edición autorizada, informar valor anterior/nuevo y conservar checkpoint salvo autorización específica.",
       "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
       "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
-      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque."
+      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque.",
+      "Al PROGRAMAR o PUBLICAR una pieza, actualizar también el archivo real del canal en 02_SALIDAS (por ejemplo 30_POST, 40_FEED, 70_REEL), incluyendo copy final, estado, fecha/hora e identificador disponible."
     ],
     "rules": [
       "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
@@ -507,7 +508,10 @@
         "cadence": "7D",
         "status": "ESPERAR_PUBLICACION_CONFIRMADA",
         "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
-      }
+      },
+      "driveArtifactStatus": "SINCRONIZADO",
+      "driveArtifact": "30_POST / AFL-279006 — POST FACEBOOK PROGRAMADO",
+      "lastSyncedAt": "2026-09-27T14:50:00-06:00"
     }
   }
 }
