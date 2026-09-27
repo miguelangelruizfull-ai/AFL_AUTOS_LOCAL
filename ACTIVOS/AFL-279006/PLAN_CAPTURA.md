@@ -1,83 +1,89 @@
 # PLAN CAPTURA — AFL-279006
 
 ESTADO: CAPTURA_PENDIENTE
-TIPO: CAPTURA_COMERCIAL
-ENTRADA_LOGICA: AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/AFL-279006
-SALIDA_LOGICA: AFL_AUTOS_MULTIMEDIA/02_SALIDAS/AFL-279006
+TIPO: CAPTURA_COMERCIAL_COMPLEMENTARIA
 PROGRAMACION_ACTIVA: 2026-09-28 10:00-11:00 America/Mexico_City
 REPROGRAMACION: HASTA_COMPLETAR_CAPTURA
-SALIDA: MOSTRAR_OPCIONES_SIEMPRE
 ACTUALIZADO: 2026-09-27
 
-## REGLA DE ENTRADA
-Todo material nuevo del vehículo entra primero como PENDIENTE_REVISION.
-Revisar antes de moverlo a selección, contenido o salida.
+## RESULTADO DE LA REVISION PREVIA
+
+252 JPEG revisados.
+62 tomas únicas exactas.
+61 útiles conservadas.
+190 duplicados aislados.
+1 rechazo técnico.
+0 videos originales.
+
+## YA EXISTE / NO REPETIR SALVO NECESIDAD
+
+- Frente y 3/4 frontales.
+- Perfiles laterales.
+- Trasera y 3/4 traseros.
+- Caja cerrada y abierta.
+- Interior de caja.
+- Cabina / tablero / volante.
+- Palanca manual.
+- Asientos delanteros.
+- Segunda fila / espacio trasero.
+- Rin y neumático.
+- Compartimiento de motor.
+- Emblemas y accesorios.
+- Etiquetas técnicas privadas.
+- Daños/detalles para registro interno.
+
+## REPETIR COMERCIAL — PRIORIDAD
+
+El material existente cubre técnicamente la unidad, pero parte tiene fondo cargado, lona, taller o luz exterior dura. Para una sesión comercial consistente repetir:
+
+1. HERO 3/4 frontal limpio.
+2. Perfil izquierdo 90° limpio.
+3. Perfil derecho 90° limpio.
+4. 3/4 trasero limpio.
+5. Cabina extendida con puertas abiertas.
+6. Frente recto limpio, si el tiempo lo permite.
+7. Trasera recta limpia, si el tiempo lo permite.
+8. Interior conductor limpio y bien iluminado, si mejora lo existente.
+
+## FALTANTE OBLIGATORIO
+
+VIDEO_REAL: PENDIENTE
+
+Capturar vertical 9:16:
+- HERO/acercamiento.
+- frontal a lateral.
+- perfil.
+- 3/4 posterior.
+- caja cerrada y abierta.
+- interior/tablero.
+- palanca manual.
+- walkaround continuo 20–30 s.
+- motor/arranque solo si es seguro.
 
 ## PREPARACION
+
 - Lavar exterior.
 - Limpiar cristales, tablero, asientos y caja.
-- Retirar objetos personales, basura y accesorios sueltos.
-- Estacionar con fondo limpio y luz uniforme.
+- Retirar objetos personales y accesorios sueltos.
+- Buscar fondo limpio y luz uniforme.
 - No ocultar daños ni defectos visibles.
 
-## FOTOS OBLIGATORIAS
-1. HERO 3/4 frontal, altura de faros.
-2. Frente completo.
-3. Perfil izquierdo 90°.
-4. Perfil derecho 90°.
-5. 3/4 trasero.
-6. Trasera completa.
-7. Cabina extendida / puertas abiertas.
-8. Caja con cubierta cerrada.
-9. Caja con cubierta abierta.
-10. Interior de caja.
-11. Cabina desde puerta del conductor.
-12. Tablero encendido.
-13. Volante y controles.
-14. Palanca de transmisión manual.
-15. Asientos delanteros.
-16. Segunda fila / espacio trasero.
-17. Rin y neumático.
-18. Compartimiento de motor.
-19. Emblemas y accesorios relevantes.
-20. Daños o detalles visibles para registro interno.
-21. Etiqueta técnica solo para verificación privada.
-
-## VIDEO REAL
-- Vertical 9:16.
-- HERO acercamiento.
-- Frontal a lateral.
-- Perfil.
-- 3/4 posterior.
-- Caja cerrada y abierta.
-- Interior y tablero.
-- Palanca manual.
-- Motor/arranque si es seguro.
-- Walkaround continuo 20–30 s.
-
-## CLASIFICACION DESPUES DE CADA CARGA
-- APROBADO
-- RECHAZADO
-- DUPLICADO
-- PENDIENTE_REVISION
-- FALTANTE
-
-RECHAZADO y DUPLICADO se aíslan y registran.
-NO borrar permanentemente originales de forma automática.
-
 ## PRIVADO / NO PUBLICAR
+
 - VIN completo.
 - Odómetro.
 - Etiquetas con identificadores.
 - Documentación personal o sensible.
+- Tomas marcadas PRIVADO en SELECCION_MATERIAL.md.
 
-## CIERRE DE CADA SESION
-1. Subir originales sin editar.
-2. Cambiar estado a MATERIAL_NUEVO_SUBIDO.
-3. Ejecutar REVISION_MATERIAL.
-4. Actualizar SELECCION_MATERIAL.md.
-5. Marcar tomas cubiertas y faltantes.
-6. Si quedan faltantes obligatorios: mantener CAPTURA_PENDIENTE y reprogramar la captura activa sin duplicar eventos.
-7. Si no quedan faltantes: CAPTURA_COMPLETA y detener reprogramaciones.
-8. Mantener WhatsApp OCULTO hasta cierre y aprobación.
-9. NO PUBLICAR AUTOMÁTICAMENTE.
+## CIERRE
+
+CAPTURA -> SUBIR_MATERIAL_NUEVO -> REVISION_MATERIAL
+
+Si quedan faltantes obligatorios:
+CAPTURA_PENDIENTE -> REPROGRAMAR MISMO TRABAJO SIN DUPLICAR EVENTOS.
+
+Si no quedan faltantes:
+CAPTURA_COMPLETA -> WHATSAPP_OCULTO_LISTO.
+
+NO PUBLICAR AUTOMATICAMENTE.
