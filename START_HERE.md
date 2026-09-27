@@ -176,3 +176,31 @@ Después de persistir y verificar cualquier cambio operativo:
 5. si no existe una recomendación concreta, omitir la etiqueta/recomendación y mostrar solamente las opciones restantes.
 
 El menú se genera después de sincronizar Drive ↔ JSON vehículo ↔ HOME ↔ documentación aplicable, por lo que siempre debe representar el estado recién persistido.
+
+
+## COPY PAGE COMERCIAL
+
+Entrada oficial desde HOME/ROOT:
+
+- UI: `COPY_PAGE.html`
+- Motor: `app/copy-page.js`
+- Política/routing: `data/copy-page.json`
+- Contrato: `data/prompts/copy-page-respuestas.json`
+
+Canales:
+
+`COMENTARIO_PUBLICO / MESSENGER_INBOX / WHATSAPP`
+
+Contrato funcional:
+
+`RESPONDER → NO_REPETIR_DATOS → VERIFICAR_UNIDAD → DETECTAR_IDIOMA/LADA → CLASIFICAR_LEAD → SIGUIENTE_ACCION → OPCIONES`
+
+Reglas:
+- si existe número, detectar país y LADA/código de área cuando el mapa local lo permita;
+- el teléfono permanece solo en sesión y nunca se persiste en HOME, repo, localStorage o query string;
+- si el dato ya fue proporcionado, no volver a pedirlo;
+- precio solo se comunica automáticamente desde un campo explícitamente publicable;
+- unidad no verificada no autoriza año, versión, motor, transmisión, tracción, documentación o disponibilidad;
+- para leads fuera de México, confirmar si la compra se realizará en México y no prometer exportación/envío;
+- la siguiente acción se ofrece mediante enlace `target="_blank"` hacia ROOT/vehículo, Multimedia, Programador o WhatsApp del lead según corresponda;
+- Copy Page genera/copia respuestas, pero NO envía ni publica automáticamente.
