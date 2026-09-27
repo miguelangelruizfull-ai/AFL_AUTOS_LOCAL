@@ -71,3 +71,16 @@ Un evento terminado en Calendar NO significa captura completada.
 ## PUBLICACION
 
 NO PUBLICAR AUTOMÁTICAMENTE.
+
+
+## NUEVO VEHICULO
+
+Entrada del framework:
+
+- UI: `NUEVO_VEHICULO.html`
+- Prompt: `data/prompts/nuevo-vehiculo.json`
+- Workflow: `data/workflows/nuevo-vehiculo.json`
+- Plantilla: `data/templates/vehicle.template.json`
+- Staging Drive: `01_ENTRADAS/00_PENDIENTE_ID`
+
+No crear un AFL-ID definitivo si la identificación/VIN no está suficientemente confirmada.
