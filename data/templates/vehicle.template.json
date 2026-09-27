@@ -201,5 +201,19 @@
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
+  },
+  "ui": {
+    "thumbnail": null,
+    "thumbnailPublicUrl": null,
+    "showInHome": true,
+    "showInVehicle": true,
+    "showInPrintChecklist": true,
+    "showInChatPrompt": true
+  },
+  "recommendationPolicy": {
+    "authority": "CHATGPT_CURRENT",
+    "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
+    "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
+    "staticMenuAuthority": false
   }
 }
