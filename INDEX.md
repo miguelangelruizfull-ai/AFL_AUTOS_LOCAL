@@ -28,6 +28,13 @@ Actualizado: 2026-09-27
 - [Ficha WhatsApp](ACTIVOS/AFL-338732/FICHA_WHATSAPP.md)
 - [Plan de captura](ACTIVOS/AFL-338732/PLAN_CAPTURA.md)
 
+## Multimedia
+- Root lógico: `AFL_AUTOS_MULTIMEDIA`
+- Estructura: [`_SISTEMA/MULTIMEDIA.md`](_SISTEMA/MULTIMEDIA.md)
+- Drive: originales y derivados multimedia.
+- GitHub: puentes, estados, fichas y planes.
+- No guardar URLs ni IDs privados de Drive mientras este repositorio sea público.
+
 ## Regla
 `INDEX.md` sirve para navegar.  
 `ESTADO.md` sirve para indexación rápida.  
