@@ -191,6 +191,7 @@ Campos disponibles:
 - pregunta o mensaje original;
 - AFL-ID opcional cuando ya existe expediente;
 - nombre del vehículo como fallback manual;
+- canal de respuesta (`COMENTARIO / MESSENGER / WHATSAPP / LLAMADA`);
 - precio MXN como fallback manual;
 - CTA como fallback manual.
 
@@ -200,22 +201,25 @@ Resolución:
 2. si todavía no existe expediente, se usan exclusivamente nombre, precio y CTA ingresados manualmente;
 3. el fallback manual sirve para redactar la respuesta y no crea ni actualiza automáticamente expediente, HOME, Drive, catálogo o WhatsApp;
 4. no inventar datos faltantes;
-5. HOME permite copiar un prompt de **otra respuesta** o una **alternativa breve**;
-6. no enviar ni publicar automáticamente.
+5. en `MESSENGER`, `WHATSAPP` o `LLAMADA`, un `commercial.priceInternal` vigente puede usarse cuando la intención requiere precio;
+6. en `COMENTARIO` público, `commercial.priceInternal` no autoriza mostrar la cifra; si el catálogo omite precio, mover la continuidad a inbox;
+7. HOME permite copiar un prompt de **otra respuesta** o una **alternativa breve**;
+8. no enviar ni publicar automáticamente.
 
 
 ## COPY PAGE COMERCIAL
 
 Entrada oficial desde HOME/ROOT:
 
-- UI: `COPY_PAGE.html`
+- pestaña integrada en HOME: **Generador respuestas**
+- UI reutilizada: `COPY_PAGE.html?embedded=1`
 - Motor: `app/copy-page.js`
 - Política/routing: `data/copy-page.json`
 - Contrato: `data/prompts/copy-page-respuestas.json`
 
 Canales:
 
-`COMENTARIO_PUBLICO / MESSENGER_INBOX / WHATSAPP`
+`COMENTARIO_PUBLICO / MESSENGER_INBOX / WHATSAPP / LLAMADA`
 
 Contrato funcional:
 
@@ -225,7 +229,9 @@ Reglas:
 - si existe número, detectar país y LADA/código de área cuando el mapa local lo permita;
 - el teléfono permanece solo en sesión y nunca se persiste en HOME, repo, localStorage o query string;
 - si el dato ya fue proporcionado, no volver a pedirlo;
-- precio solo se comunica automáticamente desde un campo explícitamente publicable;
+- en `MESSENGER`, `WHATSAPP` y `LLAMADA`, si `commercial.priceInternal` contiene una cifra vigente y la intención requiere precio, se puede comunicar esa cifra exacta;
+- en comentario público, `commercial.priceInternal` nunca se toma como autorización de publicación; solo se muestra un precio público explícitamente autorizado y, si no lo hay, se mueve la continuidad a inbox;
+- informar precio en privado no cambia `commercial.catalogPrice`, `whatsapp.price` ni autoriza publicación;
 - unidad no verificada no autoriza año, versión, motor, transmisión, tracción, documentación o disponibilidad;
 - para leads fuera de México, confirmar si la compra se realizará en México y no prometer exportación/envío;
 - la siguiente acción se ofrece mediante enlace `target="_blank"` hacia ROOT/vehículo, Multimedia, Programador o WhatsApp del lead según corresponda;
