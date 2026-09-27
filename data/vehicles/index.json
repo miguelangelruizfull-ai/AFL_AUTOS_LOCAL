@@ -15,10 +15,10 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA + EVENTO_CAPTURA_CONFIRMADO_EN_CALENDAR",
+        "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA + EVENTO_CAPTURA_CONFIRMADO_EN_CALENDAR + 30_POST_PROGRAMADO_VERIFICADO",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-09-27T14:42:00-06:00"
+        "lastVerifiedAt": "2026-09-27T15:25:35-06:00"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
