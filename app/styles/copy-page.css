@@ -1,0 +1,26 @@
+.copy-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px;padding:20px 0}
+.copy-form,.copy-results{display:grid;gap:14px;align-content:start}
+.copy-panel{background:rgba(18,24,33,.92);border:1px solid var(--line);border-radius:14px;padding:16px}
+.copy-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.copy-field{display:grid;gap:7px;color:var(--muted);font-size:.82rem;font-weight:800}
+.copy-field.full{grid-column:1/-1}
+.copy-field input,.copy-field select,.copy-field textarea{width:100%;background:#0d131b;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:11px;font:inherit}
+.copy-field textarea{min-height:180px;resize:vertical;line-height:1.5}
+.copy-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.copy-result-grid>div{background:#0d131b;border:1px solid var(--line);border-radius:10px;padding:10px}
+.copy-result-grid span{display:block;color:var(--muted);font-size:.7rem;text-transform:uppercase}
+.copy-result-grid strong{display:block;margin-top:5px;overflow-wrap:anywhere}
+.copy-response{white-space:pre-wrap;line-height:1.6;background:#0d131b;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:90px}
+.copy-action{border:1px solid var(--accent);background:#10243a}
+.copy-action h3{margin-top:0}
+.copy-badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.copy-badge{display:inline-block;padding:6px 9px;border:1px solid var(--line);border-radius:999px;font-size:.72rem;font-weight:900;background:#0d131b}
+.copy-badge.ok{color:#8ff0b8;border-color:#29593b;background:#153823}
+.copy-badge.warn{color:#ffd879;border-color:#5b491c;background:#2e2612}
+.copy-badge.info{color:#8dccff;border-color:#28567a;background:#132a3d}
+.copy-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.copy-note{color:var(--muted);font-size:.86rem;line-height:1.5}
+.copy-header-actions{min-width:min(460px,100%)}
+.copy-status-line{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);font-size:.78rem;overflow-wrap:anywhere}
+@media(max-width:960px){.copy-layout{grid-template-columns:1fr}.copy-header-actions{min-width:0;width:100%}}
+@media(max-width:620px){.copy-form-grid,.copy-result-grid,.copy-options{grid-template-columns:1fr}}
