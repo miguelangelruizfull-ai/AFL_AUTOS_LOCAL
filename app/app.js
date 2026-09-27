@@ -353,8 +353,11 @@ function vehicleDetail(v) {
   (v.drive.outputs || []).forEach(function(x) { outBox.append(document.createElement("br"), document.createTextNode("↳ " + x)); });
   const driveActions = element("div", "actions");
   driveActions.append(
-    linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), true),
-    linkButton("Abrir Google Drive", "https://drive.google.com/drive/my-drive", false),
+    linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), true)
+  );
+  if (v.drive.inputUrl) driveActions.append(linkButton("Abrir ENTRADAS", v.drive.inputUrl, false));
+  if (v.drive.outputUrl) driveActions.append(linkButton("Abrir SALIDAS", v.drive.outputUrl, false));
+  driveActions.append(
     actionButton("Copiar ruta ENTRADAS", function() {
       navigator.clipboard.writeText(v.drive.inputRoot);
     }, false),
