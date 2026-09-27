@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "EDITAR_INFORMACION_AUTORIZADA_MIGUEL",
+  "updated": "2026-09-27",
+  "title": "Editar información autorizada por Miguel",
+  "purpose": "Modificar un campo autorizado de un vehículo y sincronizar Drive, expediente JSON y HOME sin alterar información no solicitada ni publicar automáticamente.",
+  "invocation": "EDITAR_INFO_AUTORIZADA",
+  "requiredInputs": [
+    "AFL-ID",
+    "CAMPO o ruta del campo",
+    "NUEVO_VALOR",
+    "Autorización explícita de Miguel en el chat"
+  ],
+  "minimumRead": [
+    "data/vehicles/AFL-ID.json cuando exista",
+    "data/vehicles/index.json",
+    "Drive: AFL-ID — CONTROL OPERATIVO",
+    "documentación operativa relevante del campo"
+  ],
+  "rules": [
+    "La autorización queda limitada al campo y valor expresamente indicados por Miguel.",
+    "Leer primero el valor vigente y no modificar campos ajenos al cambio solicitado.",
+    "Actualizar el CONTROL OPERATIVO y cualquier documento Drive directamente afectado.",
+    "Actualizar data/vehicles/AFL-ID.json y el resumen dependiente en data/vehicles/index.json para HOME.",
+    "Actualizar el .md operativo relevante cuando corresponda.",
+    "Verificar Drive ↔ JSON del vehículo ↔ HOME antes de cerrar.",
+    "Conservar estado, checkpoint y siguiente acción salvo que Miguel autorice específicamente cambiar uno de esos campos.",
+    "Cambiar commercial.priceInternal sincroniza priceInternal de HOME, pero no modifica whatsapp.price ni catalogPrice salvo autorización explícita separada.",
+    "Cambiar vehicle.publicTitle sincroniza el título de HOME.",
+    "Cambiar status.vehicle o checkpoint.nextAction sincroniza los campos equivalentes de HOME.",
+    "No publicar automáticamente ni convertir un cambio de información en autorización de publicación.",
+    "No exponer VIN completo, odómetro, documentos privados, PII ni enlaces/IDs privados de Drive o Calendar en JSON/HOME.",
+    "Si el campo autorizado es privado, actualizar solo la fuente privada/Drive apropiada y mantenerlo fuera de superficies públicas."
+  ],
+  "quickFields": [
+    {"label": "Precio interno", "field": "commercial.priceInternal"},
+    {"label": "Disponibilidad", "field": "commercial.availability"},
+    {"label": "Color", "field": "vehicle.color"},
+    {"label": "Título público", "field": "vehicle.publicTitle"},
+    {"label": "Estado", "field": "status.vehicle"},
+    {"label": "Siguiente acción", "field": "checkpoint.nextAction"},
+    {"label": "WhatsApp descripción", "field": "whatsapp.description"}
+  ],
+  "closure": [
+    "Informar valor anterior y nuevo.",
+    "Indicar qué fuentes fueron actualizadas.",
+    "Confirmar si el checkpoint se conservó o cambió por autorización explícita.",
+    "Confirmar que publicar permanece en NO salvo autorización separada.",
+    "Devolver los enlaces operativos del vehículo."
+  ]
+}
