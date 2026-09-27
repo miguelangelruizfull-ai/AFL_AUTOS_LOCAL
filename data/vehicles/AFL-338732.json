@@ -126,7 +126,11 @@
     "price": null,
     "selectedPhotos": 0,
     "realVideo": false,
-    "targetState": "WHATSAPP_LISTO"
+    "targetState": "WHATSAPP_LISTO",
+    "catalogTextStatus": "LISTO",
+    "mediaStatus": "PENDIENTE_SIN_ARCHIVOS",
+    "selectionStatus": "BLOQUEADA_SIN_MATERIAL",
+    "catalogDocument": "AFL-338732 — FICHA WHATSAPP CATALOGO"
   },
   "music": {
     "registry": "data/musica-usada.json",
@@ -224,7 +228,9 @@
     "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
     "nextAction": "REVISION_MATERIAL",
     "resumeFrom": "Revisar material disponible; si se captura material complementario, subirlo únicamente a 01_ENTRADAS/AFL-338732/20_NUEVA_CAPTURA antes de registrar MATERIAL_NUEVO_SUBIDO.",
-    "driveControlDocument": "AFL-338732 — CONTROL OPERATIVO"
+    "driveControlDocument": "AFL-338732 — CONTROL OPERATIVO",
+    "lastVerified": "2026-09-27",
+    "evidence": "ENTRADAS_CANONICAS_VACIAS; WHATSAPP_TEXTO_LISTO; MEDIA_PENDIENTE_SIN_ARCHIVOS"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
