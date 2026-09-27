@@ -138,3 +138,10 @@ button.btn{cursor:pointer;color:inherit;font:inherit}
 .prompt-menu-card .actions{grid-template-columns:1fr}
 @media(max-width:900px){.checkpoint-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.checkpoint-grid,.prompt-menu-grid{grid-template-columns:1fr}}
+
+.detail-thumb-wrap{width:180px;min-width:180px;align-self:flex-start}
+.detail-thumb{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:#0e141c}
+.print-vehicle-thumb{width:190px;max-height:120px;object-fit:cover;border:1px solid #bbb;border-radius:8px;margin:0 0 12px}
+@media(max-width:900px){.detail-thumb-wrap{width:150px;min-width:150px}}
+@media(max-width:620px){.detail-thumb-wrap{width:100%;min-width:0}.detail-thumb{width:min(100%,420px)}}
+@media print{.print-vehicle-thumb{display:block!important}.detail-thumb-wrap{display:none!important}}
