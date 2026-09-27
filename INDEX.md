@@ -5,6 +5,7 @@ Actualizado: 2026-09-27
 ## INTERFAZ
 
 - [ROOT Console](index.html)
+- [Nuevo vehículo](NUEVO_VEHICULO.html)
 - [Programador](PROGRAMADOR.html)
 
 ## JSON — FUENTE DE LA WEB
@@ -15,6 +16,9 @@ Actualizado: 2026-09-27
 - [Programador](data/programador.json)
 - [Multimedia](data/multimedia.json)
 - [Música usada](data/musica-usada.json)
+- [Prompt nuevo vehículo](data/prompts/nuevo-vehiculo.json)
+- [Workflow nuevo vehículo](data/workflows/nuevo-vehiculo.json)
+- [Plantilla vehículo](data/templates/vehicle.template.json)
 
 ## CONTRATOS
 
