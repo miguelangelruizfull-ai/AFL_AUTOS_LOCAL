@@ -30,6 +30,7 @@
     "deliverableStatuses": [
       "PENDIENTE",
       "EN_PRODUCCION",
+      "PROGRAMADA",
       "LISTO",
       "PUBLICADO"
     ],
@@ -128,5 +129,33 @@
       "description": "Comparar Drive, expediente y HOME sin publicar.",
       "prompt": "Audita únicamente <AFL-ID>. Compara CONTROL OPERATIVO, data/vehicles/<AFL-ID>.json y data/vehicles/index.json. Corrige contradicciones verificables sin publicar y devuelve los cambios."
     }
-  ]
+  ],
+  "publicationSync": {
+    "onSchedule": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "PROGRAMADOR",
+      "RELEVANT_DOCS"
+    ],
+    "onPublish": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "PROGRAMADOR",
+      "MEASUREMENT_7D",
+      "RELEVANT_DOCS"
+    ],
+    "onAuthorizedChange": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_DOCS"
+    ],
+    "homeAlwaysAfterChange": true,
+    "returnToMenuAfterRecommendedNextAction": true,
+    "omitReturnBlockWhenNoRecommendation": true,
+    "scheduledIsNotPublished": true,
+    "measurementStartsAt": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
+  }
 }
