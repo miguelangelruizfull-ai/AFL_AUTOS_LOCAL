@@ -4,6 +4,8 @@
 - `ESTADO.md` = resumen estructurado para indexación.
 - `INDEX.md` = navegación global.
 - `AFL_AUTOS_MULTIMEDIA` = root lógico de multimedia en Drive.
+- Material nuevo sin validar = `PENDIENTE_REVISION`.
+- Ningún material en `PENDIENTE_REVISION` pasa a producción/publicación hasta completar revisión.
 - Drive conserva originales y derivados; GitHub conserva puentes, estados, fichas y planes.
 - No publicar automáticamente.
 - No publicar VIN completo.
