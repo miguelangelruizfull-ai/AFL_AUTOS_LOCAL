@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "programador.schema.json",
+  "title": "AFL Autos Public Scheduler Snapshot",
+  "type": "object",
+  "required": [
+    "updated",
+    "source",
+    "calendarWins",
+    "events"
+  ],
+  "properties": {
+    "updated": {
+      "type": "string"
+    },
+    "source": {
+      "const": "GOOGLE_CALENDAR"
+    },
+    "calendarWins": {
+      "type": "boolean"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "vehicleId",
+          "title",
+          "date",
+          "start",
+          "end",
+          "timezone",
+          "status",
+          "type"
+        ],
+        "properties": {
+          "vehicleId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "links": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
