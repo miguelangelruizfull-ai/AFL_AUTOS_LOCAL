@@ -216,13 +216,14 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "evidenceStatus": "SIN_MATERIAL_NUEVO",
-    "lastEvidenceCheck": "2026-09-27"
+    "lastEvidenceCheck": "2026-09-27",
+    "lastEvidenceCheckAt": "2026-09-27T15:56:57-06:00"
   },
   "checkpoint": {
     "phase": "PRECAPTURA_ESTANDARIZADA",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "VERIFICACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
+    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
     "nextAction": "CAPTURA_COMERCIAL",
     "resumeFrom": "Trabajo físico requerido: ejecutar captura comercial conforme PLAN_CAPTURA y subir material nuevo únicamente a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA; verificar evidencia antes de cambiar de estado.",
     "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO",
@@ -231,7 +232,8 @@
       "availableLocal": "VACIA",
       "approved": "VACIA",
       "contentAvailable": "VACIA"
-    }
+    },
+    "lastVerifiedAt": "2026-09-27T15:56:57-06:00"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
