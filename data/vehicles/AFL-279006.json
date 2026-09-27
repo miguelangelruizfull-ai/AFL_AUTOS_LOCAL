@@ -129,7 +129,7 @@
   "outputs": {
     "marketplace": "EN_PRODUCCION",
     "images": "PENDIENTE",
-    "post": "EN_PRODUCCION",
+    "post": "PROGRAMADA",
     "feed": "EN_PRODUCCION",
     "stories": "PENDIENTE",
     "covers": "PENDIENTE",
@@ -186,7 +186,7 @@
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
-      "status": "EN_PRODUCCION",
+      "status": "PROGRAMADA",
       "url": "https://drive.google.com/drive/folders/16xMBQIiojE2Ugg05pvmbP0ZLMY6186S_"
     },
     {
@@ -285,7 +285,10 @@
       "Incluir siempre enlaces para: subir nueva captura, opciones del vehículo, abrir otro vehículo, nuevo vehículo y regresar a ROOT GLOBAL.",
       "Mostrar la miniatura pública del vehículo al inicio de la respuesta relacionada con la unidad, cuando el cliente permita imágenes.",
       "Detectar el patrón operativo y dejar que el ChatGPT actual determine la recomendación; el repo aporta estado/evidencia y navegación.",
-      "Si el prompt es de edición autorizada, informar valor anterior/nuevo y conservar checkpoint salvo autorización específica."
+      "Si el prompt es de edición autorizada, informar valor anterior/nuevo y conservar checkpoint salvo autorización específica.",
+      "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
+      "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
+      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque."
     ],
     "rules": [
       "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
@@ -295,7 +298,8 @@
       "No exponer VIN completo, odómetro, documentos privados o PII.",
       "La recomendación operativa la decide el ChatGPT actual a partir del checkpoint y evidencia; el menú estático del repo no es autoridad de decisión.",
       "En respuestas relacionadas con este vehículo, mostrar la miniatura pública al inicio cuando el cliente permita imágenes.",
-      "Los cambios de información autorizados por Miguel se limitan al campo/valor indicado y no autorizan publicación."
+      "Los cambios de información autorizados por Miguel se limitan al campo/valor indicado y no autorizan publicación.",
+      "PROGRAMADA no equivale a PUBLICADO; activar MEDICION_7D solo desde PUBLICADO_CONFIRMADO_POR_MIGUEL."
     ],
     "responseLinks": [
       {
@@ -381,6 +385,12 @@
       "label": "5. Auditar sincronización",
       "description": "Comprueba que Drive, ficha, Home y documentación muestran el mismo estado.",
       "instruction": "Audita exclusivamente AFL-279006. Compara Drive, data/vehicles/AFL-279006.json, data/vehicles/index.json y documentación operativa. Corrige contradicciones de estado, siguiente acción o entregables sin publicar nada."
+    },
+    {
+      "key": "publicationStatus",
+      "label": "6. Confirmar publicación / medición 7D",
+      "description": "Confirmar que una pieza programada ya quedó publicada y preparar la medición semanal.",
+      "instruction": "Si Miguel confirma que la pieza ya está publicada o existe evidencia verificable, cambia publication.facebook.status a PUBLICADO_CONFIRMADO_POR_MIGUEL, sincroniza Drive + JSON + HOME + programador y deja MEDICION_7D como siguiente checkpoint de esa pieza. No crear checkpoints rutinarios de 24H/72H."
     }
   ],
   "operationalLinks": {
@@ -474,6 +484,29 @@
     {
       "label": "WhatsApp descripción",
       "field": "whatsapp.description"
+    },
+    {
+      "label": "Publicación Facebook",
+      "field": "publication.facebook.status"
     }
-  ]
+  ],
+  "publication": {
+    "facebook": {
+      "status": "PROGRAMADA",
+      "channel": "POST",
+      "source": "META_BUSINESS_SUITE",
+      "postId": "1886741839427469",
+      "scheduledAt": "2026-09-29T19:00:00-06:00",
+      "timezone": "America/Mexico_City",
+      "audience": "PUBLICA",
+      "promotion": false,
+      "copyStatus": "FINAL_CONFIRMADO_POR_MIGUEL",
+      "publicationConfirmationRequired": true,
+      "measurement": {
+        "cadence": "7D",
+        "status": "ESPERAR_PUBLICACION_CONFIRMADA",
+        "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
+      }
+    }
+  }
 }
