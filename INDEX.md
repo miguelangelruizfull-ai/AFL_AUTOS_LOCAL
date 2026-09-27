@@ -2,52 +2,35 @@
 
 Actualizado: 2026-09-27
 
-## INICIO
+## INTERFAZ
+
+- [ROOT Console](index.html)
+- [Programador](PROGRAMADOR.html)
+
+## JSON — FUENTE DE LA WEB
+
+- [Sistema](data/system.json)
+- [Vehículos](data/vehicles/index.json)
+- [Colorado AFL-279006](data/vehicles/AFL-279006.json)
+- [Programador](data/programador.json)
+- [Multimedia](data/multimedia.json)
+- [Música usada](data/musica-usada.json)
+
+## CONTRATOS
+
+- [Vehicle schema](data/schema/vehicle.schema.json)
+- [Programador schema](data/schema/programador.schema.json)
+
+## DOCUMENTACION
+
 - [START_HERE](START_HERE.md)
-- [PROGRAMADOR](_SISTEMA/PROGRAMADOR.md)
 - [REGLAS](_SISTEMA/REGLAS.md)
-- [Música usada](_SISTEMA/MUSICA_USADA.md)
+- [MULTIMEDIA](_SISTEMA/MULTIMEDIA.md)
 
-| Código | Vehículo | Estado | WhatsApp | Precio | Siguiente |
-|---|---|---|---|---:|---|
-| AFL-279006 | Chevrolet Colorado Work Truck 2016 | CAPTURA_PENDIENTE | OCULTO | $325,000 | CAPTURA_COMPLETA |
-| AFL-338663 | Chevrolet Silverado 2016 Cabina Regular | CAPTURA_PENDIENTE | OCULTO | $310,000 | CAPTURA |
-| AFL-338732 | Chevrolet Silverado 1500 LTZ Texas Edition 2017 | REVISION_MATERIAL | OCULTO | PENDIENTE | REVISION_MATERIAL |
+## ESTADO DE MIGRACION
 
-## Navegación
+- AFL-279006: expediente JSON completo.
+- AFL-338663: resumen JSON en índice; expediente completo pendiente de migración.
+- AFL-338732: resumen JSON en índice; expediente completo pendiente de migración.
 
-### AFL-279006
-- [PUENTE](ACTIVOS/AFL-279006/PUENTE.md)
-- [ESTADO](ACTIVOS/AFL-279006/ESTADO.md)
-- [Ficha WhatsApp](ACTIVOS/AFL-279006/FICHA_WHATSAPP.md)
-- [Checklist campo](ACTIVOS/AFL-279006/CHECKLIST_CAMPO.md)
-- [Captura completa](ACTIVOS/AFL-279006/CAPTURA_COMPLETA.md)
-- [Plan de captura](ACTIVOS/AFL-279006/PLAN_CAPTURA.md)
-- [Plan de contenido](ACTIVOS/AFL-279006/PLAN_CONTENIDO.md)
-
-### AFL-338663
-- [PUENTE](ACTIVOS/AFL-338663/PUENTE.md)
-- [ESTADO](ACTIVOS/AFL-338663/ESTADO.md)
-- [Ficha WhatsApp](ACTIVOS/AFL-338663/FICHA_WHATSAPP.md)
-- [Plan de captura](ACTIVOS/AFL-338663/PLAN_CAPTURA.md)
-
-### AFL-338732
-- [PUENTE](ACTIVOS/AFL-338732/PUENTE.md)
-- [ESTADO](ACTIVOS/AFL-338732/ESTADO.md)
-- [Ficha WhatsApp](ACTIVOS/AFL-338732/FICHA_WHATSAPP.md)
-- [Plan de captura](ACTIVOS/AFL-338732/PLAN_CAPTURA.md)
-
-## Multimedia
-- Root lógico: `AFL_AUTOS_MULTIMEDIA`
-- Estructura: [`_SISTEMA/MULTIMEDIA.md`](_SISTEMA/MULTIMEDIA.md)
-- Ingreso de material nuevo: `02_PENDIENTE_REVISION`.
-- Drive: originales y derivados multimedia.
-- GitHub: puentes, estados, fichas y planes.
-- No guardar URLs ni IDs privados de Drive mientras este repositorio sea público.
-
-## Regla
-`START_HERE.md` es el punto de entrada.
-`INDEX.md` sirve para navegar.
-`ESTADO.md` sirve para indexación rápida.
-`PUENTE.md` conserva la verdad vigente completa.
-Google Calendar conserva programación y recordatorios vigentes.
+Los archivos `.md` existentes se conservan como documentación histórica/operativa mientras termina la migración.
