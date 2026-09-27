@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-27T16:45:00-06:00",
+  "updated": "2026-09-27T17:01:00-06:00",
   "workflow": "NUEVO_VEHICULO",
   "state": "IDENTIFICACION_PENDIENTE",
   "uploadState": "EN_CURSO",
   "aflId": null,
-  "materialCountVisible": 0,
+  "materialCountVisible": 106,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
@@ -22,5 +22,13 @@
     "classifyBeforeCleanup": true,
     "showOptionsBeforeDelete": true
   },
-  "nextAction": "REVISAR_ARCHIVOS_COMPLETOS_DISPONIBLES_Y_REESCANEAR"
+  "nextAction": "SEPARAR_EVIDENCIA_POR_UNIDAD_Y_REESCANEAR_ANTES_DE_CERRAR",
+  "intake": {
+    "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
+    "conversationEvidence": "PENDIENTE_ADJUNTO_USUARIO",
+    "vin": "PENDIENTE",
+    "priceAvailabilityUpdate": "PENDIENTE_EVIDENCIA_CONVERSACION",
+    "thumbnail": "PENDIENTE_SELECCION_MATERIAL_APTO",
+    "homeChecklist": "PREPARAR"
+  }
 }
