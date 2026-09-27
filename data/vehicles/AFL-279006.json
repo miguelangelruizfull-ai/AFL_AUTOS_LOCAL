@@ -396,7 +396,7 @@
       "key": "finishOutputs",
       "label": "4. Terminar piezas",
       "description": "Actualiza borradores y genera derivados que ya tengan material suficiente.",
-      "instruction": "Actualiza Marketplace, Post y Feed con la SELECCION_FINAL; genera IMAGENES_COMERCIALES y, solo si existe video vertical suficiente, prepara Reel/TikTok. WhatsApp debe permanecer OCULTO hasta validación. No pasar una pieza a LISTO sin revisión final."
+      "instruction": "Actualiza Marketplace, Post y Feed con la SELECCION_FINAL; genera IMAGENES_COMERCIALES y, solo si existe video vertical suficiente, prepara Reel/TikTok. WhatsApp ya está LISTO por transición explícita: conservar LISTO / NO_PUBLICAR y no devolverlo a OCULTO salvo autorización expresa. No pasar otras piezas a LISTO sin revisión final."
     },
     {
       "key": "syncAudit",
@@ -549,5 +549,22 @@
       "instruction": "Después de dar el precio, llevar al lead a una sola siguiente acción útil según su intención: confirmar disponibilidad, solicitar información faltante, mover a WhatsApp, enviar material o proponer visita, según corresponda."
     },
     "autoPublish": false
+  },
+  "syncAudit": {
+    "lastRun": "2026-09-27",
+    "result": "SINCRONIZADO_CON_CORRECCIONES",
+    "canonicalState": {
+      "vehicle": "CAPTURA_PENDIENTE",
+      "phase": "PRECAPTURA_CON_BORRADORES",
+      "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+      "whatsapp": "LISTO",
+      "publish": false
+    },
+    "corrections": [
+      "FICHA_WHATSAPP_REPO_OCULTO_A_LISTO",
+      "FICHA_WHATSAPP_DRIVE_HEREDADA_OCULTO_A_LISTO",
+      "PROMPT_MENU_FINISH_OUTPUTS_NO_REVERTIR_WHATSAPP_A_OCULTO"
+    ],
+    "homeIndexChangeRequired": false
   }
 }
