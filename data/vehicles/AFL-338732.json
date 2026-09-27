@@ -22,7 +22,7 @@
     "classification": "PENDIENTE",
     "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "outputsDrive": "PREPARADAS",
     "publish": true
   },
@@ -116,17 +116,17 @@
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
-    "whatsapp": "OCULTO",
+    "whatsapp": "LISTO",
     "sendPackage": "PENDIENTE"
   },
   "whatsapp": {
-    "status": "OCULTO",
+    "status": "LISTO",
     "title": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition",
     "description": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition, Crew Cab, con motor 5.3 L V8 y tracción 4x2. Interior en piel negra, memorias de asiento y audio Bose. Consulta precio y disponibilidad vigente.",
     "price": null,
     "selectedPhotos": 0,
     "realVideo": false,
-    "targetState": "WHATSAPP_OCULTO_LISTO"
+    "targetState": "WHATSAPP_LISTO"
   },
   "music": {
     "registry": "data/musica-usada.json",
@@ -199,9 +199,9 @@
     },
     {
       "key": "whatsapp",
-      "label": "WhatsApp oculto",
+      "label": "WhatsApp catálogo",
       "folder": "90_WHATSAPP_OCULTO",
-      "status": "PENDIENTE"
+      "status": "LISTO"
     },
     {
       "key": "sendPackage",
