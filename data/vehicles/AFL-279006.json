@@ -99,7 +99,9 @@
   },
   "drive": {
     "inputRoot": "01_ENTRADAS/AFL-279006",
+    "inputUrl": "https://drive.google.com/drive/folders/1gOTd4dH0gEku8gwhSY4HsDb0pawqzcd3",
     "outputRoot": "02_SALIDAS/AFL-279006",
+    "outputUrl": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1",
     "inputs": [
       "00_MATERIAL_DISPONIBLE_LOCAL",
       "10_APROBADOS",
