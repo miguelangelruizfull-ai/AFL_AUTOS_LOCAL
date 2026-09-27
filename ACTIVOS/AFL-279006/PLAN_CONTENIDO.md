@@ -2,7 +2,7 @@
 
 VEHICULO: Chevrolet Colorado Work Truck 2016
 COLOR: ROJO
-ESTADO: PENDIENTE_DE_CAPTURA / NO_PUBLICAR
+ESTADO: PENDIENTE_DE_CAPTURA / NO_PUBLICAR_AUTOMATICAMENTE
 FUENTE_CAPTURA: [CAPTURA_COMPLETA.md](CAPTURA_COMPLETA.md)
 PROGRAMACION: GOOGLE_CALENDAR
 ACTUALIZADO: 2026-09-27
@@ -51,7 +51,11 @@ Salida prevista:
 
 ## 2. POST
 
-ESTADO: EN_PRODUCCION / BORRADOR_PRECAPTURA / NO_PUBLICAR
+ESTADO: PROGRAMADA / FACEBOOK / META_BUSINESS_SUITE
+PROGRAMACION: 2026-09-29 19:00 America/Mexico_City
+IDENTIFICADOR: 1886741839427469
+COPY: FINAL_CONFIRMADO_POR_MIGUEL
+REGLA: PROGRAMADA ≠ PUBLICADA; no modificar la pieza salvo autorización expresa.
 
 Formato recomendado:
 - imagen principal 4:5.
@@ -153,9 +157,10 @@ Requisitos:
 ## GATE DE PRODUCCION
 
 DECISION_OPERATIVA_2026-09-27:
-- Marketplace, Post y Feed pueden prepararse como BORRADOR_PRECAPTURA con el material comercial ya aprobado.
+- Marketplace y Feed pueden prepararse como BORRADOR_PRECAPTURA con el material comercial ya aprobado.
+- Post de Facebook ya está PROGRAMADA con copy final confirmado por Miguel; no modificarla salvo autorización expresa.
 - Estado mientras falte el trabajo de campo: EN_PRODUCCION.
-- No publicar ni pasar a LISTO antes de revisar la nueva captura.
+- No programar/publicar automáticamente nuevas piezas ni pasar otras salidas a LISTO antes de revisar la nueva captura.
 - Reel y TikTok continúan esperando el video vertical de campo cuando corresponda.
 
 Flujo de cierre:
@@ -216,3 +221,13 @@ Antes de producir Reel, TikTok o Historia con audio:
 
 No crear carpeta de música para este vehículo.
 No guardar archivos de audio.
+
+
+## REVALIDACIÓN DE CHECKPOINT — 2026-09-27 15:25
+
+- 20_NUEVA_CAPTURA continúa vacía.
+- 30_POST fue verificado en Drive como PROGRAMADA y sincronizado.
+- No procede MATERIAL_NUEVO_SUBIDO ni REVISION_MATERIAL.
+- Se conserva CAPTURA_PENDIENTE.
+- Siguiente acción operativa: CAPTURA_COMERCIAL_COMPLETA de 22 fotos + video vertical 9:16 y carga únicamente en 20_NUEVA_CAPTURA.
+- Facebook Post programada para 2026-09-29 19:00; MEDICION_7D inicia solo después de PUBLICADO_CONFIRMADO_POR_MIGUEL.
