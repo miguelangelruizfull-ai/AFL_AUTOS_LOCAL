@@ -4,6 +4,7 @@ Actualizado: 2026-09-27
 
 ## INTERFAZ
 
+- [Portafolio técnico](PORTAFOLIO/index.html)
 - [ROOT Console](index.html)
 - [Nuevo vehículo](NUEVO_VEHICULO.html)
 - [Programador](PROGRAMADOR.html)
