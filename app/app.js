@@ -368,7 +368,8 @@ async function renderHome() {
     linkButton("Programador", "PROGRAMADOR.html", false),
     linkButton("Vehicles JSON", "data/vehicles/index.json", false),
     linkButton("Multimedia", "MULTIMEDIA.html", false),
-    linkButton("Música JSON", "data/musica-usada.json", false)
+    linkButton("Música JSON", "data/musica-usada.json", false),
+    linkButton("Portafolio técnico", "PORTAFOLIO/", false)
   );
   consoleCard.append(consoleHead, actions);
   consoleSection.append(consoleCard);
