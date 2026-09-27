@@ -5,7 +5,44 @@ const root = document.getElementById("app");
 function linkButton(label, href, primary) {
   const a = element("a", primary ? "btn primary" : "btn", label);
   a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
   return a;
+}
+
+function vehicleThumbnailPath(v) {
+  if (v && v.ui && v.ui.thumbnail) return v.ui.thumbnail;
+  if (v && v.image) return v.image;
+  return "assets/thumbs/" + encodeURIComponent(v.id) + ".jpg";
+}
+
+function publicVehicleThumbnailUrl(v) {
+  if (v && v.ui && v.ui.thumbnailPublicUrl) return v.ui.thumbnailPublicUrl;
+  try { return new URL(vehicleThumbnailPath(v), document.baseURI).href; }
+  catch (error) { return vehicleThumbnailPath(v); }
+}
+
+function detectOperationalPattern(v) {
+  const c = v.checkpoint || {};
+  const status = String((v.status && v.status.vehicle) || c.state || "").toUpperCase();
+  const next = String(c.nextAction || "").toUpperCase();
+  const joined = status + " " + next;
+  if (/MATERIAL_NUEVO_SUBIDO/.test(joined)) return "MATERIAL_NUEVO_SUBIDO";
+  if (/REVISION_MATERIAL/.test(joined)) return "REVISION_MATERIAL";
+  if (/SELECCION_FINAL/.test(joined)) return "SELECCION_FINAL";
+  if (/CAPTURA_PENDIENTE|CAPTURA_COMERCIAL|PLAN_CAPTURA/.test(joined)) return "CAPTURA_PENDIENTE";
+  if (/CONTENIDO_DISPONIBLE|LISTO_PARA_VALIDACION|LISTO/.test(joined)) return "CONTENIDO_LISTO_O_VALIDACION";
+  return "GENERAL";
+}
+
+function currentChatGPTInstruction(v) {
+  return [
+    "Detecta el patrón operativo real usando checkpoint, estado, Drive y evidencia disponible.",
+    "Patrón funcional detectado por la interfaz: " + detectOperationalPattern(v) + ".",
+    "La decisión del siguiente paso corresponde al ChatGPT actual. El repo solo aporta estado, evidencia, enlaces y acciones manuales; no uses el orden del menú estático como autoridad de recomendación.",
+    "Recomienda y ejecuta únicamente el siguiente paso válido que pueda realizarse con evidencia disponible. Si requiere trabajo físico, indícalo y conserva estados.",
+    "Al responder, muestra la miniatura pública de este vehículo al inicio si el cliente permite imágenes."
+  ].join(" ");
 }
 
 function actionButton(label, onClick, primary) {
@@ -60,7 +97,7 @@ function vehicleCard(v) {
 
   const wrap = element("div", "thumb-wrap");
   const img = element("img", "thumb");
-  img.src = v.image;
+  img.src = vehicleThumbnailPath(v);
   img.alt = v.title;
   img.loading = "lazy";
   wrap.append(img, element("span", "code-badge", v.id), element("span", "publish-badge", v.publish ? "PUBLICABLE" : "NO PUBLICAR"));
@@ -195,6 +232,13 @@ function buildOperationalPrompt(v, item) {
   const lines = [
     "Opera únicamente el vehículo " + v.id + " (" + v.vehicle.publicTitle + ") dentro de AFL Autos.",
     "",
+    "MINIATURA PÚBLICA DEL VEHÍCULO:",
+    publicVehicleThumbnailUrl(v),
+    "Al responder a este prompt, muestra esta miniatura al inicio si el cliente permite imágenes. No uses la imagen de otro vehículo.",
+    "",
+    "AUTORIDAD DE RECOMENDACIÓN:",
+    currentChatGPTInstruction(v),
+    "",
     "REANUDAR DESDE CHECKPOINT. No leas todo el proyecto ni dependas de memoria de conversaciones anteriores.",
     "",
     "CHECKPOINT ACTUAL:",
@@ -236,26 +280,38 @@ function makeVehicleOpsMenu(v) {
   const panel = element("article", "panel wide no-print");
   panel.id = "vehicle-ops";
   const links = v.operationalLinks || {};
-  const c = v.checkpoint || {};
+  const pattern = detectOperationalPattern(v);
+  const status = element("span", "copy-status", "");
   panel.append(
-    element("div", "eyebrow", "ACCESOS OPERATIVOS"),
-    element("h2", "", "¿Qué quieres hacer ahora?"),
-    element("p", "subtitle", "Recomendado según checkpoint: " + labelStatus(c.nextAction || v.status.vehicle || "PENDIENTE"))
+    element("div", "eyebrow", "CHATGPT ACTUAL · DECISIÓN OPERATIVA"),
+    element("h2", "", "¿Qué conviene hacer ahora?"),
+    element("p", "subtitle", "Patrón detectado: " + labelStatus(pattern) + ". El repo no decide la recomendación; el ChatGPT actual evalúa el checkpoint y la evidencia.")
   );
-  const actions = element("div", "actions");
-  if (links.newCapture && links.newCapture.url) actions.append(linkButton("Subir nueva captura", links.newCapture.url, true));
-  actions.append(
+
+  const decisionActions = element("div", "actions");
+  decisionActions.append(actionButton("Copiar prompt · decidir siguiente paso", function() {
+    copyText(buildOperationalPrompt(v, {
+      key: "currentChatGPT",
+      label: "ChatGPT actual",
+      instruction: currentChatGPTInstruction(v)
+    }), status);
+  }, true));
+  panel.append(decisionActions, status);
+
+  const quick = element("div", "actions");
+  if (links.newCapture && links.newCapture.url) quick.append(linkButton("Subir nueva captura", links.newCapture.url, false));
+  quick.append(
     linkButton("Ver checklist", "#field-checklist", false),
     linkButton("Opciones del vehículo", "#prompt-menu", false)
   );
-  if (links.outputs && links.outputs.url) actions.append(linkButton("Abrir SALIDAS", links.outputs.url, false));
-  if (links.control && links.control.url) actions.append(linkButton("CONTROL OPERATIVO", links.control.url, false));
-  actions.append(
+  if (links.outputs && links.outputs.url) quick.append(linkButton("Abrir SALIDAS", links.outputs.url, false));
+  if (links.control && links.control.url) quick.append(linkButton("CONTROL OPERATIVO", links.control.url, false));
+  quick.append(
     linkButton("Abrir otro vehículo", (links.otherVehicle && links.otherVehicle.url) || "index.html", false),
     linkButton("Nuevo vehículo", (links.newVehicle && links.newVehicle.url) || "NUEVO_VEHICULO.html", false),
     linkButton("Regresar a ROOT GLOBAL", (links.rootGlobal && links.rootGlobal.url) || "index.html", false)
   );
-  panel.append(actions);
+  panel.append(element("p", "deliverable-note", "Accesos rápidos: navegación manual, no equivalen a una recomendación operativa."), quick);
   return panel;
 }
 
@@ -279,7 +335,13 @@ function makePromptMenu(v) {
   panel.append(checkpoint);
 
   const grid = element("div", "prompt-menu-grid");
-  (v.promptMenu || []).forEach(function(item) {
+  const dynamicRecommendation = {
+    key: "currentChatGPT",
+    label: "0. ChatGPT actual · decidir siguiente paso",
+    description: "El ChatGPT actual detecta el patrón, contrasta evidencia y elige la siguiente acción válida; el repo no impone la recomendación.",
+    instruction: currentChatGPTInstruction(v)
+  };
+  [dynamicRecommendation].concat(v.promptMenu || []).forEach(function(item) {
     const card = element("div", "prompt-menu-card");
     card.append(
       element("strong", "", item.label),
@@ -289,7 +351,7 @@ function makePromptMenu(v) {
     const actions = element("div", "actions");
     actions.append(actionButton("Copiar prompt", function() {
       copyText(buildOperationalPrompt(v, item), status);
-    }, item.key === "resume"));
+    }, item.key === "currentChatGPT"));
     card.append(actions, status);
     grid.append(card);
   });
@@ -405,7 +467,13 @@ function vehicleDetail(v) {
     element("h1", "", v.vehicle.publicTitle),
     element("p", "subtitle", v.vehicle.configuration.engine + " · " + v.vehicle.configuration.transmission + " · " + v.vehicle.configuration.drivetrain)
   );
-  head.append(headText, linkButton("← Inventario", "index.html", false));
+  const detailThumbWrap = element("div", "detail-thumb-wrap");
+  const detailThumb = element("img", "detail-thumb");
+  detailThumb.src = vehicleThumbnailPath(v);
+  detailThumb.alt = "Miniatura " + v.id + " · " + v.vehicle.publicTitle;
+  detailThumb.loading = "eager";
+  detailThumbWrap.append(detailThumb);
+  head.append(headText, detailThumbWrap, linkButton("← Inventario", "index.html", false));
   section.append(head);
 
   const grid = element("div", "detail-grid");
@@ -436,7 +504,11 @@ function vehicleDetail(v) {
 
   const capture = element("article", "panel print-checklist");
   capture.id = "field-checklist";
+  const printThumb = element("img", "print-only print-vehicle-thumb");
+  printThumb.src = vehicleThumbnailPath(v);
+  printThumb.alt = "Miniatura " + v.id + " · " + v.vehicle.publicTitle;
   capture.append(
+    printThumb,
     element("h2", "", "Checklist de trabajo de campo"),
     element("div", "print-only", v.id + " · " + v.vehicle.publicTitle),
     element("h3", "", "Captura programada"),
