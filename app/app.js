@@ -272,6 +272,7 @@ function makeDeliverables(v) {
       };
       copyText(JSON.stringify(payload, null, 2), status);
     }, false);
+    if (d.url) controls.append(linkButton("Abrir carpeta", d.url, false));
     controls.append(select, copy);
     card.append(top, element("p", "deliverable-note", channelNote(effectiveStatus)), controls, status);
     grid.append(card);
