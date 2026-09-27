@@ -77,6 +77,8 @@ Todo vehículo actual o nuevo del framework debe tener:
 
 ## PROGRAMACION, PUBLICACION Y RETORNO AL MENU
 
+- Al PROGRAMAR o PUBLICAR una pieza, es obligatorio actualizar también el archivo real de esa pieza dentro de su carpeta de `02_SALIDAS` (ej.: `30_POST`, `40_FEED`, `50_HISTORIAS`, `70_REEL`, `80_TIKTOK`). Debe contener copy final, estado, fecha/hora e identificador disponible. No basta con actualizar CONTROL/JSON/HOME.
+
 - `PROGRAMADA ≠ PUBLICADA`. Registrar una programación no inicia la medición 7D.
 - Después de confirmar una programación, una publicación real o una acción de cambio autorizada, actualizar siempre las fuentes afectadas y `data/vehicles/index.json` para que HOME refleje el estado vigente.
 - Si existe fecha/hora programada, actualizar también `data/programador.json` con la fuente real: Google Calendar para trabajo de campo y Meta Business Suite para publicaciones sociales.
