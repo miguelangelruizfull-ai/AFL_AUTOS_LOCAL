@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0.0",
+  "updated":"2026-09-27",
+  "module":"COPY_PAGE_V2",
+  "autoSend":false,
+  "autoPublish":false,
+  "piiPersistence":"SESSION_ONLY",
+  "saleCountry":"MX",
+  "publicLocation":"Carretera Tecamachalco–Quecholac, Entronque El Salado, Tecamachalco, Puebla.",
+  "metaWhatsapp":"2491151388",
+  "rules":["RESPONDER_PRIMERO","MAXIMO_UNA_PREGUNTA_UTIL","DATO_YA_PROPORCIONADO_NO_VOLVER_A_PREGUNTAR","UNIDAD_NO_VERIFICADA_NO_AFIRMAR_ESPECIFICACIONES","PRECIO_SOLO_SI_PUBLICABLE","PII_NO_PUBLICA","VENTA_UNICAMENTE_EN_MEXICO","NO_PROMETER_EXPORTACION","NO_PUBLICAR_AUTOMATICAMENTE"],
+  "routes":{"root":"index.html","multimedia":"MULTIMEDIA.html","programador":"PROGRAMADOR.html","newVehicle":"NUEVO_VEHICULO.html"},
+  "mexicoLada":{"55":"Ciudad de México","33":"Guadalajara, Jalisco","81":"Monterrey, Nuevo León","222":"Puebla, Puebla","221":"Puebla, Puebla","223":"Acatzingo / zona centro-oriente de Puebla","224":"Tepeaca / zona centro de Puebla","225":"Libres / zona norte-oriente de Puebla","226":"Teziutlán / zona nororiental de Puebla","227":"Huejotzingo / zona centro-oeste de Puebla","228":"Xalapa, Veracruz","229":"Veracruz, Veracruz","231":"Teziutlán / zona nororiental de Puebla","232":"Martínez de la Torre, Veracruz","233":"Zacapoaxtla / zona norte de Puebla","234":"zona norte de Puebla","235":"Misantla / zona centro-norte de Veracruz","236":"zona sierra de Puebla","237":"Tehuacán / zona sur-oriente de Puebla","238":"Tehuacán, Puebla","241":"Tlaxcala / Apizaco","244":"Atlixco, Puebla","245":"Ciudad Serdán / zona oriental de Puebla","246":"Tlaxcala","247":"Huamantla, Tlaxcala","248":"San Martín Texmelucan, Puebla","249":"Tecamachalco / Quecholac, Puebla"},
+  "nanpArea":{"203":"Connecticut, EE. UU.","475":"Connecticut, EE. UU.","212":"Nueva York, EE. UU.","213":"California, EE. UU.","305":"Florida, EE. UU.","312":"Illinois, EE. UU.","713":"Texas, EE. UU."}
+}
