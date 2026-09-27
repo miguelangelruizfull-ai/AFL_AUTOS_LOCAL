@@ -248,7 +248,7 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "Marketplace, Post y Feed en EN_PRODUCCION como BORRADOR_PRECAPTURA; WhatsApp OCULTO con ficha preparada; Drive y repositorio sincronizados.",
+    "lastCompleted": "MENÚ_DE_PROMPTS_PERSISTENTE implementado; CONTROL OPERATIVO creado en Drive; contrato de cierre Drive + vehículo JSON + HOME activo.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo y subir material nuevo únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
