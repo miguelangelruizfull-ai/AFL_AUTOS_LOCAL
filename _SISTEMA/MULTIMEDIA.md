@@ -11,12 +11,16 @@ Root lógico: `AFL_AUTOS_MULTIMEDIA`
 ```text
 AFL_AUTOS_MULTIMEDIA/
 ├── 01_ACTIVOS/
-├── 02_CAPTURA_PENDIENTE/
+├── 02_PENDIENTE_REVISION/
 ├── 03_LISTO_PRODUCCION/
 ├── 04_PUBLICADO/
 ├── 05_VENDIDOS/
 └── 99_ARCHIVO/
 ```
+
+## Flujo
+`02_PENDIENTE_REVISION` recibe material nuevo que todavía no ha sido validado.
+Solo después de revisión puede pasar a `01_ACTIVOS`, `03_LISTO_PRODUCCION` u otro estado correspondiente.
 
 ## Convención recomendada por unidad
 ```text
