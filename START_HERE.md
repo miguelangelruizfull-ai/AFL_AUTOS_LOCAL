@@ -116,3 +116,31 @@ Reglas:
 - no depender de memoria de chat;
 - no releer todo el proyecto si el checkpoint y las fuentes mínimas son suficientes;
 - no exponer VIN completo, odómetro, documentación privada o PII.
+
+
+## EDICION AUTORIZADA
+
+Prompt canónico:
+
+`data/prompts/editar-informacion-autorizada.json`
+
+Uso:
+
+1. indicar AFL-ID;
+2. indicar CAMPO/ruta;
+3. indicar NUEVO_VALOR;
+4. Miguel autoriza explícitamente el cambio;
+5. leer el valor vigente;
+6. actualizar únicamente el campo autorizado y sus resúmenes dependientes;
+7. sincronizar CONTROL OPERATIVO/Drive, JSON del vehículo y HOME;
+8. verificar coincidencia antes de cerrar.
+
+Ejemplo de precio:
+
+`CAMPO: commercial.priceInternal`
+
+Actualizar ese campo también actualiza `priceInternal` del resumen HOME. No modifica precio de catálogo, estado, checkpoint ni publicación salvo autorización específica.
+
+## ESTANDAR DRIVE Y HOME
+
+Todos los vehículos del framework, actuales y nuevos, deben tener la misma estructura de ENTRADAS/SALIDAS definida en `data/multimedia.json`, un CONTROL OPERATIVO dentro de SALIDAS y un expediente JSON detallado cuando la unidad ya esté incorporada al framework. HOME debe mostrar accesos ROOT en su pestaña propia y respuestas rápidas reutilizables.
