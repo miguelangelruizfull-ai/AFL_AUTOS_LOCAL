@@ -17,7 +17,8 @@
         "phase": "PRECAPTURA_CON_BORRADORES",
         "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
-        "state": "CAPTURA_PENDIENTE"
+        "state": "CAPTURA_PENDIENTE",
+        "lastVerifiedAt": "2026-09-27T14:38:00-06:00"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
