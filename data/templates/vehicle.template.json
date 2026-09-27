@@ -254,14 +254,18 @@
       "Actualizar data/vehicles/index.json para HOME.",
       "Actualizar documentación operativa relevante.",
       "Verificar consistencia Drive ↔ vehículo JSON ↔ HOME.",
-      "Persistir checkpoint.nextAction cuando cambie el flujo."
+      "Persistir checkpoint.nextAction cuando cambie el flujo.",
+      "Después de PROGRAMAR, PUBLICAR o ejecutar una acción de cambio autorizada, actualizar siempre data/vehicles/index.json para que HOME refleje el cambio.",
+      "Cuando exista fecha/hora programada, sincronizar también data/programador.json con la fuente real de programación.",
+      "Si el ChatGPT actual recomienda una siguiente acción útil, mostrarla y después regresar al menú/opciones del vehículo; si no existe recomendación concreta, omitir ese bloque."
     ],
     "rules": [
       "No mezclar vehículos.",
       "No publicar automáticamente.",
       "No exponer VIN completo, odómetro, documentos privados o PII.",
       "La recomendación operativa corresponde al ChatGPT actual.",
-      "Los cambios autorizados por Miguel se limitan al campo y valor indicados."
+      "Los cambios autorizados por Miguel se limitan al campo y valor indicados.",
+      "PROGRAMADA no equivale a PUBLICADO; MEDICION_7D inicia desde PUBLICADO_CONFIRMADO_POR_MIGUEL."
     ],
     "responseLinks": []
   },
@@ -301,6 +305,12 @@
       "label": "Auditar sincronización",
       "description": "Comprobar Drive, JSON y HOME.",
       "instruction": "Corrige contradicciones verificables sin publicar."
+    },
+    {
+      "key": "publicationStatus",
+      "label": "Confirmar publicación / medición 7D",
+      "description": "Confirmar publicación real y preparar medición semanal.",
+      "instruction": "Cuando exista confirmación real, sincroniza publicación y HOME y activa MEDICION_7D; no crear 24H/72H rutinarios."
     }
   ],
   "quickResponses": [
@@ -331,6 +341,10 @@
     {
       "label": "WhatsApp descripción",
       "field": "whatsapp.description"
+    },
+    {
+      "label": "Publicación Facebook",
+      "field": "publication.facebook.status"
     }
   ],
   "operationalLinks": {
@@ -353,6 +367,25 @@
     "repository": {
       "label": "Repositorio",
       "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  },
+  "publication": {
+    "facebook": {
+      "status": "NO_PROGRAMADA",
+      "channel": null,
+      "source": null,
+      "postId": null,
+      "scheduledAt": null,
+      "timezone": "America/Mexico_City",
+      "audience": null,
+      "promotion": false,
+      "copyStatus": null,
+      "publicationConfirmationRequired": true,
+      "measurement": {
+        "cadence": "7D",
+        "status": "INACTIVA",
+        "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
+      }
     }
   }
 }
