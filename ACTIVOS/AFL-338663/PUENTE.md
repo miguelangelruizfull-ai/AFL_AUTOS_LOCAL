@@ -1,0 +1,22 @@
+# PUENTE — AFL-338663
+
+VEHICLE_ID: AFL-338663
+VEHICULO: Chevrolet Silverado 2016 Cabina Regular
+ESTADO: CAPTURA_PENDIENTE
+PUBLICACION: NO_PUBLICAR
+PRECIO: 310000 MXN
+PRECIO_CATALOGO: OMITIR
+WHATSAPP: OCULTO
+SIGUIENTE_ACCION: CAPTURA_COMERCIAL
+ACTUALIZADO: 2026-09-27
+
+CONFIRMADO:
+- cabina regular
+- 4x4
+- motor 5.3 L gasolina
+- V8 corroborado
+
+PENDIENTE:
+- color comercial exacto
+- Texas Edition no confirmado
+- transmisión exacta
