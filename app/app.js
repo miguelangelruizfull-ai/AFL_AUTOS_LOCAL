@@ -671,13 +671,14 @@ function vehicleDetail(v) {
   const printThumb = element("img", "print-only print-vehicle-thumb");
   printThumb.src = vehicleThumbnailPath(v);
   printThumb.alt = "Miniatura " + v.id + " · " + v.vehicle.publicTitle;
+  const hasSchedule = Boolean(v.capture && v.capture.scheduled && v.capture.date && v.capture.start && v.capture.end);
   capture.append(
     printThumb,
     element("h2", "", "Checklist de trabajo de campo"),
     element("div", "print-only", v.id + " · " + v.vehicle.publicTitle),
-    element("h3", "", "Captura programada"),
-    element("div", "schedule-time", v.capture.date + " · " + v.capture.start + "–" + v.capture.end),
-    element("p", "subtitle", "Fuente: " + v.capture.source + " · " + v.capture.timezone),
+    element("h3", "", hasSchedule ? "Captura programada" : "Programación"),
+    element("div", "schedule-time", hasSchedule ? (v.capture.date + " · " + v.capture.start + "–" + v.capture.end) : "Sin programación confirmada"),
+    element("p", "subtitle", hasSchedule ? ("Fuente: " + v.capture.source + " · " + v.capture.timezone) : "Consultar Google Calendar solo cuando exista fecha/hora autorizada."),
     element("h3", "", "Checklist"),
     makeFieldChecklist(v)
   );
