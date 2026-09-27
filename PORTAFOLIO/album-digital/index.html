@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Album Digital Legacy | Reconstrucción sanitizada</title>
+  <meta name="description" content="Reconstrucción sanitizada del prototipo histórico que dio origen a Album Digital: galería, carpetas, videos y lightbox sin contenido personal.">
+  <meta name="author" content="Miguel Ángel Ruiz Ramírez">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/PORTAFOLIO/album-digital/">
+  <style>
+    :root{--bg:#f4f4f4;--ink:#222;--muted:#666;--panel:#fff;--line:#ddd;--shadow:0 3px 14px rgba(0,0,0,.12);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}a{color:inherit}.wrap{width:min(calc(100% - 28px),var(--max));margin:auto}
+    header{background:#222;color:#fff;text-align:center;padding:46px 20px 36px}header h1{margin:0 0 10px;font-size:clamp(2rem,6vw,3.4rem)}header p{max-width:760px;margin:0 auto;color:#ddd}.badge{display:inline-block;margin-bottom:14px;padding:6px 10px;border:1px solid #666;border-radius:999px;font-size:.8rem;color:#ddd}.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}.hero-btn{display:inline-block;padding:11px 16px;border-radius:9px;background:#fff;color:#222;text-decoration:none;font-weight:700}.hero-btn.secondary{background:transparent;color:#fff;border:1px solid #666}
+    .notice{background:#fff7d6;border:1px solid #ead68a;border-radius:12px;padding:18px 20px;margin:24px auto;color:#50451d}.notice strong{display:block;margin-bottom:6px}
+    .section{padding:28px 0}.section h2{margin:0 0 14px}.section p{color:var(--muted)}.explain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.explain-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.explain-card h3{margin:0 0 8px;font-size:1.05rem}.explain-card p{margin:0;color:var(--muted)}
+    .compare{width:100%;border-collapse:collapse;background:var(--panel);border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.04)}.compare th,.compare td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}.compare th{background:#ececec}.compare tr:last-child td{border-bottom:0}.compare td:first-child{font-weight:700;width:28%}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}.tile{height:180px;border-radius:10px;box-shadow:var(--shadow);cursor:pointer;position:relative;overflow:hidden;border:0;width:100%;text-align:left;color:#fff;padding:0;background:#444}.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.68))}.tile span{position:absolute;z-index:2;left:14px;bottom:12px;font-weight:700}.tile small{display:block;font-weight:400;opacity:.85;margin-top:2px}.tone-1{background:linear-gradient(135deg,#44556b,#91a8be)}.tone-2{background:linear-gradient(135deg,#6b4f45,#c6a07e)}.tone-3{background:linear-gradient(135deg,#4a6657,#9ab49a)}.tone-4{background:linear-gradient(135deg,#645078,#ba9fd0)}.tone-5{background:linear-gradient(135deg,#4b6576,#8fb6c9)}.tone-6{background:linear-gradient(135deg,#795f42,#d0ad78)}
+    .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.video-card{min-height:150px;background:#222;color:#fff;border-radius:10px;padding:22px;box-shadow:var(--shadow);cursor:pointer;border:0;text-align:left}.video-card b{display:block;font-size:1.1rem;margin-bottom:8px}.video-card span{color:#bbb}
+    .album-menu-btn{position:fixed;bottom:24px;right:22px;background:#222;color:#fff;border:0;padding:14px 18px;border-radius:50px;cursor:pointer;font-size:15px;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:50}.album-menu-panel{position:fixed;bottom:80px;right:22px;background:#fff;width:min(280px,calc(100vw - 44px));max-height:60vh;overflow:auto;border-radius:12px;box-shadow:0 5px 22px rgba(0,0,0,.2);display:none;padding:12px;z-index:50}.album-menu-panel.open{display:block}.album-menu-title{text-align:center;font-weight:700;margin:6px 0 12px}.album-link{display:block;width:100%;text-align:left;border:0;background:#f2f2f2;border-radius:8px;padding:11px 12px;margin:6px 0;cursor:pointer}.album-link:hover{background:#e4e4e4}.album-link.active{background:#222;color:#fff}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.lightbox.open{display:flex}.lightbox-card{width:min(760px,94vw);min-height:430px;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;text-align:center;padding:40px;box-shadow:0 8px 30px rgba(0,0,0,.4)}.lightbox-card h3{font-size:2rem;margin:0 0 8px}.lightbox-card p{margin:0;color:#eee}.close{position:absolute;top:20px;right:24px;background:transparent;border:0;color:#fff;font-size:40px;cursor:pointer}
+    footer{margin-top:38px;background:#222;color:#ddd;text-align:center;padding:40px 20px}footer a{font-weight:700}.footlinks{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    @media(max-width:760px){.explain-grid{grid-template-columns:1fr}.compare{font-size:.94rem}.compare th,.compare td{padding:12px}}
+    @media(max-width:560px){.tile{height:150px}.lightbox-card{min-height:330px}.album-menu-btn{right:14px;bottom:14px}.album-menu-panel{right:14px;bottom:70px}.compare td:first-child{width:auto}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="badge">Reconstrucción legacy sanitizada</div>
+  <h1>Álbum Web — Prototipo</h1>
+  <p>Demostración funcional inspirada en la primera etapa de Album Digital. Conserva patrones de interfaz y navegación, pero no contiene ni consulta fotografías, videos o datos personales del repositorio histórico.</p>
+  <div class="hero-actions">
+    <a class="hero-btn" href="../">Volver a evidencia profesional</a>
+    <a class="hero-btn secondary" href="../../">Abrir AFL AUTOS LOCAL</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="notice">
+    <strong>Privacidad por diseño</strong>
+    Esta página usa únicamente datos ficticios definidos localmente en JavaScript. No hace llamadas al repositorio histórico ni reproduce sus archivos multimedia. No es una copia del archivo familiar original: es una reconstrucción técnica para mostrar su funcionamiento sin exponer información personal.
+  </div>
+
+  <section class="section">
+    <h2>Por qué existe esta reconstrucción</h2>
+    <p>El valor del prototipo histórico no está en las fotografías que contenía, sino en el problema que resolvía y en las decisiones técnicas que permitieron convertir una solución específica en un producto más reutilizable.</p>
+    <div class="explain-grid">
+      <article class="explain-card">
+        <h3>1. Problema real</h3>
+        <p>Organizar y consultar fotografías y videos desde una interfaz web accesible, en lugar de depender únicamente del almacenamiento local de un dispositivo.</p>
+      </article>
+      <article class="explain-card">
+        <h3>2. Prototipo funcional</h3>
+        <p>Galería responsive, carpetas, carga dinámica de contenido, sección multimedia y visor tipo lightbox demostraron que la idea podía funcionar en navegador.</p>
+      </article>
+      <article class="explain-card">
+        <h3>3. Aprendizaje</h3>
+        <p>La primera versión mezclaba demasiado el producto con información personal. La evolución posterior priorizó separación de datos, configuración y código reutilizable.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Del prototipo al producto actual</h2>
+    <p>Esta comparación resume la evolución arquitectónica sin presentar funciones futuras como si ya estuvieran terminadas.</p>
+    <table class="compare">
+      <thead><tr><th>Aspecto</th><th>Prototipo histórico</th><th>Album Digital actual</th></tr></thead>
+      <tbody>
+        <tr><td>Objetivo</td><td>Resolver una necesidad personal concreta.</td><td>Servir como base reutilizable para distintas implementaciones.</td></tr>
+        <tr><td>Contenido</td><td>Ligado a una colección personal.</td><td>Producto público separado de fotografías y videos privados.</td></tr>
+        <tr><td>Interfaz</td><td>Galería, carpetas, videos y lightbox.</td><td>Conserva el concepto y evoluciona hacia una estructura configurable.</td></tr>
+        <tr><td>Datos</td><td>Dependencia directa de rutas y contenido del repositorio específico.</td><td>Separación progresiva entre código, configuración y medios.</td></tr>
+        <tr><td>Privacidad</td><td>No era todavía un requisito arquitectónico central.</td><td>La sanitización y separación de datos forman parte del diseño del producto.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Demo funcional</h2>
+    <p>Usa el botón flotante <strong>Álbumes</strong> para cambiar entre colecciones ficticias. Selecciona cualquier tarjeta para abrir el visor.</p>
+    <h2 id="albumTitle">Álbum demo — Momentos</h2>
+    <p id="albumDescription">Selecciona una carpeta desde el botón flotante para observar el comportamiento del prototipo.</p>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="section">
+    <h2>Videos</h2>
+    <p>La implementación histórica incluía una cuadrícula de videos. Aquí se representa el mismo patrón sin archivos reales.</p>
+    <div class="video-grid" id="videoGrid"></div>
+  </section>
+
+  <section class="section">
+    <h2>Qué demuestra técnicamente</h2>
+    <div class="explain-grid">
+      <article class="explain-card"><h3>Render dinámico</h3><p>Los álbumes y elementos se generan con JavaScript a partir de una estructura de datos.</p></article>
+      <article class="explain-card"><h3>Interacción</h3><p>Menú de carpetas, selección de álbum y lightbox permiten navegar el contenido sin recargar la página.</p></article>
+      <article class="explain-card"><h3>Responsive</h3><p>La cuadrícula se adapta a distintos tamaños de pantalla mediante CSS Grid y reglas móviles.</p></article>
+    </div>
+  </section>
+</main>
+
+<button class="album-menu-btn" id="menuButton" type="button" aria-expanded="false" aria-controls="albumMenu">📂 Álbumes</button>
+<div class="album-menu-panel" id="albumMenu">
+  <div class="album-menu-title">Carpetas demo</div>
+  <div id="albumList"></div>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+  <button class="close" id="closeLightbox" aria-label="Cerrar">×</button>
+  <div class="lightbox-card tone-1" id="lightboxCard">
+    <div><h3 id="lightboxTitle">Vista demo</h3><p id="lightboxText"></p></div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Album Digital</strong> · reconstrucción histórica sanitizada.</p>
+  <p>Esta copia pública conserva únicamente la reconstrucción técnica sanitizada. El repositorio de trabajo y el contenido personal permanecen privados.</p>
+  <div class="footlinks">
+    <a href="../">Evidencia profesional</a>
+    <a href="../../">AFL AUTOS LOCAL</a>
+    <a href="https://github.com/miguelangelruizfull-ai" target="_blank" rel="noopener">Perfil GitHub</a>
+  </div>
+</footer>
+
+<script>
+const albums = {
+  "momentos": {
+    title: "Álbum demo — Momentos",
+    description: "Ejemplo de una carpeta renderizada dinámicamente.",
+    items: [
+      ["Foto demo 01","Registro visual ficticio","tone-1"],
+      ["Foto demo 02","Contenido sin personas reales","tone-2"],
+      ["Foto demo 03","Marcador de posición","tone-3"],
+      ["Foto demo 04","Galería responsive","tone-4"],
+      ["Foto demo 05","Dato generado localmente","tone-5"],
+      ["Foto demo 06","Sin archivos históricos","tone-6"]
+    ]
+  },
+  "viajes-demo": {
+    title: "Álbum demo — Viajes",
+    description: "Segunda carpeta ficticia para demostrar el cambio de álbum.",
+    items: [
+      ["Destino demo A","Sin ubicación personal","tone-3"],
+      ["Destino demo B","Sin fotografías reales","tone-5"],
+      ["Destino demo C","Contenido ficticio","tone-1"],
+      ["Destino demo D","Render con JavaScript","tone-6"]
+    ]
+  },
+  "eventos-demo": {
+    title: "Álbum demo — Eventos",
+    description: "Tercera colección ficticia con el mismo comportamiento del visor.",
+    items: [
+      ["Evento demo A","Ejemplo sanitizado","tone-4"],
+      ["Evento demo B","Sin terceros identificables","tone-2"],
+      ["Evento demo C","Patrón de galería","tone-5"]
+    ]
+  }
+};
+
+const videoItems = [
+  ["Video demo 01","Marcador funcional: no existe un archivo multimedia real."],
+  ["Video demo 02","Representa la cuadrícula de videos del prototipo histórico."],
+  ["Video demo 03","No carga contenido desde ningún repositorio personal."]
+];
+
+const gallery = document.getElementById('gallery');
+const albumTitle = document.getElementById('albumTitle');
+const albumDescription = document.getElementById('albumDescription');
+const albumList = document.getElementById('albumList');
+const menu = document.getElementById('albumMenu');
+const menuButton = document.getElementById('menuButton');
+const lightbox = document.getElementById('lightbox');
+const lightboxCard = document.getElementById('lightboxCard');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxText = document.getElementById('lightboxText');
+
+function openLightbox(title, text, tone='tone-1') {
+  lightboxCard.className = `lightbox-card ${tone}`;
+  lightboxTitle.textContent = title;
+  lightboxText.textContent = text;
+  lightbox.classList.add('open');
+}
+
+function closeLightbox() { lightbox.classList.remove('open'); }
+
+document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+function renderAlbum(key) {
+  const album = albums[key];
+  albumTitle.textContent = album.title;
+  albumDescription.textContent = album.description;
+  gallery.innerHTML = '';
+  album.items.forEach(([title,text,tone]) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `tile ${tone}`;
+    button.innerHTML = `<span>${title}<small>${text}</small></span>`;
+    button.addEventListener('click', () => openLightbox(title,text,tone));
+    gallery.appendChild(button);
+  });
+  document.querySelectorAll('.album-link').forEach(btn => btn.classList.toggle('active', btn.dataset.key === key));
+  menu.classList.remove('open');
+  menuButton.setAttribute('aria-expanded','false');
+}
+
+Object.entries(albums).forEach(([key,album]) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'album-link';
+  button.dataset.key = key;
+  button.textContent = album.title.replace('Álbum demo — ','');
+  button.addEventListener('click', () => renderAlbum(key));
+  albumList.appendChild(button);
+});
+
+menuButton.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
+
+document.getElementById('videoGrid').innerHTML = '';
+videoItems.forEach(([title,text],i) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'video-card';
+  button.innerHTML = `<b>▶ ${title}</b><span>${text}</span>`;
+  button.addEventListener('click', () => openLightbox(title,text,`tone-${(i%6)+1}`));
+  document.getElementById('videoGrid').appendChild(button);
+});
+
+renderAlbum('momentos');
+</script>
+</body>
+</html>
