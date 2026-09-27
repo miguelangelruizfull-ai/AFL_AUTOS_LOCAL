@@ -93,6 +93,48 @@
     },
     "fieldWork": {
       "type": "object"
+    },
+    "editPolicy": {
+      "type": "object"
+    },
+    "checkpoint": {
+      "type": "object"
+    },
+    "promptProtocol": {
+      "type": "object"
+    },
+    "promptMenu": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "quickResponses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "field"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "operationalLinks": {
+      "type": "object"
+    },
+    "ui": {
+      "type": "object"
+    },
+    "recommendationPolicy": {
+      "type": "object"
     }
   },
   "additionalProperties": true
