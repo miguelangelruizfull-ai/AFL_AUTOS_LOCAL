@@ -201,3 +201,16 @@ Regla:
 - derivados terminados van a SALIDAS;
 - no mezclar material pendiente con piezas finales;
 - no publicar automáticamente.
+
+
+## CONTROL DE MUSICA
+
+Antes de producir Reel, TikTok o Historia con audio:
+
+1. Consultar [MUSICA_USADA.md](../../_SISTEMA/MUSICA_USADA.md).
+2. Evitar audios con estado `PUBLICADO`.
+3. Elegir audio disponible.
+4. Después de publicación, registrar el uso por AFL-ID y plataforma.
+
+No crear carpeta de música para este vehículo.
+No guardar archivos de audio.
