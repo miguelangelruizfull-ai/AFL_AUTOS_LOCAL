@@ -23,7 +23,11 @@
     "14. WhatsApp inicia OCULTO. No publicar automáticamente. No crear contenido final con material PENDIENTE_REVISION.",
     "15. Las salidas finales se guardan en 02_SALIDAS/AFL-ID por canal: Marketplace, imágenes comerciales, post, feed, historias, portadas, Reel, TikTok, WhatsApp oculto y Para enviar.",
     "16. Antes de Reel/TikTok/Historia con audio, consulta data/musica-usada.json para evitar repetir audio con estado PUBLICADO.",
-    "17. Al terminar, devuelve estado operativo y opciones numeradas. No borres archivos, no publiques y no expongas datos privados."
+    "17. Al terminar, devuelve estado operativo y opciones numeradas. No borres archivos, no publiques y no expongas datos privados.",
+    "18. Crea o registra una miniatura pública sanitizada del vehículo en assets/thumbs/AFL-ID.jpg usando material aprobado; agrega image en data/vehicles/index.json. No uses evidencia privada.",
+    "19. Todo prompt relacionado con la unidad debe incluir la URL pública de su miniatura y pedir que el ChatGPT actual la muestre al inicio de la respuesta cuando el cliente lo permita.",
+    "20. La recomendación del siguiente paso la decide el ChatGPT actual a partir de checkpoint y evidencia. El repositorio solo aporta estado, evidencia, funciones de detección y navegación; las opciones estáticas son manuales, no autoridad de recomendación.",
+    "21. En HOME y subpáginas, los enlaces de navegación/submenús deben abrir en una pestaña nueva con target=_blank y rel=noopener noreferrer."
   ],
   "requiredEvidence": [
     "material visual de la unidad",
@@ -60,5 +64,6 @@
     "publicOdometer": false,
     "publicPrivateDocuments": false,
     "duplicateCalendarEvents": false
-  }
+  },
+  "recommendationAuthority": "CHATGPT_CURRENT"
 }
