@@ -814,7 +814,7 @@ async function renderHome() {
   intro.append(
     element("div", "eyebrow", "AFL AUTOS · JSON FRAMEWORK"),
     element("h1", "", "ROOT Console"),
-    element("p", "subtitle", "Interfaz generada desde JSON público sanitizado. Drive conserva multimedia; Google Calendar conserva programación.")
+    element("p", "subtitle", "Interfaz generada desde JSON público sanitizado. Drive conserva multimedia; Google Calendar conserva trabajo de campo y Meta Business Suite la programación social.")
   );
   const stats = element("div", "stats");
   stats.append(stat("Activos", vehicles.vehicles.length), stat("Modo", "JSON"), stat("Publicar", "NO AUTO"));
