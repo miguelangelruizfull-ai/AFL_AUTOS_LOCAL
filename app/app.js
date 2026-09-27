@@ -246,8 +246,9 @@ function scheduleCard(e) {
   left.append(element("div", "eyebrow", e.type || "PROGRAMADO"), element("h3", "", e.title));
   top.append(left, element("span", "tag", labelStatus(e.status)));
   card.append(top);
-  card.append(element("div", "schedule-time", e.date + " · " + e.start + "–" + e.end));
-  card.append(element("div", "schedule-meta", "Fuente: Google Calendar · " + (e.timezone || "")));
+  const timeText = e.date + " · " + e.start + (e.end ? "–" + e.end : "");
+  card.append(element("div", "schedule-time", timeText));
+  card.append(element("div", "schedule-meta", "Fuente: " + labelStatus(e.source || "GOOGLE_CALENDAR") + " · " + (e.timezone || "")));
   if (e.links && e.links.vehicle) {
     const actions = element("div", "actions compact");
     actions.append(linkButton("Abrir vehículo", "index.html" + e.links.vehicle, true));
@@ -266,7 +267,9 @@ function vehicleCard(v) {
   img.src = vehicleThumbnailPath(v);
   img.alt = v.title;
   img.loading = "lazy";
-  wrap.append(img, element("span", "code-badge", v.id), element("span", "publish-badge", v.publish ? "PUBLICABLE" : "NO PUBLICAR"));
+  const fbStatus = v.publication && v.publication.facebook && v.publication.facebook.status;
+  const publishLabel = fbStatus === "PROGRAMADA" ? "FB PROGRAMADA" : (fbStatus === "PUBLICADO_CONFIRMADO_POR_MIGUEL" ? "FB PUBLICADO" : (v.publish ? "PUBLICABLE" : "NO PUBLICAR"));
+  wrap.append(img, element("span", "code-badge", v.id), element("span", "publish-badge", publishLabel));
 
   const body = element("div", "card-body");
   const titleRow = element("div", "title-row");
@@ -276,7 +279,8 @@ function vehicleCard(v) {
   metaGrid.append(
     meta("WhatsApp", v.whatsapp),
     meta("Precio interno", money(v.priceInternal, v.currency)),
-    meta("Siguiente", labelStatus(v.nextAction))
+    meta("Siguiente", labelStatus(v.nextAction)),
+    meta("Facebook", labelStatus((v.publication && v.publication.facebook && v.publication.facebook.status) || "NO_PROGRAMADA"))
   );
 
   const actions = element("div", "actions");
@@ -391,6 +395,7 @@ function channelNote(status) {
     PENDIENTE: "Sin pieza final aprobada.",
     EN_PRODUCCION: "Edición o preparación activa.",
     LISTO: "Pieza final aprobada y disponible.",
+    PROGRAMADA: "Programación confirmada; todavía no equivale a publicación real.",
     PUBLICADO: "Publicación confirmada.",
     OCULTO: "Ficha preparada; no publicar automáticamente."
   };
@@ -587,7 +592,7 @@ function makeWhatsappSheet(v) {
 function makeDeliverables(v) {
   const panel = element("article", "panel wide");
   panel.append(element("h2", "", "Marketplace, Post y demás salidas"));
-  const note = element("p", "subtitle", "Estados canónicos: PENDIENTE · EN PRODUCCION · LISTO · PUBLICADO. Esta web es de solo lectura; los controles preparan el cambio para actualizar JSON.");
+  const note = element("p", "subtitle", "Estados canónicos: PENDIENTE · EN PRODUCCION · LISTO · PROGRAMADA · PUBLICADO. Esta web es de solo lectura; los controles preparan el cambio para actualizar JSON.");
   panel.append(note);
   const grid = element("div", "deliverables-grid");
 
@@ -602,7 +607,7 @@ function makeDeliverables(v) {
 
     const controls = element("div", "deliverable-controls no-print");
     const select = element("select", "status-select");
-    (d.key === "whatsapp" ? ["OCULTO","PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"] : ["PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"]).forEach(function(s) {
+    (d.key === "whatsapp" ? ["OCULTO","PENDIENTE","EN_PRODUCCION","LISTO","PROGRAMADA","PUBLICADO"] : ["PENDIENTE","EN_PRODUCCION","LISTO","PROGRAMADA","PUBLICADO"]).forEach(function(s) {
       const option = element("option", "", labelStatus(s));
       option.value = s;
       option.selected = s === effectiveStatus;
@@ -657,7 +662,9 @@ function vehicleDetail(v) {
     kv("Clasificación", labelStatus(v.status.classification)),
     kv("Captura", labelStatus(v.status.captureExecution)),
     kv("WhatsApp", v.status.whatsapp),
-    kv("Precio interno", money(v.commercial.priceInternal, v.commercial.currency))
+    kv("Precio interno", money(v.commercial.priceInternal, v.commercial.currency)),
+    kv("Facebook", labelStatus((v.publication && v.publication.facebook && v.publication.facebook.status) || "NO_PROGRAMADA")),
+    kv("Facebook programado", (v.publication && v.publication.facebook && v.publication.facebook.scheduledAt) || "—")
   );
 
   const media = element("article", "panel");
@@ -824,7 +831,7 @@ async function renderHome() {
   consoleSection.append(consoleCard);
 
   const schedule = element("section", "programador");
-  programador.events.slice(0, 2).forEach(function(e) { schedule.append(scheduleCard(e)); });
+  programador.events.slice(0, 3).forEach(function(e) { schedule.append(scheduleCard(e)); });
 
   const toolbar = element("section", "toolbar");
   const searchLabel = element("label", "search");
