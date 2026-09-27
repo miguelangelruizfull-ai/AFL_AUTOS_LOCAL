@@ -14,7 +14,15 @@
     "drive",
     "outputs",
     "whatsapp",
-    "workflow"
+    "workflow",
+    "checkpoint",
+    "editPolicy",
+    "promptProtocol",
+    "promptMenu",
+    "quickResponses",
+    "operationalLinks",
+    "ui",
+    "recommendationPolicy"
   ],
   "properties": {
     "schemaVersion": {
