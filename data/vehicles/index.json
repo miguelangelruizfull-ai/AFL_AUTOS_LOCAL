@@ -15,10 +15,12 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "SUBMENU_OPERATIVO_Y_ENLACES_POST_PROMPT_ACTIVOS",
+        "lastCompleted": "UI_MINIATURA_TARGET_BLANK_RECOMENDACION_CHATGPT_ACTUAL",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE"
-      }
+      },
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT"
     },
     {
       "id": "AFL-338663",
@@ -30,7 +32,9 @@
       "nextAction": "CAPTURA_COMERCIAL",
       "image": "assets/thumbs/AFL-338663.jpg",
       "detail": null,
-      "publish": false
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338663.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT"
     },
     {
       "id": "AFL-338732",
@@ -42,7 +46,9 @@
       "nextAction": "REVISION_MATERIAL",
       "image": "assets/thumbs/AFL-338732.jpg",
       "detail": null,
-      "publish": false
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338732.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT"
     }
   ]
 }
