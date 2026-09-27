@@ -96,6 +96,12 @@ function vehicleCard(v) {
   }
 
   body.append(titleRow, metaGrid);
+  if (v.checkpoint) {
+    body.append(element("div", "home-checkpoint",
+      "Checkpoint: " + labelStatus(v.checkpoint.phase || "") +
+      (v.updated ? " · " + v.updated : "")
+    ));
+  }
   if (v.detail) body.append(shortcuts);
   body.append(actions);
   card.append(wrap, body);
@@ -181,6 +187,82 @@ function channelNote(status) {
     OCULTO: "Ficha preparada; no publicar automáticamente."
   };
   return notes[status] || labelStatus(status);
+}
+
+function buildOperationalPrompt(v, item) {
+  const c = v.checkpoint || {};
+  const protocol = v.promptProtocol || {};
+  const lines = [
+    "Opera únicamente el vehículo " + v.id + " (" + v.vehicle.publicTitle + ") dentro de AFL Autos.",
+    "",
+    "REANUDAR DESDE CHECKPOINT. No leas todo el proyecto ni dependas de memoria de conversaciones anteriores.",
+    "",
+    "CHECKPOINT ACTUAL:",
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || v.status.vehicle || "PENDIENTE"),
+    "- Último cierre: " + (c.lastCompleted || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
+    "- Reanudar desde: " + (c.resumeFrom || "PENDIENTE"),
+    "",
+    "ACCIÓN SOLICITADA:",
+    item.instruction || item.description || item.label
+  ];
+
+  if ((protocol.minimalSources || []).length) {
+    lines.push("", "FUENTES MÍNIMAS OBLIGATORIAS:");
+    protocol.minimalSources.forEach(function(x, i) { lines.push((i + 1) + ". " + x); });
+  }
+
+  if ((protocol.afterEveryPrompt || []).length) {
+    lines.push("", "CIERRE OBLIGATORIO DESPUÉS DE ESTE PROMPT:");
+    protocol.afterEveryPrompt.forEach(function(x, i) { lines.push((i + 1) + ". " + x); });
+  }
+
+  if ((protocol.rules || []).length) {
+    lines.push("", "REGLAS:");
+    protocol.rules.forEach(function(x) { lines.push("- " + x); });
+  }
+
+  lines.push("", "Al terminar, devuelve el checkpoint nuevo y la siguiente acción. El nuevo estado debe quedar persistido en Drive + repositorio + HOME antes de cerrar.");
+  return lines.join("\n");
+}
+
+function makePromptMenu(v) {
+  const panel = element("article", "panel wide prompt-menu-panel no-print");
+  panel.id = "prompt-menu";
+  panel.append(
+    element("div", "eyebrow", "REANUDACIÓN SIN MEMORIA DE CHAT"),
+    element("h2", "", "Menú de prompts operativos"),
+    element("p", "subtitle", "Copia un prompt para continuar en este chat o en uno nuevo. Cada prompt obliga a cerrar actualizando Drive, repositorio y Home.")
+  );
+
+  const c = v.checkpoint || {};
+  const checkpoint = element("div", "checkpoint-grid");
+  checkpoint.append(
+    kv("Fase", labelStatus(c.phase || "PENDIENTE")),
+    kv("Estado", labelStatus(c.state || v.status.vehicle || "PENDIENTE")),
+    kv("Siguiente", labelStatus(c.nextAction || "PENDIENTE")),
+    kv("Actualizado", c.updated || v.updated || "PENDIENTE")
+  );
+  panel.append(checkpoint);
+
+  const grid = element("div", "prompt-menu-grid");
+  (v.promptMenu || []).forEach(function(item) {
+    const card = element("div", "prompt-menu-card");
+    card.append(
+      element("strong", "", item.label),
+      element("p", "deliverable-note", item.description || "")
+    );
+    const status = element("span", "copy-status", "");
+    const actions = element("div", "actions");
+    actions.append(actionButton("Copiar prompt", function() {
+      copyText(buildOperationalPrompt(v, item), status);
+    }, item.key === "resume"));
+    card.append(actions, status);
+    grid.append(card);
+  });
+  panel.append(grid);
+  return panel;
 }
 
 function makeChannelNav(v) {
@@ -340,6 +422,7 @@ function vehicleDetail(v) {
     makeList(v.capture.requiredVideo.shots, false)
   );
 
+  const promptMenu = makePromptMenu(v);
   const channelNav = makeChannelNav(v);
   const whatsapp = makeWhatsappSheet(v);
   const outputs = makeDeliverables(v);
@@ -395,7 +478,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
+  grid.append(state, media, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
