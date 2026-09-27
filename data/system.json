@@ -179,5 +179,16 @@
       "70_REEL",
       "80_TIKTOK"
     ]
+  },
+  "responsePolicy": {
+    "closureMenu": {
+      "alwaysShowAtEnd": true,
+      "recommendedActionFirst": true,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "showOtherRelevantOptions": true,
+      "omitRecommendedActionWhenNone": true,
+      "includeLinksWhenAvailable": true,
+      "persistLatestStateBeforeRendering": true
+    }
   }
 }
