@@ -17,8 +17,8 @@ function scheduleCard(e) {
   left.append(element("div", "eyebrow", e.type || "PROGRAMADO"), element("h3", "", e.title));
   top.append(left, element("span", "tag", labelStatus(e.status)));
   card.append(top);
-  card.append(element("div", "schedule-time", e.date + " · " + e.start + "–" + e.end));
-  card.append(element("div", "schedule-meta", "Fuente: Google Calendar · " + (e.timezone || "")));
+  card.append(element("div", "schedule-time", e.date + " · " + e.start + (e.end ? "–" + e.end : "")));
+  card.append(element("div", "schedule-meta", "Fuente: " + labelStatus(e.source || "GOOGLE_CALENDAR") + " · " + (e.timezone || "")));
   const actions = element("div", "actions compact");
   if (e.links && e.links.vehicle) actions.append(linkButton("Abrir vehículo", "index.html" + e.links.vehicle, true));
   actions.append(linkButton("ROOT", "index.html", false));
@@ -35,8 +35,8 @@ async function run() {
     const intro = element("div");
     intro.append(
       element("div", "eyebrow", "AFL AUTOS · PROGRAMADOR JSON"),
-      element("h1", "", "Programados con Google Calendar"),
-      element("p", "subtitle", "Vista generada desde data/programador.json. Calendar prevalece para fecha y hora.")
+      element("h1", "", "Programador operativo"),
+      element("p", "subtitle", "Vista multifuente. Google Calendar manda en trabajo de campo; Meta Business Suite manda en publicaciones sociales programadas.")
     );
     header.append(intro, linkButton("← ROOT", "index.html", false));
 
