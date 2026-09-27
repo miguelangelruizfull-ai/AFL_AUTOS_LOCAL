@@ -2,10 +2,56 @@
 
 VEHICULO: Chevrolet Colorado Work Truck 2016
 COLOR: ROJO
-ESTADO: PILOTO_ACTIVO
+ESTADO: REVISION_MATERIAL_COMPLETADA / CLASIFICACION_COMPLETADA
 ACTUALIZADO: 2026-09-27
 
+## RESULTADO REVISION MATERIAL
+
+MATERIAL_TOTAL_REUNIDO: 252_JPEG
+TOMAS_UNICAS_POR_HASH_EXACTO: 62
+APROBADOS_UNICOS: 61
+RECHAZADOS_UNICOS: 1
+DUPLICADOS_AISLADOS: 190
+VIDEO_REAL: 0 / PENDIENTE
+
+## CLASIFICACION DRIVE
+
+10_APROBADOS:
+- 44 tomas únicas conservadas dentro de 01_FOTOS_ORIGINALES.
+- 17 tomas únicas adicionales recuperadas del histórico.
+- Total útil único: 61.
+
+90_RECHAZADOS:
+- IMG_20260909_141547796_HDR.jpg
+- Motivo: deslumbramiento/reflejo severo y encuadre de bajo valor comercial.
+
+95_DUPLICADOS:
+- 46 duplicados internos de la carpeta canónica.
+- 63 archivos restantes del histórico AFL.
+- 81 archivos de la tercera cuenta.
+- Total: 190.
+
+## PRIVADO / NO PUBLICAR
+
+Estas tomas se conservan como evidencia interna y no deben entrar a publicación:
+
+- IMG_20260706_155518646.jpg — etiqueta técnica.
+- IMG_20260708_161445965_HDR.jpg — etiqueta técnica.
+- IMG_20260909_141448698_HDR.jpg — etiqueta técnica.
+- IMG_20260909_141354468_HDR.jpg — detalle/condición trasera.
+- IMG_20260909_141420535_HDR.jpg — detalle de carrocería.
+- IMG_20260909_141520428_HDR.jpg — detalle de condición interior.
+- IMG_20260909_141349817_HDR.jpg — detalle inferior/rueda con reflejo.
+- IMG_20260909_141503867.jpg — detalle de equipamiento con mano/reflejo.
+- IMG_20260909_141638551_HDR.jpg — detalle técnico de motor.
+
+PRIVADO_NO_PUBLICAR: 9
+CANDIDATOS_COMERCIALES_UNICOS: 52
+
 ## MATERIAL APROBADO PARA WHATSAPP OCULTO
+
+Se mantiene la selección V2 vigente de 8 derivados retocados:
+
 1. IMG_20260909_141002470_RETOQUE_V2.jpg — HERO / 3/4 exterior.
 2. IMG_20260909_140948061_RETOQUE_V2.jpg — exterior alternativo.
 3. IMG_20260708_161107396_HDR_RETOQUE_V2.jpg — perfil / lateral.
@@ -15,23 +61,14 @@ ACTUALIZADO: 2026-09-27
 7. IMG_20260708_161450785_HDR_RETOQUE_V2.jpg — interior / tablero.
 8. IMG_20260708_161456064_RETOQUE_V2.jpg — transmisión manual.
 
-## COBERTURA
 FOTOS_WHATSAPP: 8_APROBADAS
-FOTOS_RETOQUE_V2_DISPONIBLES: 12
-VIDEO_REAL: PENDIENTE
-NUEVA_CAPTURA: PROGRAMADA
-
-## CLASIFICACION PARA MATERIAL NUEVO
-- APROBADO
-- RECHAZADO
-- DUPLICADO
-- PENDIENTE_REVISION
-- FALTANTE
+ESTADO_CATALOGO: OCULTO
+PUBLICACION_AUTOMATICA: NO
 
 ## REGLAS
+
 - No sobrescribir originales.
-- No borrar automáticamente material rechazado o duplicado.
-- Rechazados y duplicados se aíslan para depuración posterior.
-- No usar material PENDIENTE_REVISION para publicación.
-- Actualizar esta selección después de cada nueva carga.
-- No publicar automáticamente.
+- No eliminar automáticamente rechazados ni duplicados.
+- VIN completo, odómetro y etiquetas técnicas: PRIVADO / NO_PUBLICAR.
+- La clasificación de útil no equivale a autorización de publicación.
+- Todo material nuevo entra a REVISION_MATERIAL antes de uso.
