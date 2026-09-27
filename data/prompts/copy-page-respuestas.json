@@ -1,11 +1,75 @@
 {
-  "id":"COPY_PAGE_RESPUESTAS_V2",
-  "version":"2.0",
-  "updated":"2026-09-27",
-  "purpose":"Generar una respuesta comercial segura y una siguiente acción para Comentarios, Messenger/Inbox o WhatsApp.",
-  "inputs":["CANAL","MENSAJE","AFL_ID_OPCIONAL","TELEFONO_OPCIONAL"],
-  "requiredProcessing":["DETECTAR_IDIOMA","DETECTAR_TELEFONO_SI_EXISTE","DETECTAR_LADA_O_CODIGO_DE_AREA_SIN_PERSISTIR_PII","CLASIFICAR_INTENCION","VERIFICAR_UNIDAD","APLICAR_POLITICAS","GENERAR_RESPUESTA","CLASIFICAR_LEAD","DEFINIR_UNA_SIGUIENTE_ACCION","GENERAR_OPCIONES_ADAPTATIVAS"],
-  "guards":["DATO_YA_PROPORCIONADO -> NO_VOLVER_A_PREGUNTAR","UNIDAD_NO_VERIFICADA -> NO_AFIRMAR_ESPECIFICACIONES","PRECIO_NO_PUBLICABLE -> NO_DAR_CIFRA","PII -> SOLO_SESION/ALMACENAMIENTO_PRIVADO","CLIENTE_FUERA_DE_MEXICO -> CONFIRMAR_COMPRA_EN_MEXICO","NO_PROMETER_EXPORTACION_ENVIO_O_ENTREGA_INTERNACIONAL","NO_PUBLICAR_AUTOMATICAMENTE"],
-  "outputs":["RESPUESTA_PARA_LEAD","TIPO_RESPUESTA","IDIOMA","TELEFONO_DETECTADO_SI_APLICA","LADA_AREA_SI_APLICA","INTENCION","UNIDAD","VERIFICACION","PRIORIDAD","ESTADO_COMERCIAL","SIGUIENTE_ACCION","APRENDIZAJE_CANDIDATO","OPCIONES"],
-  "routing":{"ENVIAR_FOTOS":"MULTIMEDIA","ENVIAR_VIDEO":"MULTIMEDIA","PROPONER_VISITA":"PROGRAMADOR","PROGRAMAR_SEGUIMIENTO":"PROGRAMADOR","CONFIRMAR_UNIDAD":"ROOT_VEHICULO","CONFIRMAR_PRECIO":"ROOT_VEHICULO","CONFIRMAR_DISPONIBILIDAD":"ROOT_VEHICULO","MOVER_A_WHATSAPP":"WHATSAPP_CLIENTE_SI_TELEFONO_CAPTURADO"}
+  "id": "COPY_PAGE_RESPUESTAS_V2_1",
+  "version": "2.1",
+  "updated": "2026-09-27",
+  "purpose": "Generar una respuesta comercial segura y una siguiente acción para Comentarios, Messenger/Inbox o WhatsApp.",
+  "inputs": [
+    "CANAL",
+    "MENSAJE",
+    "AFL_ID_OPCIONAL",
+    "TELEFONO_OPCIONAL"
+  ],
+  "requiredProcessing": [
+    "DETECTAR_IDIOMA",
+    "DETECTAR_TELEFONO_SI_EXISTE",
+    "DETECTAR_LADA_O_CODIGO_DE_AREA_SIN_PERSISTIR_PII",
+    "CLASIFICAR_INTENCION",
+    "VERIFICAR_UNIDAD",
+    "APLICAR_POLITICAS",
+    "EVALUAR_SI_CONVIENE_DAR_PRECIO",
+    "GENERAR_RESPUESTA",
+    "CLASIFICAR_LEAD",
+    "DEFINIR_UNA_SIGUIENTE_ACCION",
+    "GENERAR_OPCIONES_ADAPTATIVAS"
+  ],
+  "guards": [
+    "DATO_YA_PROPORCIONADO -> NO_VOLVER_A_PREGUNTAR",
+    "UNIDAD_NO_VERIFICADA -> NO_AFIRMAR_ESPECIFICACIONES",
+    "PRECIO_SIN_VERIFICAR -> NO_INVENTAR_CIFRA",
+    "PRECIO_CATALOGO_OMITIR -> NO_CONVERTIR_EN_PRECIO_DE_CATALOGO_NI_PERSISTIRLO",
+    "PRECIO_INTERNO_VERIFICADO + RECOMENDACION_DAR_PRECIO -> PUEDE_USARSE_EN_RESPUESTA_COMERCIAL",
+    "SI_SE_DA_PRECIO -> CONTINUAR_A_UNA_SIGUIENTE_ACCION_COMERCIAL",
+    "PRECIO_INTERNO_VERIFICADO + RECOMENDACION_DAR_PRECIO -> NO_RESPONDER_SOLO_CON_PROMESA_DE_CONFIRMAR",
+    "PII -> SOLO_SESION/ALMACENAMIENTO_PRIVADO",
+    "CLIENTE_FUERA_DE_MEXICO -> CONFIRMAR_COMPRA_EN_MEXICO",
+    "NO_PROMETER_EXPORTACION_ENVIO_O_ENTREGA_INTERNACIONAL",
+    "NO_PUBLICAR_AUTOMATICAMENTE"
+  ],
+  "outputs": [
+    "RESPUESTA_PARA_LEAD",
+    "TIPO_RESPUESTA",
+    "IDIOMA",
+    "TELEFONO_DETECTADO_SI_APLICA",
+    "LADA_AREA_SI_APLICA",
+    "INTENCION",
+    "UNIDAD",
+    "VERIFICACION",
+    "PRIORIDAD",
+    "ESTADO_COMERCIAL",
+    "DECISION_PRECIO",
+    "SIGUIENTE_ACCION",
+    "APRENDIZAJE_CANDIDATO",
+    "OPCIONES"
+  ],
+  "routing": {
+    "ENVIAR_FOTOS": "MULTIMEDIA",
+    "ENVIAR_VIDEO": "MULTIMEDIA",
+    "PROPONER_VISITA": "PROGRAMADOR",
+    "PROGRAMAR_SEGUIMIENTO": "PROGRAMADOR",
+    "CONFIRMAR_UNIDAD": "ROOT_VEHICULO",
+    "CONFIRMAR_PRECIO": "ROOT_VEHICULO",
+    "CONFIRMAR_DISPONIBILIDAD": "ROOT_VEHICULO",
+    "MOVER_A_WHATSAPP": "WHATSAPP_CLIENTE_SI_TELEFONO_CAPTURADO"
+  },
+  "pricePolicy": {
+    "decisionAuthority": "CHATGPT_CURRENT",
+    "conversationalSource": "commercial.priceInternal",
+    "catalogSource": "commercial.catalogPrice",
+    "rule": "Si existe commercial.priceInternal verificado y el ChatGPT actual determina que dar el precio ayuda a responder la intención del lead, incluir la cifra exacta en la respuesta comercial.",
+    "catalogSeparation": "commercial.catalogPricePolicy=OMITIR afecta catálogo/listado persistente; no bloquea por sí solo una respuesta conversacional con precio interno verificado.",
+    "noPersistence": "Dar el precio en una respuesta no autoriza escribir commercial.catalogPrice, whatsapp.price ni publicar automáticamente.",
+    "verifiedPriceBehavior": "No usar una respuesta de espera del tipo 'voy a confirmar el precio' cuando ya existe un precio interno vigente verificado y la recomendación es darlo.",
+    "afterPrice": "Después de informar el precio, continuar con exactamente una SIGUIENTE_ACCION comercial útil según intención y etapa del lead.",
+    "fallback": "Si no existe precio vigente verificado o no es recomendable darlo en esa respuesta, usar CONFIRMAR_PRECIO o la siguiente acción pertinente sin inventar cifra."
+  }
 }
