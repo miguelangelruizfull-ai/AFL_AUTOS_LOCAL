@@ -52,9 +52,11 @@
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
         "phase": "PRECAPTURA_ESTANDARIZADA",
-        "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
+        "lastCompleted": "VERIFICACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
         "nextAction": "CAPTURA_COMERCIAL",
-        "state": "CAPTURA_PENDIENTE"
+        "state": "CAPTURA_PENDIENTE",
+        "lastVerified": "2026-09-27",
+        "evidence": "20_NUEVA_CAPTURA_VACIA"
       }
     },
     {
