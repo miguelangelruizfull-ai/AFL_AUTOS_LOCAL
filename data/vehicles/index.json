@@ -15,8 +15,9 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "MENU_PROMPTS_PERSISTENTE_ACTIVO",
-        "nextAction": "CAPTURA_COMERCIAL_COMPLETA"
+        "lastCompleted": "NUEVA_CAPTURA_VERIFICADA_VACIA_SIN_TRANSICION",
+        "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+        "state": "CAPTURA_PENDIENTE"
       }
     },
     {
