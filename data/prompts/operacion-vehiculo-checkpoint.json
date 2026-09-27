@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "id": "OPERACION_VEHICULO_CHECKPOINT",
   "updated": "2026-09-27",
   "purpose": "Reanudar y operar un vehículo desde su checkpoint persistido sin depender de memoria de conversación.",
@@ -16,13 +16,17 @@
     "Actualizar data/vehicles/index.json (HOME).",
     "Actualizar documentación operativa relevante.",
     "Verificar consistencia Drive ↔ vehículo JSON ↔ HOME.",
-    "Persistir checkpoint.nextAction antes de cerrar."
+    "Persistir checkpoint.nextAction antes de cerrar.",
+    "Cuando Miguel autorice editar un campo, aplicar data/prompts/editar-informacion-autorizada.json y sincronizar solo ese cambio y sus resúmenes dependientes."
   ],
   "rules": [
     "No depender de memoria de ChatGPT.",
     "No releer todo el proyecto si las fuentes mínimas bastan.",
     "No mezclar vehículos.",
     "No publicar automáticamente.",
-    "No exponer VIN completo, odómetro, documentos privados o PII."
-  ]
+    "No exponer VIN completo, odómetro, documentos privados o PII.",
+    "Una autorización de edición no equivale a autorización de publicación.",
+    "Conservar checkpoint/estado salvo que el campo autorizado sea específicamente de flujo."
+  ],
+  "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json"
 }
