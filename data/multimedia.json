@@ -58,5 +58,77 @@
       "No crear AFL-ID definitivo sin evidencia suficiente",
       "Después de confirmar AFL-ID, consolidar material en 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL"
     ]
-  }
+  },
+  "outputStatusModel": {
+    "allowed": [
+      "PENDIENTE",
+      "EN_PRODUCCION",
+      "LISTO",
+      "PUBLICADO"
+    ],
+    "default": "PENDIENTE",
+    "rules": {
+      "pending": "Sin pieza final aprobada",
+      "inProduction": "Edición/producción activa",
+      "ready": "Pieza final aprobada y disponible",
+      "published": "Publicación confirmada"
+    }
+  },
+  "outputChannels": [
+    {
+      "key": "contentAvailable",
+      "label": "Contenido disponible",
+      "folder": "00_CONTENIDO_DISPONIBLE"
+    },
+    {
+      "key": "marketplace",
+      "label": "Marketplace",
+      "folder": "10_MARKETPLACE"
+    },
+    {
+      "key": "images",
+      "label": "Imágenes comerciales",
+      "folder": "20_IMAGENES_COMERCIALES"
+    },
+    {
+      "key": "post",
+      "label": "Post",
+      "folder": "30_POST"
+    },
+    {
+      "key": "feed",
+      "label": "Feed",
+      "folder": "40_FEED"
+    },
+    {
+      "key": "stories",
+      "label": "Historias",
+      "folder": "50_HISTORIAS"
+    },
+    {
+      "key": "covers",
+      "label": "Portadas",
+      "folder": "60_PORTADAS"
+    },
+    {
+      "key": "reel",
+      "label": "Reel",
+      "folder": "70_REEL"
+    },
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "folder": "80_TIKTOK"
+    },
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp oculto",
+      "folder": "90_WHATSAPP_OCULTO"
+    },
+    {
+      "key": "sendPackage",
+      "label": "Para enviar",
+      "folder": "95_PARA_ENVIAR"
+    }
+  ]
 }
