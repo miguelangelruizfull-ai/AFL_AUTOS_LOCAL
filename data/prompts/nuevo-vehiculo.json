@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "NUEVO_VEHICULO",
+  "updated": "2026-09-27",
+  "title": "Ingreso de vehículo nuevo — AFL Autos",
+  "purpose": "Identificar una unidad desde evidencia, generar AFL-ID, crear estructura Drive, registrar JSON público sanitizado y preparar el siguiente paso sin publicar.",
+  "invocation": "NUEVO_VEHICULO",
+  "prompt": [
+    "Opera un vehículo nuevo dentro de AFL Autos.",
+    "1. Revisa primero Google Drive en AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID. Trabaja únicamente con el lote/material que corresponda a esta unidad y no mezcles vehículos.",
+    "2. Identifica solo con evidencia: marca, modelo, año, versión/trim si puede confirmarse, color, motor, transmisión, tracción, equipamiento visible, documentos disponibles y condición relevante. No inventes datos.",
+    "3. El VIN completo es PRIVADO. Puede usarse solo para verificación autorizada. Si está confirmado, genera el AFL-ID preferentemente como AFL-<ultimos_6_del_VIN>. Nunca escribas el VIN completo en el repositorio público, URLs, respuestas públicas o JSON público.",
+    "4. Si el VIN no puede confirmarse, NO inventes AFL-ID. Mantén el material en 00_PENDIENTE_ID con estado IDENTIFICACION_PENDIENTE y reporta qué evidencia falta.",
+    "5. Antes de crear el AFL-ID definitivo, comprueba que no exista ya en data/vehicles/index.json ni en 01_ENTRADAS/ ni 02_SALIDAS/. Evita duplicados.",
+    "6. Con AFL-ID confirmado, crea en Drive 01_ENTRADAS/AFL-ID y 02_SALIDAS/AFL-ID usando exactamente las plantillas de data/multimedia.json.",
+    "7. Mueve/consolida el material inicial a 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL preservando originales. No sobrescribas ni borres automáticamente.",
+    "8. Revisa material existente y clasifica únicamente después de inspección: APROBADO, RECHAZADO, DUPLICADO, PRIVADO o PENDIENTE_REVISION. APROBADO no significa PUBLICABLE.",
+    "9. Crea data/vehicles/AFL-ID.json a partir de data/templates/vehicle.template.json y agrega/actualiza su resumen en data/vehicles/index.json. El JSON público debe estar sanitizado.",
+    "10. Nunca pongas en JSON público: VIN completo, odómetro/millas/km, documentos privados, PII, IDs privados de Drive, URLs privadas de Drive, IDs de Calendar o URLs privadas de Calendar.",
+    "11. Registra disponibilidad, precio y datos comerciales solo si fueron confirmados. Si no, usa null/PENDIENTE/OMITIR según corresponda.",
+    "12. Audita cobertura fotográfica y de video. Si faltan tomas, deja capture.status=CAPTURA_PENDIENTE y genera checklist/plan dentro del JSON del vehículo.",
+    "13. Google Calendar es la fuente de fecha/hora. Si el usuario proporciona o autoriza fecha/hora, revisa eventos existentes antes de crear/actualizar uno. Nunca dupliques eventos. Si no hay fecha/hora autorizada, deja scheduled=false.",
+    "14. WhatsApp inicia OCULTO. No publicar automáticamente. No crear contenido final con material PENDIENTE_REVISION.",
+    "15. Las salidas finales se guardan en 02_SALIDAS/AFL-ID por canal: Marketplace, imágenes comerciales, post, feed, historias, portadas, Reel, TikTok, WhatsApp oculto y Para enviar.",
+    "16. Antes de Reel/TikTok/Historia con audio, consulta data/musica-usada.json para evitar repetir audio con estado PUBLICADO.",
+    "17. Al terminar, devuelve estado operativo y opciones numeradas. No borres archivos, no publiques y no expongas datos privados."
+  ],
+  "requiredEvidence": [
+    "material visual de la unidad",
+    "evidencia suficiente para identificar marca/modelo/año",
+    "VIN confirmado para AFL-ID definitivo, cuando esté disponible"
+  ],
+  "finalResponseFields": [
+    "VEHICULO",
+    "AFL-ID",
+    "ESTADO",
+    "MATERIAL",
+    "CAPTURA",
+    "WHATSAPP",
+    "CALENDAR",
+    "FALTANTES",
+    "SIGUIENTE_ACCION"
+  ],
+  "defaultOptions": [
+    "VER MATERIAL APROBADO",
+    "VER MATERIAL RECHAZADO",
+    "VER PLAN DE CAPTURA",
+    "PROGRAMAR / REPROGRAMAR CAPTURA",
+    "REVISAR MATERIAL NUEVO",
+    "VER FICHA WHATSAPP OCULTA",
+    "CREAR CONTENIDO",
+    "DEPURAR RECHAZADOS / DUPLICADOS",
+    "VOLVER INVENTARIO"
+  ],
+  "rules": {
+    "autoPublish": false,
+    "deleteAutomatically": false,
+    "overwriteOriginals": false,
+    "publicFullVin": false,
+    "publicOdometer": false,
+    "publicPrivateDocuments": false,
+    "duplicateCalendarEvents": false
+  }
+}
