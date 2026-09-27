@@ -1,8 +1,8 @@
 {
-  "id": "COPY_PAGE_RESPUESTAS_V2_1",
-  "version": "2.1",
+  "id": "COPY_PAGE_RESPUESTAS_V2_2",
+  "version": "2.2",
   "updated": "2026-09-27",
-  "purpose": "Generar una respuesta comercial segura y una siguiente acción para Comentarios, Messenger/Inbox o WhatsApp.",
+  "purpose": "Generar una respuesta comercial segura y una siguiente acción para Comentarios, Inbox/Messenger, WhatsApp o Llamada.",
   "inputs": [
     "CANAL",
     "MENSAJE",
@@ -26,10 +26,11 @@
     "DATO_YA_PROPORCIONADO -> NO_VOLVER_A_PREGUNTAR",
     "UNIDAD_NO_VERIFICADA -> NO_AFIRMAR_ESPECIFICACIONES",
     "PRECIO_SIN_VERIFICAR -> NO_INVENTAR_CIFRA",
+    "CANAL_PRIVADO(MESSENGER|WHATSAPP|LLAMADA) + commercial.priceInternal VIGENTE -> PUEDE_DAR_PRECIO_CUANDO_LA_INTENCION_LO_REQUIERA",
+    "COMENTARIO_PUBLICO + commercial.catalogPricePolicy=OMITIR -> NO_MOSTRAR_commercial.priceInternal; MOVER_A_INBOX",
     "PRECIO_CATALOGO_OMITIR -> NO_CONVERTIR_EN_PRECIO_DE_CATALOGO_NI_PERSISTIRLO",
-    "PRECIO_INTERNO_VERIFICADO + RECOMENDACION_DAR_PRECIO -> PUEDE_USARSE_EN_RESPUESTA_COMERCIAL",
-    "SI_SE_DA_PRECIO -> CONTINUAR_A_UNA_SIGUIENTE_ACCION_COMERCIAL",
-    "PRECIO_INTERNO_VERIFICADO + RECOMENDACION_DAR_PRECIO -> NO_RESPONDER_SOLO_CON_PROMESA_DE_CONFIRMAR",
+    "SI_SE_DA_PRECIO -> CONTINUAR_A_EXACTAMENTE_UNA_SIGUIENTE_ACCION_COMERCIAL",
+    "PRECIO_INTERNO_VIGENTE_EN_CANAL_PRIVADO -> NO_RESPONDER_SOLO_CON_PROMESA_DE_CONFIRMAR",
     "PII -> SOLO_SESION/ALMACENAMIENTO_PRIVADO",
     "CLIENTE_FUERA_DE_MEXICO -> CONFIRMAR_COMPRA_EN_MEXICO",
     "NO_PROMETER_EXPORTACION_ENVIO_O_ENTREGA_INTERNACIONAL",
@@ -62,14 +63,19 @@
     "MOVER_A_WHATSAPP": "WHATSAPP_CLIENTE_SI_TELEFONO_CAPTURADO"
   },
   "pricePolicy": {
-    "decisionAuthority": "CHATGPT_CURRENT",
-    "conversationalSource": "commercial.priceInternal",
-    "catalogSource": "commercial.catalogPrice",
-    "rule": "Si existe commercial.priceInternal verificado y el ChatGPT actual determina que dar el precio ayuda a responder la intención del lead, incluir la cifra exacta en la respuesta comercial.",
-    "catalogSeparation": "commercial.catalogPricePolicy=OMITIR afecta catálogo/listado persistente; no bloquea por sí solo una respuesta conversacional con precio interno verificado.",
-    "noPersistence": "Dar el precio en una respuesta no autoriza escribir commercial.catalogPrice, whatsapp.price ni publicar automáticamente.",
-    "verifiedPriceBehavior": "No usar una respuesta de espera del tipo 'voy a confirmar el precio' cuando ya existe un precio interno vigente verificado y la recomendación es darlo.",
-    "afterPrice": "Después de informar el precio, continuar con exactamente una SIGUIENTE_ACCION comercial útil según intención y etapa del lead.",
-    "fallback": "Si no existe precio vigente verificado o no es recomendable darlo en esa respuesta, usar CONFIRMAR_PRECIO o la siguiente acción pertinente sin inventar cifra."
+    "authorization": "Miguel autoriza dar el precio vigente en Inbox/Messenger, WhatsApp y Llamada.",
+    "privateChannels": [
+      "MESSENGER",
+      "WHATSAPP",
+      "LLAMADA"
+    ],
+    "privateConversationalSource": "commercial.priceInternal",
+    "publicCatalogSource": "commercial.catalogPrice",
+    "rule": "Si el canal es privado, existe commercial.priceInternal vigente y la intención requiere precio, incluir la cifra exacta. Si el canal es comentario público, commercial.priceInternal por sí solo no autoriza mostrarla.",
+    "catalogSeparation": "commercial.catalogPricePolicy=OMITIR afecta catálogo/listado persistente y comentario público; no bloquea una respuesta privada con precio interno vigente.",
+    "noPersistence": "Dar el precio en una respuesta privada no autoriza escribir commercial.catalogPrice, whatsapp.price ni publicar automáticamente.",
+    "verifiedPriceBehavior": "En canal privado no usar 'voy a confirmar el precio' cuando commercial.priceInternal ya contiene una cifra vigente y la intención requiere precio.",
+    "afterPrice": "Después de informar el precio, continuar con exactamente una SIGUIENTE_ACCION comercial útil según disponibilidad, intención y etapa del lead.",
+    "fallback": "Si no existe precio vigente en el expediente, usar CONFIRMAR_PRECIO sin inventar cifra."
   }
 }
