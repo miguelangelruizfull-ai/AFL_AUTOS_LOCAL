@@ -8,6 +8,13 @@ function linkButton(label, href, primary) {
   return a;
 }
 
+function actionButton(label, onClick, primary) {
+  const b = element("button", primary ? "btn primary" : "btn", label);
+  b.type = "button";
+  b.addEventListener("click", onClick);
+  return b;
+}
+
 function stat(label, value) {
   const box = element("div", "stat");
   box.append(element("span", "", label), element("strong", "", value));
@@ -125,9 +132,12 @@ function vehicleDetail(v) {
   );
   media.append(metrics);
 
-  const capture = element("article", "panel");
+  const capture = element("article", "panel print-checklist");
+  capture.id = "field-checklist";
   capture.append(
-    element("h2", "", "Captura programada"),
+    element("h2", "", "Checklist de trabajo de campo"),
+    element("div", "print-only", v.id + " · " + v.vehicle.publicTitle),
+    element("h3", "", "Captura programada"),
     element("div", "schedule-time", v.capture.date + " · " + v.capture.start + "–" + v.capture.end),
     element("p", "subtitle", "Fuente: " + v.capture.source + " · " + v.capture.timezone),
     element("h3", "", "Checklist"),
@@ -151,16 +161,35 @@ function vehicleDetail(v) {
   outputs.append(outGrid);
 
   const drive = element("article", "panel wide");
-  drive.append(element("h2", "", "Arquitectura Drive"));
+  drive.append(element("h2", "", "Drive"));
   const inBox = element("div", "codebox");
   inBox.append(element("strong", "", v.drive.inputRoot));
   (v.drive.inputs || []).forEach(function(x) { inBox.append(document.createElement("br"), document.createTextNode("↳ " + x)); });
   const outBox = element("div", "codebox");
   outBox.append(element("strong", "", v.drive.outputRoot));
   (v.drive.outputs || []).forEach(function(x) { outBox.append(document.createElement("br"), document.createTextNode("↳ " + x)); });
-  drive.append(inBox, outBox);
+  const driveActions = element("div", "actions");
+  driveActions.append(
+    linkButton("Abrir Google Drive", "https://drive.google.com/drive/my-drive", true),
+    actionButton("Copiar ruta ENTRADAS", function() {
+      navigator.clipboard.writeText(v.drive.inputRoot);
+    }, false),
+    actionButton("Copiar ruta SALIDAS", function() {
+      navigator.clipboard.writeText(v.drive.outputRoot);
+    }, false)
+  );
+  drive.append(inBox, outBox, driveActions);
 
-  grid.append(state, media, capture, video, outputs, drive);
+  const fieldActions = element("article", "panel wide no-print");
+  fieldActions.append(element("h2", "", "Trabajo de campo"));
+  const fieldButtons = element("div", "actions");
+  fieldButtons.append(
+    actionButton("Imprimir checklist", function() { window.print(); }, true),
+    linkButton("Programador", "PROGRAMADOR.html", false)
+  );
+  fieldActions.append(fieldButtons);
+
+  grid.append(state, media, capture, video, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
