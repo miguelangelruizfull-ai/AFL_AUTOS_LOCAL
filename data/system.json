@@ -39,7 +39,9 @@
     "vehicleQuickResponses": true,
     "copyPageUI": "COPY_PAGE.html",
     "copyPagePolicy": "data/copy-page.json",
-    "copyPagePrompt": "data/prompts/copy-page-respuestas.json"
+    "copyPagePrompt": "data/prompts/copy-page-respuestas.json",
+    "homeAlternativeResponse": true,
+    "alternativeResponsePrompt": "data/prompts/respuesta-alternativa.json"
   },
   "rootAccess": [
     {
@@ -67,6 +69,10 @@
       "url": "data/prompts/editar-informacion-autorizada.json"
     },
     {
+      "label": "Prompt respuesta alternativa",
+      "url": "data/prompts/respuesta-alternativa.json"
+    },
+    {
       "label": "Plantilla vehículo",
       "url": "data/templates/vehicle.template.json"
     },
@@ -88,6 +94,12 @@
     }
   ],
   "quickResponses": [
+    {
+      "key": "alternativeResponse",
+      "label": "Otra respuesta / alternativa",
+      "description": "Responder de otra forma a la misma pregunta. Si no hay expediente, usar nombre del vehículo, precio y CTA capturados manualmente.",
+      "prompt": "GENERAR_RESPUESTA_ALTERNATIVA\\nPREGUNTA_O_MENSAJE: <TEXTO>\\nAFL-ID: <AFL-ID_OPCIONAL>\\nNOMBRE_VEHICULO_MANUAL: <NOMBRE_SI_NO_HAY_EXPEDIENTE>\\nPRECIO_MXN_MANUAL: <PRECIO_OPCIONAL>\\nCTA_MANUAL: <CTA_OPCIONAL>\\nMODO: OTRA_RESPUESTA\\nUsa data/prompts/respuesta-alternativa.json. Si existe expediente, úsalo como autoridad; si no existe, usa solo los datos manuales y no inventes ni crees expediente."
+    },
     {
       "key": "editAuthorized",
       "label": "Editar información autorizada",
@@ -211,6 +223,18 @@
       "autoSend": false,
       "autoPublish": false,
       "piiPersistence": "SESSION_ONLY"
+    },
+    "alternativeResponse": {
+      "prompt": "data/prompts/respuesta-alternativa.json",
+      "preferVehicleExpedient": true,
+      "manualFallbackFields": [
+        "vehicleName",
+        "price",
+        "cta"
+      ],
+      "manualFallbackDoesNotCreateExpedient": true,
+      "autoSend": false,
+      "autoPublish": false
     }
   }
 }
