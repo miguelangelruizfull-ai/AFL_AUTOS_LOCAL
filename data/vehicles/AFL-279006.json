@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "updated": "2026-09-27",
   "id": "AFL-279006",
   "vehicle": {
@@ -283,7 +283,8 @@
       "Mostrar en el chat, después del cierre, el submenú operativo recomendado y enlaces clicables del vehículo.",
       "Incluir siempre enlaces para: subir nueva captura, opciones del vehículo, abrir otro vehículo, nuevo vehículo y regresar a ROOT GLOBAL.",
       "Mostrar la miniatura pública del vehículo al inicio de la respuesta relacionada con la unidad, cuando el cliente permita imágenes.",
-      "Detectar el patrón operativo y dejar que el ChatGPT actual determine la recomendación; el repo aporta estado/evidencia y navegación."
+      "Detectar el patrón operativo y dejar que el ChatGPT actual determine la recomendación; el repo aporta estado/evidencia y navegación.",
+      "Si el prompt es de edición autorizada, informar valor anterior/nuevo y conservar checkpoint salvo autorización específica."
     ],
     "rules": [
       "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
@@ -292,7 +293,8 @@
       "No publicar automáticamente.",
       "No exponer VIN completo, odómetro, documentos privados o PII.",
       "La recomendación operativa la decide el ChatGPT actual a partir del checkpoint y evidencia; el menú estático del repo no es autoridad de decisión.",
-      "En respuestas relacionadas con este vehículo, mostrar la miniatura pública al inicio cuando el cliente permita imágenes."
+      "En respuestas relacionadas con este vehículo, mostrar la miniatura pública al inicio cuando el cliente permita imágenes.",
+      "Los cambios de información autorizados por Miguel se limitan al campo/valor indicado y no autorizan publicación."
     ],
     "responseLinks": [
       {
@@ -348,6 +350,12 @@
       "label": "1. Reanudar desde aquí",
       "description": "Continúa exactamente desde el checkpoint actual sin releer todo el proyecto.",
       "instruction": "Reanuda la operación desde el checkpoint actual. Ejecuta solamente el siguiente paso pendiente que pueda realizarse con evidencia disponible. Si el paso requiere trabajo físico aún no realizado, indica la acción de campo exacta y conserva los estados."
+    },
+    {
+      "key": "editAuthorized",
+      "label": "2. Editar información autorizada por Miguel",
+      "description": "Modificar cualquier campo autorizado y sincronizar Drive + JSON + HOME.",
+      "instruction": "Ejecuta data/prompts/editar-informacion-autorizada.json usando el CAMPO y NUEVO_VALOR indicados explícitamente por Miguel. No cambies campos no autorizados."
     },
     {
       "key": "captureUploaded",
@@ -422,5 +430,49 @@
     "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
     "staticMenuAuthority": false,
     "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia. El repo no impone la recomendación."
-  }
+  },
+  "editPolicy": {
+    "authority": "MIGUEL_EXPLICIT",
+    "prompt": "data/prompts/editar-informacion-autorizada.json",
+    "scope": "ANY_AUTHORIZED_OPERATIONAL_OR_COMMERCIAL_FIELD",
+    "syncTargets": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_MD"
+    ],
+    "preserveUnrelatedFields": true,
+    "preserveCheckpointUnlessAuthorized": true,
+    "autoPublish": false
+  },
+  "quickResponses": [
+    {
+      "label": "Precio interno",
+      "field": "commercial.priceInternal"
+    },
+    {
+      "label": "Disponibilidad",
+      "field": "commercial.availability"
+    },
+    {
+      "label": "Color",
+      "field": "vehicle.color"
+    },
+    {
+      "label": "Título público",
+      "field": "vehicle.publicTitle"
+    },
+    {
+      "label": "Estado",
+      "field": "status.vehicle"
+    },
+    {
+      "label": "Siguiente acción",
+      "field": "checkpoint.nextAction"
+    },
+    {
+      "label": "WhatsApp descripción",
+      "field": "whatsapp.description"
+    }
+  ]
 }
