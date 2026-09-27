@@ -23,7 +23,15 @@
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
       "authorizedEdit": true,
-      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json"
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "publication": {
+        "facebook": {
+          "status": "PROGRAMADA",
+          "channel": "POST",
+          "scheduledAt": "2026-09-29T19:00:00-06:00",
+          "timezone": "America/Mexico_City"
+        }
+      }
     },
     {
       "id": "AFL-338663",
