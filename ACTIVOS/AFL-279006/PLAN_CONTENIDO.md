@@ -231,3 +231,15 @@ No guardar archivos de audio.
 - Se conserva CAPTURA_PENDIENTE.
 - Siguiente acción operativa: CAPTURA_COMERCIAL_COMPLETA de 22 fotos + video vertical 9:16 y carga únicamente en 20_NUEVA_CAPTURA.
 - Facebook Post programada para 2026-09-29 19:00; MEDICION_7D inicia solo después de PUBLICADO_CONFIRMADO_POR_MIGUEL.
+
+## REVALIDACIÓN DE CHECKPOINT — 2026-09-27 17:08 America/Mexico_City
+
+- `20_NUEVA_CAPTURA` continúa vacía.
+- No procede `MATERIAL_NUEVO_SUBIDO` ni una nueva `REVISION_MATERIAL`.
+- Se conserva `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Siguiente acción: `CAPTURA_COMERCIAL_COMPLETA` con 22 fotos + video vertical 9:16.
+- Cargar únicamente en `01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA`.
+- Evento de campo confirmado para 2026-09-28 10:00–11:00.
+- Facebook Post permanece `PROGRAMADA` para 2026-09-29 19:00; `PROGRAMADA ≠ PUBLICADA`.
+- `MEDICION_7D` no inicia hasta `PUBLICADO_CONFIRMADO_POR_MIGUEL`.
+
