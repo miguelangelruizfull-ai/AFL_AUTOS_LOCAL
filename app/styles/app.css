@@ -145,3 +145,5 @@ button.btn{cursor:pointer;color:inherit;font:inherit}
 @media(max-width:900px){.detail-thumb-wrap{width:150px;min-width:150px}}
 @media(max-width:620px){.detail-thumb-wrap{width:100%;min-width:0}.detail-thumb{width:min(100%,420px)}}
 @media print{.print-vehicle-thumb{display:block!important}.detail-thumb-wrap{display:none!important}}
+
+.status-programada{background:#30281a;color:#ffe09a;border-color:#6b5630}
