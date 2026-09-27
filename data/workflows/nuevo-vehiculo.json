@@ -44,5 +44,13 @@
     "noAutoDelete": true,
     "controlDocument": "02_SALIDAS/AFL-ID/AFL-ID — CONTROL OPERATIVO",
     "authorizedEditSync": true
+  },
+  "firstAction": {
+    "action": "PROPORCIONAR_CARPETA_CARGA_INICIAL",
+    "path": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
+    "source": "GOOGLE_DRIVE_RUNTIME",
+    "provideClickableLinkToUser": true,
+    "persistPrivateUrlInPublicRepo": false,
+    "before": "IDENTIFICAR"
   }
 }
