@@ -160,7 +160,7 @@ DECISION_OPERATIVA_2026-09-27:
 - Marketplace y Feed pueden prepararse como BORRADOR_PRECAPTURA con el material comercial ya aprobado.
 - Post de Facebook ya está PROGRAMADA con copy final confirmado por Miguel; no modificarla salvo autorización expresa.
 - Estado mientras falte el trabajo de campo: EN_PRODUCCION.
-- No programar/publicar automáticamente nuevas piezas ni pasar otras salidas a LISTO antes de revisar la nueva captura.
+- WhatsApp: LISTO por transición explícita del entregable; conservar NO_PUBLICAR. Para las demás salidas, no programar/publicar automáticamente ni pasarlas a LISTO antes de revisar la nueva captura.
 - Reel y TikTok continúan esperando el video vertical de campo cuando corresponda.
 
 Flujo de cierre:
