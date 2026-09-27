@@ -258,7 +258,7 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "SUBMENÚ_OPERATIVO_Y_ENLACES_POST_PROMPT_PERSISTENTES_CONFIGURADOS; estado de captura conservado.",
+    "lastCompleted": "MINIATURA_CHAT_HOME_IMPRESION + TARGET_BLANK + RECOMENDACION_CHATGPT_ACTUAL implementados; estado operativo conservado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
@@ -281,16 +281,25 @@
       "Actualizar los .md operativos relevantes cuando corresponda.",
       "Verificar que Drive, JSON del vehículo y HOME coincidan antes de cerrar.",
       "Mostrar en el chat, después del cierre, el submenú operativo recomendado y enlaces clicables del vehículo.",
-      "Incluir siempre enlaces para: subir nueva captura, opciones del vehículo, abrir otro vehículo, nuevo vehículo y regresar a ROOT GLOBAL."
+      "Incluir siempre enlaces para: subir nueva captura, opciones del vehículo, abrir otro vehículo, nuevo vehículo y regresar a ROOT GLOBAL.",
+      "Mostrar la miniatura pública del vehículo al inicio de la respuesta relacionada con la unidad, cuando el cliente permita imágenes.",
+      "Detectar el patrón operativo y dejar que el ChatGPT actual determine la recomendación; el repo aporta estado/evidencia y navegación."
     ],
     "rules": [
       "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
       "No releer todo el proyecto salvo que una inconsistencia concreta lo requiera.",
       "No depender de la memoria de ChatGPT como fuente de estado.",
       "No publicar automáticamente.",
-      "No exponer VIN completo, odómetro, documentos privados o PII."
+      "No exponer VIN completo, odómetro, documentos privados o PII.",
+      "La recomendación operativa la decide el ChatGPT actual a partir del checkpoint y evidencia; el menú estático del repo no es autoridad de decisión.",
+      "En respuestas relacionadas con este vehículo, mostrar la miniatura pública al inicio cuando el cliente permita imágenes."
     ],
     "responseLinks": [
+      {
+        "key": "thumbnail",
+        "label": "Miniatura AFL-279006",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg"
+      },
       {
         "key": "newCapture",
         "label": "Subir nueva captura",
@@ -366,11 +375,6 @@
     }
   ],
   "operationalLinks": {
-    "recommended": {
-      "label": "Subir nueva captura",
-      "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-",
-      "when": "CAPTURA_PENDIENTE"
-    },
     "newCapture": {
       "label": "Subir nueva captura",
       "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-"
@@ -403,5 +407,20 @@
       "label": "Repositorio",
       "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
     }
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-279006.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
+    "showInHome": true,
+    "showInVehicle": true,
+    "showInPrintChecklist": true,
+    "showInChatPrompt": true
+  },
+  "recommendationPolicy": {
+    "authority": "CHATGPT_CURRENT",
+    "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
+    "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
+    "staticMenuAuthority": false,
+    "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia. El repo no impone la recomendación."
   }
 }
