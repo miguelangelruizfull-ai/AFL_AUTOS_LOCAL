@@ -23,7 +23,7 @@ No publicar automáticamente.
 
 ## 1. MARKETPLACE
 
-ESTADO: PENDIENTE
+ESTADO: EN_PRODUCCION / BORRADOR_PRECAPTURA / NO_PUBLICAR
 
 Material requerido:
 - HERO 3/4 frontal.
@@ -51,7 +51,7 @@ Salida prevista:
 
 ## 2. POST
 
-ESTADO: PENDIENTE
+ESTADO: EN_PRODUCCION / BORRADOR_PRECAPTURA / NO_PUBLICAR
 
 Formato recomendado:
 - imagen principal 4:5.
@@ -94,7 +94,7 @@ Objetivo:
 
 ## 5. FEED
 
-ESTADO: PENDIENTE
+ESTADO: EN_PRODUCCION / BORRADOR_PRECAPTURA / NO_PUBLICAR
 
 Formato:
 - 4:5 preferente.
@@ -152,20 +152,22 @@ Requisitos:
 
 ## GATE DE PRODUCCION
 
-CAPTURA_COMPLETA
+DECISION_OPERATIVA_2026-09-27:
+- Marketplace, Post y Feed pueden prepararse como BORRADOR_PRECAPTURA con el material comercial ya aprobado.
+- Estado mientras falte el trabajo de campo: EN_PRODUCCION.
+- No publicar ni pasar a LISTO antes de revisar la nueva captura.
+- Reel y TikTok continúan esperando el video vertical de campo cuando corresponda.
+
+Flujo de cierre:
+CAPTURA_COMERCIAL_COMPLETA
 → MATERIAL_NUEVO_SUBIDO
 → REVISION_MATERIAL
 → SELECCION_FINAL
+→ ACTUALIZAR_BORRADORES
 → CONTENIDO_DISPONIBLE
+→ LISTO_PARA_VALIDACION
 
-Solo después:
-- Marketplace.
-- Post.
-- Imágenes.
-- Historia.
-- Feed.
-- Reel.
-- TikTok.
+La nueva captura puede sustituir o complementar imágenes de Marketplace, Post y Feed antes del cierre.
 
 ## REGLAS
 
