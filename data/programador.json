@@ -1,0 +1,30 @@
+{
+  "updated": "2026-09-27",
+  "source": "GOOGLE_CALENDAR",
+  "calendarWins": true,
+  "events": [
+    {
+      "vehicleId": "AFL-279006",
+      "title": "Captura completa — Chevrolet Colorado AFL-279006",
+      "date": "2026-09-28",
+      "start": "10:00",
+      "end": "11:00",
+      "timezone": "America/Mexico_City",
+      "status": "CAPTURA_PENDIENTE",
+      "type": "CAPTURA_COMERCIAL_COMPLETA",
+      "links": {
+        "vehicle": "?vehicle=AFL-279006"
+      }
+    },
+    {
+      "vehicleId": "AFL-338663",
+      "title": "Captura de campo — Chevrolet Silverado AFL-338663",
+      "date": "2026-09-28",
+      "start": "11:30",
+      "end": "13:00",
+      "timezone": "America/Mexico_City",
+      "status": "CAPTURA_PENDIENTE",
+      "type": "CAPTURA_COMERCIAL"
+    }
+  ]
+}
