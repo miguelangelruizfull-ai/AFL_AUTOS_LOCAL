@@ -214,16 +214,24 @@
     "canonicalState": "CAPTURA_PENDIENTE",
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
-    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
+    "evidenceStatus": "SIN_MATERIAL_NUEVO",
+    "lastEvidenceCheck": "2026-09-27"
   },
   "checkpoint": {
     "phase": "PRECAPTURA_ESTANDARIZADA",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
+    "lastCompleted": "VERIFICACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
     "nextAction": "CAPTURA_COMERCIAL",
-    "resumeFrom": "Ejecutar captura comercial y subir material nuevo únicamente a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA; verificar evidencia antes de cambiar de estado.",
-    "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO"
+    "resumeFrom": "Trabajo físico requerido: ejecutar captura comercial conforme PLAN_CAPTURA y subir material nuevo únicamente a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA; verificar evidencia antes de cambiar de estado.",
+    "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO",
+    "evidence": {
+      "newCapture": "VACIA",
+      "availableLocal": "VACIA",
+      "approved": "VACIA",
+      "contentAvailable": "VACIA"
+    }
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
