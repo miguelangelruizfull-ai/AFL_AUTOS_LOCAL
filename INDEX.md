@@ -31,6 +31,7 @@ Actualizado: 2026-09-27
 ## Multimedia
 - Root lógico: `AFL_AUTOS_MULTIMEDIA`
 - Estructura: [`_SISTEMA/MULTIMEDIA.md`](_SISTEMA/MULTIMEDIA.md)
+- Ingreso de material nuevo: `02_PENDIENTE_REVISION`.
 - Drive: originales y derivados multimedia.
 - GitHub: puentes, estados, fichas y planes.
 - No guardar URLs ni IDs privados de Drive mientras este repositorio sea público.
