@@ -45,6 +45,165 @@ function currentChatGPTInstruction(v) {
   ].join(" ");
 }
 
+
+function standardQuickFields(v) {
+  return (v && Array.isArray(v.quickResponses) && v.quickResponses.length) ? v.quickResponses : [
+    { label: "Precio interno", field: "commercial.priceInternal" },
+    { label: "Disponibilidad", field: "commercial.availability" },
+    { label: "Color", field: "vehicle.color" },
+    { label: "Título público", field: "vehicle.publicTitle" },
+    { label: "Estado", field: "status.vehicle" },
+    { label: "Siguiente acción", field: "checkpoint.nextAction" },
+    { label: "WhatsApp descripción", field: "whatsapp.description" }
+  ];
+}
+
+function buildAuthorizedEditPrompt(v, field, newValue) {
+  const fieldPath = String(field || "<CAMPO>").trim() || "<CAMPO>";
+  const value = String(newValue || "<NUEVO_VALOR>").trim() || "<NUEVO_VALOR>";
+  const c = v.checkpoint || {};
+  const protocol = v.promptProtocol || {};
+  const lines = [
+    "Opera únicamente el vehículo " + v.id + " (" + v.vehicle.publicTitle + ") dentro de AFL Autos.",
+    "",
+    "EDITAR INFORMACIÓN AUTORIZADA POR MIGUEL.",
+    "Miguel autoriza explícitamente este cambio y únicamente este cambio:",
+    "- CAMPO: " + fieldPath,
+    "- NUEVO_VALOR: " + value,
+    "",
+    "CONTRATO CANÓNICO:",
+    "data/prompts/editar-informacion-autorizada.json",
+    "",
+    "VALOR VIGENTE:",
+    "Lee primero el valor actual desde el expediente/CONTROL OPERATIVO; no lo supongas.",
+    "",
+    "CHECKPOINT ACTUAL:",
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || (v.status && v.status.vehicle) || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
+    "",
+    "REGLAS DEL CAMBIO:",
+    "- Limita la autorización al CAMPO y NUEVO_VALOR indicados.",
+    "- No cambies campos no solicitados.",
+    "- Conserva estado, checkpoint y siguiente acción salvo que alguno de ellos sea el CAMPO autorizado.",
+    "- Si CAMPO=commercial.priceInternal, sincroniza priceInternal en HOME; no cambies catalogPrice ni whatsapp.price salvo autorización separada.",
+    "- Si CAMPO=vehicle.publicTitle, sincroniza el título de HOME.",
+    "- Si CAMPO=status.vehicle o checkpoint.nextAction, sincroniza el resumen HOME correspondiente.",
+    "- Actualiza CONTROL OPERATIVO y los documentos Drive directamente afectados.",
+    "- Actualiza data/vehicles/" + v.id + ".json y data/vehicles/index.json.",
+    "- Actualiza el .md operativo relevante cuando corresponda.",
+    "- Verifica Drive ↔ JSON vehículo ↔ HOME antes de cerrar.",
+    "- No publiques automáticamente.",
+    "- No expongas VIN completo, odómetro, documentos privados o PII. Si el campo es privado, mantenlo fuera de JSON/HOME públicos.",
+    "",
+    "MINIATURA PÚBLICA:",
+    publicVehicleThumbnailUrl(v),
+    "",
+    "CIERRE:",
+    "Devuelve valor anterior, valor nuevo, fuentes actualizadas, checkpoint conservado/cambiado y enlaces operativos."
+  ];
+  if ((protocol.minimalSources || []).length) {
+    lines.push("", "FUENTES MÍNIMAS DE ESTA UNIDAD:");
+    protocol.minimalSources.forEach(function(x, i) { lines.push((i + 1) + ". " + x); });
+  }
+  return lines.join("\n");
+}
+
+function makeAuthorizedEditPanel(v) {
+  const panel = element("article", "panel wide authorized-edit-panel no-print");
+  panel.id = "authorized-edit";
+  panel.append(
+    element("div", "eyebrow", "AUTORIZACIÓN EXPLÍCITA DE MIGUEL"),
+    element("h2", "", "Editar información autorizada"),
+    element("p", "subtitle", "Escribe la ruta del campo y el nuevo valor. El botón copia un prompt que obliga a sincronizar Drive + expediente JSON + HOME.")
+  );
+
+  const form = element("div", "authorized-edit-grid");
+  const fieldBox = element("label", "form-field");
+  fieldBox.append(element("span", "", "Campo / ruta JSON"));
+  const fieldInput = element("input");
+  fieldInput.type = "text";
+  fieldInput.placeholder = "Ej. commercial.priceInternal";
+  fieldBox.append(fieldInput);
+
+  const valueBox = element("label", "form-field");
+  valueBox.append(element("span", "", "Nuevo valor"));
+  const valueInput = element("textarea");
+  valueInput.rows = 3;
+  valueInput.placeholder = "Ej. 325000";
+  valueBox.append(valueInput);
+  form.append(fieldBox, valueBox);
+  panel.append(form);
+
+  const quick = element("div", "quick-field-buttons");
+  standardQuickFields(v).forEach(function(item) {
+    const b = actionButton(item.label, function() {
+      fieldInput.value = item.field;
+      fieldInput.focus();
+      status.textContent = "Campo seleccionado: " + item.field + ". Escribe el nuevo valor.";
+    }, false);
+    quick.append(b);
+  });
+  panel.append(element("p", "deliverable-note", "Atajos de campo:"), quick);
+
+  const status = element("span", "copy-status", "");
+  const actions = element("div", "actions");
+  actions.append(
+    actionButton("Copiar prompt de edición autorizada", function() {
+      copyText(buildAuthorizedEditPrompt(v, fieldInput.value, valueInput.value), status);
+    }, true),
+    actionButton("Ejemplo · actualizar precio", function() {
+      fieldInput.value = "commercial.priceInternal";
+      if (!valueInput.value) valueInput.value = "<PRECIO_MXN>";
+      copyText(buildAuthorizedEditPrompt(v, fieldInput.value, valueInput.value), status);
+    }, false)
+  );
+  panel.append(actions, status);
+  return panel;
+}
+
+function makeHomeTabs(system) {
+  const wrap = element("div", "home-tabs");
+  const nav = element("div", "home-tabs-nav");
+  const rootButton = actionButton("ROOT", function(){ activate("root"); }, true);
+  const quickButton = actionButton("Respuestas rápidas", function(){ activate("quick"); }, false);
+  nav.append(rootButton, quickButton);
+
+  const rootPanel = element("div", "home-tab-panel");
+  rootPanel.dataset.tab = "root";
+  const rootActions = element("div", "root-actions");
+  (system.rootAccess || []).forEach(function(item) {
+    rootActions.append(linkButton(item.label, item.url, item.label === "Nuevo vehículo"));
+  });
+  rootPanel.append(
+    element("p", "subtitle", "Accesos públicos/canónicos del ROOT. Los enlaces privados de Drive permanecen fuera del JSON público."),
+    rootActions
+  );
+
+  const quickPanel = element("div", "home-tab-panel");
+  quickPanel.dataset.tab = "quick";
+  quickPanel.hidden = true;
+  const quickGrid = element("div", "quick-response-grid");
+  (system.quickResponses || []).forEach(function(item) {
+    const card = element("div", "quick-response-card");
+    card.append(element("strong", "", item.label), element("p", "deliverable-note", item.description || ""));
+    const status = element("span", "copy-status", "");
+    card.append(actionButton("Copiar respuesta/prompt", function(){ copyText(item.prompt || "", status); }, item.key === "editAuthorized"), status);
+    quickGrid.append(card);
+  });
+  quickPanel.append(quickGrid);
+
+  function activate(name) {
+    rootPanel.hidden = name !== "root";
+    quickPanel.hidden = name !== "quick";
+    rootButton.classList.toggle("primary", name === "root");
+    quickButton.classList.toggle("primary", name === "quick");
+  }
+
+  wrap.append(nav, rootPanel, quickPanel);
+  return wrap;
+}
+
 function actionButton(label, onClick, primary) {
   const b = element("button", primary ? "btn primary" : "btn", label);
   b.type = "button";
@@ -114,7 +273,12 @@ function vehicleCard(v) {
   );
 
   const actions = element("div", "actions");
-  if (v.detail) actions.append(linkButton("Ficha y salidas", "?vehicle=" + encodeURIComponent(v.id), true));
+  if (v.detail) {
+    actions.append(
+      linkButton("Ficha y salidas", "?vehicle=" + encodeURIComponent(v.id), true),
+      linkButton("Editar info", "?vehicle=" + encodeURIComponent(v.id) + "#authorized-edit", false)
+    );
+  }
   actions.append(linkButton("Programador", "PROGRAMADOR.html", false));
 
   const shortcuts = element("div", "channel-shortcuts");
@@ -527,6 +691,7 @@ function vehicleDetail(v) {
   );
 
   const opsMenu = makeVehicleOpsMenu(v);
+  const authorizedEdit = makeAuthorizedEditPanel(v);
   const promptMenu = makePromptMenu(v);
   const channelNav = makeChannelNav(v);
   const whatsapp = makeWhatsappSheet(v);
@@ -583,7 +748,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, opsMenu, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
+  grid.append(state, media, opsMenu, authorizedEdit, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
@@ -646,16 +811,8 @@ async function renderHome() {
   const consoleTitle = element("div");
   consoleTitle.append(element("div", "eyebrow", "SYSTEM"), element("h2", "", "Contrato " + system.schemaVersion));
   consoleHead.append(consoleTitle, element("span", "console-status", "JSON ACTIVO"));
-  const actions = element("div", "root-actions");
-  actions.append(
-    linkButton("Nuevo vehículo", "NUEVO_VEHICULO.html", true),
-    linkButton("Programador", "PROGRAMADOR.html", false),
-    linkButton("Vehicles JSON", "data/vehicles/index.json", false),
-    linkButton("Multimedia", "MULTIMEDIA.html", false),
-    linkButton("Música JSON", "data/musica-usada.json", false),
-    linkButton("Portafolio técnico", "PORTAFOLIO/", false)
-  );
-  consoleCard.append(consoleHead, actions);
+  const homeTabs = makeHomeTabs(system);
+  consoleCard.append(consoleHead, homeTabs);
   consoleSection.append(consoleCard);
 
   const schedule = element("section", "programador");
