@@ -129,7 +129,7 @@
   "outputs": {
     "marketplace": "EN_PRODUCCION",
     "images": "PENDIENTE",
-    "post": "PROGRAMADA",
+    "post": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
     "feed": "EN_PRODUCCION",
     "stories": "PENDIENTE",
     "covers": "PENDIENTE",
@@ -186,7 +186,7 @@
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
-      "status": "PROGRAMADA",
+      "status": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
       "url": "https://drive.google.com/drive/folders/16xMBQIiojE2Ugg05pvmbP0ZLMY6186S_"
     },
     {
@@ -260,11 +260,11 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA; sin transición de estado.",
+    "lastCompleted": "FACEBOOK_POST_PUBLICADO_CONFIRMADO_POR_MIGUEL; checkpoint de captura conservado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-09-27T17:08:00-06:00"
+    "lastVerifiedAt": "2026-09-27T17:22:14-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
@@ -510,7 +510,7 @@
   ],
   "publication": {
     "facebook": {
-      "status": "PROGRAMADA",
+      "status": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
       "channel": "POST",
       "source": "META_BUSINESS_SUITE",
       "postId": "1886741839427469",
@@ -519,16 +519,21 @@
       "audience": "PUBLICA",
       "promotion": false,
       "copyStatus": "FINAL_CONFIRMADO_POR_MIGUEL",
-      "publicationConfirmationRequired": true,
+      "publicationConfirmationRequired": false,
       "measurement": {
         "cadence": "7D",
-        "status": "ESPERAR_PUBLICACION_CONFIRMADA",
-        "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
+        "status": "ACTIVA",
+        "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
+        "startAt": "2026-09-27T17:22:14-06:00",
+        "dueAt": "2026-10-04T17:22:14-06:00"
       },
-      "driveArtifactStatus": "SINCRONIZADO",
+      "driveArtifactStatus": "SINCRONIZADO_PUBLICADO",
       "driveArtifact": "30_POST / AFL-279006 — POST FACEBOOK PROGRAMADO",
-      "lastSyncedAt": "2026-09-27T14:50:00-06:00",
-      "lastVerifiedAt": "2026-09-27T15:25:35-06:00"
+      "lastSyncedAt": "2026-09-27T17:22:14-06:00",
+      "lastVerifiedAt": "2026-09-27T17:22:14-06:00",
+      "publishedAt": "2026-09-27T17:22:14-06:00",
+      "confirmationSource": "MIGUEL",
+      "nextAction": "MEDICION_7D"
     }
   },
   "responsePolicy": {
