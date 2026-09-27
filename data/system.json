@@ -32,6 +32,89 @@
       "EN_PRODUCCION",
       "LISTO",
       "PUBLICADO"
-    ]
-  }
+    ],
+    "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+    "homeRootTabs": true,
+    "vehicleQuickResponses": true
+  },
+  "rootAccess": [
+    {
+      "label": "Nuevo vehículo",
+      "url": "NUEVO_VEHICULO.html"
+    },
+    {
+      "label": "Programador",
+      "url": "PROGRAMADOR.html"
+    },
+    {
+      "label": "Multimedia",
+      "url": "MULTIMEDIA.html"
+    },
+    {
+      "label": "Inventario JSON",
+      "url": "data/vehicles/index.json"
+    },
+    {
+      "label": "Prompt edición autorizada",
+      "url": "data/prompts/editar-informacion-autorizada.json"
+    },
+    {
+      "label": "Plantilla vehículo",
+      "url": "data/templates/vehicle.template.json"
+    },
+    {
+      "label": "Schema vehículo",
+      "url": "data/schema/vehicle.schema.json"
+    },
+    {
+      "label": "START_HERE",
+      "url": "START_HERE.md"
+    },
+    {
+      "label": "Reglas del sistema",
+      "url": "_SISTEMA/REGLAS.md"
+    },
+    {
+      "label": "Repositorio GitHub",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  ],
+  "quickResponses": [
+    {
+      "key": "editAuthorized",
+      "label": "Editar información autorizada",
+      "description": "Actualizar cualquier campo autorizado por Miguel y sincronizar Drive + JSON + HOME.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <CAMPO>\\nNUEVO_VALOR: <NUEVO_VALOR>\\nMiguel autoriza explícitamente este cambio. Ejecuta el contrato data/prompts/editar-informacion-autorizada.json y verifica Drive ↔ JSON ↔ HOME antes de cerrar."
+    },
+    {
+      "key": "price",
+      "label": "Actualizar precio",
+      "description": "Atajo para precio interno; no cambia precio de catálogo ni publicación.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: commercial.priceInternal\\nNUEVO_VALOR: <PRECIO_MXN>\\nMiguel autoriza explícitamente este cambio. Sincroniza HOME y conserva publicación en NO salvo autorización separada."
+    },
+    {
+      "key": "availability",
+      "label": "Actualizar disponibilidad",
+      "description": "Cambiar disponibilidad confirmada sin alterar otros campos.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: commercial.availability\\nNUEVO_VALOR: <VALOR>\\nMiguel autoriza explícitamente este cambio. Sincroniza Drive + JSON + HOME."
+    },
+    {
+      "key": "technical",
+      "label": "Actualizar dato técnico",
+      "description": "Motor, transmisión, tracción, color, cabina u otro dato confirmado.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <vehicle.configuration.* o vehicle.color>\\nNUEVO_VALOR: <VALOR_CONFIRMADO>\\nMiguel autoriza explícitamente este cambio. No inventes datos adicionales."
+    },
+    {
+      "key": "status",
+      "label": "Actualizar estado / siguiente",
+      "description": "Solo cuando Miguel autorice expresamente el cambio operativo.",
+      "prompt": "EDITAR_INFO_AUTORIZADA\\nAFL-ID: <AFL-ID>\\nCAMPO: <status.vehicle o checkpoint.nextAction>\\nNUEVO_VALOR: <VALOR>\\nMiguel autoriza explícitamente este cambio. Revalida evidencia y sincroniza Drive + JSON + HOME."
+    },
+    {
+      "key": "sync",
+      "label": "Auditar sincronización",
+      "description": "Comparar Drive, expediente y HOME sin publicar.",
+      "prompt": "Audita únicamente <AFL-ID>. Compara CONTROL OPERATIVO, data/vehicles/<AFL-ID>.json y data/vehicles/index.json. Corrige contradicciones verificables sin publicar y devuelve los cambios."
+    }
+  ]
 }
