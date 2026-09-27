@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "updated": "2026-09-27",
   "driveRoot": "AFL_AUTOS_MULTIMEDIA",
   "inputTemplate": {
@@ -63,7 +63,10 @@
     "rules": [
       "No mezclar unidades",
       "No crear AFL-ID definitivo sin evidencia suficiente",
-      "Después de confirmar AFL-ID, consolidar material en 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL"
+      "Después de confirmar AFL-ID, consolidar material en 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL",
+      "Si la carga está en curso, iniciar revisión solo con archivos completos ya disponibles y reescanear antes de cerrar",
+      "Partes modificadas/accesorios visibles pueden respaldar captura comercial y textos; no inferir especificaciones no demostradas",
+      "Material no seleccionado se clasifica para posible depuración, pero nunca se borra automáticamente; mostrar opciones antes de eliminar"
     ],
     "firstResponsePolicy": {
       "provideFolderAtStart": true,
@@ -71,6 +74,16 @@
       "resolveUrlAtRuntimeFromGoogleDrive": true,
       "publicRepositoryStoresPrivateUrl": false,
       "instruction": "Al iniciar un vehículo nuevo, proporcionar primero al usuario el enlace autorizado de esta carpeta para la carga inicial. Después continuar con identificación."
+    },
+    "partialUploadPolicy": {
+      "allowed": true,
+      "inspectOnlyAvailableCompleteFiles": true,
+      "rescanBeforeClosingReview": true
+    },
+    "cleanupPolicy": {
+      "autoDelete": false,
+      "requireClassification": true,
+      "showOptionsBeforeDelete": true
     }
   },
   "outputStatusModel": {
