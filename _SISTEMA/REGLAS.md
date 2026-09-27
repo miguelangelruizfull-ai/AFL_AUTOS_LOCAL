@@ -85,3 +85,14 @@ Todo vehículo actual o nuevo del framework debe tener:
 - Una publicación pasa a `PUBLICADO_CONFIRMADO_POR_MIGUEL` solo con confirmación de Miguel o evidencia verificable; desde ahí inicia `MEDICION_7D`.
 - Después del cierre, si el ChatGPT actual recomienda una siguiente acción concreta, mostrarla y regresar al menú/opciones del vehículo. Si no existe recomendación útil, omitir ese bloque.
 - Ninguna programación, publicación o edición habilita publicación automática de otras piezas.
+
+
+## OPCIONES FINALES EN CADA CIERRE
+
+- Toda operación de vehículo debe terminar mostrando opciones al usuario.
+- Si el ChatGPT actual determina una siguiente acción concreta, esa opción debe aparecer primero como **RECOMENDADA**.
+- Después deben mostrarse las demás opciones operativas relevantes del vehículo.
+- Si no existe una recomendación concreta, no inventarla: mostrar únicamente las demás opciones disponibles.
+- Las opciones deben usar los enlaces operativos vigentes cuando existan.
+- Deben reflejar el checkpoint ya sincronizado; primero se actualiza Drive/repos/HOME y después se renderiza el menú final.
+- Esta regla aplica también después de PROGRAMAR, PUBLICAR, editar información autorizada, revisar material, cambiar estado o ejecutar cualquier transición operativa.
