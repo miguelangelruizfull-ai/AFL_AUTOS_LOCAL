@@ -178,6 +178,32 @@ Después de persistir y verificar cualquier cambio operativo:
 El menú se genera después de sincronizar Drive ↔ JSON vehículo ↔ HOME ↔ documentación aplicable, por lo que siempre debe representar el estado recién persistido.
 
 
+## RESPUESTA ALTERNATIVA DESDE HOME
+
+HOME incluye una pestaña **Otra respuesta** para generar una redacción distinta ante la misma pregunta comercial.
+
+Contrato:
+
+- `data/prompts/respuesta-alternativa.json`
+
+Campos disponibles:
+
+- pregunta o mensaje original;
+- AFL-ID opcional cuando ya existe expediente;
+- nombre del vehículo como fallback manual;
+- precio MXN como fallback manual;
+- CTA como fallback manual.
+
+Resolución:
+
+1. si existe AFL-ID en `data/vehicles`, el expediente vigente es la fuente de datos;
+2. si todavía no existe expediente, se usan exclusivamente nombre, precio y CTA ingresados manualmente;
+3. el fallback manual sirve para redactar la respuesta y no crea ni actualiza automáticamente expediente, HOME, Drive, catálogo o WhatsApp;
+4. no inventar datos faltantes;
+5. HOME permite copiar un prompt de **otra respuesta** o una **alternativa breve**;
+6. no enviar ni publicar automáticamente.
+
+
 ## COPY PAGE COMERCIAL
 
 Entrada oficial desde HOME/ROOT:
