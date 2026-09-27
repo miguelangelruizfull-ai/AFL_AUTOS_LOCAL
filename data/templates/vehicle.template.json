@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "updated": null,
   "id": null,
   "vehicle": {
@@ -215,5 +215,144 @@
     "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
     "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
     "staticMenuAuthority": false
+  },
+  "editPolicy": {
+    "authority": "MIGUEL_EXPLICIT",
+    "prompt": "data/prompts/editar-informacion-autorizada.json",
+    "scope": "ANY_AUTHORIZED_OPERATIONAL_OR_COMMERCIAL_FIELD",
+    "syncTargets": [
+      "DRIVE_CONTROL",
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_MD"
+    ],
+    "preserveUnrelatedFields": true,
+    "preserveCheckpointUnlessAuthorized": true,
+    "autoPublish": false
+  },
+  "checkpoint": {
+    "phase": "ALTA_O_REVISION_INICIAL",
+    "state": "REVISION_MATERIAL",
+    "updated": null,
+    "lastCompleted": "ESTRUCTURA_INICIAL",
+    "nextAction": "REVISION_MATERIAL",
+    "resumeFrom": "Leer evidencia mínima del vehículo y ejecutar únicamente el siguiente paso válido.",
+    "driveControlDocument": null
+  },
+  "promptProtocol": {
+    "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
+    "minimalSources": [
+      "data/vehicles/AFL-ID.json",
+      "data/vehicles/index.json",
+      "Drive: 01_ENTRADAS/AFL-ID",
+      "Drive: 02_SALIDAS/AFL-ID",
+      "Drive: documento AFL-ID — CONTROL OPERATIVO"
+    ],
+    "afterEveryPrompt": [
+      "Actualizar Drive y CONTROL OPERATIVO cuando el prompt produzca un cambio.",
+      "Actualizar data/vehicles/AFL-ID.json.",
+      "Actualizar data/vehicles/index.json para HOME.",
+      "Actualizar documentación operativa relevante.",
+      "Verificar consistencia Drive ↔ vehículo JSON ↔ HOME.",
+      "Persistir checkpoint.nextAction cuando cambie el flujo."
+    ],
+    "rules": [
+      "No mezclar vehículos.",
+      "No publicar automáticamente.",
+      "No exponer VIN completo, odómetro, documentos privados o PII.",
+      "La recomendación operativa corresponde al ChatGPT actual.",
+      "Los cambios autorizados por Miguel se limitan al campo y valor indicados."
+    ],
+    "responseLinks": []
+  },
+  "promptMenu": [
+    {
+      "key": "resume",
+      "label": "Reanudar desde aquí",
+      "description": "Continuar desde el checkpoint vigente.",
+      "instruction": "Detecta el patrón desde checkpoint y evidencia; ejecuta únicamente el siguiente paso válido."
+    },
+    {
+      "key": "editAuthorized",
+      "label": "Editar información autorizada por Miguel",
+      "description": "Modificar cualquier campo autorizado y sincronizar Drive + JSON + HOME.",
+      "instruction": "Ejecuta data/prompts/editar-informacion-autorizada.json con el CAMPO y NUEVO_VALOR indicados por Miguel."
+    },
+    {
+      "key": "captureUploaded",
+      "label": "Ya subí nueva captura",
+      "description": "Procesar material de 20_NUEVA_CAPTURA.",
+      "instruction": "Confirma evidencia nueva antes de registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL."
+    },
+    {
+      "key": "finalSelection",
+      "label": "Revisar y seleccionar material",
+      "description": "Revisar faltantes y seleccionar material por canal.",
+      "instruction": "Ejecuta REVISION_MATERIAL/SELECCION_FINAL según evidencia y conserva CAPTURA_PENDIENTE si faltan tomas obligatorias."
+    },
+    {
+      "key": "finishOutputs",
+      "label": "Terminar piezas",
+      "description": "Generar o actualizar salidas con material suficiente.",
+      "instruction": "Actualiza únicamente piezas respaldadas por selección final; WhatsApp permanece OCULTO hasta validación."
+    },
+    {
+      "key": "syncAudit",
+      "label": "Auditar sincronización",
+      "description": "Comprobar Drive, JSON y HOME.",
+      "instruction": "Corrige contradicciones verificables sin publicar."
+    }
+  ],
+  "quickResponses": [
+    {
+      "label": "Precio interno",
+      "field": "commercial.priceInternal"
+    },
+    {
+      "label": "Disponibilidad",
+      "field": "commercial.availability"
+    },
+    {
+      "label": "Color",
+      "field": "vehicle.color"
+    },
+    {
+      "label": "Título público",
+      "field": "vehicle.publicTitle"
+    },
+    {
+      "label": "Estado",
+      "field": "status.vehicle"
+    },
+    {
+      "label": "Siguiente acción",
+      "field": "checkpoint.nextAction"
+    },
+    {
+      "label": "WhatsApp descripción",
+      "field": "whatsapp.description"
+    }
+  ],
+  "operationalLinks": {
+    "newCapture": null,
+    "vehicleOptions": null,
+    "outputs": null,
+    "control": null,
+    "otherVehicle": {
+      "label": "Abrir otro vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "newVehicle": {
+      "label": "Nuevo vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+    },
+    "rootGlobal": {
+      "label": "Regresar a ROOT GLOBAL",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "repository": {
+      "label": "Repositorio",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
   }
 }
