@@ -15,6 +15,15 @@ function actionButton(label, onClick, primary) {
   return b;
 }
 
+async function copyText(text, statusNode) {
+  try {
+    await navigator.clipboard.writeText(text);
+    if (statusNode) statusNode.textContent = "Copiado";
+  } catch (error) {
+    if (statusNode) statusNode.textContent = "No se pudo copiar automáticamente";
+  }
+}
+
 function stat(label, value) {
   const box = element("div", "stat");
   box.append(element("span", "", label), element("strong", "", value));
@@ -94,6 +103,94 @@ function makeList(items, ordered) {
   return node;
 }
 
+function makeFieldChecklist(v) {
+  const wrap = element("div", "field-checklist-wrap");
+  const storageKey = "afl-field-checklist:" + v.id;
+  let saved = [];
+  try { saved = JSON.parse(localStorage.getItem(storageKey) || "[]"); } catch (error) { saved = []; }
+  const checked = new Set(saved);
+  const progress = element("div", "field-progress");
+  const list = element("ol", "checklist field-checklist-list");
+
+  function refresh() {
+    progress.textContent = checked.size + " / " + (v.capture.checklist || []).length + " tomas marcadas en este dispositivo";
+    try { localStorage.setItem(storageKey, JSON.stringify(Array.from(checked))); } catch (error) {}
+  }
+
+  (v.capture.checklist || []).forEach(function(item, index) {
+    const li = element("li", "field-check-item");
+    const label = element("label", "field-check-label");
+    const input = element("input", "field-check-input");
+    input.type = "checkbox";
+    input.checked = checked.has(index);
+    input.addEventListener("change", function() {
+      if (input.checked) checked.add(index); else checked.delete(index);
+      refresh();
+    });
+    label.append(input, element("span", "", item));
+    li.append(label);
+    list.append(li);
+  });
+
+  const localActions = element("div", "field-local-actions no-print");
+  const clear = actionButton("Limpiar progreso local", function() {
+    checked.clear();
+    list.querySelectorAll("input").forEach(function(input){ input.checked = false; });
+    refresh();
+  }, false);
+  localActions.append(clear);
+
+  wrap.append(progress, list, localActions);
+  refresh();
+  return wrap;
+}
+
+function statusChip(status) {
+  return element("span", "status-chip status-" + String(status || "PENDIENTE").toLowerCase(), labelStatus(status || "PENDIENTE"));
+}
+
+function makeDeliverables(v) {
+  const panel = element("article", "panel wide");
+  panel.append(element("h2", "", "Salidas por canal"));
+  const note = element("p", "subtitle", "Estados canónicos: PENDIENTE · EN PRODUCCION · LISTO · PUBLICADO. Esta web es de solo lectura; los controles preparan el cambio para actualizar JSON.");
+  panel.append(note);
+  const grid = element("div", "deliverables-grid");
+
+  (v.deliverables || []).forEach(function(d) {
+    const card = element("div", "deliverable-card");
+    const top = element("div", "deliverable-head");
+    const title = element("div");
+    title.append(element("strong", "", d.label), element("span", "deliverable-folder", d.folder));
+    top.append(title, statusChip(d.status));
+
+    const controls = element("div", "deliverable-controls no-print");
+    const select = element("select", "status-select");
+    ["PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"].forEach(function(s) {
+      const option = element("option", "", labelStatus(s));
+      option.value = s;
+      option.selected = s === d.status;
+      select.append(option);
+    });
+    const status = element("span", "copy-status", "");
+    const copy = actionButton("Copiar cambio", function() {
+      const payload = {
+        vehicleId: v.id,
+        deliverable: d.key,
+        folder: d.folder,
+        from: d.status,
+        to: select.value
+      };
+      copyText(JSON.stringify(payload, null, 2), status);
+    }, false);
+    controls.append(select, copy);
+    card.append(top, controls, status);
+    grid.append(card);
+  });
+
+  panel.append(grid);
+  return panel;
+}
+
 function vehicleDetail(v) {
   const section = element("section", "detail-panel");
   const head = element("div", "detail-head");
@@ -141,7 +238,7 @@ function vehicleDetail(v) {
     element("div", "schedule-time", v.capture.date + " · " + v.capture.start + "–" + v.capture.end),
     element("p", "subtitle", "Fuente: " + v.capture.source + " · " + v.capture.timezone),
     element("h3", "", "Checklist"),
-    makeList(v.capture.checklist, true)
+    makeFieldChecklist(v)
   );
 
   const video = element("article", "panel");
@@ -152,13 +249,7 @@ function vehicleDetail(v) {
     makeList(v.capture.requiredVideo.shots, false)
   );
 
-  const outputs = element("article", "panel wide");
-  outputs.append(element("h2", "", "Salidas"));
-  const outGrid = element("div", "output-grid");
-  Object.entries(v.outputs || {}).forEach(function(entry) {
-    outGrid.append(meta(entry[0], labelStatus(entry[1])));
-  });
-  outputs.append(outGrid);
+  const outputs = makeDeliverables(v);
 
   const drive = element("article", "panel wide");
   drive.append(element("h2", "", "Drive"));
@@ -170,7 +261,8 @@ function vehicleDetail(v) {
   (v.drive.outputs || []).forEach(function(x) { outBox.append(document.createElement("br"), document.createTextNode("↳ " + x)); });
   const driveActions = element("div", "actions");
   driveActions.append(
-    linkButton("Abrir Google Drive", "https://drive.google.com/drive/my-drive", true),
+    linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), true),
+    linkButton("Abrir Google Drive", "https://drive.google.com/drive/my-drive", false),
     actionButton("Copiar ruta ENTRADAS", function() {
       navigator.clipboard.writeText(v.drive.inputRoot);
     }, false),
@@ -182,12 +274,30 @@ function vehicleDetail(v) {
 
   const fieldActions = element("article", "panel wide no-print");
   fieldActions.append(element("h2", "", "Trabajo de campo"));
+  fieldActions.append(
+    kv("Estado", labelStatus((v.fieldWork && v.fieldWork.canonicalState) || v.status.vehicle)),
+    kv("Después de subir", labelStatus((v.fieldWork && v.fieldWork.nextAfterUpload) || "MATERIAL_NUEVO_SUBIDO")),
+    kv("Carpeta de carga", (v.fieldWork && v.fieldWork.uploadFolder) || "20_NUEVA_CAPTURA")
+  );
+  const fieldStatus = element("span", "copy-status", "");
   const fieldButtons = element("div", "actions");
   fieldButtons.append(
     actionButton("Imprimir checklist", function() { window.print(); }, true),
+    actionButton("Preparar MATERIAL_NUEVO_SUBIDO", function() {
+      const payload = {
+        vehicleId: v.id,
+        requestedState: "MATERIAL_NUEVO_SUBIDO",
+        precondition: "Confirmar que el material nuevo ya fue subido físicamente a " + v.drive.inputRoot + "/" + ((v.fieldWork && v.fieldWork.uploadFolder) || "20_NUEVA_CAPTURA"),
+        next: "REVISION_MATERIAL"
+      };
+      copyText(JSON.stringify(payload, null, 2), fieldStatus);
+    }, false),
+    actionButton("Copiar ruta nueva captura", function() {
+      copyText(v.drive.inputRoot + "/" + ((v.fieldWork && v.fieldWork.uploadFolder) || "20_NUEVA_CAPTURA"), fieldStatus);
+    }, false),
     linkButton("Programador", "PROGRAMADOR.html", false)
   );
-  fieldActions.append(fieldButtons);
+  fieldActions.append(fieldButtons, fieldStatus);
 
   grid.append(state, media, capture, video, outputs, drive, fieldActions);
   section.append(grid);
@@ -257,7 +367,7 @@ async function renderHome() {
     linkButton("Nuevo vehículo", "NUEVO_VEHICULO.html", true),
     linkButton("Programador", "PROGRAMADOR.html", false),
     linkButton("Vehicles JSON", "data/vehicles/index.json", false),
-    linkButton("Multimedia JSON", "data/multimedia.json", false),
+    linkButton("Multimedia", "MULTIMEDIA.html", false),
     linkButton("Música JSON", "data/musica-usada.json", false)
   );
   consoleCard.append(consoleHead, actions);
