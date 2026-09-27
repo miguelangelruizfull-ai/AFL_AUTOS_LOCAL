@@ -20,7 +20,9 @@
         "state": "CAPTURA_PENDIENTE"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
-      "recommendationAuthority": "CHATGPT_CURRENT"
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json"
     },
     {
       "id": "AFL-338663",
@@ -31,10 +33,19 @@
       "currency": "MXN",
       "nextAction": "CAPTURA_COMERCIAL",
       "image": "assets/thumbs/AFL-338663.jpg",
-      "detail": null,
+      "detail": "data/vehicles/AFL-338663.json",
       "publish": false,
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338663.jpg",
-      "recommendationAuthority": "CHATGPT_CURRENT"
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-27",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "PRECAPTURA_ESTANDARIZADA",
+        "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
+        "nextAction": "CAPTURA_COMERCIAL",
+        "state": "CAPTURA_PENDIENTE"
+      }
     },
     {
       "id": "AFL-338732",
@@ -45,10 +56,19 @@
       "currency": "MXN",
       "nextAction": "REVISION_MATERIAL",
       "image": "assets/thumbs/AFL-338732.jpg",
-      "detail": null,
+      "detail": "data/vehicles/AFL-338732.json",
       "publish": false,
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-338732.jpg",
-      "recommendationAuthority": "CHATGPT_CURRENT"
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-27",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_ESTANDARIZADA",
+        "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
+        "nextAction": "REVISION_MATERIAL",
+        "state": "REVISION_MATERIAL"
+      }
     }
   ]
 }
