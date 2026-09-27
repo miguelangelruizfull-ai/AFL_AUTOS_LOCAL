@@ -5,6 +5,8 @@ const root = document.getElementById("programador-app");
 function linkButton(label, href, primary) {
   const a = element("a", primary ? "btn primary" : "btn", label);
   a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
   return a;
 }
 
