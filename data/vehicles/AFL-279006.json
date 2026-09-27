@@ -24,10 +24,10 @@
     "captureExecution": "PENDIENTE",
     "whatsapp": "LISTO",
     "outputsDrive": "PREPARADAS",
-    "publish": false
+    "publish": true
   },
   "commercial": {
-    "priceInternal": 330000,
+    "priceInternal": 325000,
     "currency": "MXN",
     "catalogPrice": null,
     "catalogPricePolicy": "OMITIR"
