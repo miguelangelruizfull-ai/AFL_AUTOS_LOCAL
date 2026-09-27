@@ -144,3 +144,21 @@ Actualizar ese campo también actualiza `priceInternal` del resumen HOME. No mod
 ## ESTANDAR DRIVE Y HOME
 
 Todos los vehículos del framework, actuales y nuevos, deben tener la misma estructura de ENTRADAS/SALIDAS definida en `data/multimedia.json`, un CONTROL OPERATIVO dentro de SALIDAS y un expediente JSON detallado cuando la unidad ya esté incorporada al framework. HOME debe mostrar accesos ROOT en su pestaña propia y respuestas rápidas reutilizables.
+
+
+## CIERRE DESPUES DE PROGRAMAR O PUBLICAR
+
+`PROGRAMADA ≠ PUBLICADA`.
+
+Al confirmar una programación social:
+1. registrar canal, fuente, fecha/hora y estado en el expediente del vehículo;
+2. sincronizar `data/vehicles/index.json` para HOME;
+3. sincronizar `data/programador.json` con la fuente real de la programación;
+4. actualizar CONTROL OPERATIVO/Drive y documentación relevante;
+5. conservar el checkpoint operativo del vehículo salvo que el evento cambie realmente ese flujo.
+
+Al confirmar publicación real, cambiar la pieza a `PUBLICADO_CONFIRMADO_POR_MIGUEL` y activar únicamente `MEDICION_7D`.
+
+Después del cierre, mostrar la siguiente acción solo cuando el ChatGPT actual tenga una recomendación concreta; en ese caso devolver después el menú/opciones del vehículo. Si no existe recomendación, omitir ese retorno.
+
+Toda programación, publicación o cambio autorizado debe dejar HOME actualizado antes de cerrar.
