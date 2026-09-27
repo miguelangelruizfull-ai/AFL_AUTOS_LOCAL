@@ -225,7 +225,8 @@ async function renderHome() {
   consoleHead.append(consoleTitle, element("span", "console-status", "JSON ACTIVO"));
   const actions = element("div", "root-actions");
   actions.append(
-    linkButton("Programador", "PROGRAMADOR.html", true),
+    linkButton("Nuevo vehículo", "NUEVO_VEHICULO.html", true),
+    linkButton("Programador", "PROGRAMADOR.html", false),
     linkButton("Vehicles JSON", "data/vehicles/index.json", false),
     linkButton("Multimedia JSON", "data/multimedia.json", false),
     linkButton("Música JSON", "data/musica-usada.json", false)
