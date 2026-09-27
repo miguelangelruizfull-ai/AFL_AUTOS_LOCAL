@@ -11,7 +11,13 @@
       "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
       "image": "assets/thumbs/AFL-279006.jpg",
       "detail": "data/vehicles/AFL-279006.json",
-      "publish": false
+      "publish": false,
+      "updated": "2026-09-27",
+      "checkpoint": {
+        "phase": "PRECAPTURA_CON_BORRADORES",
+        "lastCompleted": "BORRADORES_PRECAPTURA_SINCRONIZADOS",
+        "nextAction": "CAPTURA_COMERCIAL_COMPLETA"
+      }
     },
     {
       "id": "AFL-338663",
