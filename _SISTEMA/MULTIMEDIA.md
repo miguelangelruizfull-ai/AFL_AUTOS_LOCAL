@@ -18,6 +18,7 @@ No guarda URLs privadas, IDs de Drive, VIN completos ni datos personales.
 ```text
 AFL_AUTOS_MULTIMEDIA/
 ├── 01_ENTRADAS/
+├── 02_SALIDAS/
 ├── 01_ACTIVOS/                 # estructura histórica / transición
 ├── 02_PENDIENTE_REVISION/      # estructura histórica / transición
 ├── 03_LISTO_PRODUCCION/
