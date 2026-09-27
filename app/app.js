@@ -169,7 +169,7 @@ function makeAuthorizedEditPanel(v) {
   return panel;
 }
 
-function buildAlternativeResponsePrompt(system, mode, question, aflId, vehicleName, price, cta) {
+function buildAlternativeResponsePrompt(system, mode, channel, question, aflId, vehicleName, price, cta) {
   const promptPath = (system && system.features && system.features.alternativeResponsePrompt) || "data/prompts/respuesta-alternativa.json";
   const q = String(question || "").trim() || "<PREGUNTA_O_MENSAJE>";
   const id = String(aflId || "").trim();
@@ -180,6 +180,7 @@ function buildAlternativeResponsePrompt(system, mode, question, aflId, vehicleNa
     "GENERAR_RESPUESTA_ALTERNATIVA",
     "CONTRATO: " + promptPath,
     "MODO: " + (mode || "OTRA_RESPUESTA"),
+    "CANAL: " + (String(channel || "COMENTARIO").trim().toUpperCase()),
     "",
     "PREGUNTA_O_MENSAJE:",
     q,
@@ -197,7 +198,7 @@ function buildAlternativeResponsePrompt(system, mode, question, aflId, vehicleNa
     "- Si no existe expediente, usa únicamente los datos manuales proporcionados arriba.",
     "- No inventes datos faltantes ni finjas que existe un expediente.",
     "- Nombre, precio y CTA manuales sirven para esta respuesta; no crean ni actualizan automáticamente expediente, HOME, Drive, catálogo o WhatsApp.",
-    "- Si hay precio manual, úsalo exactamente como fue escrito y solo cuando sea pertinente a la pregunta.",
+    "- Si hay precio manual, úsalo exactamente como fue escrito y solo cuando sea pertinente a la pregunta.\n    - En COMENTARIO público no uses commercial.priceInternal como autorización para mostrar una cifra; en MESSENGER, WHATSAPP o LLAMADA sí puede usarse el precio interno vigente del expediente.",
     "- Si hay CTA manual, úsalo exactamente como fue escrito.",
     "- Genera una respuesta distinta a la anterior, lista para copiar y pegar.",
     "- No envíes ni publiques automáticamente."
@@ -216,6 +217,16 @@ function makeAlternativeResponsePanel(system) {
   );
 
   const grid = element("div", "authorized-edit-grid");
+
+  const channelBox = element("label", "form-field");
+  channelBox.append(element("span", "", "Canal de respuesta"));
+  const channelInput = element("select");
+  [["COMENTARIO","Comentario público"],["MESSENGER","Inbox / Messenger"],["WHATSAPP","WhatsApp"],["LLAMADA","Llamada"]].forEach(function(pair) {
+    const o = element("option", "", pair[1]);
+    o.value = pair[0];
+    channelInput.append(o);
+  });
+  channelBox.append(channelInput);
 
   const questionBox = element("label", "form-field");
   questionBox.append(element("span", "", "Pregunta o mensaje recibido"));
@@ -253,17 +264,17 @@ function makeAlternativeResponsePanel(system) {
   ctaInput.placeholder = "Ej. Mándanos mensaje por WhatsApp para más información.";
   ctaBox.append(ctaInput);
 
-  grid.append(questionBox, idBox, nameBox, priceBox, ctaBox);
+  grid.append(channelBox, questionBox, idBox, nameBox, priceBox, ctaBox);
   panel.append(grid);
 
   const status = element("span", "copy-status", "");
   const actions = element("div", "actions");
   actions.append(
     actionButton("Copiar prompt · otra respuesta", function() {
-      copyText(buildAlternativeResponsePrompt(system, "OTRA_RESPUESTA", questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
+      copyText(buildAlternativeResponsePrompt(system, "OTRA_RESPUESTA", channelInput.value, questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
     }, true),
     actionButton("Copiar prompt · alternativa breve", function() {
-      copyText(buildAlternativeResponsePrompt(system, "ALTERNATIVA_BREVE", questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
+      copyText(buildAlternativeResponsePrompt(system, "ALTERNATIVA_BREVE", channelInput.value, questionInput.value, idInput.value, nameInput.value, priceInput.value, ctaInput.value), status);
     }, false)
   );
   panel.append(
@@ -274,13 +285,31 @@ function makeAlternativeResponsePanel(system) {
   return panel;
 }
 
+function makeResponseGeneratorPanel() {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "responses";
+  panel.hidden = true;
+  panel.append(
+    element("div", "eyebrow", "COMERCIAL · RESPUESTAS"),
+    element("h2", "", "Generador de respuestas"),
+    element("p", "subtitle", "Generador integrado al HOME. Comentario público conserva la política de precio público; Inbox/Messenger, WhatsApp y Llamada pueden usar el precio interno vigente del expediente.")
+  );
+  const frame = element("iframe", "response-generator-frame");
+  frame.src = "COPY_PAGE.html?embedded=1";
+  frame.title = "AFL Autos · Generador de respuestas";
+  frame.loading = "lazy";
+  panel.append(frame);
+  return panel;
+}
+
 function makeHomeTabs(system) {
   const wrap = element("div", "home-tabs");
   const nav = element("div", "home-tabs-nav");
   const rootButton = actionButton("ROOT", function(){ activate("root"); }, true);
+  const responsesButton = actionButton("Generador respuestas", function(){ activate("responses"); }, false);
   const quickButton = actionButton("Respuestas rápidas", function(){ activate("quick"); }, false);
   const alternativeButton = actionButton("Otra respuesta", function(){ activate("alternative"); }, false);
-  nav.append(rootButton, quickButton, alternativeButton);
+  nav.append(rootButton, responsesButton, quickButton, alternativeButton);
 
   const rootPanel = element("div", "home-tab-panel");
   rootPanel.dataset.tab = "root";
@@ -306,18 +335,21 @@ function makeHomeTabs(system) {
   });
   quickPanel.append(quickGrid);
 
+  const responsesPanel = makeResponseGeneratorPanel();
   const alternativePanel = makeAlternativeResponsePanel(system);
 
   function activate(name) {
     rootPanel.hidden = name !== "root";
+    responsesPanel.hidden = name !== "responses";
     quickPanel.hidden = name !== "quick";
     alternativePanel.hidden = name !== "alternative";
     rootButton.classList.toggle("primary", name === "root");
+    responsesButton.classList.toggle("primary", name === "responses");
     quickButton.classList.toggle("primary", name === "quick");
     alternativeButton.classList.toggle("primary", name === "alternative");
   }
 
-  wrap.append(nav, rootPanel, quickPanel, alternativePanel);
+  wrap.append(nav, rootPanel, responsesPanel, quickPanel, alternativePanel);
   return wrap;
 }
 
