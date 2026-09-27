@@ -64,7 +64,14 @@
       "No mezclar unidades",
       "No crear AFL-ID definitivo sin evidencia suficiente",
       "Después de confirmar AFL-ID, consolidar material en 01_ENTRADAS/AFL-ID/00_MATERIAL_DISPONIBLE_LOCAL"
-    ]
+    ],
+    "firstResponsePolicy": {
+      "provideFolderAtStart": true,
+      "authorizedPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
+      "resolveUrlAtRuntimeFromGoogleDrive": true,
+      "publicRepositoryStoresPrivateUrl": false,
+      "instruction": "Al iniciar un vehículo nuevo, proporcionar primero al usuario el enlace autorizado de esta carpeta para la carga inicial. Después continuar con identificación."
+    }
   },
   "outputStatusModel": {
     "allowed": [
