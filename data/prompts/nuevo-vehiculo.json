@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "id": "NUEVO_VEHICULO",
   "updated": "2026-09-27",
   "title": "Ingreso de vehículo nuevo — AFL Autos",
@@ -27,7 +27,11 @@
     "18. Crea o registra una miniatura pública sanitizada del vehículo en assets/thumbs/AFL-ID.jpg usando material aprobado; agrega image en data/vehicles/index.json. No uses evidencia privada.",
     "19. Todo prompt relacionado con la unidad debe incluir la URL pública de su miniatura y pedir que el ChatGPT actual la muestre al inicio de la respuesta cuando el cliente lo permita.",
     "20. La recomendación del siguiente paso la decide el ChatGPT actual a partir de checkpoint y evidencia. El repositorio solo aporta estado, evidencia, funciones de detección y navegación; las opciones estáticas son manuales, no autoridad de recomendación.",
-    "21. En HOME y subpáginas, los enlaces de navegación/submenús deben abrir en una pestaña nueva con target=_blank y rel=noopener noreferrer."
+    "21. En HOME y subpáginas, los enlaces de navegación/submenús deben abrir en una pestaña nueva con target=_blank y rel=noopener noreferrer.",
+    "22. Todo vehículo nuevo debe heredar editPolicy, checkpoint, promptMenu, quickResponses y operationalLinks desde data/templates/vehicle.template.json.",
+    "23. Si Miguel autoriza cambiar cualquier campo después del alta, usar EDITAR_INFO_AUTORIZADA conforme a data/prompts/editar-informacion-autorizada.json y sincronizar Drive + JSON del vehículo + HOME.",
+    "24. Un cambio de información no autoriza publicación ni cambia estados de flujo salvo que Miguel autorice específicamente ese campo.",
+    "25. Crear AFL-ID — CONTROL OPERATIVO dentro de 02_SALIDAS/AFL-ID con checkpoint, política de edición autorizada, respuestas rápidas y reglas de privacidad."
   ],
   "requiredEvidence": [
     "material visual de la unidad",
@@ -46,6 +50,7 @@
     "SIGUIENTE_ACCION"
   ],
   "defaultOptions": [
+    "EDITAR INFORMACION AUTORIZADA POR MIGUEL",
     "VER MATERIAL APROBADO",
     "VER MATERIAL RECHAZADO",
     "VER PLAN DE CAPTURA",
@@ -63,7 +68,9 @@
     "publicFullVin": false,
     "publicOdometer": false,
     "publicPrivateDocuments": false,
-    "duplicateCalendarEvents": false
+    "duplicateCalendarEvents": false,
+    "authorizedFieldEdit": "MIGUEL_EXPLICIT",
+    "authorizedEditAutoPublish": false
   },
   "recommendationAuthority": "CHATGPT_CURRENT"
 }
