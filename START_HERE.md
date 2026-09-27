@@ -151,11 +151,12 @@ Todos los vehículos del framework, actuales y nuevos, deben tener la misma estr
 `PROGRAMADA ≠ PUBLICADA`.
 
 Al confirmar una programación social:
-1. registrar canal, fuente, fecha/hora y estado en el expediente del vehículo;
-2. sincronizar `data/vehicles/index.json` para HOME;
-3. sincronizar `data/programador.json` con la fuente real de la programación;
-4. actualizar CONTROL OPERATIVO/Drive y documentación relevante;
-5. conservar el checkpoint operativo del vehículo salvo que el evento cambie realmente ese flujo.
+1. actualizar el archivo real de la pieza en su carpeta de `02_SALIDAS` (por ejemplo `30_POST`) con copy final, estado, fecha/hora e identificador disponible;
+2. registrar canal, fuente, fecha/hora y estado en el expediente del vehículo;
+3. sincronizar `data/vehicles/index.json` para HOME;
+4. sincronizar `data/programador.json` con la fuente real de la programación;
+5. actualizar CONTROL OPERATIVO/Drive y documentación relevante;
+6. conservar el checkpoint operativo del vehículo salvo que el evento cambie realmente ese flujo.
 
 Al confirmar publicación real, cambiar la pieza a `PUBLICADO_CONFIRMADO_POR_MIGUEL` y activar únicamente `MEDICION_7D`.
 
