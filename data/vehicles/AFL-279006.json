@@ -27,7 +27,7 @@
     "publish": false
   },
   "commercial": {
-    "priceInternal": 325000,
+    "priceInternal": 330000,
     "currency": "MXN",
     "catalogPrice": null,
     "catalogPricePolicy": "OMITIR"
