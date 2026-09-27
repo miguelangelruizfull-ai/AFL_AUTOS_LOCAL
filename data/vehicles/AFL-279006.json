@@ -246,9 +246,9 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "lastEvidenceCheck": {
-      "checkedAt": "2026-09-27T13:52:00-06:00",
+      "checkedAt": "2026-09-27T14:11:00-06:00",
       "folder": "01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA",
-      "result": "VACIA",
+      "result": "VACIA_REVALIDADA",
       "materialNewUploaded": false,
       "stateTransition": false,
       "requiredAction": "CAPTURA_COMERCIAL_COMPLETA y subir el material nuevo únicamente a 20_NUEVA_CAPTURA"
@@ -258,7 +258,7 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "MINIATURA_CHAT_HOME_IMPRESION + TARGET_BLANK + RECOMENDACION_CHATGPT_ACTUAL implementados; estado operativo conservado.",
+    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA; sin transición de estado; sincronización Drive + JSON + HOME.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
