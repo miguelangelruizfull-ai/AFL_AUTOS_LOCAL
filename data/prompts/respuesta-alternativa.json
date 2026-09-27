@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "id": "GENERAR_RESPUESTA_ALTERNATIVA_HOME",
   "updated": "2026-09-27",
   "title": "Generar otra respuesta o alternativa desde HOME",
@@ -14,6 +14,12 @@
     "mode": [
       "OTRA_RESPUESTA",
       "ALTERNATIVA_BREVE"
+    ],
+    "channel": [
+      "COMENTARIO",
+      "MESSENGER",
+      "WHATSAPP",
+      "LLAMADA"
     ]
   },
   "sourceResolution": [
@@ -30,10 +36,11 @@
     "No convertir el precio manual en precio de catálogo o WhatsApp persistente sin autorización separada.",
     "No crear AFL-ID, expediente ni estructura Drive automáticamente.",
     "No enviar ni publicar automáticamente.",
-    "Cuando exista expediente y commercial.priceInternal esté verificado, el ChatGPT actual puede incluir esa cifra si es recomendable para responder la intención del lead, aunque commercial.catalogPricePolicy sea OMITIR.",
-    "OMITIR el precio de catálogo no equivale a prohibir el precio en una respuesta conversacional; no persistir el precio interno en commercial.catalogPrice ni whatsapp.price sin autorización separada.",
+    "En MESSENGER, WHATSAPP o LLAMADA, si el expediente contiene commercial.priceInternal vigente y la intención requiere precio, puede incluirirse la cifra exacta aunque commercial.catalogPricePolicy sea OMITIR.",
+    "En COMENTARIO público, commercial.priceInternal no autoriza mostrar la cifra; si el catálogo omite precio, mover la continuidad a inbox.",
+    "OMITIR el precio de catálogo no bloquea una respuesta privada con precio interno vigente; no persistir el precio interno en commercial.catalogPrice ni whatsapp.price sin autorización separada.",
     "Si se incluye un precio vigente verificado, cerrar la respuesta con exactamente una siguiente acción comercial útil.",
-    "No responder únicamente con 'voy a confirmar el precio' cuando el expediente ya contiene un precio interno vigente verificado y la decisión sea darlo."
+    "En canal privado no responder únicamente con 'voy a confirmar el precio' cuando el expediente ya contiene commercial.priceInternal vigente."
   ],
   "output": [
     "Una respuesta lista para copiar y pegar.",
