@@ -16,5 +16,12 @@
     "exposeOdometer": false,
     "exposePrivateDriveIds": false,
     "exposePrivateCalendarIds": false
+  },
+  "newVehicle": {
+    "prompt": "data/prompts/nuevo-vehiculo.json",
+    "workflow": "data/workflows/nuevo-vehiculo.json",
+    "template": "data/templates/vehicle.template.json",
+    "ui": "NUEVO_VEHICULO.html",
+    "driveStaging": "01_ENTRADAS/00_PENDIENTE_ID"
   }
 }
