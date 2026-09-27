@@ -162,67 +162,78 @@
       "key": "contentAvailable",
       "label": "Contenido disponible",
       "folder": "00_CONTENIDO_DISPONIBLE",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1YlbZRy8_YvnNdUN2h0IWmWKxHRn9jiPs"
     },
     {
       "key": "marketplace",
       "label": "Marketplace",
       "folder": "10_MARKETPLACE",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1CVD3zkzj3RTN9ZqjZ6N0VCHv5ibsnzqE"
     },
     {
       "key": "images",
       "label": "Imágenes comerciales",
       "folder": "20_IMAGENES_COMERCIALES",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1K36PRof8nxFp2KmvRdoG45Bp3842aFzT"
     },
     {
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/16xMBQIiojE2Ugg05pvmbP0ZLMY6186S_"
     },
     {
       "key": "feed",
       "label": "Feed",
       "folder": "40_FEED",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1FDvj03RfScOy-SKOyjCrOfX6ZR2CDRw8"
     },
     {
       "key": "stories",
       "label": "Historias",
       "folder": "50_HISTORIAS",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1pR1tPQTSQUMJ2NjtjzOCC9wPIwreT1ES"
     },
     {
       "key": "covers",
       "label": "Portadas",
       "folder": "60_PORTADAS",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1H7ZL5fuA3iclLKDj9fXVDWfNax96D-8O"
     },
     {
       "key": "reel",
       "label": "Reel",
       "folder": "70_REEL",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/16jBksEfg4enxYOgSIWt5RxKbBfPKo5MI"
     },
     {
       "key": "tiktok",
       "label": "TikTok",
       "folder": "80_TIKTOK",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1I2pSaLjhYqKphUd1zDJsR1yqXWyXnrzd"
     },
     {
       "key": "whatsapp",
       "label": "WhatsApp oculto",
       "folder": "90_WHATSAPP_OCULTO",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1K1Kt-pkq1uNdErq4Jt3pxTih94UEwB1M"
     },
     {
       "key": "sendPackage",
       "label": "Para enviar",
       "folder": "95_PARA_ENVIAR",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE",
+      "url": "https://drive.google.com/drive/folders/1PMhiN4lqT5aBj1YmDXC2cYqOtwR2oaX8"
     }
   ],
   "fieldWork": {
