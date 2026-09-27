@@ -530,5 +530,24 @@
       "lastSyncedAt": "2026-09-27T14:50:00-06:00",
       "lastVerifiedAt": "2026-09-27T15:25:35-06:00"
     }
+  },
+  "responsePolicy": {
+    "price": {
+      "source": "commercial.priceInternal",
+      "verifiedValue": 330000,
+      "currency": "MXN",
+      "allowInCommercialRepliesWhenRecommended": true,
+      "catalogPricePolicyDoesNotBlockConversation": true,
+      "doNotPersistToCatalogPrice": true,
+      "doNotPersistToWhatsappPrice": true,
+      "avoidConfirmationHoldingReplyWhenVerified": true
+    },
+    "afterPrice": {
+      "required": true,
+      "count": 1,
+      "authority": "CHATGPT_CURRENT",
+      "instruction": "Después de dar el precio, llevar al lead a una sola siguiente acción útil según su intención: confirmar disponibilidad, solicitar información faltante, mover a WhatsApp, enviar material o proponer visita, según corresponda."
+    },
+    "autoPublish": false
   }
 }
