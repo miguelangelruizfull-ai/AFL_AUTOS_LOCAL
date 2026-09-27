@@ -122,3 +122,6 @@ button.btn{cursor:pointer;color:inherit;font:inherit}
   .copy-sheet .kv{align-items:flex-start;flex-direction:column}
   .copy-sheet .kv strong{max-width:100%;text-align:left}
 }
+
+.channel-shortcuts{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.channel-shortcuts .btn{padding:7px 9px;font-size:.78rem;flex:1 1 auto}
