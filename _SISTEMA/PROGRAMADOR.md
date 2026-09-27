@@ -3,29 +3,81 @@
 Actualizado: 2026-09-27
 
 ## FUENTE DE PROGRAMACION
-Google Calendar principal de AFL Autos.
 
-Este archivo define cómo leer el programador. Las fechas, horas y recordatorios vigentes deben confirmarse en Google Calendar cada vez que se inicia o retoma trabajo.
+**Google Calendar es la fuente vigente para fecha, hora y recordatorios.**
 
-## PENDIENTES DETECTADOS
-Snapshot operativo al 2026-09-27:
-- AFL-279006 — Captura de campo — 2026-09-28 10:00–11:00 — estado repo: CAPTURA_PENDIENTE — recordatorio Calendar: 60 min antes.
-- AFL-338663 — Captura de campo — 2026-09-28 11:30–13:00 — estado repo: CAPTURA_PENDIENTE — recordatorios Calendar: 60 min y 15 min antes.
+Este archivo muestra el estado operativo y los enlaces a los archivos `.md`.
+Si Calendar cambia, prevalece Calendar para fecha/hora/recordatorios.
+No almacenar URLs ni IDs privados de Calendar en este repositorio público.
 
-El snapshot es informativo. Si Google Calendar cambia, prevalece Calendar para fecha/hora/recordatorios.
+## PROGRAMADOS CON GOOGLE CALENDAR
+
+### AFL-279006 — Chevrolet Colorado Work Truck 2016
+
+- Estado: `CAPTURA_PENDIENTE`
+- Tipo: `CAPTURA_COMERCIAL_COMPLETA`
+- Calendar: **PROGRAMADO**
+- Fecha: **2026-09-28**
+- Hora: **10:00–11:00**
+- Zona: `America/Mexico_City`
+- WhatsApp: `OCULTO`
+- Publicación: `NO_PUBLICAR`
+
+Archivos operativos:
+
+- [CAPTURA COMPLETA](../ACTIVOS/AFL-279006/CAPTURA_COMPLETA.md)
+- [PLAN DE CAPTURA](../ACTIVOS/AFL-279006/PLAN_CAPTURA.md)
+- [PLAN DE CONTENIDO](../ACTIVOS/AFL-279006/PLAN_CONTENIDO.md)
+- [SELECCIÓN DE MATERIAL](../ACTIVOS/AFL-279006/SELECCION_MATERIAL.md)
+- [FICHA WHATSAPP](../ACTIVOS/AFL-279006/FICHA_WHATSAPP.md)
+- [ESTADO](../ACTIVOS/AFL-279006/ESTADO.md)
+- [PUENTE](../ACTIVOS/AFL-279006/PUENTE.md)
+
+Salidas previstas después de revisión:
+
+- Marketplace.
+- Post.
+- Imágenes comerciales.
+- Historia.
+- Feed.
+- Reel.
+- TikTok.
+
+Flujo:
+
+`CAPTURA_COMPLETA → MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL → WHATSAPP_OCULTO_LISTO → CONTENIDO_DISPONIBLE`
+
+### AFL-338663 — Chevrolet Silverado 2016 Cabina Regular
+
+- Estado: `CAPTURA_PENDIENTE`
+- Calendar: **PROGRAMADO**
+- Fecha: **2026-09-28**
+- Hora: **11:30–13:00**
+
+Archivos:
+
+- [PLAN DE CAPTURA](../ACTIVOS/AFL-338663/PLAN_CAPTURA.md)
+- [ESTADO](../ACTIVOS/AFL-338663/ESTADO.md)
+- [PUENTE](../ACTIVOS/AFL-338663/PUENTE.md)
+- [FICHA WHATSAPP](../ACTIVOS/AFL-338663/FICHA_WHATSAPP.md)
 
 ## REGLAS
-- Antes de captura: revisar eventos próximos, recordatorios y conflictos de horario.
-- Después de captura: el evento de calendario no cambia por sí mismo el estado del vehículo.
-- Material subido = cambiar a `MATERIAL_NUEVO_SUBIDO`.
-- Revisión iniciada = cambiar a `REVISION_MATERIAL`.
-- Si una captura sigue pendiente, mantener programación/recordatorio hasta completar trabajo de campo y subir material nuevo.
-- No crear eventos o recordatorios duplicados sin verificar Google Calendar.
-- No almacenar URLs/IDs privados del calendario en este repositorio público.
+
+- Antes de captura: revisar Google Calendar, conflictos y archivos operativos.
+- El evento de Calendar no cambia por sí mismo el estado del vehículo.
+- Material subido = `MATERIAL_NUEVO_SUBIDO`.
+- Revisión iniciada = `REVISION_MATERIAL`.
+- Si faltan tomas obligatorias, reprogramar la captura existente sin duplicar eventos.
+- No producir/publicar material en `PENDIENTE_REVISION`.
+- No publicar automáticamente.
+- No guardar URLs/IDs privados de Calendar o Drive en este repositorio público.
 
 ## SALIDA OBLIGATORIA
+
 Después de cualquier operación de captura:
+
 1. Mostrar estado actual.
 2. Mostrar siguiente acción.
-3. Mostrar siempre opciones numeradas.
-4. Incluir opción para consultar/programar recordatorios en Google Calendar.
+3. Mostrar opciones numeradas.
+4. Mostrar enlaces `.md` operativos.
+5. Incluir opción para consultar/programar Google Calendar.
