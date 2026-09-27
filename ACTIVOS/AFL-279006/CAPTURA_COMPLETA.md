@@ -188,3 +188,22 @@ CAPTURA_COMPLETA
 NO PUBLICAR AUTOMATICAMENTE.
 NO BORRAR ORIGINALES.
 WHATSAPP PERMANECE OCULTO HASTA VALIDACION FINAL.
+
+
+## SALIDAS DE CONTENIDO
+
+La captura completa debe alimentar:
+
+- Marketplace.
+- Post.
+- Imágenes comerciales.
+- Historia 9:16.
+- Feed 4:5 / carrusel.
+- Reel 9:16.
+- TikTok 9:16.
+
+Plan detallado:
+[PLAN_CONTENIDO.md](PLAN_CONTENIDO.md)
+
+La captura no equivale a producción ni publicación.
+Primero ejecutar REVISION_MATERIAL y SELECCION_FINAL.
