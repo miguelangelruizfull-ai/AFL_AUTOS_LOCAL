@@ -122,7 +122,9 @@
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
     ],
-    "controlDocument": "AFL-279006 — CONTROL OPERATIVO"
+    "controlDocument": "AFL-279006 — CONTROL OPERATIVO",
+    "newCaptureUrl": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-",
+    "controlDocumentUrl": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit"
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -256,9 +258,9 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "REANUDACIÓN_DESDE_CHECKPOINT_VALIDADA; 20_NUEVA_CAPTURA revalidada vacía; sin transición de estado.",
+    "lastCompleted": "SUBMENÚ_OPERATIVO_Y_ENLACES_POST_PROMPT_PERSISTENTES_CONFIGURADOS; estado de captura conservado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
-    "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo y video vertical 9:16; subir material nuevo únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
+    "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO"
   },
   "promptProtocol": {
@@ -277,7 +279,9 @@
       "Actualizar data/vehicles/AFL-279006.json con el nuevo checkpoint y estados.",
       "Actualizar data/vehicles/index.json para que HOME refleje el checkpoint, estado y siguiente acción.",
       "Actualizar los .md operativos relevantes cuando corresponda.",
-      "Verificar que Drive, JSON del vehículo y HOME coincidan antes de cerrar."
+      "Verificar que Drive, JSON del vehículo y HOME coincidan antes de cerrar.",
+      "Mostrar en el chat, después del cierre, el submenú operativo recomendado y enlaces clicables del vehículo.",
+      "Incluir siempre enlaces para: subir nueva captura, opciones del vehículo, abrir otro vehículo, nuevo vehículo y regresar a ROOT GLOBAL."
     ],
     "rules": [
       "Trabajar únicamente con AFL-279006 y no mezclar vehículos.",
@@ -285,6 +289,48 @@
       "No depender de la memoria de ChatGPT como fuente de estado.",
       "No publicar automáticamente.",
       "No exponer VIN completo, odómetro, documentos privados o PII."
+    ],
+    "responseLinks": [
+      {
+        "key": "newCapture",
+        "label": "Subir nueva captura",
+        "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-"
+      },
+      {
+        "key": "vehicleOptions",
+        "label": "Opciones de AFL-279006",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-279006#prompt-menu"
+      },
+      {
+        "key": "outputs",
+        "label": "Abrir SALIDAS",
+        "url": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1"
+      },
+      {
+        "key": "control",
+        "label": "CONTROL OPERATIVO",
+        "url": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit"
+      },
+      {
+        "key": "otherVehicle",
+        "label": "Abrir otro vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      },
+      {
+        "key": "newVehicle",
+        "label": "Nuevo vehículo",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+      },
+      {
+        "key": "rootGlobal",
+        "label": "Regresar a ROOT GLOBAL",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      },
+      {
+        "key": "repository",
+        "label": "Repositorio AFL_AUTOS_LOCAL",
+        "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+      }
     ]
   },
   "promptMenu": [
@@ -318,5 +364,44 @@
       "description": "Comprueba que Drive, ficha, Home y documentación muestran el mismo estado.",
       "instruction": "Audita exclusivamente AFL-279006. Compara Drive, data/vehicles/AFL-279006.json, data/vehicles/index.json y documentación operativa. Corrige contradicciones de estado, siguiente acción o entregables sin publicar nada."
     }
-  ]
+  ],
+  "operationalLinks": {
+    "recommended": {
+      "label": "Subir nueva captura",
+      "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-",
+      "when": "CAPTURA_PENDIENTE"
+    },
+    "newCapture": {
+      "label": "Subir nueva captura",
+      "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-"
+    },
+    "vehicleOptions": {
+      "label": "Opciones de AFL-279006",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-279006#prompt-menu"
+    },
+    "outputs": {
+      "label": "Abrir SALIDAS",
+      "url": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1"
+    },
+    "control": {
+      "label": "CONTROL OPERATIVO",
+      "url": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit"
+    },
+    "otherVehicle": {
+      "label": "Abrir otro vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "newVehicle": {
+      "label": "Nuevo vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+    },
+    "rootGlobal": {
+      "label": "Regresar a ROOT GLOBAL",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "repository": {
+      "label": "Repositorio",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  }
 }
