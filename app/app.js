@@ -77,7 +77,7 @@ function vehicleCard(v) {
   );
 
   const actions = element("div", "actions");
-  if (v.detail) actions.append(linkButton("Abrir expediente", "?vehicle=" + encodeURIComponent(v.id), true));
+  if (v.detail) actions.append(linkButton("Ficha y salidas", "?vehicle=" + encodeURIComponent(v.id), true));
   actions.append(linkButton("Programador", "PROGRAMADOR.html", false));
 
   body.append(titleRow, metaGrid, actions);
@@ -149,26 +149,99 @@ function statusChip(status) {
   return element("span", "status-chip status-" + String(status || "PENDIENTE").toLowerCase(), labelStatus(status || "PENDIENTE"));
 }
 
+function channelStatus(v, d) {
+  if (d.key === "whatsapp" && v.whatsapp && v.whatsapp.status) return v.whatsapp.status;
+  if (v.outputs && v.outputs[d.key]) return v.outputs[d.key];
+  return d.status || "PENDIENTE";
+}
+
+function channelNote(status) {
+  const notes = {
+    PENDIENTE: "Sin pieza final aprobada.",
+    EN_PRODUCCION: "Edición o preparación activa.",
+    LISTO: "Pieza final aprobada y disponible.",
+    PUBLICADO: "Publicación confirmada.",
+    OCULTO: "Ficha preparada; no publicar automáticamente."
+  };
+  return notes[status] || labelStatus(status);
+}
+
+function makeChannelNav(v) {
+  const panel = element("article", "panel wide channel-index");
+  panel.append(
+    element("div", "eyebrow", "SALIDAS"),
+    element("h2", "", "Fichas y contenido por canal"),
+    element("p", "subtitle", "Cada canal se muestra aunque todavía esté pendiente. PENDIENTE no significa que exista una pieza final.")
+  );
+  const nav = element("div", "channel-nav");
+  (v.deliverables || []).forEach(function(d) {
+    const a = linkButton(d.label, "#channel-" + d.key, d.key === "whatsapp");
+    nav.append(a);
+  });
+  panel.append(nav);
+  return panel;
+}
+
+function makeWhatsappSheet(v) {
+  const w = v.whatsapp || {};
+  const panel = element("article", "panel wide channel-sheet whatsapp-sheet");
+  panel.id = "channel-whatsapp";
+
+  const head = element("div", "channel-sheet-head");
+  const title = element("div");
+  title.append(
+    element("div", "eyebrow", "90_WHATSAPP_OCULTO"),
+    element("h2", "", "Ficha WhatsApp"),
+    element("p", "subtitle", "Estado: " + labelStatus(w.status || "OCULTO") + " · No publicar automáticamente")
+  );
+  head.append(title, statusChip(w.status || "OCULTO"));
+  panel.append(head);
+
+  const body = element("div", "copy-sheet");
+  body.append(
+    kv("Título", w.title || "PENDIENTE"),
+    kv("Descripción", w.description || "PENDIENTE"),
+    kv("Precio público", w.price == null ? "OMITIR" : money(w.price, v.commercial.currency)),
+    kv("Fotos seleccionadas", String(w.selectedPhotos ?? 0)),
+    kv("Video real", w.realVideo ? "SÍ" : "NO")
+  );
+  panel.append(body);
+
+  const copyStatus = element("span", "copy-status", "");
+  const actions = element("div", "actions no-print");
+  actions.append(actionButton("Copiar ficha WhatsApp", function() {
+    const lines = [];
+    if (w.title) lines.push(w.title);
+    if (w.description) lines.push(w.description);
+    if (w.price != null) lines.push("Precio: " + money(w.price, v.commercial.currency));
+    copyText(lines.join("\n\n"), copyStatus);
+  }, true));
+  panel.append(actions, copyStatus);
+  return panel;
+}
+
 function makeDeliverables(v) {
   const panel = element("article", "panel wide");
-  panel.append(element("h2", "", "Salidas por canal"));
+  panel.append(element("h2", "", "Marketplace, Post y demás salidas"));
   const note = element("p", "subtitle", "Estados canónicos: PENDIENTE · EN PRODUCCION · LISTO · PUBLICADO. Esta web es de solo lectura; los controles preparan el cambio para actualizar JSON.");
   panel.append(note);
   const grid = element("div", "deliverables-grid");
 
   (v.deliverables || []).forEach(function(d) {
     const card = element("div", "deliverable-card");
+    card.id = "channel-" + d.key;
+    const effectiveStatus = channelStatus(v, d);
     const top = element("div", "deliverable-head");
     const title = element("div");
     title.append(element("strong", "", d.label), element("span", "deliverable-folder", d.folder));
-    top.append(title, statusChip(d.status));
+    top.append(title, statusChip(effectiveStatus));
 
     const controls = element("div", "deliverable-controls no-print");
     const select = element("select", "status-select");
     ["PENDIENTE","EN_PRODUCCION","LISTO","PUBLICADO"].forEach(function(s) {
       const option = element("option", "", labelStatus(s));
       option.value = s;
-      option.selected = s === d.status;
+      option.selected = s === effectiveStatus;
       select.append(option);
     });
     const status = element("span", "copy-status", "");
@@ -177,13 +250,13 @@ function makeDeliverables(v) {
         vehicleId: v.id,
         deliverable: d.key,
         folder: d.folder,
-        from: d.status,
+        from: effectiveStatus,
         to: select.value
       };
       copyText(JSON.stringify(payload, null, 2), status);
     }, false);
     controls.append(select, copy);
-    card.append(top, controls, status);
+    card.append(top, element("p", "deliverable-note", channelNote(effectiveStatus)), controls, status);
     grid.append(card);
   });
 
@@ -249,6 +322,8 @@ function vehicleDetail(v) {
     makeList(v.capture.requiredVideo.shots, false)
   );
 
+  const channelNav = makeChannelNav(v);
+  const whatsapp = makeWhatsappSheet(v);
   const outputs = makeDeliverables(v);
 
   const drive = element("article", "panel wide");
@@ -299,7 +374,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, capture, video, outputs, drive, fieldActions);
+  grid.append(state, media, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
