@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "id": "NUEVO_VEHICULO",
   "updated": "2026-09-27",
   "title": "Ingreso de vehículo nuevo — AFL Autos",
@@ -32,7 +32,11 @@
     "22. Todo vehículo nuevo debe heredar editPolicy, checkpoint, promptMenu, quickResponses y operationalLinks desde data/templates/vehicle.template.json.",
     "23. Si Miguel autoriza cambiar cualquier campo después del alta, usar EDITAR_INFO_AUTORIZADA conforme a data/prompts/editar-informacion-autorizada.json y sincronizar Drive + JSON del vehículo + HOME.",
     "24. Un cambio de información no autoriza publicación ni cambia estados de flujo salvo que Miguel autorice específicamente ese campo.",
-    "25. Crear AFL-ID — CONTROL OPERATIVO dentro de 02_SALIDAS/AFL-ID con checkpoint, política de edición autorizada, respuestas rápidas y reglas de privacidad."
+    "25. Crear AFL-ID — CONTROL OPERATIVO dentro de 02_SALIDAS/AFL-ID con checkpoint, política de edición autorizada, respuestas rápidas y reglas de privacidad.",
+    "26. Si la carga a 00_PENDIENTE_ID sigue en curso, puede iniciarse la revisión con archivos ya disponibles y completos. Revisa nuevamente la carpeta antes de cerrar identificación o revisión de material; no clasifiques archivos todavía no disponibles o incompletos.",
+    "27. Partes modificadas, accesorios y mejoras visibles (por ejemplo llantas nuevas) pueden usarse como evidencia para captura comercial y generación de textos únicamente si son visibles o fueron confirmados por Miguel. No inventes marca, medida, especificación, antigüedad ni condición no demostrada.",
+    "28. Selecciona el material útil para captura comercial y generación de textos. El material no seleccionado puede marcarse como candidato a depuración (RECHAZADO o DUPLICADO según evidencia), pero nunca se borra automáticamente: devuelve opciones numeradas antes de cualquier eliminación.",
+    "29. Cada vez que NUEVO_VEHICULO resuelva y entregue la carpeta inicial de Drive, sincroniza en el repositorio el checkpoint sanitizado de intake en data/workflows/nuevo-vehiculo.runtime.json. Nunca guardes allí ID/URL privada de Drive, VIN completo, odómetro, documentos privados ni PII."
   ],
   "requiredEvidence": [
     "material visual de la unidad",
@@ -75,7 +79,13 @@
     "provideInitialUploadFolderAtStart": true,
     "initialUploadFolderPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
     "resolveInitialUploadFolderUrlAtRuntime": true,
-    "persistPrivateDriveUrlPublicly": false
+    "persistPrivateDriveUrlPublicly": false,
+    "allowReviewDuringUpload": true,
+    "rescanBeforeClosingReview": true,
+    "visibleModificationsRequireEvidence": true,
+    "cleanupRequiresUserChoice": true,
+    "syncSanitizedIntakeCheckpointOnFolderProvided": true,
+    "intakeCheckpointPath": "data/workflows/nuevo-vehiculo.runtime.json"
   },
   "recommendationAuthority": "CHATGPT_CURRENT"
 }
