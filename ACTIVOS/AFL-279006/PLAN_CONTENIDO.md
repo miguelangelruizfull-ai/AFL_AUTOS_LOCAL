@@ -175,3 +175,29 @@ Solo después:
 - NO publicar odómetro.
 - NO mostrar documentos privados.
 - NO sobrescribir originales.
+
+
+## RUTAS DE SALIDA EN DRIVE
+
+Después de `SELECCION_FINAL`, usar:
+
+```text
+02_SALIDAS/AFL-279006/
+├── 00_CONTENIDO_DISPONIBLE/
+├── 10_MARKETPLACE/
+├── 20_IMAGENES_COMERCIALES/
+├── 30_POST/
+├── 40_FEED/
+├── 50_HISTORIAS/
+├── 60_PORTADAS/
+├── 70_REEL/
+├── 80_TIKTOK/
+├── 90_WHATSAPP_OCULTO/
+└── 95_PARA_ENVIAR/
+```
+
+Regla:
+- originales permanecen en ENTRADAS;
+- derivados terminados van a SALIDAS;
+- no mezclar material pendiente con piezas finales;
+- no publicar automáticamente.
