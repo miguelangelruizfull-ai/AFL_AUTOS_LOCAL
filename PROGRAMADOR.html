@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AFL Autos — Programador</title>
+<style>
+:root{--bg:#0b0f14;--panel:#121821;--line:#273140;--text:#f1f5f9;--muted:#9aa7b7;--accent:#53a7ff;--ok:#46c789;--warn:#f2b84b}
+*{box-sizing:border-box}body{margin:0;background:#0b0f14;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.shell{width:min(1000px,100%);margin:auto;padding:18px}a{color:inherit}
+.head{padding:20px 0;border-bottom:1px solid var(--line)}h1{margin:5px 0 8px}.muted{color:var(--muted)}
+.tag{display:inline-block;padding:6px 9px;border:1px solid #5b491c;background:#2e2612;color:#ffd879;border-radius:999px;font-size:.75rem;font-weight:800}
+.grid{display:grid;gap:16px;margin-top:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+.top{display:flex;gap:12px;justify-content:space-between;align-items:flex-start}.time{font-size:1.2rem;font-weight:900;margin:10px 0}.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:14px}
+.btn{text-decoration:none;text-align:center;padding:10px;border-radius:10px;border:1px solid var(--line);background:#111925;font-weight:800}.btn.primary{background:var(--accent);color:#06101a;border-color:transparent}
+.note{margin-top:18px;padding:12px;border:1px solid var(--line);border-radius:12px;color:var(--muted)}
+.back{display:inline-block;margin-top:18px;text-decoration:none;color:var(--accent);font-weight:800}
+@media(max-width:620px){.links{grid-template-columns:1fr}.top{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="head">
+    <div style="color:var(--accent);font-weight:900;letter-spacing:.1em;font-size:.78rem">AFL AUTOS · PROGRAMADOR</div>
+    <h1>Programados con Google Calendar</h1>
+    <div class="muted">Calendar conserva fecha/hora. GitHub conserva estado, checklist y archivos operativos.</div>
+  </header>
+
+  <main class="grid">
+    <article class="card">
+      <div class="top">
+        <div>
+          <h2 style="margin:0">AFL-279006 · Chevrolet Colorado Work Truck 2016</h2>
+          <div class="time">28 sep · 10:00–11:00</div>
+        </div>
+        <span class="tag">CAPTURA COMPLETA PENDIENTE</span>
+      </div>
+      <div class="muted">WhatsApp: OCULTO · Publicación: NO PUBLICAR · Video real: pendiente.</div>
+      <div class="links">
+        <a class="btn primary" href="ACTIVOS/AFL-279006/CHECKLIST_CAMPO.md">Checklist campo</a>
+        <a class="btn" href="ACTIVOS/AFL-279006/CAPTURA_COMPLETA.md">Captura completa</a>
+        <a class="btn" href="ACTIVOS/AFL-279006/PLAN_CONTENIDO.md">Plan contenido</a>
+        <a class="btn" href="ACTIVOS/AFL-279006/ESTADO.md">Estado</a>
+        <a class="btn" href="ACTIVOS/AFL-279006/PUENTE.md">Puente</a>
+        <a class="btn" href="_SISTEMA/MULTIMEDIA.md">Multimedia</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="top">
+        <div>
+          <h2 style="margin:0">AFL-338663 · Chevrolet Silverado 2016 Cabina Regular</h2>
+          <div class="time">28 sep · 11:30–13:00</div>
+        </div>
+        <span class="tag">CAPTURA PENDIENTE</span>
+      </div>
+      <div class="links">
+        <a class="btn primary" href="ACTIVOS/AFL-338663/PLAN_CAPTURA.md">Plan captura</a>
+        <a class="btn" href="ACTIVOS/AFL-338663/ESTADO.md">Estado</a>
+        <a class="btn" href="ACTIVOS/AFL-338663/PUENTE.md">Puente</a>
+        <a class="btn" href="ACTIVOS/AFL-338663/FICHA_WHATSAPP.md">WhatsApp</a>
+      </div>
+    </article>
+  </main>
+
+  <div class="note">Fuente de programación: Google Calendar. Si cambia la fecha u hora, prevalece Calendar. No se muestran IDs ni enlaces privados del calendario.</div>
+  <a class="back" href="index.html">← Volver a ROOT Console</a>
+</div>
+</body>
+</html>
