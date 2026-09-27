@@ -1,0 +1,41 @@
+{
+  "updated": "2026-09-27",
+  "vehicles": [
+    {
+      "id": "AFL-279006",
+      "title": "Chevrolet Colorado Work Truck 2016",
+      "status": "CAPTURA_PENDIENTE",
+      "whatsapp": "OCULTO",
+      "priceInternal": 325000,
+      "currency": "MXN",
+      "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+      "image": "assets/thumbs/AFL-279006.jpg",
+      "detail": "data/vehicles/AFL-279006.json",
+      "publish": false
+    },
+    {
+      "id": "AFL-338663",
+      "title": "Chevrolet Silverado 2016 Cabina Regular",
+      "status": "CAPTURA_PENDIENTE",
+      "whatsapp": "OCULTO",
+      "priceInternal": 310000,
+      "currency": "MXN",
+      "nextAction": "CAPTURA_COMERCIAL",
+      "image": "assets/thumbs/AFL-338663.jpg",
+      "detail": null,
+      "publish": false
+    },
+    {
+      "id": "AFL-338732",
+      "title": "Chevrolet Silverado 1500 LTZ Texas Edition 2017",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "nextAction": "REVISION_MATERIAL",
+      "image": "assets/thumbs/AFL-338732.jpg",
+      "detail": null,
+      "publish": false
+    }
+  ]
+}
