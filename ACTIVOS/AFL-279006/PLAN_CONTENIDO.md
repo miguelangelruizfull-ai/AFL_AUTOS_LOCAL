@@ -51,11 +51,13 @@ Salida prevista:
 
 ## 2. POST
 
-ESTADO: PROGRAMADA / FACEBOOK / META_BUSINESS_SUITE
-PROGRAMACION: 2026-09-29 19:00 America/Mexico_City
+ESTADO: PUBLICADO_CONFIRMADO_POR_MIGUEL / FACEBOOK / META_BUSINESS_SUITE
+PROGRAMACION_ORIGINAL: 2026-09-29 19:00 America/Mexico_City
+PUBLICACION_REAL: 2026-09-27 17:22:14 America/Mexico_City
 IDENTIFICADOR: 1886741839427469
 COPY: FINAL_CONFIRMADO_POR_MIGUEL
-REGLA: PROGRAMADA ≠ PUBLICADA; no modificar la pieza salvo autorización expresa.
+MEDICION_7D: ACTIVA / CORTE 2026-10-04 17:22:14 America/Mexico_City
+REGLA: publicación confirmada por Miguel; conservar programación original como historial.
 
 Formato recomendado:
 - imagen principal 4:5.
@@ -242,4 +244,16 @@ No guardar archivos de audio.
 - Evento de campo confirmado para 2026-09-28 10:00–11:00.
 - Facebook Post permanece `PROGRAMADA` para 2026-09-29 19:00; `PROGRAMADA ≠ PUBLICADA`.
 - `MEDICION_7D` no inicia hasta `PUBLICADO_CONFIRMADO_POR_MIGUEL`.
+
+## PUBLICACIÓN FACEBOOK — CONFIRMACIÓN REAL 2026-09-27 17:22:14 America/Mexico_City
+
+- Estado anterior: `PROGRAMADA`.
+- Estado nuevo: `PUBLICADO_CONFIRMADO_POR_MIGUEL`.
+- Programación original: 2026-09-29 19:00 America/Mexico_City.
+- Publicación real confirmada por Miguel: 2026-09-27 17:22:14 America/Mexico_City.
+- Identificador: `1886741839427469`.
+- `MEDICION_7D` activa desde 2026-09-27T17:22:14-06:00; corte 2026-10-04T17:22:14-06:00.
+- Captura física: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Siguiente acción de campo: `CAPTURA_COMERCIAL_COMPLETA`.
+- No autoriza publicación automática de ninguna otra pieza.
 
