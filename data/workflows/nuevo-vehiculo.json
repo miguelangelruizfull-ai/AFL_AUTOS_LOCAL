@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "id": "NUEVO_VEHICULO",
   "updated": "2026-09-27",
   "staging": "01_ENTRADAS/00_PENDIENTE_ID",
@@ -9,6 +9,8 @@
     "AFL_ID_CONFIRMADO",
     "CREAR_ESTRUCTURA_DRIVE",
     "CREAR_JSON_VEHICULO",
+    "CREAR_CONTROL_OPERATIVO",
+    "ACTIVAR_EDICION_AUTORIZADA",
     "REVISION_MATERIAL",
     "PLAN_CAPTURA",
     "CALENDAR_SI_AUTORIZADO",
@@ -32,12 +34,15 @@
     "data/vehicles/index.json",
     "data/programador.json solo si existe programación autorizada",
     "data/multimedia.json solo si cambia el contrato global",
-    "data/musica-usada.json solo después de publicar audio"
+    "data/musica-usada.json solo después de publicar audio",
+    "data/prompts/editar-informacion-autorizada.json como contrato global; no duplicar el prompt por unidad"
   ],
   "driveWrites": {
     "input": "01_ENTRADAS/AFL-ID",
     "output": "02_SALIDAS/AFL-ID",
     "preserveOriginals": true,
-    "noAutoDelete": true
+    "noAutoDelete": true,
+    "controlDocument": "02_SALIDAS/AFL-ID/AFL-ID — CONTROL OPERATIVO",
+    "authorizedEditSync": true
   }
 }
