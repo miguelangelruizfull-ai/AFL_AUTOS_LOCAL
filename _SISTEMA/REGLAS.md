@@ -38,3 +38,14 @@
 - `data/schema/programador.schema.json`
 
 Los cambios de estructura JSON deben conservar compatibilidad o incrementar `schemaVersion`.
+
+
+## NUEVO VEHICULO
+
+- Material sin AFL-ID confirmado entra a `01_ENTRADAS/00_PENDIENTE_ID`.
+- No mezclar unidades dentro de staging.
+- AFL-ID definitivo preferente: `AFL-<ultimos_6_VIN>` únicamente cuando el VIN esté confirmado de forma privada.
+- Antes de crear estructura definitiva, verificar duplicados en repo y Drive.
+- Con AFL-ID confirmado, crear ambas ramas: `01_ENTRADAS/AFL-ID` y `02_SALIDAS/AFL-ID`.
+- Crear el expediente público desde `data/templates/vehicle.template.json`.
+- Ejecutar `data/prompts/nuevo-vehiculo.json` como contrato operativo.
