@@ -59,6 +59,40 @@
       "items": {
         "type": "string"
       }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "label",
+          "folder",
+          "status"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "folder": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PENDIENTE",
+              "EN_PRODUCCION",
+              "LISTO",
+              "PUBLICADO"
+            ]
+          }
+        }
+      }
+    },
+    "fieldWork": {
+      "type": "object"
     }
   },
   "additionalProperties": true
