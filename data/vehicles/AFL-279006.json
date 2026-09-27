@@ -154,5 +154,80 @@
     "CAPTURA_COMPLETA",
     "WHATSAPP_OCULTO_LISTO",
     "CONTENIDO_DISPONIBLE"
-  ]
+  ],
+  "deliverables": [
+    {
+      "key": "contentAvailable",
+      "label": "Contenido disponible",
+      "folder": "00_CONTENIDO_DISPONIBLE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "marketplace",
+      "label": "Marketplace",
+      "folder": "10_MARKETPLACE",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "images",
+      "label": "Imágenes comerciales",
+      "folder": "20_IMAGENES_COMERCIALES",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "post",
+      "label": "Post",
+      "folder": "30_POST",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "feed",
+      "label": "Feed",
+      "folder": "40_FEED",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "stories",
+      "label": "Historias",
+      "folder": "50_HISTORIAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "covers",
+      "label": "Portadas",
+      "folder": "60_PORTADAS",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "reel",
+      "label": "Reel",
+      "folder": "70_REEL",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "tiktok",
+      "label": "TikTok",
+      "folder": "80_TIKTOK",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "whatsapp",
+      "label": "WhatsApp oculto",
+      "folder": "90_WHATSAPP_OCULTO",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "sendPackage",
+      "label": "Para enviar",
+      "folder": "95_PARA_ENVIAR",
+      "status": "PENDIENTE"
+    }
+  ],
+  "fieldWork": {
+    "status": "PROGRAMADA",
+    "canonicalState": "CAPTURA_PENDIENTE",
+    "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
+    "uploadFolder": "20_NUEVA_CAPTURA",
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
+  }
 }
