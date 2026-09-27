@@ -223,8 +223,40 @@ function buildOperationalPrompt(v, item) {
     protocol.rules.forEach(function(x) { lines.push("- " + x); });
   }
 
-  lines.push("", "Al terminar, devuelve el checkpoint nuevo y la siguiente acción. El nuevo estado debe quedar persistido en Drive + repositorio + HOME antes de cerrar.");
+  if ((protocol.responseLinks || []).length) {
+    lines.push("", "ENLACES QUE DEBES MOSTRAR EN EL CHAT AL CERRAR:");
+    protocol.responseLinks.forEach(function(x) { lines.push("- " + x.label + ": " + x.url); });
+  }
+
+  lines.push("", "Al terminar, devuelve el checkpoint nuevo, la siguiente acción, el submenú recomendado y los enlaces operativos. El nuevo estado debe quedar persistido en Drive + repositorio + HOME antes de cerrar.");
   return lines.join("\n");
+}
+
+function makeVehicleOpsMenu(v) {
+  const panel = element("article", "panel wide no-print");
+  panel.id = "vehicle-ops";
+  const links = v.operationalLinks || {};
+  const c = v.checkpoint || {};
+  panel.append(
+    element("div", "eyebrow", "ACCESOS OPERATIVOS"),
+    element("h2", "", "¿Qué quieres hacer ahora?"),
+    element("p", "subtitle", "Recomendado según checkpoint: " + labelStatus(c.nextAction || v.status.vehicle || "PENDIENTE"))
+  );
+  const actions = element("div", "actions");
+  if (links.newCapture && links.newCapture.url) actions.append(linkButton("Subir nueva captura", links.newCapture.url, true));
+  actions.append(
+    linkButton("Ver checklist", "#field-checklist", false),
+    linkButton("Opciones del vehículo", "#prompt-menu", false)
+  );
+  if (links.outputs && links.outputs.url) actions.append(linkButton("Abrir SALIDAS", links.outputs.url, false));
+  if (links.control && links.control.url) actions.append(linkButton("CONTROL OPERATIVO", links.control.url, false));
+  actions.append(
+    linkButton("Abrir otro vehículo", (links.otherVehicle && links.otherVehicle.url) || "index.html", false),
+    linkButton("Nuevo vehículo", (links.newVehicle && links.newVehicle.url) || "NUEVO_VEHICULO.html", false),
+    linkButton("Regresar a ROOT GLOBAL", (links.rootGlobal && links.rootGlobal.url) || "index.html", false)
+  );
+  panel.append(actions);
+  return panel;
 }
 
 function makePromptMenu(v) {
@@ -422,6 +454,7 @@ function vehicleDetail(v) {
     makeList(v.capture.requiredVideo.shots, false)
   );
 
+  const opsMenu = makeVehicleOpsMenu(v);
   const promptMenu = makePromptMenu(v);
   const channelNav = makeChannelNav(v);
   const whatsapp = makeWhatsappSheet(v);
@@ -478,7 +511,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
+  grid.append(state, media, opsMenu, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
