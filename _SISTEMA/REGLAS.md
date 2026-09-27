@@ -49,3 +49,27 @@ Los cambios de estructura JSON deben conservar compatibilidad o incrementar `sch
 - Con AFL-ID confirmado, crear ambas ramas: `01_ENTRADAS/AFL-ID` y `02_SALIDAS/AFL-ID`.
 - Crear el expediente público desde `data/templates/vehicle.template.json`.
 - Ejecutar `data/prompts/nuevo-vehiculo.json` como contrato operativo.
+
+
+## EDICION AUTORIZADA POR MIGUEL
+
+- Prompt canónico: `data/prompts/editar-informacion-autorizada.json`.
+- Miguel puede autorizar explícitamente la edición de cualquier campo operativo/comercial permitido de una unidad.
+- La autorización se limita al AFL-ID, campo y nuevo valor indicados; no habilita cambios colaterales.
+- Toda edición debe sincronizar, cuando aplique: CONTROL OPERATIVO de Drive → `data/vehicles/AFL-ID.json` → `data/vehicles/index.json` (HOME) → documentación operativa relevante.
+- Verificar Drive ↔ JSON vehículo ↔ HOME antes de cerrar.
+- Precio interno actualizado no cambia precio de catálogo ni WhatsApp público salvo autorización separada.
+- Un cambio informativo no cambia estado/checkpoint salvo que ese sea el campo expresamente autorizado.
+- Ninguna edición autoriza publicación automática.
+- Los campos privados permanecen fuera de JSON/HOME públicos.
+
+## ESTANDAR POR VEHICULO
+
+Todo vehículo actual o nuevo del framework debe tener:
+
+1. `01_ENTRADAS/AFL-ID` con las cinco carpetas canónicas.
+2. `02_SALIDAS/AFL-ID` con los once canales canónicos.
+3. `AFL-ID — CONTROL OPERATIVO` dentro de SALIDAS.
+4. expediente `data/vehicles/AFL-ID.json` basado en la plantilla vigente.
+5. resumen sincronizado en HOME.
+6. checkpoint, prompt de edición autorizada y respuestas rápidas estándar.
