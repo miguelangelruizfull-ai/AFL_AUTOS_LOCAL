@@ -31,16 +31,26 @@
     {
       "vehicleId": "AFL-279006",
       "title": "Facebook Post — Chevrolet Colorado AFL-279006",
-      "date": "2026-09-29",
-      "start": "19:00",
+      "date": "2026-09-27",
+      "start": "17:22:14",
       "end": null,
       "timezone": "America/Mexico_City",
-      "status": "PROGRAMADA",
+      "status": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
       "type": "FACEBOOK_POST",
       "source": "META_BUSINESS_SUITE",
       "externalId": "1886741839427469",
       "links": {
         "vehicle": "?vehicle=AFL-279006#channel-post"
+      },
+      "scheduledDateOriginal": "2026-09-29",
+      "scheduledStartOriginal": "19:00",
+      "publishedAt": "2026-09-27T17:22:14-06:00",
+      "confirmationSource": "MIGUEL",
+      "measurement": {
+        "cadence": "7D",
+        "status": "ACTIVA",
+        "startAt": "2026-09-27T17:22:14-06:00",
+        "dueAt": "2026-10-04T17:22:14-06:00"
       }
     }
   ],
