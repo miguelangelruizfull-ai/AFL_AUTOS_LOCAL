@@ -3,7 +3,7 @@
   "vehicles": [
     {
       "id": "AFL-279006",
-      "title": "Chevrolet Colorado Work Truck 2016",
+      "title": "2016 Chevrolet Colorado Work Truck",
       "status": "CAPTURA_PENDIENTE",
       "whatsapp": "OCULTO",
       "priceInternal": 325000,
@@ -27,7 +27,7 @@
     },
     {
       "id": "AFL-338663",
-      "title": "Chevrolet Silverado 2016 Cabina Regular",
+      "title": "2016 Chevrolet Silverado Cabina Regular 4x4",
       "status": "CAPTURA_PENDIENTE",
       "whatsapp": "OCULTO",
       "priceInternal": 310000,
@@ -50,7 +50,7 @@
     },
     {
       "id": "AFL-338732",
-      "title": "Chevrolet Silverado 1500 LTZ Texas Edition 2017",
+      "title": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition",
       "status": "REVISION_MATERIAL",
       "whatsapp": "OCULTO",
       "priceInternal": null,
