@@ -68,10 +68,22 @@
         "state": "CAPTURA_PENDIENTE",
         "lastVerified": "2026-09-27",
         "evidence": "20_NUEVA_CAPTURA_VACIA; 00_MATERIAL_DISPONIBLE_LOCAL=22_MEDIA_EXISTENTE_20_JPEG_2_VIDEO; CAPTURA_COMERCIAL_INCOMPLETA",
-        "lastVerifiedAt": "2026-09-27T19:48:00-06:00"
+        "lastVerifiedAt": "2026-09-27T19:48:00-06:00",
+        "lastOperationalAction": "SELECCION_PROVISIONAL_RETOCADA_8_ENVIAR_6_MARKETPLACE_3_POST"
       },
       "color": "negro",
-      "availability": "DISPONIBLE"
+      "availability": "DISPONIBLE",
+      "provisionalOutputs": {
+        "status": "BORRADOR_PROVISIONAL_RETOCADO",
+        "imagesCommercial": 8,
+        "marketplace": 6,
+        "post": 3,
+        "sendPackage": 8
+      },
+      "fieldWork": {
+        "nextPhysicalStep": "LAVADO_FISICO",
+        "washStatus": "PENDIENTE_FISICO"
+      }
     },
     {
       "id": "AFL-338732",
