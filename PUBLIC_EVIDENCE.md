@@ -91,3 +91,14 @@ No es necesario que el repositorio fuente siga siendo público.
 - Aplicación: https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/
 - Evidencia profesional: https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/PORTAFOLIO/
 - Perfil GitHub: https://github.com/miguelangelruizfull-ai
+
+
+## ADMIN ROOT NO ES SUPERFICIE PÚBLICA
+
+Existe una capa operativa `ADMIN ROOT` autorizada para consultar y mostrar información privada desde fuentes autenticadas.
+
+Esa capa no cambia la política de evidencia pública:
+
+`VISIBLE_EN_ADMIN_ROOT != PUBLICABLE`
+
+Los datos privados pueden utilizarse para operar, auditar, reconciliar y escalar el sistema, pero no deben persistirse en los archivos públicos de GitHub Pages. La vista pública puede indicar que existe un modo Admin, pero los valores privados deben resolverse fuera del bundle público.
