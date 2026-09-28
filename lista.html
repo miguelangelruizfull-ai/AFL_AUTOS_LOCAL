@@ -1,0 +1,418 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Lista de Códigos ID de Vehículos</title>
+
+	<style>
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background: #f4f6f8;
+			color: #1f2937;
+			line-height: 1.5;
+		}
+
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 32px 20px;
+		}
+
+		h1 {
+			font-size: 2rem;
+			margin-bottom: 24px;
+			color: #111827;
+		}
+
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 24px;
+		}
+
+		article {
+			background: #fff;
+			border: 1px solid #e5e7eb;
+			border-radius: 14px;
+			padding: 24px;
+			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+		}
+
+		h2 {
+			font-size: 1.35rem;
+			margin-bottom: 16px;
+		}
+
+		h3 {
+			font-size: 1rem;
+			margin-bottom: 12px;
+			color: #4b5563;
+		}
+
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		/* TARJETA VEHÍCULO */
+		.vehicle-card {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			width: 100%;
+
+			background: #f9fafb;
+			border: 1px solid #e5e7eb;
+			border-radius: 12px;
+
+			padding: 10px;
+
+			transition:
+				transform 0.2s ease,
+				box-shadow 0.2s ease,
+				border-color 0.2s ease,
+				background 0.2s ease;
+		}
+
+		.vehicle-card:hover {
+			transform: translateY(-2px);
+			border-color: #9ca3af;
+			background: #fff;
+			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+		}
+
+		.vehicle-card:focus-visible {
+			outline: 3px solid #0f62fe;
+			outline-offset: 2px;
+		}
+
+		/* MINIATURA */
+		.vehicle-thumb {
+			width: 110px;
+			height: 82px;
+			object-fit: cover;
+			object-position: center;
+			border-radius: 9px;
+			flex-shrink: 0;
+			background: #e5e7eb;
+			display: block;
+		}
+
+		.vehicle-info {
+			min-width: 0;
+			flex: 1;
+		}
+
+		.vehicle-id {
+			display: block;
+			font-size: 1rem;
+			font-weight: 700;
+			color: #0f62fe;
+			margin-bottom: 4px;
+		}
+
+		.vehicle-name {
+			display: block;
+			color: #4b5563;
+			font-size: 0.95rem;
+		}
+
+		.open-label {
+			display: block;
+			margin-top: 5px;
+			font-size: 0.78rem;
+			color: #6b7280;
+		}
+
+		.asset-link {
+			display: block;
+			background: #f9fafb;
+			border: 1px solid #e5e7eb;
+			padding: 14px;
+			border-radius: 10px;
+			font-weight: 700;
+			color: #0f62fe;
+		}
+
+		.asset-link:hover {
+			background: #f3f4f6;
+		}
+
+		.pending {
+			background: #f9fafb;
+			border: 1px solid #e5e7eb;
+			padding: 14px;
+			border-radius: 10px;
+			color: #9ca3af;
+			font-style: italic;
+		}
+
+		/* TABLET */
+		@media (max-width: 900px) {
+			.grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		/* MÓVIL */
+		@media (max-width: 600px) {
+			main {
+				padding: 18px 12px;
+			}
+
+			h1 {
+				font-size: 1.5rem;
+				margin-bottom: 18px;
+			}
+
+			article {
+				padding: 16px;
+			}
+
+			.vehicle-card {
+				gap: 12px;
+			}
+
+			.vehicle-thumb {
+				width: 90px;
+				height: 68px;
+			}
+
+			.vehicle-id {
+				font-size: 0.95rem;
+			}
+
+			.vehicle-name {
+				font-size: 0.85rem;
+			}
+
+			.open-label {
+				font-size: 0.72rem;
+			}
+		}
+
+		/* MÓVIL PEQUEÑO */
+		@media (max-width: 400px) {
+			main {
+				padding: 12px 8px;
+			}
+
+			article {
+				padding: 12px;
+			}
+
+			.vehicle-thumb {
+				width: 78px;
+				height: 60px;
+			}
+
+			.vehicle-card {
+				gap: 9px;
+				padding: 8px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<main>
+
+		<section>
+
+			<h1>Enlaces a Drive</h1>
+
+			<div class="grid">
+
+				<!-- ASSETS -->
+				<article>
+
+					<h2>Assets</h2>
+
+					<h3>MoodBoard y Creatividad</h3>
+
+					<ul>
+
+						<li>
+							<a
+								class="asset-link"
+								href="https://drive.google.com/drive/folders/1EH5WBxm2Q04LQU6FTzTp2r9YQqsPFomS?usp=sharing"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								FLYER_PUBLICADOS
+							</a>
+						</li>
+
+						<li class="pending">
+							TikTok — pendiente de enlace
+						</li>
+
+						<li class="pending">
+							Reels — pendiente de enlace
+						</li>
+
+					</ul>
+
+				</article>
+
+
+				<!-- VEHÍCULOS -->
+				<article>
+
+					<h2>
+						<a
+							href="https://drive.google.com/drive/folders/1Slvl0q5Du4Oauaaw8sApkLkoYQYKEIJA?usp=sharing"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Vehículos
+						</a>
+					</h2>
+
+					<ul>
+
+						<!-- AFL-183080 -->
+						<li>
+
+							<a
+								class="vehicle-card"
+								href="https://drive.google.com/drive/folders/1LwwEscqHTUr-fpG4hkCEMFazxa8NWfoE?usp=sharing"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+
+								<!-- AFL-183080 -->
+								<img
+								    class="vehicle-thumb"
+								    src="https://drive.google.com/thumbnail?id=1Cq33SoCSxjcV_KT1OFRk7vhL_YywxhMc&sz=w600"
+								    alt="AFL-183080 — Colorado Gris"
+								    loading="lazy"
+								>
+
+
+								<div class="vehicle-info">
+
+									<span class="vehicle-id">
+										AFL-183080
+									</span>
+
+									<span class="vehicle-name">
+										Colorado Gris
+									</span>
+
+									<span class="open-label">
+										Abrir carpeta en Drive ↗
+									</span>
+
+								</div>
+
+							</a>
+
+						</li>
+
+
+						<!-- AFL-E43254 -->
+						<li>
+
+							<a
+								class="vehicle-card"
+								href="https://drive.google.com/drive/folders/1WYZwcvIvv1I9gJp1nJrRSD53Hx8v1q2D?usp=sharing"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+
+							<!-- AFL-E43254 -->
+							<img
+							    class="vehicle-thumb"
+							    src="https://drive.google.com/thumbnail?id=1_d5EnOUno2uqFRcCO6Dmucd-FQMURzmh&sz=w600"
+							    alt="AFL-E43254 — Ford F-150 2013, Motor 3.5"
+							    loading="lazy"
+							>
+								<div class="vehicle-info">
+
+									<span class="vehicle-id">
+										AFL-E43254
+									</span>
+
+									<span class="vehicle-name">
+										Ford F-150 2013 — Motor 3.5
+									</span>
+
+									<span class="open-label">
+										Abrir carpeta en Drive ↗
+									</span>
+
+								</div>
+
+							</a>
+
+						</li>
+
+
+						<!-- AFL-E33351 -->
+						<li>
+
+							<a
+								class="vehicle-card"
+								href="https://drive.google.com/drive/folders/1RsbUPCAUDia9xQH0Lcz9V2aHFWQD5gYU?usp=sharing"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+							<!-- AFL-E33351 -->
+							<img
+							    class="vehicle-thumb"
+							    src="https://drive.google.com/thumbnail?id=1SJwVd7yH_eEI6Gs-E7rYmGVXGijJrLZz&sz=w600"
+							    alt="AFL-E33351 — Ford F-150 Blue"
+							    loading="lazy"
+							>
+								<div class="vehicle-info">
+
+									<span class="vehicle-id">
+										AFL-E33351
+									</span>
+
+									<span class="vehicle-name">
+										Ford F-150 Blue
+									</span>
+
+									<span class="open-label">
+										Abrir carpeta en Drive ↗
+									</span>
+
+								</div>
+
+							</a>
+
+						</li>
+
+					</ul>
+
+				</article>
+
+			</div>
+
+		</section>
+
+	</main>
+
+</body>
+</html>
+```
