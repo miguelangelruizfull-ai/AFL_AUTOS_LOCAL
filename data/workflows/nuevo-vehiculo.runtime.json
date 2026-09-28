@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-27T17:35:00-06:00",
+  "updated": "2026-09-27T17:42:00-06:00",
   "workflow": "NUEVO_VEHICULO",
   "state": "REVISION_MATERIAL",
   "uploadState": "LOTE_CONSOLIDADO",
@@ -25,10 +25,10 @@
   "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "conversationEvidence": "PENDIENTE_ADJUNTO_USUARIO",
-    "vin": "PENDIENTE",
+    "conversationEvidence": "PONCHO_ZIP_REVISADO",
+    "vin": "CONFIRMADO_PRIVADO_NO_PERSISTIDO",
     "priceAvailabilityUpdate": "PRECIO_490000_Y_DISPONIBILIDAD_CONFIRMADOS",
-    "thumbnail": "PENDIENTE_PUBLICACION_REPO",
+    "thumbnail": "PUBLICADA",
     "homeChecklist": "CREADO",
     "zipReceived": "Poncho.zip",
     "zipInspection": "COMPLETADA_TEXTO",
