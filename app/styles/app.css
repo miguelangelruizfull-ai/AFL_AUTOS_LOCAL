@@ -168,3 +168,9 @@ button.btn{cursor:pointer;color:inherit;font:inherit}
 .inventory-pending-item.done{color:#8ff0b8;background:#153823;border-color:#29593b}
 @media(max-width:900px){.inventory-checklist-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.inventory-checklist-head{flex-direction:column}.inventory-checklist-row{grid-template-columns:86px minmax(0,1fr)}.inventory-checklist-visual,.inventory-checklist-thumb,.inventory-checklist-placeholder{width:86px}.inventory-checklist-meta{grid-template-columns:1fr}.inventory-checklist-title{flex-direction:column}}
+
+.home-card-function{margin:12px 0;padding:11px;border:1px solid var(--line);border-radius:12px;background:#0d131b}
+.home-card-function-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin-top:7px}
+.home-card-function .copy-status{font-size:.76rem;line-height:1.4}
+.lab-home-result{border-color:#31506d;color:#c3d8ea}
+@media(max-width:620px){.home-card-function-row{grid-template-columns:1fr}}
