@@ -27,11 +27,11 @@
     ]
   },
   "status": {
-    "vehicle": "CAPTURA_PENDIENTE",
+    "vehicle": "REVISION_MATERIAL",
     "materialReview": "PARCIAL_VERIFICADA",
     "classification": "COMPLETADA",
     "captureType": "COMPLEMENTARIA",
-    "captureExecution": "PENDIENTE",
+    "captureExecution": "PARCIAL_REALIZADA",
     "whatsapp": "OCULTO",
     "publish": true
   },
@@ -42,30 +42,27 @@
   },
   "media": {
     "verifiedPhotos": 10,
-    "whatsappSelectedPhotos": 5,
+    "whatsappSelectedPhotos": 8,
     "realVideo": false
   },
   "capture": {
     "type": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
     "currentCoverage": [
-      "Frente",
-      "3/4 frontal",
-      "Perfil",
-      "3/4 trasero",
-      "Tablero/interior",
-      "Techo panorámico/interior",
+      "HERO 3/4 frontal",
+      "3/4 frontal alterno",
+      "Dos perfiles laterales",
+      "Frente detalle",
+      "Interior piel beige / techo panorámico",
+      "Segunda fila",
       "Volante/cuadro",
-      "Pantalla/cámara",
-      "Rin/neumático"
+      "Pantalla central",
+      "Consola/transmisión/clima"
     ],
     "required": [
-      "HERO 3/4 frontal limpio y vehículo completo",
-      "Perfil opuesto 90° completo",
-      "3/4 trasero opuesto",
+      "3/4 trasero",
       "Trasera recta",
       "Caja abierta",
       "Interior de caja",
-      "Segunda fila completa",
       "Entrada conductor/cabina completa",
       "Compartimiento de motor",
       "Emblemas/equipamiento distintivo sin datos sensibles"
@@ -95,7 +92,7 @@
     "status": "OCULTO",
     "title": "2018 Ford F-150 Lariat 4x4",
     "price": 510000,
-    "selectedPhotos": 5,
+    "selectedPhotos": 8,
     "realVideo": false,
     "publicationAutomatic": false
   },
@@ -106,14 +103,14 @@
     "privateUrls": "NO_PUBLICAR"
   },
   "checkpoint": {
-    "phase": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
-    "state": "CAPTURA_PENDIENTE",
+    "phase": "REVISION_MATERIAL",
+    "state": "REVISION_MATERIAL",
     "updated": "2026-09-28",
-    "lastCompleted": "ROOT_AFL_LAB_PREFLIGHT + DRIVE_GROUNDED + 20_NUEVA_CAPTURA_VACIA + MATERIAL_HISTORICO_PENDIENTE_RELOCALIZAR",
-    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
-    "resumeFrom": "Realizar y cargar únicamente la captura comercial complementaria en el destino privado preparado; después ejecutar REVISION_MATERIAL. No producir ni publicar multimedia nueva hasta contar con evidencia actual.",
-    "lastVerifiedAt": "2026-09-28T05:20:31-06:00",
-    "lastOperationalAction": "CREAR_CONTENIDO_CON_AFL_LAB_BLOQUEADO_POR_CAPTURA_FISICA"
+    "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8_COPIADA_A_CARPETA_OCULTA + FICHA_ESTRATEGICA_ACTUALIZADA",
+    "nextAction": "RETOQUE_CATALOGO_8",
+    "resumeFrom": "Retocar conservadoramente las 8 fotos seleccionadas sin alterar la unidad; después REVISION_MIGUEL, confirmar disponibilidad y solo entonces aprobar Catálogo WhatsApp. Mantener pendiente la captura trasera/caja/motor/video para cierre físico total.",
+    "lastVerifiedAt": "2026-09-28T05:38:26-06:00",
+    "lastOperationalAction": "REVISION_MATERIAL_10_FOTOS + SELECCION_WHATSAPP_8"
   },
   "promptProtocol": {
     "authority": "Vehiculos/vehiculos/AFL-B08553__2018_FORD_F150_LARIAT/PUENTE.md",
@@ -126,32 +123,33 @@
       "publishAutomatic": false
     },
     "whatsappCatalog": {
-      "status": "LISTO_PARA_REVISION",
+      "status": "MEDIA_GROUNDED_8_RETOQUE_PENDIENTE",
       "publishAutomatic": false,
       "pricePrepared": 510000
     },
     "blockingGates": [
+      "RETOQUE_VERIFICADO_PARA_CATALOGO",
       "DISPONIBILIDAD_CONFIRMADA",
-      "RETOQUE_VERIFICADO_PARA_CATALOGO"
+      "APROBACION_MIGUEL"
     ]
   },
   "contentLab": {
     "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-    "status": "BLOQUEADO",
+    "status": "EN_REVISION",
     "requestedAt": "2026-09-28T05:12:18.461-06:00",
     "requestedAtUtc": "2026-09-28T11:12:18.461Z",
     "startedAt": "2026-09-28T05:20:30-06:00",
-    "completedAt": "2026-09-28T05:20:31-06:00",
-    "lastVerifiedAt": "2026-09-28T05:20:31-06:00",
+    "completedAt": "2026-09-28T05:38:26-06:00",
+    "lastVerifiedAt": "2026-09-28T05:38:26-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "ROOT preflight completado. Drive y padres de captura verificados; 20_NUEVA_CAPTURA está vacía. No se movieron originales ni se produjo multimedia nueva. La selección histórica de 10 fotos verificadas / 5 seleccionadas queda pendiente de relocalizar antes de reutilizarla.",
+    "result": "Nueva captura verificada: 10 fotos actuales. Se preparó una selección oculta de 8 fotos para Catálogo WhatsApp sin mover ni eliminar originales. La ficha estratégica quedó actualizada. Retoque, disponibilidad y aprobación siguen pendientes; captura trasera/caja/motor/video continúa abierta.",
     "filesMoved": 0,
     "filesProduced": 0,
     "deliverables": [
       {
         "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
-        "status": "BLOQUEADO_CAPTURA_FISICA"
+        "status": "REVISION_MATERIAL_PARCIAL"
       },
       {
         "key": "MARKETPLACE_POST",
@@ -159,7 +157,7 @@
       },
       {
         "key": "WHATSAPP_CATALOGO",
-        "status": "OCULTO_LISTO_PARA_REVISION_MEDIA_PENDIENTE_GROUNDING"
+        "status": "MEDIA_GROUNDED_8_RETOQUE_PENDIENTE_OCULTO"
       }
     ],
     "reposUpdated": [
@@ -167,11 +165,14 @@
       "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA → SUBIR_A_20_NUEVA_CAPTURA → REVISION_MATERIAL",
+    "nextAction": "RETOQUE_CATALOGO_8 → REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
     "blockings": [
-      "CAPTURA_FISICA_PENDIENTE",
-      "20_NUEVA_CAPTURA_VACIA",
-      "MATERIAL_HISTORICO_PENDIENTE_RELOCALIZAR"
-    ]
+      "RETOQUE_CATALOGO_PENDIENTE",
+      "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
+      "APROBACION_MIGUEL_PENDIENTE",
+      "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
+    ],
+    "copiedAt": "2026-09-28T05:37:41-06:00/2026-09-28T05:38:03-06:00",
+    "filesCopied": 8
   }
 }
