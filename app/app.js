@@ -303,14 +303,59 @@ function makeResponseGeneratorPanel() {
   return panel;
 }
 
+function makeLabPanel(system) {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "lab";
+  panel.hidden = true;
+
+  const config = (system && system.rootGlobal) || {};
+  panel.append(
+    element("div", "eyebrow", "ROOT GLOBAL · AFL AUTOS LAB"),
+    element("h2", "", "Relación de sistemas"),
+    element("p", "subtitle", "Vehículos conserva la verdad vigente de cada unidad; AFL Autos Lab produce y experimenta; HOME consume únicamente derivados públicos sanitizados.")
+  );
+
+  const flow = element("div", "lab-flow");
+  (config.flow || []).forEach(function(item, index) {
+    flow.append(element("span", "lab-flow-step", item));
+    if (index < (config.flow || []).length - 1) flow.append(element("span", "lab-flow-arrow", "→"));
+  });
+  if ((config.flow || []).length) panel.append(flow);
+
+  const grid = element("div", "lab-relation-grid");
+  (config.relations || []).forEach(function(item) {
+    const card = element("article", "lab-relation-card");
+    card.append(
+      element("div", "eyebrow", item.role || "SISTEMA"),
+      element("h3", "", item.label || item.key || "Sistema"),
+      element("p", "deliverable-note", item.description || "")
+    );
+    const actions = element("div", "actions compact");
+    if (item.repositoryUrl) actions.append(linkButton("Abrir repositorio", item.repositoryUrl, item.key === "contentLab"));
+    if (item.startUrl) actions.append(linkButton("START_HERE", item.startUrl, false));
+    if (actions.childNodes.length) card.append(actions);
+    grid.append(card);
+  });
+  panel.append(grid);
+
+  if ((config.rules || []).length) {
+    const rules = element("div", "lab-rules");
+    rules.append(element("strong", "", "Reglas ROOT Global"));
+    rules.append(makeList(config.rules, false));
+    panel.append(rules);
+  }
+  return panel;
+}
+
 function makeHomeTabs(system) {
   const wrap = element("div", "home-tabs");
   const nav = element("div", "home-tabs-nav");
   const rootButton = actionButton("ROOT", function(){ activate("root"); }, true);
+  const labButton = actionButton("AFL Autos Lab", function(){ activate("lab"); }, false);
   const responsesButton = actionButton("Generador respuestas", function(){ activate("responses"); }, false);
   const quickButton = actionButton("Respuestas rápidas", function(){ activate("quick"); }, false);
   const alternativeButton = actionButton("Otra respuesta", function(){ activate("alternative"); }, false);
-  nav.append(rootButton, responsesButton, quickButton, alternativeButton);
+  nav.append(rootButton, labButton, responsesButton, quickButton, alternativeButton);
 
   const rootPanel = element("div", "home-tab-panel");
   rootPanel.dataset.tab = "root";
@@ -336,21 +381,24 @@ function makeHomeTabs(system) {
   });
   quickPanel.append(quickGrid);
 
+  const labPanel = makeLabPanel(system);
   const responsesPanel = makeResponseGeneratorPanel();
   const alternativePanel = makeAlternativeResponsePanel(system);
 
   function activate(name) {
     rootPanel.hidden = name !== "root";
+    labPanel.hidden = name !== "lab";
     responsesPanel.hidden = name !== "responses";
     quickPanel.hidden = name !== "quick";
     alternativePanel.hidden = name !== "alternative";
     rootButton.classList.toggle("primary", name === "root");
+    labButton.classList.toggle("primary", name === "lab");
     responsesButton.classList.toggle("primary", name === "responses");
     quickButton.classList.toggle("primary", name === "quick");
     alternativeButton.classList.toggle("primary", name === "alternative");
   }
 
-  wrap.append(nav, rootPanel, responsesPanel, quickPanel, alternativePanel);
+  wrap.append(nav, rootPanel, labPanel, responsesPanel, quickPanel, alternativePanel);
   return wrap;
 }
 
