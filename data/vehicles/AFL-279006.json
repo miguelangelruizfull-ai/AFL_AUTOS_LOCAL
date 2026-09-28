@@ -30,7 +30,8 @@
     "priceInternal": 325000,
     "currency": "MXN",
     "catalogPrice": null,
-    "catalogPricePolicy": "OMITIR"
+    "catalogPricePolicy": "OMITIR",
+    "availability": "DISPONIBLE"
   },
   "media": {
     "totalJpeg": 252,
