@@ -108,16 +108,16 @@
     "controlDocument": "AFL-338663 — CONTROL OPERATIVO"
   },
   "outputs": {
-    "marketplace": "PENDIENTE",
-    "images": "PENDIENTE",
-    "post": "PENDIENTE",
+    "marketplace": "BORRADOR_PROVISIONAL_RETOCADO",
+    "images": "BORRADOR_PROVISIONAL_RETOCADO",
+    "post": "BORRADOR_PROVISIONAL_RETOCADO",
     "feed": "PENDIENTE",
     "stories": "PENDIENTE",
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
     "whatsapp": "LISTO",
-    "sendPackage": "PENDIENTE"
+    "sendPackage": "BORRADOR_PROVISIONAL_RETOCADO"
   },
   "whatsapp": {
     "status": "LISTO",
@@ -152,19 +152,19 @@
       "key": "marketplace",
       "label": "Marketplace",
       "folder": "10_MARKETPLACE",
-      "status": "PENDIENTE"
+      "status": "BORRADOR_PROVISIONAL_RETOCADO"
     },
     {
       "key": "images",
       "label": "Imágenes comerciales",
       "folder": "20_IMAGENES_COMERCIALES",
-      "status": "PENDIENTE"
+      "status": "BORRADOR_PROVISIONAL_RETOCADO"
     },
     {
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
-      "status": "PENDIENTE"
+      "status": "BORRADOR_PROVISIONAL_RETOCADO"
     },
     {
       "key": "feed",
@@ -206,7 +206,7 @@
       "key": "sendPackage",
       "label": "Para enviar",
       "folder": "95_PARA_ENVIAR",
-      "status": "PENDIENTE"
+      "status": "BORRADOR_PROVISIONAL_RETOCADO"
     }
   ],
   "fieldWork": {
@@ -217,7 +217,9 @@
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "evidenceStatus": "MATERIAL_LOCAL_22_MEDIA; NUEVA_CAPTURA_VACIA; CAPTURA_COMERCIAL_INCOMPLETA",
     "lastEvidenceCheck": "2026-09-27",
-    "lastEvidenceCheckAt": "2026-09-27T19:48:00-06:00"
+    "lastEvidenceCheckAt": "2026-09-27T19:48:00-06:00",
+    "nextPhysicalStep": "LAVADO_FISICO",
+    "washStatus": "PENDIENTE_FISICO"
   },
   "checkpoint": {
     "phase": "PRECAPTURA_ESTANDARIZADA",
@@ -225,7 +227,7 @@
     "updated": "2026-09-27",
     "lastCompleted": "REVALIDACION_EVIDENCIA_LOCAL_22_MEDIA_20_NUEVA_CAPTURA_VACIA",
     "nextAction": "CAPTURA_COMERCIAL",
-    "resumeFrom": "Trabajo físico requerido: completar captura comercial conforme PLAN_CAPTURA. Existe material local parcial (20 fotos + 2 videos), pero no cierra los faltantes comerciales. Subir únicamente material nuevo a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA y verificar evidencia antes de cambiar de estado.",
+    "resumeFrom": "Trabajo físico requerido: lavar el vehículo y después completar captura comercial conforme PLAN_CAPTURA. Existe selección provisional retocada (8 para enviar, 6 Marketplace, 3 Post), pero no cierra HERO/caja-trasera/transmisión/video. Subir únicamente material nuevo a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA y verificar evidencia antes de cambiar de estado.",
     "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO",
     "evidence": {
       "newCapture": "VACIA",
@@ -233,7 +235,8 @@
       "approved": "VACIA",
       "contentAvailable": "VACIA"
     },
-    "lastVerifiedAt": "2026-09-27T19:48:00-06:00"
+    "lastVerifiedAt": "2026-09-27T19:48:00-06:00",
+    "lastOperationalAction": "SELECCION_PROVISIONAL_RETOCADA_8_ENVIAR_6_MARKETPLACE_3_POST"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
@@ -406,5 +409,28 @@
     "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
     "staticMenuAuthority": false,
     "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia."
+  },
+  "preCaptureSelection": {
+    "status": "PROVISIONAL_RETOCADA",
+    "policy": "AFL_SAFE_RETOUCH_NO_OBJECT_REMOVAL_NO_DAMAGE_CONCEALMENT",
+    "source": "01_ENTRADAS/AFL-338663/00_MATERIAL_DISPONIBLE_LOCAL",
+    "counts": {
+      "imagesCommercial": 8,
+      "marketplace": 6,
+      "post": 3,
+      "sendPackage": 8
+    },
+    "excludedFromCommercial": [
+      "VIN_ETIQUETAS_TECNICAS",
+      "TABLERO_ODOMETRO",
+      "TOMAS_BORROSAS",
+      "ANGULOS_CON_LLANTA_RECARGADA_EN_FRENTE"
+    ],
+    "physicalWash": {
+      "required": true,
+      "status": "PENDIENTE_FISICO"
+    },
+    "finalHero": "REQUIERE_LAVADO_FISICO_Y_NUEVA_CAPTURA",
+    "closesCapture": false
   }
 }
