@@ -22,7 +22,7 @@
     "classification": "COMPLETADA",
     "captureType": "COMPLETA",
     "captureExecution": "PENDIENTE",
-    "whatsapp": "LISTO",
+    "whatsapp": "PUBLICADO",
     "outputsDrive": "PREPARADAS",
     "publish": true
   },
@@ -136,17 +136,20 @@
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
-    "whatsapp": "LISTO",
-    "sendPackage": "PENDIENTE"
+    "whatsapp": "PUBLICADO",
+    "sendPackage": "PUBLICADO"
   },
   "whatsapp": {
-    "status": "LISTO",
+    "status": "PUBLICADO",
     "title": "2016 Chevrolet Colorado Work Truck",
     "description": "Chevrolet Colorado Work Truck 2016 de cabina extendida, motor 2.5 L de 4 cilindros a gasolina, transmisión manual de 6 velocidades y tracción 4x2.",
     "price": null,
     "selectedPhotos": 8,
     "realVideo": false,
-    "targetState": "WHATSAPP_OCULTO_LISTO"
+    "targetState": "WHATSAPP_PUBLICADO",
+    "catalogPublished": true,
+    "publicationEvidence": "LINK_CONFIRMED_BY_MIGUEL",
+    "publishedDate": "2026-09-27"
   },
   "music": {
     "registry": "data/musica-usada.json",
@@ -229,14 +232,14 @@
       "key": "whatsapp",
       "label": "WhatsApp oculto",
       "folder": "90_WHATSAPP_OCULTO",
-      "status": "LISTO",
+      "status": "PUBLICADO",
       "url": "https://drive.google.com/drive/folders/1K1Kt-pkq1uNdErq4Jt3pxTih94UEwB1M"
     },
     {
       "key": "sendPackage",
       "label": "Para enviar",
       "folder": "95_PARA_ENVIAR",
-      "status": "PENDIENTE",
+      "status": "PUBLICADO",
       "url": "https://drive.google.com/drive/folders/1PMhiN4lqT5aBj1YmDXC2cYqOtwR2oaX8"
     }
   ],
@@ -261,7 +264,7 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "FACEBOOK_POST_PUBLICADO_CONFIRMADO_POR_MIGUEL; checkpoint de captura conservado.",
+    "lastCompleted": "WHATSAPP_PUBLICADO + SEND_PACKAGE_PUBLICADO; checkpoint de captura conservado.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
