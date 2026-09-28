@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-27",
-  "authority": "MIGUEL_EXPLICIT + EVIDENCIA_PONCHO",
+  "updated": "2026-09-27T20:51:00-06:00",
+  "authority": "MIGUEL_EXPLICIT + GOOGLE_DRIVE_LOTE_LARIAT + EVIDENCIA_VISUAL",
   "privacy": {
     "sanitized": true,
     "storesFullVin": false,
@@ -89,7 +89,11 @@
         "VIN",
         "AFL_ID",
         "REVISION_MATERIAL"
-      ]
+      ],
+      "month": "Septiembre 2026",
+      "material": "28 fotos + 1 ficha",
+      "identificationEvidence": "Ford F-150 Lariat blanca; paquete FX4 visible",
+      "nextAction": "OBTENER_EVIDENCIA_PRIVADA_VIN"
     },
     {
       "key": "PENDIENTE-EDGE-2017",
