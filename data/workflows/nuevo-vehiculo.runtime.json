@@ -3,9 +3,9 @@
   "updated": "2026-09-27T20:51:00-06:00",
   "workflow": "NUEVO_VEHICULO",
   "state": "IDENTIFICACION_PENDIENTE",
-  "uploadState": "STAGING_READY",
+  "uploadState": "LOTE_UNITARIO_RECIBIDO",
   "aflId": null,
-  "materialCountVisible": 1,
+  "materialCountVisible": 29,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
@@ -22,19 +22,20 @@
     "classifyBeforeCleanup": true,
     "showOptionsBeforeDelete": true
   },
-  "nextAction": "CARGAR_MATERIAL_UNITARIO_O_EVIDENCIA_VIN",
+  "nextAction": "OBTENER_EVIDENCIA_PRIVADA_VIN",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "lotIsolation": "NO_UNITARIO",
-    "currentEvidence": "ARCHIVO_PRIVADO_MULTIVEHICULO",
-    "materialClassification": "PRIVADO",
-    "identification": "NO_CONFIRMADA",
-    "vin": "NO_CONFIRMADO_PARA_LA_UNIDAD_NUEVA",
-    "privateEvidenceDetected": [
-      "PII",
-      "MULTIPLE_VEHICLES",
-      "VIN_IN_CHAT_EXPORT"
-    ],
+    "lotLabel": "LARIAT",
+    "lotIsolation": "UNITARIO",
+    "currentEvidence": "28_FOTOS_1_FICHA_TEXTO",
+    "materialClassification": "PENDIENTE_REVISION",
+    "identification": "PARCIAL_CONFIRMADA",
+    "vehicleIdentified": "Ford F-150 Lariat 2018",
+    "color": "BLANCO",
+    "visiblePackage": "FX4",
+    "commercialDataSource": "FICHA_LOTE",
+    "vin": "NO_CONFIRMADO",
+    "duplicateCheck": "SIN_COINCIDENCIA_EN_DATA_VEHICLES_INDEX_POR_TITULO",
     "privateValuesStored": false,
     "previousRuntimeReused": false
   }
