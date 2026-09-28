@@ -400,6 +400,72 @@ function scheduleCard(e) {
   return card;
 }
 
+function inventoryChecklistSection(data) {
+  const section = element("section", "inventory-checklist panel");
+  section.id = "inventory-checklist";
+  const units = (data && Array.isArray(data.units)) ? data.units : [];
+  const pendingCount = units.filter(function(u){ return (u.pending || []).length > 0; }).length;
+  const head = element("div", "inventory-checklist-head");
+  const title = element("div");
+  title.append(
+    element("div", "eyebrow", "RELACIÓN OPERATIVA"),
+    element("h2", "", "Disponibilidad, precio y pendientes"),
+    element("p", "subtitle", "Vista sanitizada. VIN, odómetro, documentos privados e IDs/URLs privadas de Drive no se muestran aquí.")
+  );
+  head.append(title, element("span", "tag", pendingCount + " con pendientes"));
+  section.append(head);
+
+  const rows = element("div", "inventory-checklist-grid");
+  units.forEach(function(u) {
+    const row = element("article", "inventory-checklist-row");
+    const visual = element("div", "inventory-checklist-visual");
+    if (u.image) {
+      const img = element("img", "inventory-checklist-thumb");
+      img.src = u.image;
+      img.alt = u.title || u.key;
+      img.loading = "lazy";
+      visual.append(img);
+    } else {
+      visual.append(element("div", "inventory-checklist-placeholder", "SIN MINIATURA"));
+    }
+
+    const body = element("div", "inventory-checklist-body");
+    const top = element("div", "inventory-checklist-title");
+    top.append(
+      element("strong", "", u.title || u.key),
+      element("span", "status-chip " + (u.aflId ? "status-listo" : "status-pendiente"), u.aflId || "SIN AFL-ID")
+    );
+    const metaRow = element("div", "inventory-checklist-meta");
+    metaRow.append(
+      meta("Precio", money(u.priceInternal, u.currency || "MXN")),
+      meta("Disponibilidad", labelStatus(u.availability || "PENDIENTE")),
+      meta("Estado", labelStatus(u.status || "PENDIENTE"))
+    );
+    body.append(top, metaRow);
+
+    const pending = u.pending || [];
+    const checklist = element("div", "inventory-pending-list");
+    if (pending.length) {
+      pending.forEach(function(item) {
+        checklist.append(element("span", "inventory-pending-item", "☐ " + labelStatus(item)));
+      });
+    } else {
+      checklist.append(element("span", "inventory-pending-item done", "✓ Sin pendientes registrados"));
+    }
+    body.append(checklist);
+
+    if (u.aflId) {
+      const actions = element("div", "actions compact");
+      actions.append(linkButton("Abrir unidad", "?vehicle=" + encodeURIComponent(u.aflId), false));
+      body.append(actions);
+    }
+    row.append(visual, body);
+    rows.append(row);
+  });
+  section.append(rows);
+  return section;
+}
+
 function vehicleCard(v) {
   const card = element("article", "vehicle-card");
   card.dataset.search = [v.id, v.title, v.status].join(" ").toLowerCase();
@@ -944,11 +1010,13 @@ async function renderHome() {
   const data = await Promise.all([
     getJSON("data/system.json"),
     getJSON("data/vehicles/index.json"),
-    getJSON("data/programador.json")
+    getJSON("data/programador.json"),
+    getJSON("data/intake/inventory-checklist.json")
   ]);
   const system = data[0];
   const vehicles = data[1];
   const programador = data[2];
+  const inventoryChecklist = data[3] || {units:[]};
 
   const shell = element("div", "shell");
 
@@ -975,6 +1043,7 @@ async function renderHome() {
 
   const schedule = element("section", "programador");
   programador.events.slice(0, 3).forEach(function(e) { schedule.append(scheduleCard(e)); });
+  const inventoryRelation = inventoryChecklistSection(inventoryChecklist);
 
   const toolbar = element("section", "toolbar");
   const searchLabel = element("label", "search");
@@ -1000,7 +1069,7 @@ async function renderHome() {
 
   const footer = element("footer", "footer", "AFL_AUTOS_LOCAL · JSON-driven · " + system.updated);
 
-  shell.append(header, consoleSection, schedule, toolbar, grid, empty, footer);
+  shell.append(header, consoleSection, schedule, inventoryRelation, toolbar, grid, empty, footer);
   root.replaceChildren(shell);
   bindFilters();
 }
