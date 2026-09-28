@@ -125,6 +125,31 @@
         "state": "REVISION_MATERIAL",
         "lastVerified": "2026-09-27"
       }
+    },
+    {
+      "id": "AFL-D39952",
+      "title": "2016 Ford F-150 Cabina y Media",
+      "status": "CAPTURA_PENDIENTE",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": null,
+      "nextAction": "CAPTURA_COMPLEMENTARIA",
+      "image": "assets/thumbs/AFL-D39952.jpg",
+      "detail": "data/vehicles/AFL-D39952.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-D39952.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-27",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "CAPTURA_COMPLEMENTARIA",
+        "lastCompleted": "RECONCILIACION_D39952_ROJA_VERIFICADA_Y_LOTE_AZUL_EXCLUIDO",
+        "nextAction": "CAPTURA_COMPLEMENTARIA",
+        "state": "CAPTURA_PENDIENTE",
+        "lastVerifiedAt": "2026-09-27T19:56:00-06:00"
+      }
     }
   ]
 }
