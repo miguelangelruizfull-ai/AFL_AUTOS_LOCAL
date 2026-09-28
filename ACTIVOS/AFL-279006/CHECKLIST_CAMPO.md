@@ -2,160 +2,73 @@
 
 VEHICULO: Chevrolet Colorado Work Truck 2016
 COLOR: ROJO
-CAPTURA: COMPLETA
+CAPTURA: COMPLETA / PENDIENTE DE EJECUCIÓN
 FECHA: 2026-09-28
-HORA: 10:00–11:00
-ESTADO: PENDIENTE
-WHATSAPP: OCULTO
-PUBLICAR: NO
+HORA: 10:00–11:00 America/Mexico_City
+WHATSAPP: PUBLICADO
+PUBLICACION_AUTOMATICA: NO
 
-## 1. ANTES DE EMPEZAR
+## ANTES DE EMPEZAR
 
-- [ ] Exterior lavado.
-- [ ] Cristales limpios.
-- [ ] Interior limpio.
-- [ ] Caja limpia.
-- [ ] Retirar basura y objetos personales.
-- [ ] Elegir fondo limpio.
-- [ ] Revisar luz/reflejos.
-- [ ] Limpiar lente del teléfono.
-- [ ] Grabar siempre originales sin filtros.
+- [ ] Lavar exterior; limpiar cristales, cabina, asientos y caja.
+- [ ] Retirar objetos personales; elegir fondo limpio y revisar reflejos.
+- [ ] Limpiar lente; conservar originales sin filtros.
+- [ ] Mostrar la condición real, incluidos defectos visibles.
 
-## 2. EXTERIOR OBLIGATORIO
+## 22 FOTOS OBLIGATORIAS
 
-- [ ] HERO 3/4 frontal.
-- [ ] Frente recto.
-- [ ] 3/4 frontal opuesto.
-- [ ] Perfil izquierdo 90°.
-- [ ] Perfil derecho 90°.
-- [ ] 3/4 trasero izquierdo.
-- [ ] 3/4 trasero derecho.
-- [ ] Trasera recta.
-- [ ] Cabina extendida con puertas abiertas.
-- [ ] Rin/neumático delantero.
-- [ ] Rin/neumático trasero.
-- [ ] Emblemas/accesorios relevantes.
+- [ ] 1. HERO 3/4 frontal.
+- [ ] 2. Frente recto.
+- [ ] 3. 3/4 frontal opuesto.
+- [ ] 4. Perfil izquierdo 90°.
+- [ ] 5. Perfil derecho 90°.
+- [ ] 6. 3/4 trasero izquierdo.
+- [ ] 7. 3/4 trasero derecho.
+- [ ] 8. Trasera recta.
+- [ ] 9. Cabina extendida con puertas abiertas.
+- [ ] 10. Caja cerrada.
+- [ ] 11. Caja abierta.
+- [ ] 12. Interior de caja.
+- [ ] 13. Cabina conductor.
+- [ ] 14. Cabina pasajero.
+- [ ] 15. Tablero encendido.
+- [ ] 16. Volante y controles.
+- [ ] 17. Palanca manual.
+- [ ] 18. Asientos delanteros.
+- [ ] 19. Segunda fila.
+- [ ] 20. Compartimiento de motor.
+- [ ] 21. Rin/neumático delantero.
+- [ ] 22. Rin/neumático trasero.
 
-## 3. CAJA
+Extras opcionales: emblemas, accesorios confirmados, pantalla/radio, laterales de caja, detalles de puertas y motor. Los extras no sustituyen las 22 fotos.
 
-- [ ] Caja cubierta cerrada.
-- [ ] Caja cubierta abierta.
-- [ ] Interior completo de caja.
-- [ ] Estado/laterales de caja.
+## VIDEO OBLIGATORIO — VERTICAL 9:16
 
-## 4. INTERIOR
-
-- [ ] Cabina desde conductor.
-- [ ] Cabina desde pasajero.
-- [ ] Tablero encendido.
-- [ ] Volante y controles.
-- [ ] Pantalla/radio/equipo.
-- [ ] Palanca manual.
-- [ ] Consola.
-- [ ] Asientos delanteros.
-- [ ] Segunda fila / espacio trasero.
-
-## 5. MOTOR / EQUIPO
-
-- [ ] Compartimiento motor completo.
-- [ ] Motor/equipo relevante.
-- [ ] Accesorios confirmados.
-
-## 6. PRIVADO / NO PUBLICAR
-
-Solo si hace falta verificar:
-
-- [ ] VIN.
-- [ ] Etiqueta técnica.
-- [ ] Odómetro.
-- [ ] Documentos.
-
-Todo lo anterior: PRIVADO / NO_PUBLICAR.
-
-## 7. CONDICION
-
-- [ ] Daños visibles.
-- [ ] Rayones/golpes.
-- [ ] Desgaste interior.
-- [ ] Estado neumáticos.
-- [ ] Estado caja.
-
-No ocultar defectos.
-
-## 8. VIDEO OBLIGATORIO — 9:16
-
-### Video 1 — Walkaround 20–30 s
+- [ ] Grabar un walkaround real de 20–30 s, estable y sin dedos en el lente.
 - [ ] HERO.
-- [ ] Frontal → lateral.
+- [ ] Frontal a lateral.
 - [ ] Perfil.
 - [ ] 3/4 trasero.
 - [ ] Trasera.
 - [ ] Caja cerrada.
 - [ ] Caja abierta.
-- [ ] Regreso lateral.
-
-### Video 2 — Interior
-- [ ] Entrada conductor.
-- [ ] Tablero.
-- [ ] Volante.
+- [ ] Interior/tablero.
 - [ ] Palanca manual.
-- [ ] Asientos.
-- [ ] Segunda fila.
+- [ ] Reproducir el video y comprobar continuidad, enfoque y exposición.
 
-### Video 3 — Motor / arranque
-- [ ] Motor.
-- [ ] Arranque, solo si es seguro.
+Videos adicionales de interior o motor/arranque son opcionales; solo cuando sea seguro.
 
-## 9. ANTES DE RETIRARSE
+## PRIVADO / CONDICIÓN
 
-- [ ] Revisar que no falte ninguna toma obligatoria.
-- [ ] Reproducir al menos un video completo.
-- [ ] Confirmar que no haya dedo/mano tapando lente.
-- [ ] Confirmar enfoque y exposición.
-- [ ] Confirmar que exista HERO limpio.
-- [ ] Confirmar ambos perfiles.
-- [ ] Confirmar 3/4 trasero.
-- [ ] Confirmar caja abierta/cerrada.
-- [ ] Confirmar interior.
-- [ ] Confirmar video vertical utilizable.
+- [ ] Si hace falta verificar, separar VIN, etiqueta técnica, odómetro y documentos como PRIVADO / NO_PUBLICAR.
+- [ ] Registrar daños, rayones, desgaste, estado de neumáticos y caja sin ocultarlos.
 
-## 10. AL TERMINAR
+## ANTES DE RETIRARSE
 
-Subir originales a:
+- [ ] Contar las 22 fotos y verificar ambos perfiles, caja abierta/cerrada, interior y motor.
+- [ ] Confirmar al menos un video 9:16 utilizable.
+- [ ] Cargar originales únicamente en [20_NUEVA_CAPTURA](https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-).
 
-`01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA`
+Después de la carga: `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`. Cambiar a `CAPTURA_COMPLETA` solo al verificar todos los obligatorios; de otro modo conservar `CAPTURA_PENDIENTE`.
 
-Después:
-
-```text
-MATERIAL_NUEVO_SUBIDO
-→ REVISION_MATERIAL
-→ SELECCION_FINAL
-→ CAPTURA_COMPLETA
-→ WHATSAPP_OCULTO_LISTO
-→ CONTENIDO_DISPONIBLE
-```
-
-Si falta una toma obligatoria:
-
-`CAPTURA_PENDIENTE → REPROGRAMAR SIN DUPLICAR EVENTO`
-
-## SALIDAS ESPERADAS
-
-Después de revisión:
-
-- Marketplace.
-- Imágenes comerciales.
-- Post.
-- Feed.
-- Historias.
-- Portadas.
-- Reel.
-- TikTok.
-- WhatsApp oculto.
-- Para enviar.
-
-## REGLA FINAL
-
-NO PUBLICAR AUTOMATICAMENTE.
-NO BORRAR ORIGINALES.
+WhatsApp y `95_PARA_ENVIAR` ya están PUBLICADOS. La captura no modifica esas publicaciones. Marketplace y Feed siguen como borradores; no publicar automáticamente. No borrar originales.
