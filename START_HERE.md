@@ -236,3 +236,34 @@ Reglas:
 - para leads fuera de México, confirmar si la compra se realizará en México y no prometer exportación/envío;
 - la siguiente acción se ofrece mediante enlace `target="_blank"` hacia ROOT/vehículo, Multimedia, Programador o WhatsApp del lead según corresponda;
 - Copy Page genera/copia respuestas, pero NO envía ni publica automáticamente.
+
+
+## ROOT GLOBAL — AFL AUTOS LAB
+
+HOME integra navegación y relación operativa con los repositorios privados sin convertirlos en datos públicos.
+
+Relación canónica:
+
+```text
+Vehiculos/index/EXPEDIENTES_INDEX.json = NAVEGACION
+Vehiculos/.../PUENTE.md = VERDAD_DE_UNIDAD
+AFL_AUTOS_CONTENT_LAB = PRODUCCION / EXPERIMENTO
+AFL_AUTOS_LOCAL = HOME / DERIVADO_PUBLICO_SANITIZADO
+```
+
+Flujo:
+
+```text
+VEHICULOS / PUENTE.md
+→ CONTENT LAB
+→ validación / producción
+→ derivados sanitizados
+→ HOME
+```
+
+Reglas:
+- Content Lab nunca sustituye el `PUENTE.md`;
+- HOME no debe exponer VIN completo, odómetro, PII, documentos ni URLs privadas;
+- una contradicción se reconcilia primero en la fuente dueña del dato;
+- la integración con Lab no autoriza publicación automática;
+- la pestaña **AFL Autos Lab** del HOME muestra esta relación y accesos a los repositorios para usuarios autorizados.
