@@ -65,6 +65,140 @@ function standardQuickFields(v) {
   ];
 }
 
+function formatOperationalDateTime(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return String(value);
+  try {
+    return new Intl.DateTimeFormat("es-MX", {
+      timeZone: "America/Mexico_City",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    }).format(d) + " · America/Mexico_City";
+  } catch (error) {
+    return String(value);
+  }
+}
+
+function currentHomeRequestTime() {
+  const now = new Date();
+  let local = now.toISOString();
+  try {
+    local = new Intl.DateTimeFormat("es-MX", {
+      timeZone: "America/Mexico_City",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false
+    }).format(now);
+  } catch (error) {}
+  return { utc: now.toISOString(), local: local, timezone: "America/Mexico_City" };
+}
+
+function buildContentLabPrompt(v) {
+  const c = v.checkpoint || {};
+  const t = currentHomeRequestTime();
+  const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
+  return [
+    "CREAR_CONTENIDO_CON_AFL_LAB",
+    "",
+    "AFL-ID: " + v.id,
+    "VEHÍCULO: " + title,
+    "SOLICITUD_HOME_UTC: " + t.utc,
+    "SOLICITUD_HOME_LOCAL: " + t.local,
+    "ZONA_HORARIA: " + t.timezone,
+    "",
+    "CONTRATO CANÓNICO:",
+    "AFL_AUTOS_CONTENT_LAB/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md",
+    "LAUNCHER HOME: AFL_AUTOS_LOCAL/data/prompts/crear-contenido-afl-lab.json",
+    "",
+    "AUTORIZACIÓN OPERATIVA:",
+    "Ejecuta el flujo ROOT para esta unidad. Lee PUENTE antes de producir. Relaciona únicamente los repositorios afectados y Google Drive autorizado. Puedes organizar/mover seleccionados, aprobados, derivados y entregables cuando el contrato lo permita; no muevas ni elimines RAW/originales canónicos.",
+    "",
+    "CHECKPOINT HOME DE NAVEGACIÓN:",
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || v.status || "PENDIENTE"),
+    "- Último cierre: " + (c.lastCompleted || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || v.nextAction || "PENDIENTE"),
+    "- Última verificación: " + (c.lastVerifiedAt || c.lastVerified || v.updated || "PENDIENTE"),
+    "",
+    "EJECUCIÓN OBLIGATORIA:",
+    "1. Lee Vehiculos/START_HERE.md.",
+    "2. Localiza " + v.id + " en Vehiculos/index/EXPEDIENTES_INDEX.json y abre completo el PUENTE.md indicado por puente_path.",
+    "3. Lee AFL_AUTOS_CONTENT_LAB/START_HERE.md y el contrato canónico anterior.",
+    "4. Groundea Drive/CONTROL OPERATIVO y verifica padres y destinos antes de cualquier movimiento.",
+    "5. Ejecuta el siguiente paso de producción válido con la evidencia existente; si falta captura física, deja bloqueo verificable en vez de inventar contenido.",
+    "6. Sincroniza sólo los dominios afectados: Content Lab, Content System, Comercial, Platform, Operación, History y/o HOME según corresponda.",
+    "7. Registra requestedAt, startedAt, completedAt, lastVerifiedAt y movedAt reales en America/Mexico_City; conserva timestamps externos de la fuente.",
+    "8. Actualiza data/vehicles/" + v.id + ".json y data/vehicles/index.json con contentLab sanitizado: operación, estado, timestamps, resultado, filesMoved, filesProduced, deliverables, reposUpdated y nextAction.",
+    "9. Verifica Drive ↔ repos afectados ↔ HOME y devuelve resultados.",
+    "",
+    "REGLAS:",
+    "- PUENTE.md manda sobre HOME y Content Lab para datos variables de la unidad.",
+    "- No publiques automáticamente.",
+    "- No expongas VIN completo, odómetro, documentos, PII, RAW ni IDs/URLs privadas en HOME.",
+    "- No declares movimientos o producción si no quedaron persistidos y verificados.",
+    "",
+    "CIERRE:",
+    "Muestra autoridad PUENTE usada, producción creada/continuada, archivos producidos, movimientos Drive con cantidades y horas, repos modificados, estado por entregable, requestedAt/startedAt/completedAt, resumen visible en HOME, siguiente acción y bloqueos."
+  ].join("\n");
+}
+
+function contentLabHomeSummary(v) {
+  const lab = v.contentLab || {};
+  if (!lab.status && !lab.requestedAt && !lab.startedAt && !lab.completedAt) {
+    return "AFL Lab: SIN EJECUCIÓN REGISTRADA";
+  }
+  const parts = ["AFL Lab: " + labelStatus(lab.status || "SIN_ESTADO")];
+  const when = lab.completedAt || lab.startedAt || lab.requestedAt;
+  if (when) parts.push(formatOperationalDateTime(when));
+  if (lab.result) {
+    const result = String(lab.result);
+    parts.push(result.length > 150 ? result.slice(0, 147) + "…" : result);
+  }
+  return parts.join(" · ");
+}
+
+function makeHomeCardFunctionSelect(v) {
+  const wrap = element("div", "home-card-function no-print");
+  wrap.append(element("div", "eyebrow", "FUNCIÓN ROOT POR VEHÍCULO"));
+  const row = element("div", "home-card-function-row");
+  const select = element("select", "status-select home-function-select");
+  const placeholder = element("option", "", "Seleccionar función…");
+  placeholder.value = "";
+  select.append(placeholder);
+  const lab = element("option", "", "Crear contenido con AFL Lab");
+  lab.value = "createContentLab";
+  select.append(lab);
+
+  const status = element("span", "copy-status", "");
+  const run = actionButton("Preparar orden", function() {
+    if (select.value !== "createContentLab") {
+      status.textContent = "Selecciona una función.";
+      return;
+    }
+    copyText(buildContentLabPrompt(v), status);
+  }, true);
+
+  select.addEventListener("change", function() {
+    status.textContent = select.value === "createContentLab"
+      ? "AFL Lab seleccionado. Preparará PUENTE → Drive/repos → producción → HOME."
+      : "";
+  });
+
+  row.append(select, run);
+  wrap.append(row, status);
+  return wrap;
+}
+
 function buildAuthorizedEditPrompt(v, field, newValue) {
   const fieldPath = String(field || "<CAMPO>").trim() || "<CAMPO>";
   const value = String(newValue || "<NUEVO_VALOR>").trim() || "<NUEVO_VALOR>";
@@ -571,6 +705,8 @@ function vehicleCard(v) {
       (v.updated ? " · " + v.updated : "")
     ));
   }
+  body.append(element("div", "home-checkpoint lab-home-result", contentLabHomeSummary(v)));
+  body.append(makeHomeCardFunctionSelect(v));
   if (v.detail) body.append(shortcuts);
   body.append(actions);
   card.append(wrap, body);
