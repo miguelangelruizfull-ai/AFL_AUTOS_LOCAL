@@ -43,7 +43,8 @@
   "media": {
     "verifiedPhotos": 10,
     "whatsappSelectedPhotos": 8,
-    "realVideo": false
+    "realVideo": false,
+    "whatsappRetouchedPhotos": 8
   },
   "capture": {
     "type": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
@@ -106,11 +107,11 @@
     "phase": "REVISION_MATERIAL",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-28",
-    "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8_COPIADA_A_CARPETA_OCULTA + FICHA_ESTRATEGICA_ACTUALIZADA",
-    "nextAction": "RETOQUE_CATALOGO_8",
-    "resumeFrom": "Retocar conservadoramente las 8 fotos seleccionadas sin alterar la unidad; después REVISION_MIGUEL, confirmar disponibilidad y solo entonces aprobar Catálogo WhatsApp. Mantener pendiente la captura trasera/caja/motor/video para cierre físico total.",
-    "lastVerifiedAt": "2026-09-28T05:38:26-06:00",
-    "lastOperationalAction": "REVISION_MATERIAL_10_FOTOS + SELECCION_WHATSAPP_8"
+    "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8 + RETOQUE_CATALOGO_8_PRODUCIDO_Y_VERIFICADO",
+    "nextAction": "REVISION_MIGUEL",
+    "resumeFrom": "Revisar las 8 fotos retocadas; después confirmar disponibilidad actual y solo entonces aprobar Catálogo WhatsApp. Mantener pendiente la captura trasera/caja/motor/video para cierre físico total.",
+    "lastVerifiedAt": "2026-09-28T10:53:29-06:00",
+    "lastOperationalAction": "RETOQUE_CATALOGO_8_VERIFICADO"
   },
   "promptProtocol": {
     "authority": "Vehiculos/vehiculos/AFL-B08553__2018_FORD_F150_LARIAT/PUENTE.md",
@@ -123,29 +124,29 @@
       "publishAutomatic": false
     },
     "whatsappCatalog": {
-      "status": "MEDIA_GROUNDED_8_RETOQUE_PENDIENTE",
+      "status": "MEDIA_GROUNDED_8_RETOQUE_VERIFICADO_PENDIENTE_REVISION_MIGUEL",
       "publishAutomatic": false,
       "pricePrepared": 510000
     },
     "blockingGates": [
-      "RETOQUE_VERIFICADO_PARA_CATALOGO",
       "DISPONIBILIDAD_CONFIRMADA",
       "APROBACION_MIGUEL"
     ]
   },
   "contentLab": {
     "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-    "status": "EN_REVISION",
-    "requestedAt": "2026-09-28T05:12:18.461-06:00",
-    "requestedAtUtc": "2026-09-28T11:12:18.461Z",
-    "startedAt": "2026-09-28T05:20:30-06:00",
-    "completedAt": "2026-09-28T05:38:26-06:00",
-    "lastVerifiedAt": "2026-09-28T05:38:26-06:00",
-    "movedAt": null,
+    "status": "PARCIAL",
+    "requestedAt": "2026-09-28T10:41:42.929-06:00",
+    "requestedAtUtc": "2026-09-28T16:41:42.929Z",
+    "startedAt": "2026-09-28T10:45:17-06:00",
+    "completedAt": "2026-09-28T10:53:29-06:00",
+    "lastVerifiedAt": "2026-09-28T10:53:29-06:00",
+    "movedAt": "2026-09-28T10:53:29-06:00",
     "timezone": "America/Mexico_City",
-    "result": "Nueva captura verificada: 10 fotos actuales. Se preparó una selección oculta de 8 fotos para Catálogo WhatsApp sin mover ni eliminar originales. La ficha estratégica quedó actualizada. Retoque, disponibilidad y aprobación siguen pendientes; captura trasera/caja/motor/video continúa abierta.",
-    "filesMoved": 0,
-    "filesProduced": 0,
+    "result": "RETOQUE_CATALOGO_8 completado y verificado: 8 derivados canónicos únicos. 7 copias derivadas de reintento fueron archivadas sin borrado. RAW/originales intactos. Catálogo permanece oculto; revisión de Miguel, disponibilidad y aprobación siguen pendientes.",
+    "filesMoved": 7,
+    "filesProduced": 8,
+    "filesArchived": 7,
     "deliverables": [
       {
         "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
@@ -157,7 +158,7 @@
       },
       {
         "key": "WHATSAPP_CATALOGO",
-        "status": "MEDIA_GROUNDED_8_RETOQUE_PENDIENTE_OCULTO"
+        "status": "RETOQUE_8_VERIFICADO_OCULTO_PENDIENTE_REVISION_MIGUEL"
       }
     ],
     "reposUpdated": [
@@ -165,14 +166,11 @@
       "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "RETOQUE_CATALOGO_8 → REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
+    "nextAction": "REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
     "blockings": [
-      "RETOQUE_CATALOGO_PENDIENTE",
       "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
       "APROBACION_MIGUEL_PENDIENTE",
       "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
-    ],
-    "copiedAt": "2026-09-28T05:37:41-06:00/2026-09-28T05:38:03-06:00",
-    "filesCopied": 8
+    ]
   }
 }
