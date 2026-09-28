@@ -12,7 +12,7 @@
       "priceInternal": 510000,
       "currency": "MXN",
       "availability": "PENDIENTE_CONFIRMACION",
-      "nextAction": "RETOQUE_CATALOGO_8",
+      "nextAction": "REVISION_MIGUEL",
       "image": "assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
       "detail": "data/vehicles/AFL-B08553.json",
       "publish": true,
@@ -23,26 +23,25 @@
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
         "phase": "REVISION_MATERIAL",
-        "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8_COPIADA_A_CARPETA_OCULTA + FICHA_ESTRATEGICA_ACTUALIZADA",
-        "nextAction": "RETOQUE_CATALOGO_8",
+        "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8 + RETOQUE_CATALOGO_8_PRODUCIDO_Y_VERIFICADO",
+        "nextAction": "REVISION_MIGUEL",
         "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-28T05:38:26-06:00"
+        "lastVerifiedAt": "2026-09-28T10:53:29-06:00"
       },
       "contentLab": {
         "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-        "status": "EN_REVISION",
-        "requestedAt": "2026-09-28T05:12:18.461-06:00",
-        "requestedAtUtc": "2026-09-28T11:12:18.461Z",
-        "startedAt": "2026-09-28T05:20:30-06:00",
-        "completedAt": "2026-09-28T05:38:26-06:00",
-        "lastVerifiedAt": "2026-09-28T05:38:26-06:00",
-        "movedAt": null,
-        "copiedAt": "2026-09-28T05:37:41-06:00/2026-09-28T05:38:03-06:00",
+        "status": "PARCIAL",
+        "requestedAt": "2026-09-28T10:41:42.929-06:00",
+        "requestedAtUtc": "2026-09-28T16:41:42.929Z",
+        "startedAt": "2026-09-28T10:45:17-06:00",
+        "completedAt": "2026-09-28T10:53:29-06:00",
+        "lastVerifiedAt": "2026-09-28T10:53:29-06:00",
+        "movedAt": "2026-09-28T10:53:29-06:00",
         "timezone": "America/Mexico_City",
-        "result": "Nueva captura verificada: 10 fotos. Selección oculta WhatsApp: 8 fotos. Originales intactos. Ficha estratégica actualizada; retoque, disponibilidad y aprobación pendientes.",
-        "filesMoved": 0,
-        "filesCopied": 8,
-        "filesProduced": 0,
+        "result": "RETOQUE_CATALOGO_8 completado y verificado: 8 derivados canónicos únicos. 7 copias derivadas de reintento fueron archivadas sin borrado. RAW/originales intactos. Catálogo permanece oculto; revisión de Miguel, disponibilidad y aprobación siguen pendientes.",
+        "filesMoved": 7,
+        "filesProduced": 8,
+        "filesArchived": 7,
         "deliverables": [
           {
             "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
@@ -54,7 +53,7 @@
           },
           {
             "key": "WHATSAPP_CATALOGO",
-            "status": "MEDIA_GROUNDED_8_RETOQUE_PENDIENTE_OCULTO"
+            "status": "RETOQUE_8_VERIFICADO_OCULTO_PENDIENTE_REVISION_MIGUEL"
           }
         ],
         "reposUpdated": [
@@ -62,9 +61,8 @@
           "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "RETOQUE_CATALOGO_8 → REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
+        "nextAction": "REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
         "blockings": [
-          "RETOQUE_CATALOGO_PENDIENTE",
           "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
           "APROBACION_MIGUEL_PENDIENTE",
           "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
