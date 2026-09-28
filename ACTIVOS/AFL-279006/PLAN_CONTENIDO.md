@@ -162,7 +162,8 @@ DECISION_OPERATIVA_2026-09-27:
 - Marketplace y Feed pueden prepararse como BORRADOR_PRECAPTURA con el material comercial ya aprobado.
 - Post de Facebook ya está PROGRAMADA con copy final confirmado por Miguel; no modificarla salvo autorización expresa.
 - Estado mientras falte el trabajo de campo: EN_PRODUCCION.
-- WhatsApp: LISTO por transición explícita del entregable; conservar NO_PUBLICAR. Para las demás salidas, no programar/publicar automáticamente ni pasarlas a LISTO antes de revisar la nueva captura.
+- WhatsApp: PUBLICADO por autorización explícita de Miguel y enlace de catálogo confirmado. La carpeta `90_WHATSAPP_OCULTO` se conserva como ruta operativa histórica; no habilita publicación automática de otras piezas.
+- `95_PARA_ENVIAR`: PUBLICADO; paquete de 12 imágenes verificado en Drive.
 - Reel y TikTok continúan esperando el video vertical de campo cuando corresponda.
 
 Flujo de cierre:
@@ -257,3 +258,13 @@ No guardar archivos de audio.
 - Siguiente acción de campo: `CAPTURA_COMERCIAL_COMPLETA`.
 - No autoriza publicación automática de ninguna otra pieza.
 
+
+
+## CIERRE WHATSAPP + PAQUETE — 2026-09-27
+
+- `whatsapp`: `LISTO -> PUBLICADO`.
+- `sendPackage`: `PENDIENTE -> PUBLICADO`.
+- Evidencia WhatsApp: enlace público de catálogo confirmado por Miguel; URL omitida del repositorio público.
+- Evidencia paquete: 12 imágenes presentes en `95_PARA_ENVIAR`.
+- Checkpoint de captura sin cambio: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Siguiente acción sin cambio: `CAPTURA_COMERCIAL_COMPLETA`.
