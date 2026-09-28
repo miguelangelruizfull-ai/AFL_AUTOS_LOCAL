@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "1.1.0",
+  "updated": "2026-09-27",
+  "id": "AFL-D39952",
+  "vehicle": {
+    "make": "Ford",
+    "model": "F-150",
+    "trim": null,
+    "year": 2016,
+    "color": "rojo",
+    "publicTitle": "2016 Ford F-150 Cabina y Media",
+    "configuration": {
+      "cab": "SuperCab / cabina y media",
+      "engine": "3.5 L V6 Ti-VCT gasolina",
+      "transmission": null,
+      "drivetrain": null
+    }
+  },
+  "status": {
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "PARCIAL_COMPLETADA",
+    "classification": "VERIFICADA",
+    "captureType": "COMPLEMENTARIA",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "outputsDrive": "ESTRUCTURA_EXISTENTE",
+    "publish": false
+  },
+  "commercial": {
+    "availability": null,
+    "priceInternal": null,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "totalFiles": 9,
+    "totalJpeg": 9,
+    "totalVideo": 0,
+    "unique": 9,
+    "approvedUnique": 7,
+    "commercialCandidates": 7,
+    "privateNoPublish": 2,
+    "duplicates": 0,
+    "rejected": 0,
+    "realVideo": false,
+    "whatsappSelectedPhotos": 7
+  },
+  "capture": {
+    "scheduled": false,
+    "source": "PENDIENTE",
+    "date": null,
+    "start": null,
+    "end": null,
+    "timezone": "America/Mexico_City",
+    "type": "CAPTURA_COMPLEMENTARIA",
+    "checklist": [
+      "Completar exterior comercial limpio",
+      "Completar perfiles y 3/4 trasero",
+      "Completar cabina/interior según faltantes",
+      "Capturar video vertical comercial",
+      "Validar físicamente versión/trim antes de publicarla",
+      "Validar transmisión y tracción antes de publicarlas como especificación"
+    ],
+    "privateEvidence": [
+      "VIN",
+      "Placa",
+      "Odómetro",
+      "Documentos"
+    ]
+  },
+  "drive": {
+    "rootLabel": "AFL-D39952__2016_FORD_F150_SUPERCAB",
+    "structure": "LEGACY_OPERATIVA",
+    "photosFolder": "01_ORIGINALES_FOTOS",
+    "videosFolder": "02_ORIGINALES_VIDEO",
+    "privateDocumentsFolder": "03_DOCUMENTOS_PRIVADOS",
+    "whatsappHiddenFolder": "03_WHATSAPP_OCULTO",
+    "selectionFolder": "05_SELECCION",
+    "retouchFolder": "06_RETOQUE",
+    "productionFolder": "07_PRODUCCION"
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE",
+    "tiktok": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "whatsapp": {
+    "status": "OCULTO",
+    "title": "2016 Ford F-150 Cabina y Media",
+    "description": "Pickup con cabina y media, motor 3.5 L V6 Ti-VCT, rines de aluminio, estribos laterales y controles al volante. Pide información vigente o agenda una visita.",
+    "price": null,
+    "selectedPhotos": 7,
+    "realVideo": false,
+    "targetState": "PENDIENTE_CAPTURA_COMPLEMENTARIA"
+  },
+  "workflow": [
+    "CAPTURA_COMPLEMENTARIA",
+    "REVISION_MATERIAL",
+    "SELECCION_FINAL",
+    "WHATSAPP_OCULTO_LISTO",
+    "CONTENIDO_DISPONIBLE"
+  ],
+  "reconciliation": {
+    "checkedAt": "2026-09-27T19:56:00-06:00",
+    "result": "LOTE_26SEP_EXCLUIDO",
+    "canonicalEvidence": "Fotos con nombre F150_2016_D39952 verifican unidad roja SuperCab.",
+    "excludedEvidence": "Lote del 26-sep muestra una F-150 azul con configuración visual distinta.",
+    "rule": "NO_MEZCLAR_MATERIAL_AZUL_CON_AFL-D39952"
+  },
+  "checkpoint": {
+    "phase": "CAPTURA_COMPLEMENTARIA",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-09-27",
+    "lastCompleted": "RECONCILIACION_D39952_ROJA_VERIFICADA_Y_LOTE_AZUL_EXCLUIDO",
+    "nextAction": "CAPTURA_COMPLEMENTARIA",
+    "resumeFrom": "Usar únicamente el material rojo asociado explícitamente a AFL-D39952. Mantener OCULTO/NO_PUBLICAR. Completar faltantes comerciales y video; validar versión, transmisión y tracción antes de publicar especificaciones.",
+    "evidence": {
+      "canonicalPhotos": "9_JPEG_7_COMERCIALES_2_PRIVADAS",
+      "videos": "0",
+      "excludedCandidate": "LOTE_AZUL_26SEP"
+    },
+    "lastVerifiedAt": "2026-09-27T19:56:00-06:00"
+  },
+  "editPolicy": {
+    "authority": "MIGUEL_EXPLICIT",
+    "prompt": "data/prompts/editar-informacion-autorizada.json",
+    "scope": "ANY_AUTHORIZED_OPERATIONAL_OR_COMMERCIAL_FIELD",
+    "syncTargets": [
+      "VEHICLE_JSON",
+      "HOME_INDEX",
+      "RELEVANT_MD"
+    ],
+    "preserveUnrelatedFields": true,
+    "preserveCheckpointUnlessAuthorized": true,
+    "autoPublish": false
+  },
+  "promptProtocol": {
+    "purpose": "Continuar AFL-D39952 desde su checkpoint sin mezclar material de otra unidad.",
+    "minimalSources": [
+      "data/vehicles/AFL-D39952.json",
+      "data/vehicles/index.json",
+      "ACTIVOS/AFL-D39952/ESTADO.md",
+      "Drive: AFL-D39952__2016_FORD_F150_SUPERCAB",
+      "Drive: FICHA_WHATSAPP_OCULTA_F150_2016"
+    ],
+    "afterEveryPrompt": [
+      "Actualizar data/vehicles/AFL-D39952.json cuando cambie información o estado.",
+      "Actualizar data/vehicles/index.json para HOME.",
+      "Actualizar .md operativo relevante.",
+      "Verificar que no se incorpore material de otra unidad."
+    ],
+    "rules": [
+      "Trabajar únicamente con AFL-D39952.",
+      "No publicar automáticamente.",
+      "No exponer VIN completo, odómetro, placa, documentos privados o PII.",
+      "No mezclar el lote azul del 26-sep con AFL-D39952.",
+      "La recomendación operativa corresponde al ChatGPT actual."
+    ],
+    "responseLinks": [
+      {
+        "key": "thumbnail",
+        "label": "Miniatura AFL-D39952",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-D39952.jpg"
+      },
+      {
+        "key": "vehicleOptions",
+        "label": "Opciones de AFL-D39952",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-D39952#prompt-menu"
+      },
+      {
+        "key": "rootGlobal",
+        "label": "Regresar a ROOT GLOBAL",
+        "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+      }
+    ]
+  },
+  "promptMenu": [
+    {
+      "key": "resume",
+      "label": "1. Reanudar desde aquí",
+      "description": "Continuar desde CAPTURA_COMPLEMENTARIA.",
+      "instruction": "Usa checkpoint y evidencia; no mezcles material azul."
+    },
+    {
+      "key": "captureUploaded",
+      "label": "2. Ya subí nueva captura",
+      "description": "Revisar nueva evidencia.",
+      "instruction": "Confirma que la nueva captura corresponda a AFL-D39952 antes de integrarla."
+    },
+    {
+      "key": "finalSelection",
+      "label": "3. Revisar y seleccionar material",
+      "description": "Cerrar faltantes y selección final.",
+      "instruction": "Ejecuta revisión/selección solo con evidencia canónica de AFL-D39952."
+    },
+    {
+      "key": "syncAudit",
+      "label": "4. Auditar sincronización",
+      "description": "Comprobar expediente y HOME.",
+      "instruction": "Corrige contradicciones verificables sin publicar."
+    }
+  ],
+  "quickResponses": [
+    {
+      "label": "Precio interno",
+      "field": "commercial.priceInternal"
+    },
+    {
+      "label": "Disponibilidad",
+      "field": "commercial.availability"
+    },
+    {
+      "label": "Color",
+      "field": "vehicle.color"
+    },
+    {
+      "label": "Título público",
+      "field": "vehicle.publicTitle"
+    },
+    {
+      "label": "Estado",
+      "field": "status.vehicle"
+    },
+    {
+      "label": "Siguiente acción",
+      "field": "checkpoint.nextAction"
+    },
+    {
+      "label": "WhatsApp descripción",
+      "field": "whatsapp.description"
+    }
+  ],
+  "operationalLinks": {
+    "vehicleOptions": {
+      "label": "Opciones de AFL-D39952",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/?vehicle=AFL-D39952#prompt-menu"
+    },
+    "otherVehicle": {
+      "label": "Abrir otro vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "newVehicle": {
+      "label": "Nuevo vehículo",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/NUEVO_VEHICULO.html"
+    },
+    "rootGlobal": {
+      "label": "Regresar a ROOT GLOBAL",
+      "url": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/"
+    },
+    "repository": {
+      "label": "Repositorio",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    }
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-D39952.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-D39952.jpg",
+    "showInHome": true,
+    "showInVehicle": true,
+    "showInPrintChecklist": true,
+    "showInChatPrompt": true
+  },
+  "recommendationPolicy": {
+    "authority": "CHATGPT_CURRENT",
+    "repositoryRole": "STATE_EVIDENCE_AND_NAVIGATION",
+    "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
+    "staticMenuAuthority": false,
+    "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia."
+  }
+}
