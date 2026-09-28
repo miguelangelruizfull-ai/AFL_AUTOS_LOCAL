@@ -83,12 +83,11 @@
       "priceInternal": 510000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
-        "MINIATURA_VINCULADA",
         "REVISION_MATERIAL"
       ]
     },
@@ -116,14 +115,13 @@
       "priceInternal": 310000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-tiguan-naranja.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
         "AÑO",
-        "VERSION",
-        "MINIATURA_VINCULADA"
+        "VERSION"
       ]
     },
     {
@@ -166,15 +164,14 @@
       "priceInternal": 280000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-honda-crv.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
         "AÑO",
         "VERSION",
-        "COLOR",
-        "MINIATURA_VINCULADA"
+        "COLOR"
       ]
     },
     {
@@ -236,14 +233,13 @@
       "priceInternal": 285000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-atlas-guinda.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
         "AÑO",
-        "VERSION",
-        "MINIATURA_VINCULADA"
+        "VERSION"
       ]
     },
     {
@@ -253,14 +249,13 @@
       "priceInternal": 310000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-atlas-gris.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
         "AÑO",
-        "VERSION",
-        "MINIATURA_VINCULADA"
+        "VERSION"
       ]
     },
     {
@@ -270,14 +265,13 @@
       "priceInternal": 315000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-atlas-roja.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
         "AÑO",
-        "VERSION",
-        "MINIATURA_VINCULADA"
+        "VERSION"
       ]
     },
     {
@@ -352,17 +346,15 @@
       "key": "PENDIENTE-CASCADIA-2018",
       "aflId": null,
       "title": "Freightliner Cascadia Evolution 2018",
-      "priceInternal": null,
+      "priceInternal": 670000,
       "currency": "MXN",
       "availability": "DISPONIBLE",
-      "image": null,
+      "image": "assets/thumbs/sep-2026-cascadia-verde.jpg",
       "status": "IDENTIFICACION_PENDIENTE",
       "pending": [
         "VIN",
         "AFL_ID",
-        "PRECIO_ACTUAL",
-        "CONFIGURACION",
-        "MINIATURA_VINCULADA"
+        "CONFIGURACION"
       ]
     },
     {
