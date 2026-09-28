@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-27T17:42:00-06:00",
+  "updated": "2026-09-27T20:51:00-06:00",
   "workflow": "NUEVO_VEHICULO",
-  "state": "REVISION_MATERIAL",
-  "uploadState": "LOTE_CONSOLIDADO",
-  "aflId": "AFL-053078",
-  "materialCountVisible": 105,
+  "state": "IDENTIFICACION_PENDIENTE",
+  "uploadState": "STAGING_READY",
+  "aflId": null,
+  "materialCountVisible": 1,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
-    "captureCommercial": true,
-    "textGeneration": true,
+    "captureCommercial": false,
+    "textGeneration": false,
     "finalProductionFromPendingReview": false
   },
   "evidencePolicy": {
@@ -22,21 +22,20 @@
     "classifyBeforeCleanup": true,
     "showOptionsBeforeDelete": true
   },
-  "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
+  "nextAction": "CARGAR_MATERIAL_UNITARIO_O_EVIDENCIA_VIN",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "conversationEvidence": "PONCHO_ZIP_REVISADO",
-    "vin": "CONFIRMADO_PRIVADO_NO_PERSISTIDO",
-    "priceAvailabilityUpdate": "PRECIO_490000_Y_DISPONIBILIDAD_CONFIRMADOS",
-    "thumbnail": "PUBLICADA",
-    "homeChecklist": "CREADO",
-    "zipReceived": "Poncho.zip",
-    "zipInspection": "COMPLETADA_TEXTO",
-    "vehicleIdentified": "Toyota Tacoma 2017",
+    "lotIsolation": "NO_UNITARIO",
+    "currentEvidence": "ARCHIVO_PRIVADO_MULTIVEHICULO",
+    "materialClassification": "PRIVADO",
+    "identification": "NO_CONFIRMADA",
+    "vin": "NO_CONFIRMADO_PARA_LA_UNIDAD_NUEVA",
     "privateEvidenceDetected": [
-      "VIN_LABEL",
-      "ODOMETER"
+      "PII",
+      "MULTIPLE_VEHICLES",
+      "VIN_IN_CHAT_EXPORT"
     ],
-    "privateValuesStored": false
+    "privateValuesStored": false,
+    "previousRuntimeReused": false
   }
 }
