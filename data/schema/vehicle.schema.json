@@ -147,6 +147,67 @@
     },
     "publication": {
       "type": "object"
+    },
+    "contentLab": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "EN_PRODUCCION",
+            "COMPLETADO",
+            "PARCIAL",
+            "BLOQUEADO"
+          ]
+        },
+        "requestedAt": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string"
+        },
+        "completedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastVerifiedAt": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        },
+        "filesMoved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "filesProduced": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deliverables": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reposUpdated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nextAction": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
     }
   },
   "additionalProperties": true
