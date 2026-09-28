@@ -27,7 +27,7 @@
     "publish": true
   },
   "commercial": {
-    "availability": "PENDIENTE",
+    "availability": "DISPONIBLE",
     "priceInternal": 310000,
     "currency": "MXN",
     "catalogPrice": null,
