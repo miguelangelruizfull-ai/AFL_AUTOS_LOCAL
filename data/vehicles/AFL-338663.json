@@ -217,7 +217,7 @@
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "evidenceStatus": "MATERIAL_LOCAL_22_MEDIA; NUEVA_CAPTURA_VACIA; CAPTURA_COMERCIAL_INCOMPLETA",
     "lastEvidenceCheck": "2026-09-27",
-    "lastEvidenceCheckAt": "2026-09-27T19:24:00-06:00"
+    "lastEvidenceCheckAt": "2026-09-27T19:48:00-06:00"
   },
   "checkpoint": {
     "phase": "PRECAPTURA_ESTANDARIZADA",
@@ -233,7 +233,7 @@
       "approved": "VACIA",
       "contentAvailable": "VACIA"
     },
-    "lastVerifiedAt": "2026-09-27T19:24:00-06:00"
+    "lastVerifiedAt": "2026-09-27T19:48:00-06:00"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
