@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.1.0",
+  "updated": "2026-09-28",
+  "id": "AFL-B08553",
+  "aliases": [
+    "AFL-0009"
+  ],
+  "vehicle": {
+    "make": "Ford",
+    "model": "F-150",
+    "trim": "Lariat",
+    "year": 2018,
+    "color": "Blanca",
+    "publicTitle": "2018 Ford F-150 Lariat 4x4",
+    "configuration": {
+      "engine": "3.5L gasolina",
+      "transmission": "Automática",
+      "drivetrain": "4x4 (2H / 4A / 4H / 4L)"
+    },
+    "visibleEquipment": [
+      "Piel beige",
+      "Techo panorámico",
+      "Pantalla",
+      "Cámara de reversa",
+      "Rines cromados",
+      "Estribos"
+    ]
+  },
+  "status": {
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "PARCIAL_VERIFICADA",
+    "classification": "COMPLETADA",
+    "captureType": "COMPLEMENTARIA",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "publish": true
+  },
+  "commercial": {
+    "priceInternal": 510000,
+    "currency": "MXN",
+    "availability": "PENDIENTE_CONFIRMACION"
+  },
+  "media": {
+    "verifiedPhotos": 10,
+    "whatsappSelectedPhotos": 5,
+    "realVideo": false
+  },
+  "capture": {
+    "type": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "currentCoverage": [
+      "Frente",
+      "3/4 frontal",
+      "Perfil",
+      "3/4 trasero",
+      "Tablero/interior",
+      "Techo panorámico/interior",
+      "Volante/cuadro",
+      "Pantalla/cámara",
+      "Rin/neumático"
+    ],
+    "required": [
+      "HERO 3/4 frontal limpio y vehículo completo",
+      "Perfil opuesto 90° completo",
+      "3/4 trasero opuesto",
+      "Trasera recta",
+      "Caja abierta",
+      "Interior de caja",
+      "Segunda fila completa",
+      "Entrada conductor/cabina completa",
+      "Compartimiento de motor",
+      "Emblemas/equipamiento distintivo sin datos sensibles"
+    ],
+    "requiredVideo": {
+      "format": "9:16",
+      "walkaroundSeconds": "20-30",
+      "shots": [
+        "HERO",
+        "frontal a lateral",
+        "perfil",
+        "3/4 trasero",
+        "trasera",
+        "caja",
+        "interior/tablero"
+      ]
+    },
+    "privateEvidence": [
+      "VIN",
+      "Etiqueta técnica",
+      "Odómetro",
+      "Documentos"
+    ],
+    "privateDestinationLabel": "08_CAPTURA_COMERCIAL_AFL-B08553/20_NUEVA_CAPTURA"
+  },
+  "whatsapp": {
+    "status": "OCULTO",
+    "title": "2018 Ford F-150 Lariat 4x4",
+    "price": 510000,
+    "selectedPhotos": 5,
+    "realVideo": false,
+    "publicationAutomatic": false
+  },
+  "privacy": {
+    "vin": "NO_PUBLICAR",
+    "odometer": "NO_PUBLICAR",
+    "documents": "NO_PUBLICAR",
+    "privateUrls": "NO_PUBLICAR"
+  },
+  "checkpoint": {
+    "phase": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-09-28",
+    "lastCompleted": "IDENTIDAD_CANONICALIZADA_AFL-B08553 + DRIVE_RENOMBRADO + MATERIAL_EXISTENTE_REVISADO",
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "resumeFrom": "Completar únicamente los faltantes de captura y video; subir al destino privado preparado y después ejecutar REVISION_MATERIAL.",
+    "lastVerifiedAt": "2026-09-28T04:51:00-06:00"
+  },
+  "promptProtocol": {
+    "authority": "Vehiculos/vehiculos/AFL-B08553__2018_FORD_F150_LARIAT/PUENTE.md",
+    "recommendationAuthority": "CHATGPT_CURRENT",
+    "publicationAutomatic": false
+  }
+}
