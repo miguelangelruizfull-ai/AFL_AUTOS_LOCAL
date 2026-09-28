@@ -68,7 +68,7 @@
         "state": "CAPTURA_PENDIENTE",
         "lastVerified": "2026-09-27",
         "evidence": "20_NUEVA_CAPTURA_VACIA; 00_MATERIAL_DISPONIBLE_LOCAL=22_MEDIA_EXISTENTE_20_JPEG_2_VIDEO; CAPTURA_COMERCIAL_INCOMPLETA",
-        "lastVerifiedAt": "2026-09-27T19:24:00-06:00"
+        "lastVerifiedAt": "2026-09-27T19:48:00-06:00"
       },
       "color": "negro",
       "availability": "DISPONIBLE"
