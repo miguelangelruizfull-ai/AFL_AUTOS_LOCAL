@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "updated": "2026-09-27",
   "app": "AFL_AUTOS_LOCAL",
   "mode": "json-driven",
@@ -8,7 +8,9 @@
     "canonicalPrivate": "Vehiculos",
     "media": "Google Drive",
     "schedule": "Google Calendar",
-    "publicInterface": "AFL_AUTOS_LOCAL"
+    "publicInterface": "AFL_AUTOS_LOCAL",
+    "vehicleAuthority": "Vehiculos/PUENTE.md",
+    "contentLab": "AFL_AUTOS_CONTENT_LAB"
   },
   "rules": {
     "autoPublish": false,
@@ -43,7 +45,8 @@
     "homeAlternativeResponse": true,
     "alternativeResponsePrompt": "data/prompts/respuesta-alternativa.json",
     "homeResponseGenerator": true,
-    "homeResponseGeneratorTab": "Generador respuestas"
+    "homeResponseGeneratorTab": "Generador respuestas",
+    "contentLabHomeTab": true
   },
   "rootAccess": [
     {
@@ -93,6 +96,14 @@
     {
       "label": "Repositorio GitHub",
       "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL"
+    },
+    {
+      "label": "Vehículos · repo privado",
+      "url": "https://github.com/miguelangelruizfull-ai/Vehiculos"
+    },
+    {
+      "label": "AFL Autos Lab · repo privado",
+      "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB"
     }
   ],
   "quickResponses": [
@@ -259,5 +270,46 @@
       ],
       "publicCommentUsesInternalPrice": false
     }
+  },
+  "rootGlobal": {
+    "mode": "ROOT_GLOBAL",
+    "flow": [
+      "Vehiculos / PUENTE.md",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL / HOME"
+    ],
+    "relations": [
+      {
+        "key": "vehicles",
+        "label": "Vehículos",
+        "role": "VERDAD_DE_UNIDAD",
+        "description": "Repositorio privado canónico para identidad y estado vigente. EXPEDIENTES_INDEX localiza; PUENTE.md manda.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/Vehiculos",
+        "startUrl": "https://github.com/miguelangelruizfull-ai/Vehiculos/blob/main/START_HERE.md"
+      },
+      {
+        "key": "contentLab",
+        "label": "AFL Autos Lab",
+        "role": "PRODUCCION_EXPERIMENTO",
+        "description": "Laboratorio privado para estrategia, captura, producción y aprendizaje. No sustituye la verdad de unidad.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB",
+        "startUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB/blob/main/START_HERE.md"
+      },
+      {
+        "key": "home",
+        "label": "HOME AFL Autos",
+        "role": "INTERFAZ_PUBLICA_SANITIZADA",
+        "description": "Consola JSON-driven. Muestra derivados operativos sanitizados y conserva fuera del público VIN, odómetro, PII y enlaces privados.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL",
+        "startUrl": "START_HERE.md"
+      }
+    ],
+    "rules": [
+      "VEHICULOS/PUENTE.md = VERDAD_DE_UNIDAD",
+      "CONTENT_LAB = PRODUCCION/EXPERIMENTO",
+      "HOME = DERIVADO_PUBLICO_SANITIZADO",
+      "NO PUBLICAR AUTOMATICAMENTE",
+      "No propagar contradicciones entre repositorios; reconciliar primero en la fuente dueña del dato."
+    ]
   }
 }
