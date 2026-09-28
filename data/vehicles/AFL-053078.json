@@ -26,8 +26,8 @@
   },
   "status": {
     "vehicle": "REVISION_MATERIAL",
-    "materialReview": "PENDIENTE",
-    "classification": "PENDIENTE",
+    "materialReview": "PARCIAL",
+    "classification": "PARCIAL",
     "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
@@ -46,14 +46,14 @@
     "totalJpeg": 92,
     "totalVideo": 0,
     "unique": null,
-    "approvedUnique": 10,
-    "commercialCandidates": 10,
-    "privateNoPublish": 1,
-    "duplicates": 0,
+    "approvedUnique": 22,
+    "commercialCandidates": 22,
+    "privateNoPublish": 2,
+    "duplicates": null,
     "rejected": 0,
     "realVideo": false,
     "whatsappSelectedPhotos": 0,
-    "cleanupCandidates": 0,
+    "cleanupCandidates": null,
     "contentUse": {
       "captureCommercial": true,
       "textGeneration": true,
@@ -260,9 +260,9 @@
     "phase": "REVISION_MATERIAL_INICIAL",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-27",
-    "lastCompleted": "AFL_ID_VERIFICADO + ESTRUCTURA_DRIVE_CREADA + 105_IMAGENES_CONSOLIDADAS + 10_FOTOS_APROBADAS + CONTROL_OPERATIVO_CREADO",
+    "lastCompleted": "VIN_VERIFICADO_EN_EVIDENCIA_PRIVADA + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS",
     "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
-    "resumeFrom": "Revisar el resto del material consolidado, confirmar clasificación y duplicados, y mantener CAPTURA_PENDIENTE si falta video vertical o evidencia de trim/tracción/documentos.",
+    "resumeFrom": "Cerrar revisión del lote sin mezclar unidades; excluir evidencia privada de uso público, reconciliar duplicados y confirmar trim, tracción, documentación y video vertical.",
     "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO"
   },
   "promptProtocol": {
@@ -479,11 +479,16 @@
     {
       "key": "thumbnail",
       "label": "Miniatura pública",
-      "status": "OK"
+      "status": "EN_PROCESO"
     },
     {
       "key": "material",
       "label": "Revisión total de material",
+      "status": "PENDIENTE"
+    },
+    {
+      "key": "duplicates",
+      "label": "Reconciliar duplicados",
       "status": "PENDIENTE"
     },
     {
