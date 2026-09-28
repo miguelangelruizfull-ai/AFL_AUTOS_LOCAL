@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-09-27",
+  "key": "CREAR_CONTENIDO_CON_AFL_LAB",
+  "label": "Crear contenido con AFL Lab",
+  "trigger": "HOME_CARD_FUNCTION_SELECT",
+  "canonicalContract": {
+    "repository": "AFL_AUTOS_CONTENT_LAB",
+    "path": "contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md",
+    "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB/blob/main/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md"
+  },
+  "authority": {
+    "locator": "Vehiculos/index/EXPEDIENTES_INDEX.json",
+    "unitTruth": "Vehiculos/<puente_path>/PUENTE.md",
+    "production": "AFL_AUTOS_CONTENT_LAB",
+    "media": "Google Drive",
+    "publicResult": "AFL_AUTOS_LOCAL"
+  },
+  "timezone": "America/Mexico_City",
+  "timestamps": [
+    "requestedAt",
+    "startedAt",
+    "completedAt",
+    "lastVerifiedAt",
+    "movedAt"
+  ],
+  "publicResultField": "contentLab",
+  "rules": [
+    "Leer PUENTE completo antes de afirmar datos variables.",
+    "Groundear archivos y carpetas Drive antes de mover.",
+    "No mover ni eliminar RAW/originales canonicos automaticamente.",
+    "Mover solo seleccionados, aprobados, derivados o entregables con destino inequivoco.",
+    "Actualizar solo repositorios derivados realmente afectados.",
+    "Persistir resumen sanitizado en JSON del vehiculo e index HOME.",
+    "No publicar automaticamente.",
+    "No exponer VIN completo, odometro, documentos, PII ni IDs/URLs privadas."
+  ]
+}
