@@ -34,16 +34,16 @@
     "catalogPricePolicy": "OMITIR"
   },
   "media": {
-    "totalFiles": null,
-    "totalJpeg": null,
-    "totalVideo": null,
+    "totalFiles": 22,
+    "totalJpeg": 20,
+    "totalVideo": 2,
     "unique": null,
-    "approvedUnique": null,
+    "approvedUnique": 0,
     "commercialCandidates": null,
     "privateNoPublish": null,
     "duplicates": null,
     "rejected": null,
-    "realVideo": false,
+    "realVideo": true,
     "whatsappSelectedPhotos": 8
   },
   "capture": {
@@ -215,25 +215,25 @@
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
-    "evidenceStatus": "SIN_MATERIAL_NUEVO",
+    "evidenceStatus": "MATERIAL_LOCAL_22_MEDIA; NUEVA_CAPTURA_VACIA; CAPTURA_COMERCIAL_INCOMPLETA",
     "lastEvidenceCheck": "2026-09-27",
-    "lastEvidenceCheckAt": "2026-09-27T15:56:57-06:00"
+    "lastEvidenceCheckAt": "2026-09-27T19:24:00-06:00"
   },
   "checkpoint": {
     "phase": "PRECAPTURA_ESTANDARIZADA",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-27",
-    "lastCompleted": "REVALIDACION_EVIDENCIA_20_NUEVA_CAPTURA_VACIA",
+    "lastCompleted": "REVALIDACION_EVIDENCIA_LOCAL_22_MEDIA_20_NUEVA_CAPTURA_VACIA",
     "nextAction": "CAPTURA_COMERCIAL",
-    "resumeFrom": "Trabajo físico requerido: ejecutar captura comercial conforme PLAN_CAPTURA y subir material nuevo únicamente a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA; verificar evidencia antes de cambiar de estado.",
+    "resumeFrom": "Trabajo físico requerido: completar captura comercial conforme PLAN_CAPTURA. Existe material local parcial (20 fotos + 2 videos), pero no cierra los faltantes comerciales. Subir únicamente material nuevo a 01_ENTRADAS/AFL-338663/20_NUEVA_CAPTURA y verificar evidencia antes de cambiar de estado.",
     "driveControlDocument": "AFL-338663 — CONTROL OPERATIVO",
     "evidence": {
       "newCapture": "VACIA",
-      "availableLocal": "VACIA",
+      "availableLocal": "22_MEDIA_EXISTENTE_20_JPEG_2_VIDEO",
       "approved": "VACIA",
       "contentAvailable": "VACIA"
     },
-    "lastVerifiedAt": "2026-09-27T15:56:57-06:00"
+    "lastVerifiedAt": "2026-09-27T19:24:00-06:00"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
