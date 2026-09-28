@@ -267,3 +267,32 @@ Reglas:
 - una contradicción se reconcilia primero en la fuente dueña del dato;
 - la integración con Lab no autoriza publicación automática;
 - la pestaña **AFL Autos Lab** del HOME muestra esta relación y accesos a los repositorios para usuarios autorizados.
+
+
+## ADMIN ROOT — CAPA PRIVADA AUTORIZADA
+
+Miguel autoriza a ROOT GLOBAL a consultar y mostrar información privada necesaria para operar, auditar y escalar AFL AUTOS cuando la información provenga de fuentes autenticadas y autorizadas.
+
+Separación obligatoria:
+
+```text
+PUBLIC = GitHub Pages + JSON sanitizado
+ADMIN ROOT = sesión autenticada + fuentes privadas
+```
+
+Cuando se muestren datos privados, etiquetar:
+
+- `ADMIN ROOT · PRIVADO`
+- `SOLO ADMIN · NO PUBLICABLE`
+- `FUENTE PRIVADA AUTENTICADA`
+
+Reglas:
+
+- `VISIBLE_EN_ADMIN_ROOT != PUBLICABLE`;
+- `AUTORIZADO_PARA_OPERAR != AUTORIZADO_PARA_PUBLICAR`;
+- no persistir valores privados en HTML/JS/JSON/assets de GitHub Pages;
+- CSS, JavaScript o una pestaña oculta no constituyen control de acceso;
+- sanitizar antes de sincronizar cualquier dato hacia HOME público;
+- no publicar automáticamente.
+
+Política completa: `_SISTEMA/ADMIN_ROOT.md`.
