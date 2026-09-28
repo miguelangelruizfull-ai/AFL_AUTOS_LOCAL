@@ -260,7 +260,7 @@
     "phase": "REVISION_MATERIAL_INICIAL",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-27",
-    "lastCompleted": "VIN_VERIFICADO_EN_EVIDENCIA_PRIVADA + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS",
+    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
     "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
     "resumeFrom": "Cerrar revisión del lote sin mezclar unidades; excluir evidencia privada de uso público, reconciliar duplicados y confirmar trim, tracción, documentación y video vertical.",
     "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO"
@@ -479,7 +479,7 @@
     {
       "key": "thumbnail",
       "label": "Miniatura pública",
-      "status": "EN_PROCESO"
+      "status": "OK"
     },
     {
       "key": "material",
