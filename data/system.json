@@ -46,7 +46,11 @@
     "alternativeResponsePrompt": "data/prompts/respuesta-alternativa.json",
     "homeResponseGenerator": true,
     "homeResponseGeneratorTab": "Generador respuestas",
-    "contentLabHomeTab": true
+    "contentLabHomeTab": true,
+    "homeVehicleFunctionSelect": true,
+    "createContentWithAflLab": true,
+    "createContentWithAflLabLauncher": "data/prompts/crear-contenido-afl-lab.json",
+    "createContentWithAflLabContract": "AFL_AUTOS_CONTENT_LAB/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md"
   },
   "rootAccess": [
     {
@@ -275,7 +279,9 @@
     "mode": "ROOT_GLOBAL",
     "flow": [
       "Vehiculos / PUENTE.md",
+      "Google Drive / evidencia y multimedia",
       "AFL_AUTOS_CONTENT_LAB",
+      "Repos derivados afectados",
       "AFL_AUTOS_LOCAL / HOME"
     ],
     "relations": [
@@ -288,20 +294,61 @@
         "startUrl": "https://github.com/miguelangelruizfull-ai/Vehiculos/blob/main/START_HERE.md"
       },
       {
+        "key": "drive",
+        "label": "Google Drive",
+        "role": "EVIDENCIA_MULTIMEDIA_PRIVADA",
+        "description": "Originales, seleccionados, derivados, CONTROL OPERATIVO y entregables. Groundear archivo/carpeta y verificar padres antes de mover. No exponer IDs o URLs privadas en HOME."
+      },
+      {
         "key": "contentLab",
         "label": "AFL Autos Lab",
         "role": "PRODUCCION_EXPERIMENTO",
-        "description": "Laboratorio privado para estrategia, captura, producción y aprendizaje. No sustituye la verdad de unidad.",
+        "description": "Laboratorio privado para estrategia, captura, producción y aprendizaje. Lee PUENTE antes de afirmar datos variables.",
         "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB",
         "startUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB/blob/main/START_HERE.md"
+      },
+      {
+        "key": "contentSystem",
+        "label": "Content System",
+        "role": "CONTENIDO",
+        "description": "Estructura y activos reutilizables de contenido; se actualiza sólo si la producción afecta este dominio.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_SYSTEM"
+      },
+      {
+        "key": "commercial",
+        "label": "Comercial",
+        "role": "COMERCIAL",
+        "description": "Autoridad derivada para estructura pública, privacidad, precio y CTA cuando el contenido comercial cambie.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_COMERCIAL"
+      },
+      {
+        "key": "platform",
+        "label": "Platform",
+        "role": "PUBLICACION_METRICAS",
+        "description": "Estados de publicación y métricas; sólo recibe cambios cuando existe publicación o medición verificable.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_PLATFORM"
+      },
+      {
+        "key": "operation",
+        "label": "Operación",
+        "role": "COORDINACION_PROMPTS",
+        "description": "Coordinación y contratos transversales; se toca únicamente cuando la operación requiere sincronización del dominio.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_OPERACION"
+      },
+      {
+        "key": "history",
+        "label": "Data History",
+        "role": "HISTORICO",
+        "description": "Histórico cerrado; no sustituye PUENTE ni el estado operativo vigente.",
+        "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_DATA_HISTORY"
       },
       {
         "key": "home",
         "label": "HOME AFL Autos",
         "role": "INTERFAZ_PUBLICA_SANITIZADA",
-        "description": "Consola JSON-driven. Muestra derivados operativos sanitizados y conserva fuera del público VIN, odómetro, PII y enlaces privados.",
+        "description": "Consola JSON-driven. Muestra checkpoint y resultado AFL Lab sanitizados con fecha/hora, sin secretos ni enlaces privados.",
         "repositoryUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL",
-        "startUrl": "START_HERE.md"
+        "startUrl": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_LOCAL/blob/main/START_HERE.md"
       }
     ],
     "rules": [
