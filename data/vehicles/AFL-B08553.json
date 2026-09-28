@@ -118,5 +118,20 @@
     "authority": "Vehiculos/vehiculos/AFL-B08553__2018_FORD_F150_LARIAT/PUENTE.md",
     "recommendationAuthority": "CHATGPT_CURRENT",
     "publicationAutomatic": false
+  },
+  "commercialOutputs": {
+    "marketplacePost": {
+      "status": "BORRADOR_COMERCIAL_LISTO",
+      "publishAutomatic": false
+    },
+    "whatsappCatalog": {
+      "status": "LISTO_PARA_REVISION",
+      "publishAutomatic": false,
+      "pricePrepared": 510000
+    },
+    "blockingGates": [
+      "DISPONIBILIDAD_CONFIRMADA",
+      "RETOQUE_VERIFICADO_PARA_CATALOGO"
+    ]
   }
 }
