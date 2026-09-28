@@ -40,3 +40,16 @@ La evidencia técnica pública consolidada vive en:
 - [PUBLIC_EVIDENCE.md](PUBLIC_EVIDENCE.md) — política de qué se muestra y qué permanece privado.
 
 Los repositorios internos pueden mantenerse privados sin romper esta evidencia pública.
+
+
+## ADMIN ROOT
+
+ROOT GLOBAL está autorizado a consultar y mostrar datos privados necesarios para operar y escalar AFL AUTOS **únicamente dentro de una sesión autenticada/autorizada**.
+
+Regla:
+
+`VISIBLE_EN_ADMIN_ROOT != PUBLICABLE`
+
+GitHub Pages y los JSON servidos por este repositorio continúan siendo superficie pública sanitizada. Ocultar un dato con CSS/JavaScript no lo vuelve privado.
+
+Política canónica: [`_SISTEMA/ADMIN_ROOT.md`](_SISTEMA/ADMIN_ROOT.md).
