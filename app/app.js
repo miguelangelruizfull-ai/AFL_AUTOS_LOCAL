@@ -623,6 +623,9 @@ function inventoryChecklistSection(data) {
       meta("Disponibilidad", labelStatus(u.availability || "PENDIENTE")),
       meta("Estado", labelStatus(u.status || "PENDIENTE"))
     );
+    if (u.month) metaRow.append(meta("Mes", u.month));
+    if (u.material) metaRow.append(meta("Material", u.material));
+    if (u.nextAction) metaRow.append(meta("Siguiente", labelStatus(u.nextAction)));
     body.append(top, metaRow);
 
     const pending = u.pending || [];
