@@ -109,10 +109,11 @@
     "phase": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-09-28",
-    "lastCompleted": "IDENTIDAD_CANONICALIZADA_AFL-B08553 + DRIVE_RENOMBRADO + MATERIAL_EXISTENTE_REVISADO",
+    "lastCompleted": "ROOT_AFL_LAB_PREFLIGHT + DRIVE_GROUNDED + 20_NUEVA_CAPTURA_VACIA + MATERIAL_HISTORICO_PENDIENTE_RELOCALIZAR",
     "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
-    "resumeFrom": "Completar únicamente los faltantes de captura y video; subir al destino privado preparado y después ejecutar REVISION_MATERIAL.",
-    "lastVerifiedAt": "2026-09-28T04:51:00-06:00"
+    "resumeFrom": "Realizar y cargar únicamente la captura comercial complementaria en el destino privado preparado; después ejecutar REVISION_MATERIAL. No producir ni publicar multimedia nueva hasta contar con evidencia actual.",
+    "lastVerifiedAt": "2026-09-28T05:20:31-06:00",
+    "lastOperationalAction": "CREAR_CONTENIDO_CON_AFL_LAB_BLOQUEADO_POR_CAPTURA_FISICA"
   },
   "promptProtocol": {
     "authority": "Vehiculos/vehiculos/AFL-B08553__2018_FORD_F150_LARIAT/PUENTE.md",
@@ -132,6 +133,45 @@
     "blockingGates": [
       "DISPONIBILIDAD_CONFIRMADA",
       "RETOQUE_VERIFICADO_PARA_CATALOGO"
+    ]
+  },
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "BLOQUEADO",
+    "requestedAt": "2026-09-28T05:12:18.461-06:00",
+    "requestedAtUtc": "2026-09-28T11:12:18.461Z",
+    "startedAt": "2026-09-28T05:20:30-06:00",
+    "completedAt": "2026-09-28T05:20:31-06:00",
+    "lastVerifiedAt": "2026-09-28T05:20:31-06:00",
+    "movedAt": null,
+    "timezone": "America/Mexico_City",
+    "result": "ROOT preflight completado. Drive y padres de captura verificados; 20_NUEVA_CAPTURA está vacía. No se movieron originales ni se produjo multimedia nueva. La selección histórica de 10 fotos verificadas / 5 seleccionadas queda pendiente de relocalizar antes de reutilizarla.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+        "status": "BLOQUEADO_CAPTURA_FISICA"
+      },
+      {
+        "key": "MARKETPLACE_POST",
+        "status": "BORRADOR_EXISTENTE_CONSERVADO"
+      },
+      {
+        "key": "WHATSAPP_CATALOGO",
+        "status": "OCULTO_LISTO_PARA_REVISION_MEDIA_PENDIENTE_GROUNDING"
+      }
+    ],
+    "reposUpdated": [
+      "Vehiculos",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA → SUBIR_A_20_NUEVA_CAPTURA → REVISION_MATERIAL",
+    "blockings": [
+      "CAPTURA_FISICA_PENDIENTE",
+      "20_NUEVA_CAPTURA_VACIA",
+      "MATERIAL_HISTORICO_PENDIENTE_RELOCALIZAR"
     ]
   }
 }
