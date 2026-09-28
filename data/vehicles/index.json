@@ -5,7 +5,7 @@
       "id": "AFL-279006",
       "title": "2016 Chevrolet Colorado Work Truck",
       "status": "CAPTURA_PENDIENTE",
-      "whatsapp": "LISTO",
+      "whatsapp": "PUBLICADO",
       "priceInternal": 325000,
       "currency": "MXN",
       "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
@@ -15,7 +15,7 @@
       "updated": "2026-09-27",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "FACEBOOK_POST_PUBLICADO_CONFIRMADO_POR_MIGUEL; checkpoint de captura conservado.",
+        "lastCompleted": "WHATSAPP_PUBLICADO + SEND_PACKAGE_PUBLICADO; checkpoint de captura conservado.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
         "lastVerifiedAt": "2026-09-27T17:29:40-06:00"
@@ -34,9 +34,16 @@
           "publishedAt": "2026-09-27T17:22:14-06:00",
           "measurementStatus": "ACTIVA",
           "measurementDueAt": "2026-10-04T17:22:14-06:00"
+        },
+        "whatsapp": {
+          "status": "PUBLICADO",
+          "channel": "CATALOGO",
+          "confirmedDate": "2026-09-27",
+          "evidence": "LINK_CONFIRMED_BY_MIGUEL"
         }
       },
-      "availability": "DISPONIBLE"
+      "availability": "DISPONIBLE",
+      "sendPackage": "PUBLICADO"
     },
     {
       "id": "AFL-338663",
