@@ -250,7 +250,7 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "lastEvidenceCheck": {
-      "checkedAt": "2026-09-27T17:29:40-06:00",
+      "checkedAt": "2026-09-27T20:18:01-06:00",
       "folder": "01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA",
       "result": "VACIA_REVALIDADA",
       "materialNewUploaded": false,
@@ -268,7 +268,7 @@
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-09-27T17:29:40-06:00"
+    "lastVerifiedAt": "2026-09-27T20:18:01-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
