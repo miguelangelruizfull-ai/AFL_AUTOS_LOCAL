@@ -18,3 +18,10 @@ CIERRE:
 - Mostrar siempre opciones numeradas.
 
 NO PUBLICAR AUTOMÁTICAMENTE.
+
+## PREPARACIÓN FÍSICA PREVIA
+
+- Lavar físicamente exterior, rines/llantas, cristales y caja antes del HERO final.
+- Limpiar cabina de forma real y retirar objetos ajenos que distraigan la toma.
+- No usar retoque digital para ocultar golpes, rayones, desgaste, suciedad persistente o condición real.
+- Después del lavado, repetir HERO limpio, caja/trasera y video comercial conforme al plan.
