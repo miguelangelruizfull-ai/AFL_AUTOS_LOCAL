@@ -433,7 +433,7 @@ function inventoryChecklistSection(data) {
     const top = element("div", "inventory-checklist-title");
     top.append(
       element("strong", "", u.title || u.key),
-      element("span", "status-chip " + (u.aflId ? "status-listo" : "status-pendiente"), u.aflId || "SIN AFL-ID")
+      element("span", "status-chip " + (u.aflId ? "status-listo" : "status-pendiente"), u.aflId || "PENDIENTE DE ID")
     );
     const metaRow = element("div", "inventory-checklist-meta");
     metaRow.append(
