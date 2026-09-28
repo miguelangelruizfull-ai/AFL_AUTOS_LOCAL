@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-09-27",
+  "authority": "MIGUEL_EXPLICIT + EVIDENCIA_PONCHO",
+  "privacy": {
+    "sanitized": true,
+    "storesFullVin": false,
+    "storesOdometer": false,
+    "storesPrivateDriveIds": false,
+    "storesPrivateDriveUrls": false,
+    "storesPii": false
+  },
+  "rules": [
+    "DISPONIBLE fue confirmado por Miguel para las unidades de esta relación.",
+    "No inventar AFL-ID cuando VIN no esté confirmado.",
+    "Los precios sólo se asignan cuando el vehículo puede vincularse de forma explícita al precio en la conversación.",
+    "Respuestas de precio asociadas únicamente a una imagen no identificada permanecen sin aplicar.",
+    "Ninguna fila autoriza publicación."
+  ],
+  "units": [
+    {
+      "key": "AFL-279006",
+      "aflId": "AFL-279006",
+      "title": "2016 Chevrolet Colorado Work Truck",
+      "priceInternal": 325000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": "assets/thumbs/AFL-279006.jpg",
+      "status": "REGISTRADO",
+      "pending": [
+        "CAPTURA_COMERCIAL_COMPLETA"
+      ]
+    },
+    {
+      "key": "AFL-338663",
+      "aflId": "AFL-338663",
+      "title": "2016 Chevrolet Silverado Cabina Regular 4x4",
+      "priceInternal": 310000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": "assets/thumbs/AFL-338663.jpg",
+      "status": "REGISTRADO",
+      "pending": [
+        "CAPTURA_COMERCIAL"
+      ]
+    },
+    {
+      "key": "AFL-338732",
+      "aflId": "AFL-338732",
+      "title": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": "assets/thumbs/AFL-338732.jpg",
+      "status": "REGISTRADO",
+      "pending": [
+        "PRECIO_ACTUAL",
+        "REVISION_MATERIAL"
+      ]
+    },
+    {
+      "key": "AFL-053078",
+      "aflId": "AFL-053078",
+      "title": "Toyota Tacoma 2017",
+      "priceInternal": 490000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": "assets/thumbs/AFL-053078.jpg",
+      "status": "REGISTRADO",
+      "pending": [
+        "REVISION_TOTAL_MATERIAL",
+        "RECONCILIAR_DUPLICADOS",
+        "VIDEO_VERTICAL",
+        "TRIM",
+        "TRACCION",
+        "DOCUMENTOS"
+      ]
+    },
+    {
+      "key": "PENDIENTE-F150-LARIAT-2018-BLANCA",
+      "aflId": null,
+      "title": "Ford F-150 Lariat 2018 blanca",
+      "priceInternal": 510000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "MINIATURA_VINCULADA",
+        "REVISION_MATERIAL"
+      ]
+    },
+    {
+      "key": "PENDIENTE-EDGE-2017",
+      "aflId": null,
+      "title": "Ford Edge 2017",
+      "priceInternal": 230000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "COLOR",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-TIGUAN-NARANJA",
+      "aflId": null,
+      "title": "Volkswagen Tiguan naranja",
+      "priceInternal": 310000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-TACOMA-2013",
+      "aflId": null,
+      "title": "Toyota Tacoma 2013",
+      "priceInternal": 285000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "VERSION",
+        "COLOR",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-F150-FX4-2013-BLANCA",
+      "aflId": null,
+      "title": "Ford F-150 FX4 2013 blanca",
+      "priceInternal": 245000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "MINIATURA_VINCULADA",
+        "REVISION_MATERIAL"
+      ]
+    },
+    {
+      "key": "PENDIENTE-CRV",
+      "aflId": null,
+      "title": "Honda CR-V",
+      "priceInternal": 280000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "COLOR",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-TERRAIN",
+      "aflId": null,
+      "title": "GMC Terrain",
+      "priceInternal": 235000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "COLOR",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-F550-AZUL",
+      "aflId": null,
+      "title": "Ford F-550 azul",
+      "priceInternal": 710000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "CONFIGURACION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-F450-2017",
+      "aflId": null,
+      "title": "Ford F-450 2017",
+      "priceInternal": 690000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "COLOR",
+        "CONFIGURACION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-ATLAS-GUINDA",
+      "aflId": null,
+      "title": "Volkswagen Atlas guinda",
+      "priceInternal": 285000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-ATLAS-GRIS",
+      "aflId": null,
+      "title": "Volkswagen Atlas gris",
+      "priceInternal": 310000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-ATLAS-ROJA",
+      "aflId": null,
+      "title": "Volkswagen Atlas roja",
+      "priceInternal": 315000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-TIGUAN-BLANCA",
+      "aflId": null,
+      "title": "Volkswagen Tiguan blanca",
+      "priceInternal": 390000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-CANYON-NEGRA",
+      "aflId": null,
+      "title": "GMC Canyon negra",
+      "priceInternal": 295000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "AÑO",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-GRAND-CHEROKEE-2016",
+      "aflId": null,
+      "title": "Jeep Grand Cherokee 2016",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "PRECIO_ACTUAL",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-WRANGLER-2018",
+      "aflId": null,
+      "title": "Jeep Wrangler 2018",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "PRECIO_ACTUAL",
+        "VERSION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-CASCADIA-2018",
+      "aflId": null,
+      "title": "Freightliner Cascadia Evolution 2018",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "VIN",
+        "AFL_ID",
+        "PRECIO_ACTUAL",
+        "CONFIGURACION",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-CAMION-MORADO",
+      "aflId": null,
+      "title": "Camión morado · identificación pendiente",
+      "priceInternal": 670000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "MARCA",
+        "MODELO",
+        "AÑO",
+        "VIN",
+        "AFL_ID",
+        "MINIATURA_VINCULADA"
+      ]
+    },
+    {
+      "key": "PENDIENTE-CAMION-BLANCO",
+      "aflId": null,
+      "title": "Camión blanco · identificación pendiente",
+      "priceInternal": 560000,
+      "currency": "MXN",
+      "availability": "DISPONIBLE",
+      "image": null,
+      "status": "IDENTIFICACION_PENDIENTE",
+      "pending": [
+        "MARCA",
+        "MODELO",
+        "AÑO",
+        "VIN",
+        "AFL_ID",
+        "MINIATURA_VINCULADA"
+      ]
+    }
+  ],
+  "unresolvedPriceEvidence": {
+    "count": "VARIAS_RESPUESTAS_ASOCIADAS_SOLO_A_IMAGEN",
+    "action": "NO_APLICAR_HASTA_VINCULAR_IMAGEN_CON_UNIDAD"
+  }
+}
