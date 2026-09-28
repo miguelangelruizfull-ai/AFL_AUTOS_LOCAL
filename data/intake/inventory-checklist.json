@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-27T20:51:00-06:00",
+  "updated": "2026-09-28T04:33:00-06:00",
   "authority": "MIGUEL_EXPLICIT + GOOGLE_DRIVE_LOTE_LARIAT + EVIDENCIA_VISUAL",
   "privacy": {
     "sanitized": true,
@@ -88,12 +88,22 @@
       "pending": [
         "VIN",
         "AFL_ID",
-        "REVISION_MATERIAL"
+        "VALIDAR_AÑO_CON_EVIDENCIA_PRIVADA"
       ],
       "month": "Septiembre 2026",
-      "material": "28 fotos + 1 ficha",
-      "identificationEvidence": "Ford F-150 Lariat blanca; paquete FX4 visible",
-      "nextAction": "OBTENER_EVIDENCIA_PRIVADA_VIN"
+      "material": "27 fotos Lariat + 1 ficha MD; 1 foto ajena retirada del lote",
+      "identificationEvidence": "Revisión visual del lote: Ford F-150 Lariat blanca; emblema LARIAT visible; paquete FX4 Off Road visible; cabina doble/SuperCrew; interior en piel beige; techo panorámico; pantalla con navegación; transmisión automática visible. La ficha del lote declara año 2018 y precio $510,000 MXN. VIN no visible ni confirmado en el material revisado.",
+      "nextAction": "OBTENER_EVIDENCIA_PRIVADA_VIN",
+      "intakeReview": {
+        "status": "LOTE_DEPURADO_IDENTIFICACION_PARCIAL",
+        "reviewedAt": "2026-09-28T04:33:00-06:00",
+        "lariatPhotos": 27,
+        "supportingFiles": 1,
+        "excludedForeignPhotos": 1,
+        "excludedReason": "Imagen Volkswagen/Tiguan detectada dentro de LARIAT y movida a 00_PENDIENTE_ID para evitar mezcla de vehículos.",
+        "createDefinitiveAflId": false,
+        "publishAuthorized": false
+      }
     },
     {
       "key": "PENDIENTE-EDGE-2017",
