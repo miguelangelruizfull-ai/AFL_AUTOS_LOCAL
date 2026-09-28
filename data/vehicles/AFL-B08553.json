@@ -110,7 +110,7 @@
     "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8 + RETOQUE_CATALOGO_8_PRODUCIDO_Y_VERIFICADO",
     "nextAction": "REVISION_MIGUEL",
     "resumeFrom": "Revisar las 8 fotos retocadas; después confirmar disponibilidad actual y solo entonces aprobar Catálogo WhatsApp. Mantener pendiente la captura trasera/caja/motor/video para cierre físico total.",
-    "lastVerifiedAt": "2026-09-28T10:53:29-06:00",
+    "lastVerifiedAt": "2026-09-28T10:56:42-06:00",
     "lastOperationalAction": "RETOQUE_CATALOGO_8_VERIFICADO"
   },
   "promptProtocol": {
@@ -139,8 +139,8 @@
     "requestedAt": "2026-09-28T10:41:42.929-06:00",
     "requestedAtUtc": "2026-09-28T16:41:42.929Z",
     "startedAt": "2026-09-28T10:45:17-06:00",
-    "completedAt": "2026-09-28T10:53:29-06:00",
-    "lastVerifiedAt": "2026-09-28T10:53:29-06:00",
+    "completedAt": "2026-09-28T10:56:42-06:00",
+    "lastVerifiedAt": "2026-09-28T10:56:42-06:00",
     "movedAt": "2026-09-28T10:53:29-06:00",
     "timezone": "America/Mexico_City",
     "result": "RETOQUE_CATALOGO_8 completado y verificado: 8 derivados canónicos únicos. 7 copias derivadas de reintento fueron archivadas sin borrado. RAW/originales intactos. Catálogo permanece oculto; revisión de Miguel, disponibilidad y aprobación siguen pendientes.",
@@ -171,6 +171,7 @@
       "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
       "APROBACION_MIGUEL_PENDIENTE",
       "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
-    ]
+    ],
+    "productionCompletedAt": "2026-09-28T10:53:29-06:00"
   }
 }
