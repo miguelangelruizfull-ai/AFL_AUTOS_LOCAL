@@ -296,3 +296,34 @@ Reglas:
 - no publicar automáticamente.
 
 Política completa: `_SISTEMA/ADMIN_ROOT.md`.
+
+
+## CREAR CONTENIDO CON AFL LAB DESDE HOME
+
+Cada tarjeta de vehículo incluye:
+
+`Seleccionar función → Crear contenido con AFL Lab → Preparar orden`
+
+La selección genera una orden con AFL-ID, checkpoint de navegación, fecha/hora de solicitud y zona `America/Mexico_City`.
+
+Launcher público:
+
+`data/prompts/crear-contenido-afl-lab.json`
+
+Contrato canónico privado de producción:
+
+`AFL_AUTOS_CONTENT_LAB/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md`
+
+Ejecución:
+
+`HOME → Vehiculos/EXPEDIENTES_INDEX → PUENTE.md → Drive/CONTROL → AFL Autos Lab → repos derivados afectados → HOME`
+
+Reglas:
+- `PUENTE.md` manda para datos variables de la unidad;
+- Drive debe groundear archivos/carpetas y verificar padres antes de mover;
+- RAW/originales canónicos no se mueven/eliminan automáticamente;
+- seleccionados, aprobados, derivados y entregables sí pueden avanzar cuando el destino sea inequívoco;
+- sólo se actualizan los repositorios afectados;
+- HOME recibe `contentLab` sanitizado con estado, resultado, cantidades y timestamps;
+- registrar `requestedAt`, `startedAt`, `completedAt`, `lastVerifiedAt` y `movedAt` reales;
+- no publicar automáticamente.
