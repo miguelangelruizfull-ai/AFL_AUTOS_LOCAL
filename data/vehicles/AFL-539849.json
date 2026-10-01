@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.2.0",
+  "updated": "2026-09-30",
+  "id": "AFL-539849",
+  "vehicle": {
+    "make": "Jeep",
+    "model": "Wrangler",
+    "trim": null,
+    "year": 2017,
+    "color": "gris oscuro metálico",
+    "publicTitle": "2017 Jeep Wrangler",
+    "configuration": {
+      "cab": "4 puertas",
+      "engine": "3.6 L V6 gasolina",
+      "transmission": "automática",
+      "drivetrain": "4x4"
+    },
+    "commercialEvidenceNotes": [
+      "AFL-ID reconciliado con VIN privado. Material ajeno posterior separado y excluido."
+    ]
+  },
+  "status": {
+    "vehicle": "REVISION_MATERIAL",
+    "materialReview": "MATERIAL_RECONCILIADO",
+    "classification": "MATERIAL_RECONCILIADO",
+    "captureExecution": "COMPLETADA_HISTORICA",
+    "whatsapp": "OCULTO",
+    "publish": false
+  },
+  "commercial": {
+    "availability": "PENDIENTE",
+    "priceInternal": null,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "approvedUnique": 20,
+    "commercialCandidates": 20,
+    "privateNoPublish": 1,
+    "excludedWrongVehicle": 5,
+    "realVideo": true
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE_APROBACION_MIGUEL",
+    "tiktok": "PENDIENTE_APROBACION_MIGUEL",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-539849.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-539849.jpg",
+    "showInHome": true,
+    "showInVehicle": true
+  },
+  "checkpoint": {
+    "phase": "AUDIOVISUAL_V3_CORREGIDO_IDENTIDAD_RECONCILIADA",
+    "state": "REVISION_MATERIAL",
+    "updated": "2026-09-30",
+    "lastCompleted": "AFL_ID_CONFIRMADO_POR_VIN_PRIVADO + MATERIAL_AJENO_SEPARADO + DRIVE_NORMALIZADO",
+    "nextAction": "REVISION_APROBACION_AUDIOVISUAL_V3",
+    "resumeFrom": "Revisar Facebook Reel V3 y TikTok V3; no publicar automáticamente."
+  },
+  "relations": {
+    "vehicleAuthorityIndexed": true,
+    "privateRelationsIndexed": true,
+    "driveIndexed": true,
+    "derivedRepositoriesIndexed": true,
+    "publicExposure": "SANITIZED_ONLY"
+  }
+}
