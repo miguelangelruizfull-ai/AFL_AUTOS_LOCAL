@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-28T04:49:00-06:00",
+  "updated": "2026-09-30T20:31:00-06:00",
   "workflow": "NUEVO_VEHICULO",
   "state": "IDENTIFICACION_PENDIENTE",
-  "uploadState": "CARGA_O_REORGANIZACION_EN_CURSO",
+  "uploadState": "ESPERANDO_LOTE_NUEVO_O_CARGA",
   "aflId": null,
-  "materialCountVisible": 28,
+  "materialCountVisible": 0,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
@@ -22,67 +22,39 @@
     "classifyBeforeCleanup": true,
     "showOptionsBeforeDelete": true
   },
-  "nextAction": "OBTENER_EVIDENCIA_PRIVADA_VIN_Y_RECONCILIAR_CANDIDATO_PREVIO",
+  "nextAction": "SUBIR_LOTE_UNITARIO_NUEVO_Y_APORTAR_EVIDENCIA_PRIVADA_DE_IDENTIDAD",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "lotLabel": "LARIAT",
-    "lotIsolation": "UNITARIO",
-    "currentEvidence": "27_FOTOS_EN_LOTE_1_FICHA_TEXTO_1_FOTO_MISMA_UNIDAD_CANDIDATA_EN_STAGING_ROOT",
+    "lotLabel": null,
+    "lotIsolation": "PENDIENTE",
+    "currentEvidence": "NO_HAY_LOTE_NUEVO_INEQUIVOCO_DISPONIBLE",
     "materialClassification": "PENDIENTE_REVISION",
-    "identification": "PARCIAL_CONFIRMADA",
-    "vehicleIdentified": "Ford F-150 Lariat 2018",
-    "color": "BLANCO",
-    "visiblePackage": "FX4",
-    "commercialDataSource": "FICHA_LOTE_Y_EVIDENCIA_VISUAL",
+    "identification": "PENDIENTE",
+    "vehicleIdentified": null,
+    "color": null,
+    "visiblePackage": null,
+    "commercialDataSource": null,
     "vin": "NO_CONFIRMADO",
-    "duplicateCheck": "CANDIDATO_PREVIO_EN_DRIVE_AFL-0009_NO_VINCULADO_SIN_VIN",
+    "duplicateCheck": "NO_EJECUTABLE_HASTA_IDENTIFICAR_UNIDAD",
     "privateValuesStored": false,
-    "previousRuntimeReused": true,
-    "excludedFromLot": [
-      "ZIP_SEPARADO_NO_ASOCIADO"
-    ],
-    "folderChangedDuringReview": true
+    "previousKnownLotExcluded": "LARIAT",
+    "administrativeContentExcluded": true,
+    "folderChangedDuringReview": false
   },
   "evidenceSummary": {
-    "visualConfirmed": [
-      "Ford F-150",
-      "Lariat",
-      "color blanco",
-      "paquete FX4 visible",
-      "cabina doble",
-      "interior beige",
-      "techo panoramico",
-      "pantalla central",
-      "transmision automatica visible",
-      "estribos",
-      "rines cromados"
-    ],
-    "lotSheetConfirmed": [
-      "anio 2018",
-      "precio 510000 MXN",
-      "motor 3.5 L gasolina",
-      "traccion 4x4 con 2H/4A/4H/4L",
-      "camara de reversa",
-      "clima de doble zona",
-      "asientos delanteros calefaccionados y ventilados",
-      "encendido por boton",
-      "ubicacion comercial Tecamachalco Puebla"
-    ],
+    "visualConfirmed": [],
+    "lotSheetConfirmed": [],
     "privateEvidenceMissing": [
-      "VIN o etiqueta tecnica legible"
+      "lote nuevo aislado con material del vehículo",
+      "VIN o etiqueta técnica legible para verificación privada"
     ]
   },
   "captureAssessment": {
     "status": "CAPTURA_PENDIENTE",
     "videoAvailable": false,
     "missingRecommended": [
-      "VIN o etiqueta tecnica PRIVADA para identidad",
-      "motor/compartimiento",
-      "perfil exterior derecho",
-      "trasera directa",
-      "caja de carga",
-      "detalle rin y neumatico",
-      "video walkaround vertical 9:16"
+      "material inicial del vehículo nuevo",
+      "VIN o etiqueta técnica PRIVADA para identidad"
     ]
   },
   "calendar": {
