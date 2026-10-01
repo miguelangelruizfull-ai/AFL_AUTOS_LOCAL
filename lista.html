@@ -33,7 +33,9 @@ h1{font-size:2rem;color:#111827}
 .chip.warn{background:#fff7ed;color:#c2410c}
 .open{display:inline-block;margin-top:9px;color:#0f62fe;text-decoration:none;font-weight:700;font-size:.84rem}
 .empty,.error{display:none;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;color:#6b7280}
-.notice{margin-bottom:12px;padding:11px 13px;border:1px solid #dbeafe;background:#eff6ff;border-radius:10px;color:#1e3a8a;font-size:.88rem}\n.meta-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px;color:#6b7280;font-size:.82rem;flex-wrap:wrap}\n.meta-row strong{color:#374151}.chip.public{background:#ecfdf5;color:#047857}.chip.private{background:#f3f4f6;color:#6b7280}
+.notice{margin-bottom:12px;padding:11px 13px;border:1px solid #dbeafe;background:#eff6ff;border-radius:10px;color:#1e3a8a;font-size:.88rem}
+.meta-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px;color:#6b7280;font-size:.82rem;flex-wrap:wrap}
+.meta-row strong{color:#374151}.chip.public{background:#ecfdf5;color:#047857}.chip.private{background:#f3f4f6;color:#6b7280}
 @media(max-width:820px){.grid{grid-template-columns:1fr}.header{flex-direction:column}.toolbar{grid-template-columns:1fr}.count{justify-content:flex-start}.meta-row{align-items:flex-start}}
 @media(max-width:520px){main{padding:18px 10px 36px}h1{font-size:1.5rem}.vehicle-thumb,.thumb-placeholder{width:88px;height:68px}.vehicle-card{gap:10px;padding:10px}.relations{gap:4px}}
 </style>
@@ -51,7 +53,11 @@ h1{font-size:2rem;color:#111827}
     </div>
   </div>
 
-  <div class="notice">Fuente pública: <strong>data/vehicles/index.json</strong>. Estrategia: índice pequeño + detalle por vehículo bajo demanda.</div>
+  <div class="notice">Fuente pública: <strong>data/vehicles/index.json</strong>. Índice sanitizado: no publica IDs ni URLs privadas de Drive.</div>
+  <div class="meta-row">
+    <span>Última sincronización del índice: <strong id="updated">cargando…</strong></span>
+    <span id="summary">Cargando inventario…</span>
+  </div>
 
   <div class="toolbar">
     <input id="search" class="search" type="search" placeholder="Buscar AFL-ID, vehículo o estado…" autocomplete="off">
@@ -69,6 +75,8 @@ const search=document.getElementById("search");
 const count=document.getElementById("count");
 const empty=document.getElementById("empty");
 const errorBox=document.getElementById("error");
+const updated=document.getElementById("updated");
+const summary=document.getElementById("summary");
 let vehicles=[];
 
 function esc(value){
@@ -95,6 +103,7 @@ function card(v){
         chip("RELACIONES",!!rel.privateRelationsIndexed)+
         chip("DRIVE",!!rel.driveIndexed)+
         chip("REPOS",!!rel.derivedRepositoriesIndexed)+
+        '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
       '</div>'+
       '<a class="open" href="'+detail+'">Abrir ficha HOME ↗</a>'+
     '</div>'+
@@ -114,6 +123,9 @@ try{
   if(!response.ok) throw new Error("HTTP "+response.status);
   const data=await response.json();
   vehicles=Array.isArray(data.vehicles)?data.vehicles:[];
+  updated.textContent=data.updated||"sin fecha";
+  const publicables=vehicles.filter(v=>v.publish).length;
+  summary.textContent=vehicles.length+" expedientes · "+publicables+" publicables · "+(vehicles.length-publicables)+" internos sanitizados";
   render();
   search.addEventListener("input",render);
 }catch(error){
