@@ -327,3 +327,22 @@ Reglas:
 - HOME recibe `contentLab` sanitizado con estado, resultado, cantidades y timestamps;
 - registrar `requestedAt`, `startedAt`, `completedAt`, `lastVerifiedAt` y `movedAt` reales;
 - no publicar automáticamente.
+
+
+## LISTA JSON-DRIVEN
+
+`lista.html` ya no mantiene tarjetas de vehículos escritas manualmente.
+
+Fuente:
+
+`data/vehicles/index.json`
+
+Comportamiento:
+- carga únicamente el índice público ligero;
+- filtra/busca en cliente;
+- abre el detalle por vehículo bajo demanda;
+- muestra solo banderas sanitizadas de PUENTE/RELACIONES/DRIVE/REPOS;
+- no expone URLs ni IDs privados de Drive;
+- evita duplicados entre HOME y la lista.
+
+La autoridad privada continúa en `Vehiculos/PUENTE.md` y la resolución privada en `Vehiculos/.../RELACIONES.json`.
