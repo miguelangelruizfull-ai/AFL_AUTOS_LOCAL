@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28",
+  "updated": "2026-09-30",
   "vehicles": [
     {
       "id": "AFL-B08553",
@@ -230,6 +230,31 @@
         "nextAction": "CAPTURA_COMPLEMENTARIA",
         "state": "CAPTURA_PENDIENTE",
         "lastVerifiedAt": "2026-09-27T19:56:00-06:00"
+      }
+    },
+    {
+      "id": "AFL-183080",
+      "title": "2017 Chevrolet Colorado",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "REVISION_MATERIAL_COMPLETA",
+      "image": null,
+      "detail": "data/vehicles/AFL-183080.json",
+      "publish": false,
+      "imagePublicUrl": null,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_INICIAL",
+        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 74_FOTOS_CONSOLIDADAS",
+        "nextAction": "REVISION_MATERIAL_COMPLETA",
+        "state": "REVISION_MATERIAL",
+        "lastVerifiedAt": "2026-09-30T20:45:00-06:00"
       }
     }
   ]
