@@ -282,7 +282,7 @@
       "priceInternal": null,
       "currency": "MXN",
       "availability": "PENDIENTE",
-      "nextAction": "REVISION_MATERIAL_COMPLETA",
+      "nextAction": "LOCALIZAR_44_FOTOS_FALTANTES_O_CONFIRMAR_LOTE_REAL_30",
       "image": null,
       "detail": "data/vehicles/AFL-183080.json",
       "publish": false,
@@ -292,18 +292,27 @@
       "authorizedEdit": true,
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
-        "phase": "REVISION_MATERIAL_INICIAL",
-        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 74_FOTOS_CONSOLIDADAS",
-        "nextAction": "REVISION_MATERIAL_COMPLETA",
+        "phase": "REVISION_MATERIAL_PARCIAL_RECONCILIADA",
+        "lastCompleted": "30_FOTOS_LOCALIZADAS_Y_CLASIFICADAS: 25_APROBADAS + 3_PRIVADAS + 2_RECHAZADAS + 0_DUPLICADOS",
+        "nextAction": "LOCALIZAR_44_FOTOS_FALTANTES_O_CONFIRMAR_LOTE_REAL_30",
         "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-30T20:45:00-06:00"
+        "lastVerifiedAt": "2026-09-30T22:07:42-06:00"
       },
       "relations": {
         "vehicleAuthorityIndexed": true,
         "privateRelationsIndexed": true,
-        "driveIndexed": false,
+        "driveIndexed": true,
         "derivedRepositoriesIndexed": true,
         "publicExposure": "SANITIZED_ONLY"
+      },
+      "materialSummary": {
+        "historicalDeclared": 74,
+        "located": 30,
+        "approved": 25,
+        "privateNoPublish": 3,
+        "rejected": 2,
+        "duplicates": 0,
+        "historicalCountUnreconciled": 44
       }
     }
   ],
