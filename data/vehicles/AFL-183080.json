@@ -25,8 +25,8 @@
   },
   "status": {
     "vehicle": "REVISION_MATERIAL",
-    "materialReview": "PENDIENTE",
-    "classification": "PENDIENTE",
+    "materialReview": "PARCIAL_RECONCILIADA",
+    "classification": "PARCIAL_RECONCILIADA",
     "captureType": null,
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
@@ -45,11 +45,11 @@
     "totalJpeg": 74,
     "totalVideo": 0,
     "unique": 74,
-    "approvedUnique": 0,
-    "commercialCandidates": 0,
-    "privateNoPublish": 1,
+    "approvedUnique": 25,
+    "commercialCandidates": 25,
+    "privateNoPublish": 3,
     "duplicates": 0,
-    "rejected": 0,
+    "rejected": 2,
     "realVideo": false,
     "whatsappSelectedPhotos": 0,
     "cleanupCandidates": 0,
@@ -57,6 +57,15 @@
       "captureCommercial": true,
       "textGeneration": true,
       "finalProductionRequiresApprovedMaterial": true
+    },
+    "materialReconciliation": {
+      "declaredHistoricalTotal": 74,
+      "currentlyLocated": 30,
+      "canonicalCopiesClassified": 30,
+      "missingFromHistoricalCount": 44,
+      "status": "RECONCILIACION_PARCIAL",
+      "note": "30 fotografías únicas localizadas y clasificadas. 44 del conteo histórico de 74 no están localizadas en las fuentes Drive verificadas; no se asume pérdida ni eliminación.",
+      "lastVerifiedAt": "2026-09-30T22:07:42-06:00"
     }
   },
   "capture": {
@@ -258,13 +267,14 @@
     "autoPublish": false
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_INICIAL",
+    "phase": "REVISION_MATERIAL_PARCIAL_RECONCILIADA",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-30",
-    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 74_FOTOS_CONSOLIDADAS",
-    "nextAction": "REVISION_MATERIAL_COMPLETA",
-    "resumeFrom": "Revisar las 74 fotografías sin mezclar unidades; clasificar solo material inspeccionado y mantener evidencia privada fuera de publicación.",
-    "driveControlDocument": "AFL-183080 — CONTROL OPERATIVO"
+    "lastCompleted": "ESTRUCTURA_ENTRADA_CANONICA_CREADA + 30_FOTOS_LOCALIZADAS_COPIADAS_Y_CLASIFICADAS + 25_APROBADAS + 3_PRIVADAS + 2_RECHAZADAS + 0_DUPLICADOS",
+    "nextAction": "LOCALIZAR_44_FOTOS_FALTANTES_O_CONFIRMAR_LOTE_REAL_30",
+    "resumeFrom": "Reconciliar el conteo histórico de 74 contra las 30 fotografías actualmente localizadas. No cerrar REVISION_MATERIAL_COMPLETA ni producir piezas finales hasta resolver la diferencia o confirmar explícitamente que el lote real vigente es de 30.",
+    "driveControlDocument": "AFL-183080 — CONTROL OPERATIVO",
+    "lastVerifiedAt": "2026-09-30T22:07:42-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
@@ -434,5 +444,8 @@
         "startRule": "PUBLICADO_CONFIRMADO_POR_MIGUEL"
       }
     }
+  },
+  "relations": {
+    "driveIndexed": true
   }
 }
