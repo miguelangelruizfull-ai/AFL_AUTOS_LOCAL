@@ -2,72 +2,60 @@
   "updated": "2026-09-30",
   "vehicles": [
     {
-      "id": "AFL-B08553",
-      "aliases": [
-        "AFL-0009"
-      ],
-      "title": "2018 Ford F-150 Lariat 4x4",
+      "id": "AFL-053078",
+      "title": "Toyota Tacoma 2017",
       "status": "REVISION_MATERIAL",
       "whatsapp": "OCULTO",
-      "priceInternal": 510000,
+      "priceInternal": 490000,
       "currency": "MXN",
-      "availability": "PENDIENTE_CONFIRMACION",
-      "nextAction": "REVISION_MIGUEL",
-      "image": "assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
-      "detail": "data/vehicles/AFL-B08553.json",
-      "publish": true,
-      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
+      "availability": "DISPONIBLE",
+      "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
+      "image": "assets/thumbs/AFL-053078.jpg",
+      "detail": "data/vehicles/AFL-053078.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-053078.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
-      "updated": "2026-09-28",
+      "updated": "2026-09-27",
       "authorizedEdit": true,
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
-        "phase": "REVISION_MATERIAL",
-        "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8 + RETOQUE_CATALOGO_8_PRODUCIDO_Y_VERIFICADO",
-        "nextAction": "REVISION_MIGUEL",
+        "phase": "REVISION_MATERIAL_INICIAL",
+        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
+        "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
         "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-28T10:56:42-06:00"
+        "lastVerified": "2026-09-27"
       },
-      "contentLab": {
-        "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-        "status": "PARCIAL",
-        "requestedAt": "2026-09-28T10:41:42.929-06:00",
-        "requestedAtUtc": "2026-09-28T16:41:42.929Z",
-        "startedAt": "2026-09-28T10:45:17-06:00",
-        "completedAt": "2026-09-28T10:56:42-06:00",
-        "lastVerifiedAt": "2026-09-28T10:56:42-06:00",
-        "movedAt": "2026-09-28T10:53:29-06:00",
-        "timezone": "America/Mexico_City",
-        "result": "RETOQUE_CATALOGO_8 completado y verificado: 8 derivados canónicos únicos. 7 copias derivadas de reintento fueron archivadas sin borrado. RAW/originales intactos. Catálogo permanece oculto; revisión de Miguel, disponibilidad y aprobación siguen pendientes.",
-        "filesMoved": 7,
-        "filesProduced": 8,
-        "filesArchived": 7,
-        "deliverables": [
-          {
-            "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
-            "status": "REVISION_MATERIAL_PARCIAL"
-          },
-          {
-            "key": "MARKETPLACE_POST",
-            "status": "BORRADOR_EXISTENTE_CONSERVADO"
-          },
-          {
-            "key": "WHATSAPP_CATALOGO",
-            "status": "RETOQUE_8_VERIFICADO_OCULTO_PENDIENTE_REVISION_MIGUEL"
-          }
-        ],
-        "reposUpdated": [
-          "Vehiculos",
-          "AFL_AUTOS_CONTENT_LAB",
-          "AFL_AUTOS_LOCAL"
-        ],
-        "nextAction": "REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
-        "blockings": [
-          "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
-          "APROBACION_MIGUEL_PENDIENTE",
-          "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
-        ],
-        "productionCompletedAt": "2026-09-28T10:53:29-06:00"
+      "relations": {
+        "vehicleAuthorityIndexed": false,
+        "privateRelationsIndexed": false,
+        "driveIndexed": false,
+        "derivedRepositoriesIndexed": false,
+        "publicExposure": "SANITIZED_ONLY"
+      }
+    },
+    {
+      "id": "AFL-183080",
+      "title": "2017 Chevrolet Colorado",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
+      "image": null,
+      "detail": "data/vehicles/AFL-183080.json",
+      "publish": false,
+      "imagePublicUrl": null,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_RECONCILIACION_DRIVE_AGOTADA",
+        "lastCompleted": "BUSQUEDA_DRIVE_3_CUENTAS_Y_PAPELERA_COMPLETA; 0_ADICIONALES; 30_LOCALIZADAS / 44_SIN_LOCALIZAR",
+        "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
+        "state": "REVISION_MATERIAL",
+        "lastVerifiedAt": "2026-09-30T22:20:35-06:00"
       },
       "relations": {
         "vehicleAuthorityIndexed": true,
@@ -75,6 +63,16 @@
         "driveIndexed": true,
         "derivedRepositoriesIndexed": true,
         "publicExposure": "SANITIZED_ONLY"
+      },
+      "materialSummary": {
+        "historicalDeclared": 74,
+        "located": 30,
+        "approved": 25,
+        "privateNoPublish": 3,
+        "rejected": 2,
+        "duplicates": 0,
+        "historicalCountUnreconciled": 44,
+        "driveSearchStatus": "AGOTADA_SIN_HALLAZGOS_ADICIONALES"
       }
     },
     {
@@ -211,34 +209,202 @@
       }
     },
     {
-      "id": "AFL-053078",
-      "title": "Toyota Tacoma 2017",
+      "id": "AFL-539849",
+      "title": "2017 Jeep Wrangler",
       "status": "REVISION_MATERIAL",
       "whatsapp": "OCULTO",
-      "priceInternal": 490000,
+      "priceInternal": null,
       "currency": "MXN",
-      "availability": "DISPONIBLE",
-      "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
-      "image": "assets/thumbs/AFL-053078.jpg",
-      "detail": "data/vehicles/AFL-053078.json",
+      "availability": "PENDIENTE",
+      "nextAction": "REVISION_APROBACION_AUDIOVISUAL_V3",
+      "image": "assets/thumbs/AFL-539849.jpg",
+      "detail": "data/vehicles/AFL-539849.json",
       "publish": false,
-      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-053078.jpg",
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-539849.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
-      "updated": "2026-09-27",
+      "updated": "2026-09-30",
       "authorizedEdit": true,
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
-        "phase": "REVISION_MATERIAL_INICIAL",
-        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
-        "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
-        "state": "REVISION_MATERIAL",
-        "lastVerified": "2026-09-27"
+        "phase": "AUDIOVISUAL_V3_CORREGIDO_IDENTIDAD_RECONCILIADA",
+        "lastCompleted": "AFL_ID_CONFIRMADO_POR_VIN_PRIVADO + MATERIAL_AJENO_SEPARADO + DRIVE_NORMALIZADO",
+        "nextAction": "REVISION_APROBACION_AUDIOVISUAL_V3",
+        "state": "REVISION_MATERIAL"
       },
       "relations": {
-        "vehicleAuthorityIndexed": false,
-        "privateRelationsIndexed": false,
-        "driveIndexed": false,
-        "derivedRepositoriesIndexed": false,
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
+    },
+    {
+      "id": "AFL-552739",
+      "title": "2016 GMC Sierra 1500",
+      "status": "CAPTURA_PENDIENTE",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+      "image": "assets/thumbs/AFL-552739.jpg",
+      "detail": "data/vehicles/AFL-552739.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-552739.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "INGRESO_IDENTIFICADO",
+        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + DRIVE_SEPARADO_PRIVADO_COMERCIAL",
+        "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+        "state": "CAPTURA_PENDIENTE"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
+    },
+    {
+      "id": "AFL-789142",
+      "title": "2015 Dodge Durango",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "CONFIRMAR_DATOS_COMERCIALES",
+      "image": "assets/thumbs/AFL-789142.jpg",
+      "detail": "data/vehicles/AFL-789142.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-789142.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_IDENTIDAD_CONFIRMADA",
+        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + 19_FOTOS_COMERCIALES + 2_PRIVADAS + HERO",
+        "nextAction": "CONFIRMAR_DATOS_COMERCIALES",
+        "state": "REVISION_MATERIAL"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
+    },
+    {
+      "id": "AFL-A09449",
+      "title": "2020 Ford F-450 Super Duty chasis cabina",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "REVISION_MATERIAL_COMPLETA",
+      "image": "assets/thumbs/AFL-A09449.jpg",
+      "detail": "data/vehicles/AFL-A09449.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-A09449.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_DRIVE_NORMALIZADO",
+        "lastCompleted": "PUENTE_CREADO + 22_FOTOS_COMERCIALES + 2_PRIVADAS + 8_VIDEOS_RENOMBRADOS",
+        "nextAction": "REVISION_MATERIAL_COMPLETA",
+        "state": "REVISION_MATERIAL"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
+    },
+    {
+      "id": "AFL-B08553",
+      "aliases": [
+        "AFL-0009"
+      ],
+      "title": "2018 Ford F-150 Lariat 4x4",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": 510000,
+      "currency": "MXN",
+      "availability": "PENDIENTE_CONFIRMACION",
+      "nextAction": "REVISION_MIGUEL",
+      "image": "assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
+      "detail": "data/vehicles/AFL-B08553.json",
+      "publish": true,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/sep-2026-f150-lariat-blanca.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-28",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL",
+        "lastCompleted": "10_FOTOS_NUEVA_CAPTURA_VERIFICADAS + SELECCION_WHATSAPP_8 + RETOQUE_CATALOGO_8_PRODUCIDO_Y_VERIFICADO",
+        "nextAction": "REVISION_MIGUEL",
+        "state": "REVISION_MATERIAL",
+        "lastVerifiedAt": "2026-09-28T10:56:42-06:00"
+      },
+      "contentLab": {
+        "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+        "status": "PARCIAL",
+        "requestedAt": "2026-09-28T10:41:42.929-06:00",
+        "requestedAtUtc": "2026-09-28T16:41:42.929Z",
+        "startedAt": "2026-09-28T10:45:17-06:00",
+        "completedAt": "2026-09-28T10:56:42-06:00",
+        "lastVerifiedAt": "2026-09-28T10:56:42-06:00",
+        "movedAt": "2026-09-28T10:53:29-06:00",
+        "timezone": "America/Mexico_City",
+        "result": "RETOQUE_CATALOGO_8 completado y verificado: 8 derivados canónicos únicos. 7 copias derivadas de reintento fueron archivadas sin borrado. RAW/originales intactos. Catálogo permanece oculto; revisión de Miguel, disponibilidad y aprobación siguen pendientes.",
+        "filesMoved": 7,
+        "filesProduced": 8,
+        "filesArchived": 7,
+        "deliverables": [
+          {
+            "key": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+            "status": "REVISION_MATERIAL_PARCIAL"
+          },
+          {
+            "key": "MARKETPLACE_POST",
+            "status": "BORRADOR_EXISTENTE_CONSERVADO"
+          },
+          {
+            "key": "WHATSAPP_CATALOGO",
+            "status": "RETOQUE_8_VERIFICADO_OCULTO_PENDIENTE_REVISION_MIGUEL"
+          }
+        ],
+        "reposUpdated": [
+          "Vehiculos",
+          "AFL_AUTOS_CONTENT_LAB",
+          "AFL_AUTOS_LOCAL"
+        ],
+        "nextAction": "REVISION_MIGUEL → CONFIRMAR_DISPONIBILIDAD → APROBACION_CATALOGO",
+        "blockings": [
+          "DISPONIBILIDAD_PENDIENTE_CONFIRMACION",
+          "APROBACION_MIGUEL_PENDIENTE",
+          "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
+        ],
+        "productionCompletedAt": "2026-09-28T10:53:29-06:00"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
         "publicExposure": "SANITIZED_ONLY"
       }
     },
@@ -271,80 +437,6 @@
         "privateRelationsIndexed": true,
         "driveIndexed": true,
         "derivedRepositoriesIndexed": true,
-        "publicExposure": "SANITIZED_ONLY"
-      }
-    },
-    {
-      "id": "AFL-183080",
-      "title": "2017 Chevrolet Colorado",
-      "status": "REVISION_MATERIAL",
-      "whatsapp": "OCULTO",
-      "priceInternal": null,
-      "currency": "MXN",
-      "availability": "PENDIENTE",
-      "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
-      "image": null,
-      "detail": "data/vehicles/AFL-183080.json",
-      "publish": false,
-      "imagePublicUrl": null,
-      "recommendationAuthority": "CHATGPT_CURRENT",
-      "updated": "2026-09-30",
-      "authorizedEdit": true,
-      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
-      "checkpoint": {
-        "phase": "REVISION_MATERIAL_RECONCILIACION_DRIVE_AGOTADA",
-        "lastCompleted": "BUSQUEDA_DRIVE_3_CUENTAS_Y_PAPELERA_COMPLETA; 0_ADICIONALES; 30_LOCALIZADAS / 44_SIN_LOCALIZAR",
-        "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
-        "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-30T22:20:35-06:00"
-      },
-      "relations": {
-        "vehicleAuthorityIndexed": true,
-        "privateRelationsIndexed": true,
-        "driveIndexed": true,
-        "derivedRepositoriesIndexed": true,
-        "publicExposure": "SANITIZED_ONLY"
-      },
-      "materialSummary": {
-        "historicalDeclared": 74,
-        "located": 30,
-        "approved": 25,
-        "privateNoPublish": 3,
-        "rejected": 2,
-        "duplicates": 0,
-        "historicalCountUnreconciled": 44,
-        "driveSearchStatus": "AGOTADA_SIN_HALLAZGOS_ADICIONALES"
-      }
-    },
-    {
-      "id": "AFL-A09449",
-      "title": "2020 Ford F-450 Super Duty chasis cabina",
-      "status": "REVISION_MATERIAL",
-      "whatsapp": "OCULTO",
-      "priceInternal": null,
-      "currency": "MXN",
-      "availability": "PENDIENTE",
-      "nextAction": "REVISION_MATERIAL_COMPLETA",
-      "image": "assets/thumbs/AFL-A09449.jpg",
-      "detail": "data/vehicles/AFL-A09449.json",
-      "publish": false,
-      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-A09449.jpg",
-      "recommendationAuthority": "CHATGPT_CURRENT",
-      "updated": "2026-09-30",
-      "authorizedEdit": true,
-      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
-      "checkpoint": {
-        "phase": "REVISION_MATERIAL_INICIAL",
-        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 34_ARCHIVOS_CONSOLIDADOS",
-        "nextAction": "REVISION_MATERIAL_COMPLETA",
-        "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-30T22:03:00-06:00"
-      },
-      "relations": {
-        "vehicleAuthorityIndexed": true,
-        "privateRelationsIndexed": true,
-        "driveIndexed": true,
-        "derivedRepositoriesIndexed": false,
         "publicExposure": "SANITIZED_ONLY"
       }
     }
