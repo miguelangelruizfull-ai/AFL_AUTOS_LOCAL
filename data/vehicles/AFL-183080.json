@@ -63,9 +63,18 @@
       "currentlyLocated": 30,
       "canonicalCopiesClassified": 30,
       "missingFromHistoricalCount": 44,
-      "status": "RECONCILIACION_PARCIAL",
-      "note": "30 fotografías únicas localizadas y clasificadas. 44 del conteo histórico de 74 no están localizadas en las fuentes Drive verificadas; no se asume pérdida ni eliminación.",
-      "lastVerifiedAt": "2026-09-30T22:07:42-06:00"
+      "status": "BUSQUEDA_DRIVE_AGOTADA_PENDIENTE_CONFIRMACION",
+      "note": "Se verificaron las tres cuentas Drive autorizadas, elementos activos, papelera, carpeta fuente, 01_ENTRADAS/AFL-183080 y 02_SALIDAS/AFL-183080. No se localizaron archivos adicionales del lote histórico; permanecen 30 fotografías localizadas y 44 sin evidencia actual. Requiere confirmación de Miguel de que 30 es el lote real vigente o una fuente adicional para las 44.",
+      "lastVerifiedAt": "2026-09-30T22:20:35-06:00",
+      "searchScope": {
+        "accountsChecked": 3,
+        "liveDriveChecked": true,
+        "trashChecked": true,
+        "sourceFolderChecked": true,
+        "canonicalInputChecked": true,
+        "canonicalOutputChecked": true,
+        "additionalMissingLocated": 0
+      }
     }
   },
   "capture": {
@@ -267,14 +276,14 @@
     "autoPublish": false
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_PARCIAL_RECONCILIADA",
+    "phase": "REVISION_MATERIAL_RECONCILIACION_DRIVE_AGOTADA",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-30",
-    "lastCompleted": "ESTRUCTURA_ENTRADA_CANONICA_CREADA + 30_FOTOS_LOCALIZADAS_COPIADAS_Y_CLASIFICADAS + 25_APROBADAS + 3_PRIVADAS + 2_RECHAZADAS + 0_DUPLICADOS",
-    "nextAction": "LOCALIZAR_44_FOTOS_FALTANTES_O_CONFIRMAR_LOTE_REAL_30",
-    "resumeFrom": "Reconciliar el conteo histórico de 74 contra las 30 fotografías actualmente localizadas. No cerrar REVISION_MATERIAL_COMPLETA ni producir piezas finales hasta resolver la diferencia o confirmar explícitamente que el lote real vigente es de 30.",
+    "lastCompleted": "BUSQUEDA_3_CUENTAS_DRIVE + PAPELERA + ENTRADA_CANONICA + SALIDA_CANONICA + FUENTE_ORIGINAL; 0_FOTOS_ADICIONALES_LOCALIZADAS",
+    "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
+    "resumeFrom": "La búsqueda Drive quedó agotada con la evidencia accesible: 30 fotos localizadas, 44 del conteo histórico sin localizar. Confirmar explícitamente que 30 es el lote real vigente o aportar otra carpeta/fuente para continuar la reconciliación. Mantener REVISION_MATERIAL y no producir piezas finales mientras exista esta discrepancia.",
     "driveControlDocument": "AFL-183080 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-09-30T22:07:42-06:00"
+    "lastVerifiedAt": "2026-09-30T22:20:35-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
