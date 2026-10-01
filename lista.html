@@ -1,934 +1,126 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>Lista de Códigos ID de Vehículos</title>
-
-	<style>
-		* {
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-		}
-
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			background: #f4f6f8;
-			color: #1f2937;
-			line-height: 1.5;
-		}
-
-		main {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 32px 20px;
-		}
-
-		h1 {
-			font-size: 2rem;
-			margin-bottom: 24px;
-			color: #111827;
-		}
-
-		.grid {
-			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 24px;
-		}
-
-		article {
-			background: #fff;
-			border: 1px solid #e5e7eb;
-			border-radius: 14px;
-			padding: 24px;
-			box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-		}
-
-		h2 {
-			font-size: 1.35rem;
-			margin-bottom: 16px;
-		}
-
-		h3 {
-			font-size: 1rem;
-			margin-bottom: 12px;
-			color: #4b5563;
-		}
-
-		ul {
-			list-style: none;
-			display: flex;
-			flex-direction: column;
-			gap: 12px;
-		}
-
-		a {
-			text-decoration: none;
-			color: inherit;
-		}
-
-		/* TARJETA VEHÍCULO */
-		.vehicle-card {
-			display: flex;
-			align-items: center;
-			gap: 15px;
-			width: 100%;
-
-			background: #f9fafb;
-			border: 1px solid #e5e7eb;
-			border-radius: 12px;
-
-			padding: 10px;
-
-			transition:
-				transform 0.2s ease,
-				box-shadow 0.2s ease,
-				border-color 0.2s ease,
-				background 0.2s ease;
-		}
-
-		.vehicle-card:hover {
-			transform: translateY(-2px);
-			border-color: #9ca3af;
-			background: #fff;
-			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-		}
-
-		.vehicle-card:focus-visible {
-			outline: 3px solid #0f62fe;
-			outline-offset: 2px;
-		}
-
-		/* MINIATURA */
-		.vehicle-thumb {
-			width: 110px;
-			height: 82px;
-			object-fit: cover;
-			object-position: center;
-			border-radius: 9px;
-			flex-shrink: 0;
-			background: #e5e7eb;
-			display: block;
-		}
-
-		.vehicle-info {
-			min-width: 0;
-			flex: 1;
-		}
-
-		.vehicle-id {
-			display: block;
-			font-size: 1rem;
-			font-weight: 700;
-			color: #0f62fe;
-			margin-bottom: 4px;
-		}
-
-		.vehicle-name {
-			display: block;
-			color: #4b5563;
-			font-size: 0.95rem;
-		}
-
-		.open-label {
-			display: block;
-			margin-top: 5px;
-			font-size: 0.78rem;
-			color: #6b7280;
-		}
-
-		.asset-link {
-			display: block;
-			background: #f9fafb;
-			border: 1px solid #e5e7eb;
-			padding: 14px;
-			border-radius: 10px;
-			font-weight: 700;
-			color: #0f62fe;
-		}
-
-		.asset-link:hover {
-			background: #f3f4f6;
-		}
-
-		.pending {
-			background: #f9fafb;
-			border: 1px solid #e5e7eb;
-			padding: 14px;
-			border-radius: 10px;
-			color: #9ca3af;
-			font-style: italic;
-		}
-
-		/* TABLET */
-		@media (max-width: 900px) {
-			.grid {
-				grid-template-columns: 1fr;
-			}
-		}
-
-		/* MÓVIL */
-		@media (max-width: 600px) {
-			main {
-				padding: 18px 12px;
-			}
-
-			h1 {
-				font-size: 1.5rem;
-				margin-bottom: 18px;
-			}
-
-			article {
-				padding: 16px;
-			}
-
-			.vehicle-card {
-				gap: 12px;
-			}
-
-			.vehicle-thumb {
-				width: 90px;
-				height: 68px;
-			}
-
-			.vehicle-id {
-				font-size: 0.95rem;
-			}
-
-			.vehicle-name {
-				font-size: 0.85rem;
-			}
-
-			.open-label {
-				font-size: 0.72rem;
-			}
-		}
-
-		/* MÓVIL PEQUEÑO */
-		@media (max-width: 400px) {
-			main {
-				padding: 12px 8px;
-			}
-
-			article {
-				padding: 12px;
-			}
-
-			.vehicle-thumb {
-				width: 78px;
-				height: 60px;
-			}
-
-			.vehicle-card {
-				gap: 9px;
-				padding: 8px;
-			}
-		}
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Índice de Vehículos — AFL Autos</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#1f2937;line-height:1.5}
+main{width:100%;max-width:1180px;margin:0 auto;padding:28px 18px 48px}
+.header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}
+h1{font-size:2rem;color:#111827}
+.subtitle{color:#6b7280;margin-top:6px;max-width:760px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid #d1d5db;background:#fff;color:#111827;padding:9px 12px;border-radius:10px;font-weight:700}
+.btn:hover{background:#f9fafb}
+.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-bottom:18px}
+.search{width:100%;border:1px solid #d1d5db;background:#fff;padding:12px 14px;border-radius:10px;font:inherit}
+.count{display:flex;align-items:center;color:#6b7280;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.vehicle-card{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px;box-shadow:0 3px 12px rgba(0,0,0,.05)}
+.vehicle-thumb,.thumb-placeholder{width:116px;height:86px;border-radius:10px;flex-shrink:0;background:#e5e7eb}
+.vehicle-thumb{object-fit:cover;display:block}
+.thumb-placeholder{display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:.72rem;font-weight:800;text-align:center;padding:8px}
+.vehicle-info{min-width:0;flex:1}
+.vehicle-id{font-weight:800;color:#0f62fe}
+.vehicle-name{font-weight:700;color:#374151;margin-top:2px}
+.vehicle-status{font-size:.82rem;color:#6b7280;margin-top:4px}
+.relations{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:.7rem;font-weight:800;border-radius:999px;padding:4px 7px;background:#f3f4f6;color:#4b5563}
+.chip.ok{background:#ecfdf5;color:#047857}
+.chip.warn{background:#fff7ed;color:#c2410c}
+.open{display:inline-block;margin-top:9px;color:#0f62fe;text-decoration:none;font-weight:700;font-size:.84rem}
+.empty,.error{display:none;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;color:#6b7280}
+.notice{margin-bottom:16px;padding:11px 13px;border:1px solid #dbeafe;background:#eff6ff;border-radius:10px;color:#1e3a8a;font-size:.88rem}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.header{flex-direction:column}.toolbar{grid-template-columns:1fr}.count{justify-content:flex-start}}
+@media(max-width:520px){main{padding:18px 10px 36px}h1{font-size:1.5rem}.vehicle-thumb,.thumb-placeholder{width:88px;height:68px}.vehicle-card{gap:10px;padding:10px}.relations{gap:4px}}
+</style>
 </head>
-
 <body>
-
-	<main>
-
-		<section>
-
-			<h1>Enlaces a Drive</h1>
-
-			<div class="grid">
-
-				<!-- ASSETS -->
-				<article>
-
-					<h2>Assets</h2>
-
-					<h3>MoodBoard y Creatividad</h3>
-
-					<ul>
-
-						<li>
-							<a
-								class="asset-link"
-								href="https://drive.google.com/drive/folders/1EH5WBxm2Q04LQU6FTzTp2r9YQqsPFomS?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								FLYER_PUBLICADOS
-							</a>
-						</li>
-
-						<li class="pending">
-							TikTok — pendiente de enlace
-						</li>
-
-						<li class="pending">
-							Reels — pendiente de enlace
-						</li>
-
-					</ul>
-
-				</article>
-
-
-				<!-- VEHÍCULOS -->
-				<article>
-
-					<h2>
-						<a
-							href="https://drive.google.com/drive/folders/1Slvl0q5Du4Oauaaw8sApkLkoYQYKEIJA?usp=sharing"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Vehículos
-						</a>
-					</h2>
-
-					<ul>
-
-						<!-- AFL-E43254 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1WYZwcvIvv1I9gJp1nJrRSD53Hx8v1q2D?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-
-							<!-- AFL-E43254 -->
-							<img
-							    class="vehicle-thumb"
-							    src="https://drive.google.com/thumbnail?id=1_d5EnOUno2uqFRcCO6Dmucd-FQMURzmh&sz=w600"
-							    alt="AFL-E43254 — Ford F-150 2013, Motor 3.5"
-							    loading="lazy"
-							>
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-E43254
-									</span>
-
-									<span class="vehicle-name">
-										Ford F-150 2013 — Motor 3.5
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-E33351 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1RsbUPCAUDia9xQH0Lcz9V2aHFWQD5gYU?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-							<!-- AFL-E33351 -->
-							<img
-							    class="vehicle-thumb"
-							    src="https://drive.google.com/thumbnail?id=1SJwVd7yH_eEI6Gs-E7rYmGVXGijJrLZz&sz=w600"
-							    alt="AFL-E33351 — Ford F-150 Blue"
-							    loading="lazy"
-							>
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-E33351
-									</span>
-
-									<span class="vehicle-name">
-										Ford F-150 Blue
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-KC8697 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1n598H5Qj-Nw2J_kNiBhSkvzW1qb_uwzY?usp=drive_link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-							<!-- AFL-E33351 -->
-							<img
-							    class="vehicle-thumb"
-							    src="https://lh3.googleusercontent.com/d/1LyxsWkSdOYMWq8aNbijE1NArZn3jCPJa=w600"
-							    alt="AFL-KC8697 — Freightliner Cascadia Evolution 2018"
-							    loading="lazy"
-							>
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-KC8697
-									</span>
-
-									<span class="vehicle-name">
-										Freightliner Cascadia Evolution 2018
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-A09449 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1dh1x6gzZhfmcZThxXfxybHHVc7xdeKP3?usp=drive_link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/12OEboA-VAmnpz2WPoPlPvPNWyzhXCG6q"
-									alt="AFL-A09449 — Ford Super Duty F450 2020 7.3 V8"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-A09449
-									</span>
-
-									<span class="vehicle-name">
-										Ford Super Duty F450 2020 7.3 V8
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-539849 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1VKlQHFdVbJ6m21VW0GYLyg86TUgIaC4k?usp=drive_link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1U8N_rhEh24NgAvmbRIY1FJkA7EKubJp_=w600"
-									alt="AFL-539849 — JEEP WANGLER 2017"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-539849
-									</span>
-
-									<span class="vehicle-name">
-										JEEP WANGLER 2017
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-243258 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1g6VpVe5v8AjyhIpRdaRc-D7swCVgdPTV?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1e6ytlJ3w4yiOWAibgRZ6eFGhHFkKkRUr=w600"
-									alt="AFL-243258 — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-243258
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-C81719 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1fKGi-bYVzv9J1hY10k9ZeNEHHFfw5ahZ?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1IS2opOPMPRuJF98Q9RCmFcHQPwhneAzN=w600"
-									alt="AFL-C81719 — FORD F150 2017 MOTOR 5.0 4X4"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-C81719
-									</span>
-
-									<span class="vehicle-name">
-										FORD F150 2017 MOTOR 5.0 4X4
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-D34544 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1nhyQdt7FQKx_vqPdAdbuxcj_tuPegX8b?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1JEVGXiFbSxbzBtS9SPQ9PlmjB5ZSq2ph=w600"
-									alt="AFL-D34544 — Ford F150 SPORT Red line 2016"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-D34544
-									</span>
-
-									<span class="vehicle-name">
-										Ford F150 SPORT Red line 2016
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-B08553 -->
-						
-						<li>
-								<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1HwB2xop-KjJ0DHIc-Mc6EWsoL30xBnbd?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1scNU9YSrz65JhMNlhqO4gQ3J6u3fjPCi=w600"
-									alt="AFL-B08553 — Ford F150 Lariat 2018"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-B08553
-									</span>
-
-									<span class="vehicle-name">
-										Ford F150 Lariat 2018
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-183080 -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1LwwEscqHTUr-fpG4hkCEMFazxa8NWfoE?usp=sharing"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1Cq33SoCSxjcV_KT1OFRk7vhL_YywxhMc=w600"
-									alt="AFL-183080 — Chevrolet Colorado 2017 V6"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-183080
-									</span>
-
-									<span class="vehicle-name">
-										Chevrolet Colorado 2017 V6
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-539849 Jeep Wrangler Unlimited Sport 2017 4x4.-->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="https://drive.google.com/drive/folders/1VKlQHFdVbJ6m21VW0GYLyg86TUgIaC4k?usp=drive_link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/1U8N_rhEh24NgAvmbRIY1FJkA7EKubJp_=w600"
-									alt="AFL-539849 — Jeep Wrangler Unlimited Sport 2017 4x4"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-539849
-									</span>
-
-									<span class="vehicle-name">
-										Jeep Wrangler Unlimited Sport 2017 4x4.
-										<h4>Descripción:</h4><div>
-										<p>Jeep Wrangler Unlimited Sport 2017, configuración 4x4 y motor 3.6 L V6. SUV de 4 puertas con enfoque todoterreno y formato práctico para uso diario o recreativo.
-									</p><p>Precio: $ MXN</p></div>
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-
-						<!-- AFL-Nuevo-Vehiculo -->
-						<li>
-
-							<a
-								class="vehicle-card"
-								href="URL_CARPETA_DRIVE"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									class="vehicle-thumb"
-									src="https://lh3.googleusercontent.com/d/=w600"
-									alt="AFL-XXXXXX — NOMBRE DEL VEHICULO"
-									loading="lazy"
-								>
-
-								<div class="vehicle-info">
-
-									<span class="vehicle-id">
-										AFL-XXXXXX
-									</span>
-
-									<span class="vehicle-name">
-										NOMBRE DEL VEHICULO
-									</span>
-
-									<span class="open-label">
-										Abrir carpeta en Drive ↗
-									</span>
-
-								</div>
-
-							</a>
-
-						</li>
-
-
-					</ul>
-
-				</article>
-
-			</div>
-
-		</section>
-
-	</main>
-
+<main>
+  <div class="header">
+    <div>
+      <h1>Índice de Vehículos</h1>
+      <p class="subtitle">Vista ligera sincronizada con el mismo JSON sanitizado del HOME. PUENTE, relaciones privadas y Drive se resuelven desde ROOT sin exponer IDs o URLs privadas aquí.</p>
+    </div>
+    <div class="actions">
+      <a class="btn" href="index.html">Abrir HOME</a>
+      <a class="btn" href="data/vehicles/index.json" target="_blank" rel="noopener noreferrer">Ver JSON público</a>
+    </div>
+  </div>
+
+  <div class="notice">Fuente pública: <strong>data/vehicles/index.json</strong>. Estrategia: índice pequeño + detalle por vehículo bajo demanda.</div>
+
+  <div class="toolbar">
+    <input id="search" class="search" type="search" placeholder="Buscar AFL-ID, vehículo o estado…" autocomplete="off">
+    <div id="count" class="count">Cargando…</div>
+  </div>
+
+  <section id="grid" class="grid" aria-live="polite"></section>
+  <div id="empty" class="empty">No hay vehículos que coincidan con la búsqueda.</div>
+  <div id="error" class="error">No se pudo cargar el índice de vehículos.</div>
+</main>
+
+<script type="module">
+const grid=document.getElementById("grid");
+const search=document.getElementById("search");
+const count=document.getElementById("count");
+const empty=document.getElementById("empty");
+const errorBox=document.getElementById("error");
+let vehicles=[];
+
+function esc(value){
+  return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+}
+
+function chip(label,ok){
+  return '<span class="chip '+(ok?'ok':'warn')+'">'+esc(label)+'</span>';
+}
+
+function card(v){
+  const rel=v.relations||{};
+  const image=v.image||("assets/thumbs/"+encodeURIComponent(v.id)+".jpg");
+  const detail="index.html?vehicle="+encodeURIComponent(v.id);
+  return '<article class="vehicle-card" data-search="'+esc([v.id,v.title,v.status,v.nextAction].join(" ").toLowerCase())+'">'+
+    '<img class="vehicle-thumb" src="'+esc(image)+'" alt="'+esc(v.id+" — "+v.title)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
+    '<div class="thumb-placeholder" style="display:none">SIN MINIATURA</div>'+
+    '<div class="vehicle-info">'+
+      '<div class="vehicle-id">'+esc(v.id)+'</div>'+
+      '<div class="vehicle-name">'+esc(v.title||"Vehículo")+'</div>'+
+      '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · '+esc(v.nextAction):'')+'</div>'+
+      '<div class="relations">'+
+        chip("PUENTE",!!rel.vehicleAuthorityIndexed)+
+        chip("RELACIONES",!!rel.privateRelationsIndexed)+
+        chip("DRIVE",!!rel.driveIndexed)+
+        chip("REPOS",!!rel.derivedRepositoriesIndexed)+
+      '</div>'+
+      '<a class="open" href="'+detail+'">Abrir ficha HOME ↗</a>'+
+    '</div>'+
+  '</article>';
+}
+
+function render(){
+  const q=search.value.trim().toLowerCase();
+  const filtered=vehicles.filter(v=>!q||[v.id,v.title,v.status,v.nextAction].join(" ").toLowerCase().includes(q));
+  grid.innerHTML=filtered.map(card).join("");
+  count.textContent=filtered.length+" / "+vehicles.length+" vehículos";
+  empty.style.display=filtered.length?"none":"block";
+}
+
+try{
+  const response=await fetch("data/vehicles/index.json",{cache:"no-store"});
+  if(!response.ok) throw new Error("HTTP "+response.status);
+  const data=await response.json();
+  vehicles=Array.isArray(data.vehicles)?data.vehicles:[];
+  render();
+  search.addEventListener("input",render);
+}catch(error){
+  console.error(error);
+  count.textContent="Error";
+  errorBox.style.display="block";
+}
+</script>
 </body>
 </html>
-```
