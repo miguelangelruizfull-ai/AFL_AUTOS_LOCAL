@@ -314,6 +314,38 @@
         "duplicates": 0,
         "historicalCountUnreconciled": 44
       }
+    },
+    {
+      "id": "AFL-A09449",
+      "title": "2020 Ford F-450 Super Duty chasis cabina",
+      "status": "REVISION_MATERIAL",
+      "whatsapp": "OCULTO",
+      "priceInternal": null,
+      "currency": "MXN",
+      "availability": "PENDIENTE",
+      "nextAction": "REVISION_MATERIAL_COMPLETA",
+      "image": "assets/thumbs/AFL-A09449.jpg",
+      "detail": "data/vehicles/AFL-A09449.json",
+      "publish": false,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-A09449.jpg",
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "updated": "2026-09-30",
+      "authorizedEdit": true,
+      "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
+      "checkpoint": {
+        "phase": "REVISION_MATERIAL_INICIAL",
+        "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 34_ARCHIVOS_CONSOLIDADOS",
+        "nextAction": "REVISION_MATERIAL_COMPLETA",
+        "state": "REVISION_MATERIAL",
+        "lastVerifiedAt": "2026-09-30T22:03:00-06:00"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": false,
+        "publicExposure": "SANITIZED_ONLY"
+      }
     }
   ],
   "relations": {
