@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.2.0",
+  "updated": "2026-09-30",
+  "id": "AFL-552739",
+  "vehicle": {
+    "make": "GMC",
+    "model": "Sierra 1500",
+    "trim": null,
+    "year": 2016,
+    "color": "oscuro",
+    "publicTitle": "2016 GMC Sierra 1500",
+    "configuration": {
+      "cab": null,
+      "engine": null,
+      "transmission": null,
+      "drivetrain": null
+    },
+    "commercialEvidenceNotes": [
+      "Identidad y año verificados mediante evidencia privada; VIN completo no se publica."
+    ]
+  },
+  "status": {
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "PARCIAL",
+    "classification": "PARCIAL",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "publish": false
+  },
+  "commercial": {
+    "availability": "PENDIENTE",
+    "priceInternal": null,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "totalFiles": 3,
+    "totalJpeg": 3,
+    "totalVideo": 0,
+    "approvedUnique": 1,
+    "commercialCandidates": 1,
+    "privateNoPublish": 2,
+    "duplicates": 0,
+    "rejected": 0,
+    "realVideo": false
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE",
+    "tiktok": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-552739.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-552739.jpg",
+    "showInHome": true,
+    "showInVehicle": true
+  },
+  "checkpoint": {
+    "phase": "INGRESO_IDENTIFICADO",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-09-30",
+    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + DRIVE_SEPARADO_PRIVADO_COMERCIAL",
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "resumeFrom": "Completar captura comercial y confirmar datos comerciales antes de producir/publicar."
+  },
+  "relations": {
+    "vehicleAuthorityIndexed": true,
+    "privateRelationsIndexed": true,
+    "driveIndexed": true,
+    "derivedRepositoriesIndexed": true,
+    "publicExposure": "SANITIZED_ONLY"
+  }
+}
