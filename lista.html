@@ -45,7 +45,7 @@ h1{font-size:2rem;color:#111827}
   <div class="header">
     <div>
       <h1>Índice de Vehículos</h1>
-      <p class="subtitle">Vista ligera sincronizada con el mismo JSON sanitizado del HOME. PUENTE, relaciones privadas y Drive se resuelven desde ROOT sin exponer IDs o URLs privadas aquí.</p>
+      <p class="subtitle">Vista ligera sincronizada con HOME y con el inventario sanitizado de Drive. Muestra una sola tarjeta por AFL-ID; PUENTE y relaciones privadas se resuelven desde ROOT sin exponer IDs o URLs privadas.</p>
     </div>
     <div class="actions">
       <a class="btn" href="index.html">Abrir HOME</a>
@@ -53,7 +53,7 @@ h1{font-size:2rem;color:#111827}
     </div>
   </div>
 
-  <div class="notice">Fuente pública: <strong>data/vehicles/index.json</strong>. Índice sanitizado: no publica IDs ni URLs privadas de Drive.</div>
+  <div class="notice">Fuentes públicas: <strong>data/vehicles/index.json</strong> + <strong>data/drive-vehicles-index.json</strong>. Índice sanitizado: no publica IDs ni URLs privadas de Drive.</div>
   <div class="meta-row">
     <span>Última sincronización del índice: <strong id="updated">cargando…</strong></span>
     <span id="summary">Cargando inventario…</span>
@@ -90,7 +90,9 @@ function chip(label,ok){
 function card(v){
   const rel=v.relations||{};
   const image=v.image||("assets/thumbs/"+encodeURIComponent(v.id)+".jpg");
-  const detail=v.detail||("index.html?vehicle="+encodeURIComponent(v.id));
+  const detail=v.detail ? ("index.html?vehicle="+encodeURIComponent(v.id)) : null;
+  const driveIndexed=!!(v.driveInventory||rel.driveIndexed);
+  const authorityIndexed=!!(v.vehicleAuthorityIndexed||rel.vehicleAuthorityIndexed);
   return '<article class="vehicle-card" data-search="'+esc([v.id,v.title,v.status,v.nextAction].join(" ").toLowerCase())+'">'+
     '<img class="vehicle-thumb" src="'+esc(image)+'" alt="'+esc(v.id+" — "+v.title)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
     '<div class="thumb-placeholder" style="display:none">SIN MINIATURA</div>'+
@@ -99,13 +101,12 @@ function card(v){
       '<div class="vehicle-name">'+esc(v.title||"Vehículo")+'</div>'+
       '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · '+esc(v.nextAction):'')+'</div>'+
       '<div class="relations">'+
-        chip("PUENTE",!!rel.vehicleAuthorityIndexed)+
-        chip("RELACIONES",!!rel.privateRelationsIndexed)+
-        chip("DRIVE",!!rel.driveIndexed)+
-        chip("REPOS",!!rel.derivedRepositoriesIndexed)+
+        chip("PUENTE",authorityIndexed)+
+        chip("DRIVE",driveIndexed)+
+        (v.folderCount?'<span class="chip">'+esc(v.folderCount)+' carpeta'+(v.folderCount===1?'':'s')+'</span>':'')+
         '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
       '</div>'+
-      '<a class="open" href="'+detail+'">Abrir ficha HOME ↗</a>'+
+      (detail?'<a class="open" href="'+detail+'">Abrir ficha HOME ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
     '</div>'+
   '</article>';
 }
@@ -119,13 +120,43 @@ function render(){
 }
 
 try{
-  const response=await fetch("data/vehicles/index.json",{cache:"no-store"});
-  if(!response.ok) throw new Error("HTTP "+response.status);
-  const data=await response.json();
-  vehicles=Array.isArray(data.vehicles)?data.vehicles:[];
-  updated.textContent=data.updated||"sin fecha";
+  const [homeResponse,driveResponse]=await Promise.all([
+    fetch("data/vehicles/index.json",{cache:"no-store"}),
+    fetch("data/drive-vehicles-index.json",{cache:"no-store"})
+  ]);
+  if(!homeResponse.ok) throw new Error("HOME HTTP "+homeResponse.status);
+  if(!driveResponse.ok) throw new Error("DRIVE INDEX HTTP "+driveResponse.status);
+  const homeData=await homeResponse.json();
+  const driveData=await driveResponse.json();
+
+  const homeById=new Map((Array.isArray(homeData.vehicles)?homeData.vehicles:[]).map(v=>[v.id,v]));
+  const driveVehicles=Array.isArray(driveData.vehicles)?driveData.vehicles:[];
+  vehicles=driveVehicles.map(d=>{
+    const h=homeById.get(d.id)||{};
+    return {
+      ...d,
+      ...h,
+      title:h.title||d.title,
+      status:h.status||d.status,
+      nextAction:h.nextAction||d.nextAction,
+      image:h.image||d.image,
+      detail:h.detail||d.detail,
+      publish:typeof h.publish==="boolean"?h.publish:d.publish,
+      vehicleAuthorityIndexed:!!d.vehicleAuthorityIndexed,
+      driveInventory:true,
+      folderCount:d.folderCount
+    };
+  });
+
+  for(const h of homeById.values()){
+    if(!vehicles.some(v=>v.id===h.id)) vehicles.push({...h,driveInventory:false,folderCount:0});
+  }
+
+  vehicles.sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+  updated.textContent=driveData.updated||homeData.updated||"sin fecha";
   const publicables=vehicles.filter(v=>v.publish).length;
-  summary.textContent=vehicles.length+" expedientes · "+publicables+" publicables · "+(vehicles.length-publicables)+" internos sanitizados";
+  const linked=vehicles.filter(v=>v.vehicleAuthorityIndexed || (v.relations&&v.relations.vehicleAuthorityIndexed)).length;
+  summary.textContent=vehicles.length+" AFL-ID · "+linked+" con PUENTE · "+publicables+" publicables";
   render();
   search.addEventListener("input",render);
 }catch(error){
