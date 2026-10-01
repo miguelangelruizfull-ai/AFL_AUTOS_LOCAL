@@ -43,12 +43,12 @@
     "catalogPricePolicy": "OMITIR"
   },
   "media": {
-    "totalFiles": 34,
-    "totalJpeg": 25,
-    "totalVideo": 9,
-    "unique": null,
-    "approvedUnique": 1,
-    "commercialCandidates": 1,
+    "totalFiles": 32,
+    "totalJpeg": 24,
+    "totalVideo": 8,
+    "unique": 32,
+    "approvedUnique": 22,
+    "commercialCandidates": 22,
     "privateNoPublish": 2,
     "duplicates": 0,
     "rejected": 0,
@@ -178,12 +178,12 @@
     "autoPublish": false
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_INICIAL",
+    "phase": "REVISION_MATERIAL_DRIVE_NORMALIZADO",
     "state": "REVISION_MATERIAL",
     "updated": "2026-09-30T22:03:00-06:00",
-    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + ESTRUCTURA_DRIVE_CANONICA + 34_ARCHIVOS_CONSOLIDADOS",
+    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + PUENTE_CREADO + 22_FOTOS_COMERCIALES + 2_PRIVADAS + 8_VIDEOS_RENOMBRADOS",
     "nextAction": "REVISION_MATERIAL_COMPLETA",
-    "resumeFrom": "Revisar únicamente el material de AFL-A09449 y clasificar cada archivo antes de producir salidas.",
+    "resumeFrom": "Revisar selección comercial normalizada de AFL-A09449 y confirmar faltantes antes de producir piezas.",
     "driveControlDocument": null
   },
   "promptMenu": [
@@ -262,5 +262,12 @@
       "No exponer VIN completo, odómetro, documentos privados o PII.",
       "Todo prompt de la unidad debe incluir la miniatura pública y pedir mostrarla al inicio cuando el cliente lo permita."
     ]
+  },
+  "relations": {
+    "vehicleAuthorityIndexed": true,
+    "privateRelationsIndexed": true,
+    "driveIndexed": true,
+    "derivedRepositoriesIndexed": true,
+    "publicExposure": "SANITIZED_ONLY"
   }
 }
