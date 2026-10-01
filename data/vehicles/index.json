@@ -68,6 +68,13 @@
           "CAPTURA_TRASERA_CAJA_MOTOR_VIDEO_PENDIENTE"
         ],
         "productionCompletedAt": "2026-09-28T10:53:29-06:00"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
       }
     },
     {
@@ -112,7 +119,14 @@
         }
       },
       "availability": "DISPONIBLE",
-      "sendPackage": "PUBLICADO"
+      "sendPackage": "PUBLICADO",
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
     },
     {
       "id": "AFL-338663",
@@ -152,6 +166,13 @@
       "fieldWork": {
         "nextPhysicalStep": "LAVADO_FISICO",
         "washStatus": "PENDIENTE_FISICO"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
       }
     },
     {
@@ -180,7 +201,14 @@
       },
       "whatsappMediaStatus": "PENDIENTE_SIN_ARCHIVOS",
       "whatsappSelectedPhotos": 0,
-      "availability": "DISPONIBLE"
+      "availability": "DISPONIBLE",
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
+      }
     },
     {
       "id": "AFL-053078",
@@ -205,6 +233,13 @@
         "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
         "state": "REVISION_MATERIAL",
         "lastVerified": "2026-09-27"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": false,
+        "privateRelationsIndexed": false,
+        "driveIndexed": false,
+        "derivedRepositoriesIndexed": false,
+        "publicExposure": "SANITIZED_ONLY"
       }
     },
     {
@@ -230,6 +265,13 @@
         "nextAction": "CAPTURA_COMPLEMENTARIA",
         "state": "CAPTURA_PENDIENTE",
         "lastVerifiedAt": "2026-09-27T19:56:00-06:00"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": true,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
       }
     },
     {
@@ -255,7 +297,19 @@
         "nextAction": "REVISION_MATERIAL_COMPLETA",
         "state": "REVISION_MATERIAL",
         "lastVerifiedAt": "2026-09-30T20:45:00-06:00"
+      },
+      "relations": {
+        "vehicleAuthorityIndexed": true,
+        "privateRelationsIndexed": true,
+        "driveIndexed": false,
+        "derivedRepositoriesIndexed": true,
+        "publicExposure": "SANITIZED_ONLY"
       }
     }
-  ]
+  ],
+  "relations": {
+    "source": "Vehiculos/index/RELACIONES_INDEX.json",
+    "publicPolicy": "FLAGS_ONLY_NO_PRIVATE_URLS",
+    "detailStrategy": "LAZY_PER_VEHICLE"
+  }
 }
