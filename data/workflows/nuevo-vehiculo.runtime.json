@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-30T20:45:00-06:00",
+  "updated": "2026-09-30T22:03:00-06:00",
   "workflow": "NUEVO_VEHICULO",
   "state": "REVISION_MATERIAL",
   "uploadState": "LOTE_CONSOLIDADO_CANONICO",
-  "aflId": "AFL-183080",
-  "materialCountVisible": 74,
+  "aflId": "AFL-A09449",
+  "materialCountVisible": 34,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
@@ -25,41 +25,43 @@
   "nextAction": "REVISION_MATERIAL_COMPLETA",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "lotLabel": "AFL-183080",
+    "lotLabel": "AFL-A09449",
     "lotIsolation": "UNITARIO",
-    "currentEvidence": "74_IMAGENES_RENOMBRADAS_Y_CONSOLIDADAS_EN_01_ENTRADAS/AFL-183080/00_MATERIAL_DISPONIBLE_LOCAL",
+    "currentEvidence": "34_ARCHIVOS_CONSOLIDADOS_EN_01_ENTRADAS/AFL-A09449/00_MATERIAL_DISPONIBLE_LOCAL",
     "materialClassification": "PENDIENTE_REVISION",
     "identification": "CONFIRMADA",
-    "vehicleIdentified": "2017 Chevrolet Colorado",
-    "color": "PLATA_GRIS_CLARO",
+    "vehicleIdentified": "2020 Ford F-450 Super Duty chasis cabina",
+    "color": "BLANCO",
     "visiblePackage": null,
     "commercialDataSource": null,
     "vin": "CONFIRMADO_PRIVADO",
-    "duplicateCheck": "SIN_DUPLICADOS_BINARIOS_INEQUIVOCOS_DETECTADOS_POR_METADATA",
+    "duplicateCheck": "SIN_DUPLICADO_CANONICO_EN_DATA/VEHICLES_INDEX_NI_RUTAS_CANONICAS_AL_INICIAR",
     "privateValuesStored": false,
-    "previousKnownLotExcluded": null,
+    "previousKnownLotExcluded": true,
     "administrativeContentExcluded": true,
-    "folderChangedDuringReview": true
+    "folderChangedDuringReview": false
   },
   "evidenceSummary": {
     "visualConfirmed": [
-      "Chevrolet Colorado",
-      "año modelo 2017",
-      "color plata / gris claro",
-      "emblema V6 visible",
-      "transmisión automática visible"
+      "Ford Super Duty chasis cabina",
+      "modelo 2020",
+      "color blanco",
+      "eje trasero dual",
+      "carrocería/caja de carga instalada"
     ],
-    "lotSheetConfirmed": [],
+    "lotSheetConfirmed": [
+      "motor 7.3 L gasolina"
+    ],
     "privateEvidenceMissing": []
   },
   "captureAssessment": {
     "status": "CAPTURA_PENDIENTE",
-    "videoAvailable": false,
+    "videoAvailable": true,
     "missingRecommended": [
-      "cerrar revisión visual de las 74 fotografías",
-      "confirmar trim comercial",
+      "cerrar revisión visual de las 34 piezas",
+      "confirmar transmisión",
       "confirmar tracción",
-      "evaluar video vertical 9:16 y tomas complementarias"
+      "seleccionar material comercial aprobado"
     ]
   },
   "calendar": {
