@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "updated": "2026-09-30T20:31:00-06:00",
+  "updated": "2026-09-30T20:45:00-06:00",
   "workflow": "NUEVO_VEHICULO",
-  "state": "IDENTIFICACION_PENDIENTE",
-  "uploadState": "ESPERANDO_LOTE_NUEVO_O_CARGA",
-  "aflId": null,
-  "materialCountVisible": 0,
+  "state": "REVISION_MATERIAL",
+  "uploadState": "LOTE_CONSOLIDADO_CANONICO",
+  "aflId": "AFL-183080",
+  "materialCountVisible": 74,
   "stagingLogicalPath": "AFL_AUTOS_MULTIMEDIA/01_ENTRADAS/00_PENDIENTE_ID",
   "privateDriveReferenceStored": false,
   "contentScope": {
@@ -22,39 +22,44 @@
     "classifyBeforeCleanup": true,
     "showOptionsBeforeDelete": true
   },
-  "nextAction": "SUBIR_LOTE_UNITARIO_NUEVO_Y_APORTAR_EVIDENCIA_PRIVADA_DE_IDENTIDAD",
+  "nextAction": "REVISION_MATERIAL_COMPLETA",
   "intake": {
     "source": "GOOGLE_DRIVE_AUTHORIZED_STAGING",
-    "lotLabel": null,
-    "lotIsolation": "PENDIENTE",
-    "currentEvidence": "NO_HAY_LOTE_NUEVO_INEQUIVOCO_DISPONIBLE",
+    "lotLabel": "AFL-183080",
+    "lotIsolation": "UNITARIO",
+    "currentEvidence": "74_IMAGENES_RENOMBRADAS_Y_CONSOLIDADAS_EN_01_ENTRADAS/AFL-183080/00_MATERIAL_DISPONIBLE_LOCAL",
     "materialClassification": "PENDIENTE_REVISION",
-    "identification": "PENDIENTE",
-    "vehicleIdentified": null,
-    "color": null,
+    "identification": "CONFIRMADA",
+    "vehicleIdentified": "2017 Chevrolet Colorado",
+    "color": "PLATA_GRIS_CLARO",
     "visiblePackage": null,
     "commercialDataSource": null,
-    "vin": "NO_CONFIRMADO",
-    "duplicateCheck": "NO_EJECUTABLE_HASTA_IDENTIFICAR_UNIDAD",
+    "vin": "CONFIRMADO_PRIVADO",
+    "duplicateCheck": "SIN_DUPLICADOS_BINARIOS_INEQUIVOCOS_DETECTADOS_POR_METADATA",
     "privateValuesStored": false,
-    "previousKnownLotExcluded": "LARIAT",
+    "previousKnownLotExcluded": null,
     "administrativeContentExcluded": true,
-    "folderChangedDuringReview": false
+    "folderChangedDuringReview": true
   },
   "evidenceSummary": {
-    "visualConfirmed": [],
+    "visualConfirmed": [
+      "Chevrolet Colorado",
+      "año modelo 2017",
+      "color plata / gris claro",
+      "emblema V6 visible",
+      "transmisión automática visible"
+    ],
     "lotSheetConfirmed": [],
-    "privateEvidenceMissing": [
-      "lote nuevo aislado con material del vehículo",
-      "VIN o etiqueta técnica legible para verificación privada"
-    ]
+    "privateEvidenceMissing": []
   },
   "captureAssessment": {
     "status": "CAPTURA_PENDIENTE",
     "videoAvailable": false,
     "missingRecommended": [
-      "material inicial del vehículo nuevo",
-      "VIN o etiqueta técnica PRIVADA para identidad"
+      "cerrar revisión visual de las 74 fotografías",
+      "confirmar trim comercial",
+      "confirmar tracción",
+      "evaluar video vertical 9:16 y tomas complementarias"
     ]
   },
   "calendar": {
