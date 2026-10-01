@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.2.0",
+  "updated": "2026-09-30",
+  "id": "AFL-789142",
+  "vehicle": {
+    "make": "Dodge",
+    "model": "Durango",
+    "trim": null,
+    "year": 2015,
+    "color": "rojo",
+    "publicTitle": "2015 Dodge Durango",
+    "configuration": {
+      "cab": null,
+      "engine": null,
+      "transmission": null,
+      "drivetrain": null
+    },
+    "commercialEvidenceNotes": [
+      "Identidad y año verificados mediante evidencia privada; VIN completo no se publica."
+    ]
+  },
+  "status": {
+    "vehicle": "REVISION_MATERIAL",
+    "materialReview": "COMPLETADA_LOTE_ACTUAL",
+    "classification": "COMPLETADA_LOTE_ACTUAL",
+    "captureExecution": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "publish": false
+  },
+  "commercial": {
+    "availability": "PENDIENTE",
+    "priceInternal": null,
+    "currency": "MXN",
+    "catalogPrice": null,
+    "catalogPricePolicy": "OMITIR"
+  },
+  "media": {
+    "totalFiles": 21,
+    "totalJpeg": 21,
+    "totalVideo": 0,
+    "approvedUnique": 19,
+    "commercialCandidates": 19,
+    "privateNoPublish": 2,
+    "duplicates": 0,
+    "rejected": 0,
+    "realVideo": false
+  },
+  "outputs": {
+    "marketplace": "PENDIENTE",
+    "images": "PENDIENTE",
+    "post": "PENDIENTE",
+    "feed": "PENDIENTE",
+    "stories": "PENDIENTE",
+    "covers": "PENDIENTE",
+    "reel": "PENDIENTE",
+    "tiktok": "PENDIENTE",
+    "whatsapp": "OCULTO",
+    "sendPackage": "PENDIENTE"
+  },
+  "ui": {
+    "thumbnail": "assets/thumbs/AFL-789142.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-789142.jpg",
+    "showInHome": true,
+    "showInVehicle": true
+  },
+  "checkpoint": {
+    "phase": "REVISION_MATERIAL_IDENTIDAD_CONFIRMADA",
+    "state": "REVISION_MATERIAL",
+    "updated": "2026-09-30",
+    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + 19_FOTOS_COMERCIALES + 2_PRIVADAS + HERO",
+    "nextAction": "CONFIRMAR_DATOS_COMERCIALES",
+    "resumeFrom": "Confirmar disponibilidad, precio y datos técnicos; evaluar captura complementaria."
+  },
+  "relations": {
+    "vehicleAuthorityIndexed": true,
+    "privateRelationsIndexed": true,
+    "driveIndexed": true,
+    "derivedRepositoriesIndexed": true,
+    "publicExposure": "SANITIZED_ONLY"
+  }
+}
