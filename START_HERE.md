@@ -298,6 +298,29 @@ Reglas:
 Política completa: `_SISTEMA/ADMIN_ROOT.md`.
 
 
+## AUTORIZACION GLOBAL DE CREACION DESDE HOME Y LISTA
+
+La acción manual de Miguel sobre cualquier vehículo:
+
+`HOME / lista.html → abrir ficha → Crear contenido con AFL Lab / Crear contenido por pieza / Contenido Express`
+
+constituye autorización explícita para **CREAR Y PRODUCIR derivados** usando únicamente material real y datos verificables de esa unidad.
+
+Reglas transversales para todos los vehículos:
+
+- `AUTORIZADO_CREAR ≠ APROBADO ≠ PUBLICADO`.
+- `CHECKPOINT_OPERATIVO ≠ VETO_A_CREACION_MANUAL`.
+- Un checkpoint en `CAPTURA_PENDIENTE`, `REVISION_MATERIAL`, `SELECCION_FINAL_BLOQUEADA` o `PRODUCCION_FINAL_BLOQUEADA` conserva el flujo operativo, pero no cancela una pieza solicitada manualmente.
+- Si falta un dato/toma, se omite solo el elemento dependiente y se continúa con el material utilizable.
+- `commercial.priceInternal` / `PRECIO INTERNO` permanece `SOLO_ADMIN / NO_PUBLICABLE`; HOME no debe insertarlo en prompts creativos como valor visible.
+- Precio en arte/copy solo cuando exista precio público expresamente autorizado.
+- La creación no cambia por sí sola el checkpoint físico.
+- Resultado creativo: `PRODUCIDO_NO_APROBADO` hasta aprobación expresa; si la base visual no supera el gate para publicación pero sirve como prueba, `BORRADOR_INTERNO_REQUIERE_RECAPTURA`.
+- No publicar ni programar automáticamente.
+- No inventar datos, tomas, versión, tracción, equipamiento o condición.
+
+Esta autorización es global y evita mantener reglas distintas por vehículo.
+
 ## CREAR CONTENIDO CON AFL LAB DESDE HOME
 
 Cada tarjeta de vehículo incluye:
