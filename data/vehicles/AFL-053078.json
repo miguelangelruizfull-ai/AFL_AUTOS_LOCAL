@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2.0",
-  "updated": "2026-09-27",
+  "updated": "2026-10-02",
   "id": "AFL-053078",
   "vehicle": {
     "make": "Toyota",
@@ -11,7 +11,7 @@
     "publicTitle": "Toyota Tacoma 2017",
     "configuration": {
       "cab": "Doble cabina",
-      "engine": "V6",
+      "engine": "3.5L V6",
       "transmission": "Automática",
       "drivetrain": null
     },
@@ -25,13 +25,13 @@
     ]
   },
   "status": {
-    "vehicle": "REVISION_MATERIAL",
-    "materialReview": "PARCIAL",
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "COMPLETA_LOTE_ACTUAL",
     "classification": "PARCIAL",
     "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
-    "outputsDrive": "PREPARADAS",
+    "outputsDrive": "NO_VERIFICADAS_EN_RAIZ_ACTUAL",
     "publish": false
   },
   "commercial": {
@@ -42,12 +42,12 @@
     "catalogPricePolicy": "OMITIR"
   },
   "media": {
-    "totalFiles": 105,
-    "totalJpeg": 92,
+    "totalFiles": 20,
+    "totalJpeg": 20,
     "totalVideo": 0,
-    "unique": null,
-    "approvedUnique": 22,
-    "commercialCandidates": 22,
+    "unique": 20,
+    "approvedUnique": null,
+    "commercialCandidates": 18,
     "privateNoPublish": 2,
     "duplicates": null,
     "rejected": 0,
@@ -58,7 +58,10 @@
       "captureCommercial": true,
       "textGeneration": true,
       "finalProductionRequiresApprovedMaterial": true
-    }
+    },
+    "currentReviewed": 20,
+    "historicalIntakeFiles": 105,
+    "lastVerifiedAt": "2026-10-02T11:35:34-06:00"
   },
   "capture": {
     "scheduled": false,
@@ -115,7 +118,9 @@
       "80_TIKTOK",
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
-    ]
+    ],
+    "currentStructureVerified": "RAIZ_PLANA_20_JPEG_MAS_CONTROL",
+    "workflowFoldersVerified": false
   },
   "outputs": {
     "marketplace": "PENDIENTE",
@@ -223,10 +228,10 @@
   ],
   "fieldWork": {
     "status": "PENDIENTE",
-    "canonicalState": "REVISION_MATERIAL",
+    "canonicalState": "CAPTURA_PENDIENTE",
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
-    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta cerrar revisión del material, confirmar faltantes y completar video requerido."
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta recibir video vertical, cerrar revisión del material nuevo y confirmar faltantes técnicos/documentales."
   },
   "ui": {
     "thumbnail": "assets/thumbs/AFL-053078.jpg",
@@ -257,12 +262,12 @@
     "autoPublish": false
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_INICIAL",
-    "state": "REVISION_MATERIAL",
-    "updated": "2026-09-27",
-    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_EXISTENTE_CONFIRMADO + LOTE_CONSOLIDADO + REVISION_PARCIAL + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
-    "nextAction": "CERRAR_REVISION_MATERIAL_Y_FALTANTES",
-    "resumeFrom": "Cerrar revisión del lote sin mezclar unidades; excluir evidencia privada de uso público, reconciliar duplicados y confirmar trim, tracción, documentación y video vertical.",
+    "phase": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-10-02",
+    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CANONICO_RECONCILIADO + REVISION_LOTE_ACTUAL_CERRADA_20_DE_20 + 18_CANDIDATAS_COMERCIALES + 2_EVIDENCIAS_PRIVADAS_EXCLUIDAS + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "resumeFrom": "Capturar video vertical 9:16 y evidencia faltante para versión/trim, tracción y documentación; después registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL.",
     "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO"
   },
   "promptProtocol": {
@@ -484,12 +489,12 @@
     {
       "key": "material",
       "label": "Revisión total de material",
-      "status": "PENDIENTE"
+      "status": "OK_LOTE_ACTUAL"
     },
     {
       "key": "duplicates",
       "label": "Reconciliar duplicados",
-      "status": "PENDIENTE"
+      "status": "PENDIENTE_PRUEBA_DUPLICADO_EXACTO"
     },
     {
       "key": "video",
@@ -501,5 +506,49 @@
       "label": "Trim / tracción / documentos",
       "status": "PENDIENTE"
     }
-  ]
+  ],
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "BLOQUEADO",
+    "requestedAt": "2026-10-02T17:22:45.308Z",
+    "startedAt": "2026-10-02T11:22:45.308-06:00",
+    "completedAt": "2026-10-02T11:37:37-06:00",
+    "lastVerifiedAt": "2026-10-02T11:37:37-06:00",
+    "movedAt": null,
+    "timezone": "America/Mexico_City",
+    "result": "Revisión del lote actual cerrada: 20 fotos verificadas; 18 candidatas comerciales y 2 evidencias privadas excluidas. No hay video. Producción final bloqueada por captura complementaria y confirmación de versión/tracción/documentación.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "materialReview",
+        "status": "COMPLETADO_LOTE_ACTUAL"
+      },
+      {
+        "key": "capturePlan",
+        "status": "LISTO"
+      },
+      {
+        "key": "finalProduction",
+        "status": "BLOQUEADO_CAPTURA"
+      },
+      {
+        "key": "whatsapp",
+        "status": "OCULTO_NO_PUBLICAR"
+      }
+    ],
+    "reposUpdated": [
+      "Vehiculos",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA"
+  },
+  "relations": {
+    "vehicleAuthorityIndexed": true,
+    "privateRelationsIndexed": true,
+    "driveIndexed": true,
+    "derivedRepositoriesIndexed": true,
+    "publicExposure": "SANITIZED_ONLY"
+  }
 }
