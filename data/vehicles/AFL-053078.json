@@ -119,17 +119,17 @@
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
     ],
-    "currentStructureVerified": "CANONICA_VERIFICADA: 01_ENTRADAS/AFL-053078/20_NUEVA_CAPTURA VACIA; 02_SALIDAS/AFL-053078 VACIA; LOTE PREVIO CONSERVADO",
-    "workflowFoldersVerified": false,
+    "currentStructureVerified": "CANONICA_VERIFICADA: 20_IMAGENES_COMERCIALES contiene únicamente el flyer mejorado vigente de la iteración; derivado anterior eliminado después de verificar la mejora; RAW/originales sin cambios.",
+    "workflowFoldersVerified": true,
     "canonicalInputRootPrepared": true,
     "canonicalOutputRootPrepared": true,
     "newCaptureFolderPrepared": true,
     "originalsMoved": false,
-    "lastVerifiedAt": "2026-10-02T12:12:12-06:00"
+    "lastVerifiedAt": "2026-10-02T23:21:51.089Z"
   },
   "outputs": {
     "marketplace": "PENDIENTE",
-    "images": "PENDIENTE",
+    "images": "PRODUCIDO_MEJORADO_NO_APROBADO",
     "post": "PENDIENTE",
     "feed": "PENDIENTE",
     "stories": "PENDIENTE",
@@ -180,7 +180,8 @@
       "key": "images",
       "label": "Imágenes comerciales",
       "folder": "20_IMAGENES_COMERCIALES",
-      "status": "PENDIENTE"
+      "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+      "artifact": "AFL-053078_FLYER_EXPRESS_MEJORADA_2026-10-02.png"
     },
     {
       "key": "post",
@@ -518,41 +519,34 @@
     }
   ],
   "contentLab": {
-    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-    "status": "BLOQUEADO",
-    "requestedAt": "2026-10-02T17:22:45.308Z",
-    "startedAt": "2026-10-02T11:22:45.308-06:00",
-    "completedAt": "2026-10-02T11:37:37-06:00",
-    "lastVerifiedAt": "2026-10-02T12:12:12-06:00",
-    "movedAt": null,
+    "operation": "CONTENIDO_EXPRESS_AFL",
+    "function": "Crear flyer",
+    "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+    "completedAt": "2026-10-02T23:21:51.089Z",
+    "lastVerifiedAt": "2026-10-02T23:21:51.089Z",
     "timezone": "America/Mexico_City",
-    "result": "Rutas canónicas verificadas: 20_NUEVA_CAPTURA existe y está vacío; 02_SALIDAS/AFL-053078 existe y está vacío. Sin evidencia nueva, se conserva CAPTURA_PENDIENTE y CAPTURA_COMERCIAL_COMPLEMENTARIA como siguiente acción.",
+    "result": "Flyer mejorado guardado y verificado en 20_IMAGENES_COMERCIALES. La derivada anterior de este flyer fue eliminada después del readback; quedó únicamente la versión mejorada. RAW/originales y checkpoint operativo sin cambios.",
+    "filesProduced": 1,
+    "filesDeletedDerivatives": 1,
     "filesMoved": 0,
-    "filesProduced": 0,
     "deliverables": [
       {
-        "key": "materialReview",
-        "status": "COMPLETADO_LOTE_ACTUAL"
-      },
-      {
-        "key": "capturePlan",
-        "status": "LISTO"
-      },
-      {
-        "key": "finalProduction",
-        "status": "BLOQUEADO_CAPTURA"
-      },
-      {
-        "key": "whatsapp",
-        "status": "OCULTO_NO_PUBLICAR"
+        "key": "flyer",
+        "status": "PRODUCIDO_MEJORADO_NO_APROBADO_NO_PUBLICAR",
+        "artifact": "AFL-053078_FLYER_EXPRESS_MEJORADA_2026-10-02.png",
+        "versionPolicy": "LATEST_ONLY_AFTER_VERIFIED_IMPROVEMENT",
+        "premium_authenticity": "POSITIVE",
+        "generic_template_risk": "LOW"
       }
     ],
     "reposUpdated": [
-      "Vehiculos",
-      "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA"
+    "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+    "blockings": [
+      "APROBACION_MIGUEL_PENDIENTE",
+      "VIDEO_REAL_PENDIENTE"
+    ]
   },
   "relations": {
     "vehicleAuthorityIndexed": true,
