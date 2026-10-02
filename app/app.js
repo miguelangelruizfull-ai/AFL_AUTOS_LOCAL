@@ -157,12 +157,14 @@ function buildContentLabPrompt(v) {
 
 
 const CONTENT_EXPRESS_CONTRACT = "CONTENIDO_EXPRESS.md";
+const APPROVED_REFERENCES_ALIAS = "DRIVE:REFERENCIAS_APROBADAS_AFL";
+const TEMP_SELECTION_FOLDER = "05_SELECCION_TEMPORAL";
 
 function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder) {
   const c = v.checkpoint || {};
   const commercial = v.commercial || {};
   const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
-  const reference = String(referenceFolder || "").trim();
+  const reference = String(referenceFolder || APPROVED_REFERENCES_ALIAS).trim() || APPROVED_REFERENCES_ALIAS;
   const material = creativeMaterialPath(v, materialFolder);
   const pieces = creativeProductionPieces();
   const piece = pieces.find(function(item) { return item.key === pieceKey; });
@@ -185,7 +187,8 @@ function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder)
     "- Unidad: " + title,
     "- Función solicitada: " + requested,
     "- Carpeta de material: " + material,
-    "- Carpeta de referencias creativas: " + (reference || "NO_SELECCIONADA"),
+    "- Carpeta de referencias creativas: " + reference,
+    "- Referencia por defecto si no se elige otra: " + APPROVED_REFERENCES_ALIAS,
     "- Salida: " + output,
     "",
     "CONTEXTO VIGENTE:",
@@ -196,13 +199,15 @@ function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder)
     "- Precio visible: SOLO si existe precio público/catalogable expresamente autorizado en la fuente vigente. PRECIO INTERNO = SOLO ADMIN / NO PUBLICABLE.",
     "",
     "FLUJO EXPRESS OBLIGATORIO — MISMA EJECUCIÓN:",
-    "1. MATERIAL: revisa únicamente el expediente/PUENTE necesario para validar datos vigentes y la carpeta seleccionada. No mezcles unidades.",
-    "2. CAPTURA EXPRESS: inventaría fotos/videos, identifica tomas útiles y genera una captura comercial factual con lo visible y verificado.",
-    "3. ESTRATEGIA: sin esperar otro proceso, define hook, beneficio principal, prueba visible, objeción y CTA específicos para esta unidad.",
-    "4. CREATIVIDAD: aplica una composición comercial clara, móvil primero y fiel al vehículo. Usa la carpeta de referencias solo como inspiración.",
-    "5. PRODUCCIÓN: crea la función solicitada. Si es Paquete express, produce o deja lista la especificación de todas las piezas útiles con la evidencia disponible.",
-    "6. VIDEO/TENDENCIAS: cuando aplique, analiza hook, ritmo, encuadre, estabilidad, luz, color, audio, subtítulos y cortes. Verifica tendencias/audio vigentes antes de recomendarlos.",
-    "7. CIERRE: entrega captura, estrategia, copy, texto sobreimpreso, formato/duración, shot list/cut sheet, efectos, audio, hashtags, nombre de archivo y destino.",
+    "1. MATERIAL + ENLACE: revisa únicamente expediente/PUENTE y carpeta seleccionada. Resuelve en Drive y muestra SIEMPRE el enlace vivo de la carpeta de archivos disponibles; no persistas URL/ID privado en HOME público.",
+    "2. NAVEGACIÓN: inventaría material y ofrece: SUBIR/APORTAR NUEVO MATERIAL, SELECCIONAR OTRA CARPETA, CREAR/USAR " + TEMP_SELECTION_FOLDER + " o CONTINUAR CON PRODUCCIÓN. Si la carpeta está vacía, no cierres sin estas opciones.",
+    "3. CAPTURA EXPRESS: inventaría fotos/videos, identifica tomas útiles y genera una captura comercial factual con lo visible y verificado.",
+    "4. ESTRATEGIA: sin esperar otro proceso, define hook, beneficio principal, prueba visible, objeción y CTA específicos para esta unidad.",
+    "5. CREATIVIDAD: aplica una composición comercial clara, móvil primero y fiel al vehículo. Usa la carpeta de referencias solo como inspiración.",
+    "6. PRODUCCIÓN: al continuar, despliega las opciones de contenido y crea la función solicitada. Si es Paquete express, produce o deja lista la especificación de todas las piezas útiles con la evidencia disponible.",
+    "7. VIDEO/TENDENCIAS: cuando aplique, analiza hook, ritmo, encuadre, estabilidad, luz, color, audio, subtítulos y cortes. Verifica tendencias/audio vigentes antes de recomendarlos.",
+    "8. APROBACIÓN/REFERENCIAS: solo después de aprobación explícita, copia el derivado aprobado a " + APPROVED_REFERENCES_ALIAS + "/<TIPO_DE_PIEZA>. PRODUCIDO_NO_APROBADO no entra.",
+    "9. CIERRE: entrega captura, estrategia, copy, texto sobreimpreso, formato/duración, shot list/cut sheet, efectos, audio, hashtags, nombre de archivo, destino, enlace de material y opciones de continuación.",
     "",
     "REGLAS DE VELOCIDAD:",
     "- No detener captura → estrategia → producción si la evidencia es suficiente.",
@@ -272,11 +277,13 @@ function makeContentExpressPanel(vehicles) {
   referenceField.append(element("span", "", "Carpeta de creatividad / referencias"));
   const referenceInput = element("input", "status-select");
   referenceInput.type = "text";
-  referenceInput.placeholder = "Ruta o URL opcional: flyers, historias, videos...";
+  referenceInput.placeholder = "Ruta o URL; por defecto se usa REFERENCIAS_APROBADAS_AFL";
+  referenceInput.value = APPROVED_REFERENCES_ALIAS;
   referenceInput.autocomplete = "off";
   referenceField.append(referenceInput);
 
-  form.append(vehicleField, functionField, materialField, referenceField);
+  functionField.hidden = true;
+  form.append(vehicleField, materialField, referenceField, functionField);
   panel.append(form);
 
   let loadedVehicle = null;
@@ -319,6 +326,12 @@ function makeContentExpressPanel(vehicles) {
         materialSelect.append(o);
       });
     }
+    if (!folders.includes(TEMP_SELECTION_FOLDER)) {
+      const temp = element("option", "", TEMP_SELECTION_FOLDER + " · crear/usar temporal");
+      temp.value = TEMP_SELECTION_FOLDER;
+      materialSelect.append(temp);
+    }
+    functionField.hidden = true;
     status.textContent = loadedVehicle
       ? "Unidad cargada. Selecciona función y prepara la orden express."
       : "No se pudo cargar el expediente de la unidad.";
@@ -326,6 +339,31 @@ function makeContentExpressPanel(vehicles) {
   }
 
   vehicleSelect.addEventListener("change", loadSelectedVehicle);
+
+  const materialActions = element("div", "actions");
+  materialActions.append(
+    actionButton("Archivos disponibles · obtener enlace", async function() {
+      const v = loadedVehicle || await loadSelectedVehicle();
+      if (!v) { status.textContent = "Selecciona un vehículo."; return; }
+      copyText(buildMaterialNavigationPrompt(v, "OPEN", materialSelect.value), status);
+    }, false),
+    actionButton("Subir / aportar material", async function() {
+      const v = loadedVehicle || await loadSelectedVehicle();
+      if (!v) { status.textContent = "Selecciona un vehículo."; return; }
+      copyText(buildMaterialNavigationPrompt(v, "UPLOAD", materialSelect.value), status);
+    }, false),
+    actionButton("Usar carpeta temporal", async function() {
+      const v = loadedVehicle || await loadSelectedVehicle();
+      if (!v) { status.textContent = "Selecciona un vehículo."; return; }
+      materialSelect.value = TEMP_SELECTION_FOLDER;
+      copyText(buildMaterialNavigationPrompt(v, "TEMP", TEMP_SELECTION_FOLDER), status);
+    }, false),
+    actionButton("Continuar · elegir contenido", function() {
+      functionField.hidden = false;
+      status.textContent = "Menú de contenido habilitado. Elige la pieza y prepara la orden.";
+    }, true)
+  );
+  panel.append(materialActions);
 
   const actions = element("div", "actions");
   actions.append(
@@ -1305,10 +1343,29 @@ function creativeMaterialPath(v, folder) {
   return v.drive.inputRoot.replace(/\/$/, "") + "/" + value.replace(/^\//, "");
 }
 
+function buildMaterialNavigationPrompt(v, action, materialFolder) {
+  const material = creativeMaterialPath(v, materialFolder);
+  const upload = v.drive.inputRoot.replace(/\/$/, "") + "/20_NUEVA_CAPTURA";
+  const temp = v.drive.inputRoot.replace(/\/$/, "") + "/" + TEMP_SELECTION_FOLDER;
+  const instruction = action === "UPLOAD"
+    ? "Resuelve/crea si corresponde la carpeta de nueva captura y devuelve su enlace vivo para subir o aportar archivos: " + upload
+    : action === "TEMP"
+      ? "Resuelve o crea la carpeta temporal " + temp + ". Copia solo seleccionados de trabajo cuando exista una fuente autorizada; no muevas RAW/originales. Devuelve su enlace vivo."
+      : "Resuelve la carpeta de material seleccionada y devuelve su enlace vivo: " + material;
+  return [
+    "MATERIAL_NAVEGACION_AFL",
+    "Opera únicamente " + v.id + " (" + ((v.vehicle && v.vehicle.publicTitle) || v.title || "Vehículo") + ").",
+    instruction,
+    "No hagas barridos generales de Drive ni mezcles unidades.",
+    "No publiques IDs/URLs privadas en HOME/JSON público; el enlace puede mostrarse en esta respuesta operativa.",
+    "Después muestra estas opciones: 1) Subir/aportar nuevo material, 2) Seleccionar otra carpeta de la unidad, 3) Crear/usar " + TEMP_SELECTION_FOLDER + ", 4) Continuar con producción y desplegar portada/flyer/historia/TikTok/Marketplace/paquete express."
+  ].join("\n");
+}
+
 function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder) {
   const c = v.checkpoint || {};
   const commercial = v.commercial || {};
-  const reference = String(referenceFolder || "").trim();
+  const reference = String(referenceFolder || APPROVED_REFERENCES_ALIAS).trim() || APPROVED_REFERENCES_ALIAS;
   const material = creativeMaterialPath(v, materialFolder);
   const output = v.drive.outputRoot.replace(/\/$/, "") + "/" + piece.outputFolder;
   const lines = [
@@ -1319,11 +1376,17 @@ function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder
     "AUTORIZACION_DE_CREACION_HOME: SI. La solicitud explícita de esta pieza autoriza CREAR/PRODUCIR el derivado con material verificable disponible aunque el checkpoint operativo siga en captura o revisión.",
     "No mezcles material de otra unidad y no publiques automáticamente. AUTORIZADO_CREAR ≠ APROBADO ≠ PUBLICADO.",
     "",
+    "NAVEGACIÓN DE MATERIAL OBLIGATORIA:",
+    "- Antes de producir, resuelve y muestra el enlace vivo de la carpeta de material seleccionada.",
+    "- Ofrece: subir/aportar nuevo material, seleccionar otra carpeta, crear/usar " + TEMP_SELECTION_FOLDER + " o continuar con producción.",
+    "- Si usas temporal, copia seleccionados de trabajo; nunca muevas RAW/originales.",
+    "",
     "PIEZA SOLICITADA:",
     "- Tipo: " + piece.label,
     "- Formato/objetivo: " + piece.format,
     "- Carpeta de material seleccionada: " + material,
-    "- Carpeta de referencias creativas: " + (reference || "NO_SELECCIONADA"),
+    "- Carpeta de referencias creativas: " + reference,
+    "- Biblioteca aprobada por defecto: " + APPROVED_REFERENCES_ALIAS,
     "- Carpeta de salida: " + output,
     "",
     "CONTEXTO COMERCIAL VERIFICADO:",
@@ -1359,7 +1422,8 @@ function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder
     "TERMINAR LA PIEZA:",
     "Entrega el resultado final listo para producir: concepto, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y destino exacto.",
     "Si las herramientas disponibles permiten crear o editar la pieza, prodúcela y guarda solo el derivado en SALIDAS. El checkpoint operativo no veta esta creación manual. Si el material supera los gates visuales, estado: PRODUCIDO_NO_APROBADO; si solo permite una prueba útil pero insuficiente para publicación, estado: BORRADOR_INTERNO_REQUIERE_RECAPTURA. Si no puede producirse fielmente, entrega especificación y declara la limitación.",
-    "No cambies el checkpoint operativo solo por producir la pieza. No marques APROBADO, LISTO o PUBLICADO sin evidencia/autorización real."
+    "No cambies el checkpoint operativo solo por producir la pieza. No marques APROBADO, LISTO o PUBLICADO sin evidencia/autorización real.",
+    "Después de una aprobación explícita de Miguel, copia el derivado aprobado a " + APPROVED_REFERENCES_ALIAS + "/<TIPO_DE_PIEZA>, crea el subdirectorio si hace falta y muestra el enlace vivo. No copies borradores ni PRODUCIDO_NO_APROBADO."
   ];
   return lines.join("\n");
 }
@@ -1383,6 +1447,11 @@ function makeCreativeProductionMenu(v) {
     option.selected = index === 0;
     materialSelect.append(option);
   });
+  if (!(v.drive.inputs || []).includes(TEMP_SELECTION_FOLDER)) {
+    const temp = element("option", "", TEMP_SELECTION_FOLDER + " · crear/usar temporal");
+    temp.value = TEMP_SELECTION_FOLDER;
+    materialSelect.append(temp);
+  }
   if (!(v.drive.inputs || []).length) {
     const option = element("option", "", v.drive.inputRoot);
     option.value = v.drive.inputRoot;
@@ -1394,16 +1463,30 @@ function makeCreativeProductionMenu(v) {
   referenceField.append(element("span", "", "Carpeta de referencias creativas"));
   const referenceInput = element("input", "status-select");
   referenceInput.type = "text";
-  referenceInput.placeholder = "Pega ruta o URL de Drive: flyers, videos, historias...";
+  referenceInput.placeholder = "Pega otra ruta/URL o usa la biblioteca aprobada";
+  referenceInput.value = APPROVED_REFERENCES_ALIAS;
   referenceInput.autocomplete = "off";
   referenceField.append(referenceInput);
 
   const sourceActions = element("div", "creative-field");
-  sourceActions.append(element("span", "", "Accesos"));
+  sourceActions.append(element("span", "", "Material · elegir cómo continuar"));
   const sourceButtons = element("div", "actions compact");
+  const sourceStatus = element("span", "copy-status", "");
   if (v.drive.inputUrl) sourceButtons.append(linkButton("Abrir ENTRADAS", v.drive.inputUrl, false));
-  sourceButtons.append(linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), false));
-  sourceActions.append(sourceButtons);
+  sourceButtons.append(
+    actionButton("Obtener enlace de archivos", function() {
+      copyText(buildMaterialNavigationPrompt(v, "OPEN", materialSelect.value), sourceStatus);
+    }, false),
+    actionButton("Subir / aportar nuevos", function() {
+      copyText(buildMaterialNavigationPrompt(v, "UPLOAD", materialSelect.value), sourceStatus);
+    }, false),
+    actionButton("Usar temporal", function() {
+      materialSelect.value = TEMP_SELECTION_FOLDER;
+      copyText(buildMaterialNavigationPrompt(v, "TEMP", TEMP_SELECTION_FOLDER), sourceStatus);
+    }, false),
+    linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), false)
+  );
+  sourceActions.append(sourceButtons, sourceStatus);
   config.append(materialField, referenceField, sourceActions);
   panel.append(config);
 
@@ -1422,8 +1505,11 @@ function makeCreativeProductionMenu(v) {
     card.append(actions, status);
     grid.append(card);
   });
-  panel.append(grid);
-  panel.append(element("p", "deliverable-note", "La web es estática: la carpeta de referencias se indica por ruta o URL. El prompt ejecutor debe verificar tendencias y disponibilidad de audio en el momento de producir."));
+  const contentMenu = element("details", "rec-options creative-content-menu");
+  const menuSummary = element("summary", "", "Continuar con la producción · desplegar opciones de contenido");
+  contentMenu.append(menuSummary, grid);
+  panel.append(contentMenu);
+  panel.append(element("p", "deliverable-note", "Referencia por defecto: REFERENCIAS_APROBADAS_AFL. Solo una pieza aprobada explícitamente se copia a esa biblioteca; producir no equivale a aprobar. La web pública no persiste enlaces privados de Drive."));
   return panel;
 }
 
