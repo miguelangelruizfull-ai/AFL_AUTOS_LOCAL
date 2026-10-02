@@ -235,7 +235,7 @@
     "nextAction": "GROUND_MANIFEST_SELECCION_FINAL",
     "resumeFrom": "Groundear un manifiesto exacto de selección: el checkpoint del 27/09 documenta 30 fotos revisadas en chat, pero el Drive canónico actual contiene 33 JPEG de carga 11/09. No promover selección final ni mover archivos hasta reconciliar esa correspondencia.",
     "driveControlDocument": "AFL-338732 — CONTROL OPERATIVO",
-    "lastVerified": "2026-10-02T12:01:31-06:00",
+    "lastVerified": "2026-10-02T12:04:36-06:00",
     "evidence": "DRIVE_CANONICO_33_JPEG_0_VIDEO; 05_FLYERS_7_V1; LOTE_30_CHAT_SIN_MANIFIESTO_EXACTO_DRIVE; V2_REDISENO_NO_LOCALIZADO"
   },
   "editPolicy": {
@@ -415,8 +415,8 @@
     "status": "BLOQUEADO",
     "requestedAt": "2026-10-02T11:56:03.000-06:00",
     "startedAt": "2026-10-02T11:56:03.000-06:00",
-    "completedAt": "2026-10-02T12:01:31-06:00",
-    "lastVerifiedAt": "2026-10-02T12:01:31-06:00",
+    "completedAt": "2026-10-02T12:04:36-06:00",
+    "lastVerifiedAt": "2026-10-02T12:04:36-06:00",
     "timezone": "America/Mexico_City",
     "result": "REVISION_MATERIAL auditada. Drive canónico: 33 JPEG / 0 video; el lote de 30 fotos revisado en chat el 27/09 no tiene manifiesto exacto sincronizado con Drive. Las 7 piezas V1 se conservaron; selección final no promovida.",
     "filesMoved": 0,
