@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "updated": "2026-09-27",
+  "updated": "2026-10-02",
   "id": "AFL-338732",
   "vehicle": {
     "make": "Chevrolet",
@@ -18,25 +18,25 @@
   },
   "status": {
     "vehicle": "REVISION_MATERIAL",
-    "materialReview": "PENDIENTE",
-    "classification": "PENDIENTE",
-    "captureType": "COMPLEMENTARIA",
-    "captureExecution": "PENDIENTE",
-    "whatsapp": "LISTO",
-    "outputsDrive": "PREPARADAS",
-    "publish": true
+    "materialReview": "AUDITADA_CON_BLOQUEO_SINCRONIZACION",
+    "classification": "PENDIENTE_MANIFIESTO_EXACTO",
+    "captureType": "COMPLEMENTARIA_OPCIONAL",
+    "captureExecution": "BASE_REEJECUTADA_CON_MATERIAL_DISPONIBLE",
+    "whatsapp": "OCULTO",
+    "outputsDrive": "LEGACY_VERIFICADO",
+    "publish": false
   },
   "commercial": {
-    "availability": "DISPONIBLE",
+    "availability": "PENDIENTE_CONFIRMACION",
     "priceInternal": null,
     "currency": "MXN",
     "catalogPrice": null,
     "catalogPricePolicy": "OMITIR"
   },
   "media": {
-    "totalFiles": null,
-    "totalJpeg": null,
-    "totalVideo": null,
+    "totalFiles": 33,
+    "totalJpeg": 33,
+    "totalVideo": 0,
     "unique": null,
     "approvedUnique": null,
     "commercialCandidates": null,
@@ -44,7 +44,13 @@
     "duplicates": null,
     "rejected": null,
     "realVideo": false,
-    "whatsappSelectedPhotos": 0
+    "whatsappSelectedPhotos": 0,
+    "materialSync": {
+      "chatReviewedPhotos": 30,
+      "driveCurrentJpeg": 33,
+      "driveCurrentVideo": 0,
+      "manifestStatus": "PENDIENTE_RECONCILIAR_30_CHAT_VS_33_DRIVE"
+    }
   },
   "capture": {
     "scheduled": false,
@@ -116,20 +122,20 @@
     "covers": "PENDIENTE",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
-    "whatsapp": "LISTO",
+    "whatsapp": "OCULTO",
     "sendPackage": "PENDIENTE"
   },
   "whatsapp": {
-    "status": "LISTO",
+    "status": "OCULTO",
     "title": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition",
     "description": "Chevrolet Silverado 1500 LTZ 2017 Texas Edition, Crew Cab, con motor 5.3 L V8 y tracción 4x2. Interior en piel negra, memorias de asiento y audio Bose. Consulta precio y disponibilidad vigente.",
     "price": null,
     "selectedPhotos": 0,
     "realVideo": false,
-    "targetState": "WHATSAPP_LISTO",
-    "catalogTextStatus": "LISTO",
-    "mediaStatus": "PENDIENTE_SIN_ARCHIVOS",
-    "selectionStatus": "BLOQUEADA_SIN_MATERIAL",
+    "targetState": "WHATSAPP_OCULTO",
+    "catalogTextStatus": "FICHA_PREPARADA",
+    "mediaStatus": "PENDIENTE_MANIFIESTO_EXACTO",
+    "selectionStatus": "PROVISIONAL_NO_PROMOVIDA",
     "catalogDocument": "AFL-338732 — FICHA WHATSAPP CATALOGO"
   },
   "music": {
@@ -215,22 +221,22 @@
     }
   ],
   "fieldWork": {
-    "status": "PENDIENTE",
+    "status": "COMPLEMENTARIA_OPCIONAL",
     "canonicalState": "REVISION_MATERIAL",
-    "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
+    "nextAfterUpload": "REVISION_MATERIAL",
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "Mantener REVISION_MATERIAL mientras se revisa el material; una captura complementaria solo cambia a MATERIAL_NUEVO_SUBIDO cuando exista evidencia nueva subida."
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_ESTANDARIZADA",
+    "phase": "REVISION_MATERIAL_AUDITADA",
     "state": "REVISION_MATERIAL",
-    "updated": "2026-09-27",
-    "lastCompleted": "ESTRUCTURA_DRIVE_Y_CONTROL_OPERATIVO_ESTANDARIZADOS",
-    "nextAction": "REVISION_MATERIAL",
-    "resumeFrom": "Revisar material disponible; si se captura material complementario, subirlo únicamente a 01_ENTRADAS/AFL-338732/20_NUEVA_CAPTURA antes de registrar MATERIAL_NUEVO_SUBIDO.",
+    "updated": "2026-10-02",
+    "lastCompleted": "AUDITORIA_DRIVE_CANONICO_33_JPEG_Y_RECONCILIACION_PUENTE",
+    "nextAction": "GROUND_MANIFEST_SELECCION_FINAL",
+    "resumeFrom": "Groundear un manifiesto exacto de selección: el checkpoint del 27/09 documenta 30 fotos revisadas en chat, pero el Drive canónico actual contiene 33 JPEG de carga 11/09. No promover selección final ni mover archivos hasta reconciliar esa correspondencia.",
     "driveControlDocument": "AFL-338732 — CONTROL OPERATIVO",
-    "lastVerified": "2026-09-27",
-    "evidence": "ENTRADAS_CANONICAS_VACIAS; WHATSAPP_TEXTO_LISTO; MEDIA_PENDIENTE_SIN_ARCHIVOS"
+    "lastVerified": "2026-10-02T12:01:31-06:00",
+    "evidence": "DRIVE_CANONICO_33_JPEG_0_VIDEO; 05_FLYERS_7_V1; LOTE_30_CHAT_SIN_MANIFIESTO_EXACTO_DRIVE; V2_REDISENO_NO_LOCALIZADO"
   },
   "editPolicy": {
     "authority": "MIGUEL_EXPLICIT",
@@ -403,5 +409,53 @@
     "patternDetection": "FUNCTIONAL_FROM_CHECKPOINT",
     "staticMenuAuthority": false,
     "instruction": "El ChatGPT actual decide el siguiente paso usando checkpoint y evidencia."
+  },
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "BLOQUEADO",
+    "requestedAt": "2026-10-02T11:56:03.000-06:00",
+    "startedAt": "2026-10-02T11:56:03.000-06:00",
+    "completedAt": "2026-10-02T12:01:31-06:00",
+    "lastVerifiedAt": "2026-10-02T12:01:31-06:00",
+    "timezone": "America/Mexico_City",
+    "result": "REVISION_MATERIAL auditada. Drive canónico: 33 JPEG / 0 video; el lote de 30 fotos revisado en chat el 27/09 no tiene manifiesto exacto sincronizado con Drive. Las 7 piezas V1 se conservaron; selección final no promovida.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "materialReview",
+        "status": "AUDITADA_CON_BLOQUEO_SINCRONIZACION"
+      },
+      {
+        "key": "selectionFinal",
+        "status": "BLOQUEADA_POR_MANIFIESTO_EXACTO"
+      },
+      {
+        "key": "feedV1",
+        "status": "RECHAZADO_CONSERVADO_NO_PUBLICAR"
+      },
+      {
+        "key": "feedV2Redesign",
+        "status": "APROBACION_REGISTRADA_ARTEFACTO_NO_LOCALIZADO"
+      },
+      {
+        "key": "whatsapp",
+        "status": "FICHA_PREPARADA_OCULTA_MEDIA_NO_GROUNDED"
+      },
+      {
+        "key": "reel",
+        "status": "BLOQUEADO_SIN_VIDEO_VERTICAL_REAL"
+      },
+      {
+        "key": "tiktok",
+        "status": "BLOQUEADO_SIN_VIDEO_VERTICAL_REAL"
+      }
+    ],
+    "reposUpdated": [
+      "Vehiculos",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "GROUND_MANIFEST_SELECCION_FINAL"
   }
 }
