@@ -268,3 +268,35 @@ No guardar archivos de audio.
 - Evidencia paquete: 12 imágenes presentes en `95_PARA_ENVIAR`.
 - Checkpoint de captura sin cambio: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
 - Siguiente acción sin cambio: `CAPTURA_COMERCIAL_COMPLETA`.
+
+
+## MATRIZ VIGENTE — QUÉ TENEMOS / QUÉ FALTA / SIGUIENTE
+
+Actualizado: `2026-10-02T12:00:01-06:00`
+
+### Tenemos
+
+- Feed V4 4:5 producido y verificado; pendiente de revisión de Miguel.
+- 12 derivados RETOQUE_V2 y bases V3 disponibles.
+- Facebook Post publicado confirmado.
+- WhatsApp catálogo publicado.
+- Paquete para enviar publicado.
+
+### Falta
+
+- Historia V4 9:16.
+- Portadas finales.
+- Captura comercial completa.
+- Video vertical real 9:16.
+- Reel con footage real.
+- TikTok con footage real.
+
+### Orden recomendado
+
+1. `REVISION_APROBACION_V4` — puede ejecutarse ahora.
+2. `ADAPTAR_V4_HISTORIA_9X16` — después de aprobar/corregir V4.
+3. `CAPTURA_COMERCIAL_COMPLETA + VIDEO_REAL_9_16` — trabajo físico.
+4. `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`.
+5. Producir/actualizar portadas, Reel, TikTok y demás derivados desbloqueados.
+
+Regla: no producir derivados finales sobre una dirección V4 no aprobada; no inventar video; no publicar automáticamente.
