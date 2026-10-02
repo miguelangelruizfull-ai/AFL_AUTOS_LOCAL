@@ -313,3 +313,19 @@ PUBLICAR_AUTOMATICAMENTE_OTRAS_PIEZAS: NO
 - Valor nuevo siguiente recomendado: `CAPTURA_COMERCIAL_COMPLETA`.
 - Acción física: 22 fotos obligatorias + walkaround vertical real 9:16; subir únicamente a `01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA`; después `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL`.
 - Publicación automática: `NO`.
+
+## ESTRUCTURA DE HISTORIAS — 2026-10-02
+
+- Flujo revisado contra `CONTENIDO_EXPRESS.md`: material disponible → subir/otra carpeta/temporal/continuar → producir → revisar → aprobar → referencia.
+- `01_ENTRADAS/AFL-279006/05_SELECCION_TEMPORAL`: creada para copias de trabajo; no es fuente de verdad.
+- `02_SALIDAS/AFL-279006/50_HISTORIAS/00_BORRADORES`: creada.
+- `02_SALIDAS/AFL-279006/50_HISTORIAS/10_EN_REVISION`: creada; contiene la Historia V4 actual.
+- `02_SALIDAS/AFL-279006/50_HISTORIAS/20_APROBADAS`: creada; requiere aprobación explícita.
+- `02_SALIDAS/AFL-279006/50_HISTORIAS/30_VARIANTES`: creada.
+- `02_SALIDAS/AFL-279006/50_HISTORIAS/90_RECHAZADAS`: creada.
+- `AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADAS/HISTORIAS`: creada como biblioteca central de historias aprobadas.
+- Historia actual: `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg` → `10_EN_REVISION`; ID/enlace conservado.
+- Estado del entregable: `PRODUCIDA_VERIFICADA_NO_PUBLICAR`.
+- Checkpoint físico: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE` — sin cambio.
+- Siguiente acción física: `CAPTURA_COMERCIAL_COMPLETA` — sin cambio.
+- Publicación automática: `NO`.
