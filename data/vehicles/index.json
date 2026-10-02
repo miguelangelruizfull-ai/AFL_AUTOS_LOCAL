@@ -92,7 +92,7 @@
         "lastCompleted": "HERO_3_4_FRONTAL_VERIFICADA; SIN_MATERIAL_NUEVO_ADICIONAL; PRODUCCION_FINAL_BLOQUEADA_POR_CAPTURA_FISICA",
         "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-10-02T11:48:10-06:00"
+        "lastVerifiedAt": "2026-10-02T11:50:39-06:00"
       },
       "relations": {
         "vehicleAuthorityIndexed": true,
@@ -130,7 +130,7 @@
         "requestedAtLocal": "2026-10-02T11:40:19.966-06:00",
         "startedAt": "2026-10-02T11:42:05-06:00",
         "completedAt": "2026-10-02T11:48:50-06:00",
-        "lastVerifiedAt": "2026-10-02T11:48:10-06:00",
+        "lastVerifiedAt": "2026-10-02T11:50:39-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
         "result": "Drive/CONTROL verificados: 20_NUEVA_CAPTURA conserva sólo la HERO 3/4 frontal ya registrada. No están las cinco tomas restantes ni el video 9:16; la producción final queda bloqueada por captura física. Permanecen 30 fotos localizadas y 44 históricas sin reconciliar.",
