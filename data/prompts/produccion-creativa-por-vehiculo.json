@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2.0",
+  "schemaVersion": "1.3.0",
   "key": "PRODUCCION_CREATIVA_POR_VEHICULO",
   "title": "Producción creativa por vehículo",
   "scope": "AFL_AUTOS_LOCAL vehicle detail",
@@ -35,7 +35,17 @@
   "sourceSelection": {
     "materialFolder": "Obligatoria. Debe provenir de las entradas del vehículo o de una ruta/URL autorizada.",
     "referenceFolder": "Opcional. Puede ser una ruta/URL de Drive con flyers, videos u otras referencias creativas.",
-    "originalsPolicy": "No mover, borrar ni alterar RAW/originales canónicos."
+    "originalsPolicy": "No mover, borrar ni alterar RAW/originales canónicos.",
+    "availableFolderLink": "OBLIGATORIO_EN_RESPUESTA. Resolver en Drive autorizado y mostrar enlace vivo de la carpeta de material seleccionada; no persistir URL/ID privado en HOME o JSON público.",
+    "temporarySelectionFolder": "01_ENTRADAS/<AFL-ID>/05_SELECCION_TEMPORAL",
+    "temporaryPolicy": "Crear solo cuando sea necesario. Copiar seleccionados de trabajo; nunca mover RAW/originales.",
+    "postInventoryOptions": [
+      "SUBIR_O_APORTAR_NUEVO_MATERIAL",
+      "SELECCIONAR_OTRA_CARPETA_DE_LA_UNIDAD",
+      "CREAR_O_USAR_05_SELECCION_TEMPORAL",
+      "CONTINUAR_CON_PRODUCCION"
+    ],
+    "defaultReferenceLibrary": "DRIVE:REFERENCIAS_APROBADAS_AFL"
   },
   "commercialStrategy": [
     "Usar únicamente datos comerciales y técnicos verificados del expediente vigente.",
@@ -70,6 +80,10 @@
   ],
   "completion": [
     "Antes de producir, leer PUENTE, reglas activas de Content System y confirmar que la solicitud HOME autoriza creación.",
+    "Resolver la carpeta de material seleccionada y mostrar SIEMPRE su enlace vivo de Drive en la respuesta; no persistir URL/ID privado en HOME público.",
+    "Inventariar material y ofrecer: subir/aportar nuevo material, seleccionar otra carpeta, crear/usar 05_SELECCION_TEMPORAL o continuar con producción.",
+    "Si se usa 05_SELECCION_TEMPORAL, copiar únicamente seleccionados de trabajo; nunca mover RAW/originales.",
+    "Al continuar, desplegar el menú de piezas: portada, flyer, historia, TikTok, Marketplace y paquete express cuando aplique.",
     "Una solicitud explícita desde HOME autoriza producir aunque el checkpoint operativo siga bloqueado; conservar ese checkpoint sin usarlo como veto creativo.",
     "Si el material actual permite una representación fiel, producir el derivado y marcarlo PRODUCIDO_NO_APROBADO hasta aprobación real.",
     "Si el material no supera el gate HERO/calidad pero aún permite un boceto útil, crear solo BORRADOR_INTERNO_REQUIERE_RECAPTURA cuando la herramienta lo permita; nunca presentarlo como aprobado/publicable.",
@@ -77,6 +91,7 @@
     "Precio interno nunca se incorpora a copy/arte. Precio visible solo con autorización pública específica.",
     "Entregar brief, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida.",
     "Guardar únicamente derivados en SALIDAS y verificar la escritura antes de afirmar SUBIDO_A_DRIVE.",
+    "Después de aprobación explícita de Miguel, copiar el derivado aprobado a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA> y mostrar el enlace vivo; PRODUCIDO_NO_APROBADO no se copia.",
     "No cambiar estados a APROBADO/LISTO/PUBLICADO sin evidencia real."
   ],
   "privacy": [
@@ -128,5 +143,19 @@
       "solo existe evidencia privada/no publicable para completar el arte",
       "el formato solicitado no puede representarse fielmente con el material disponible"
     ]
+  },
+  "approvedReferenceLibrary": {
+    "name": "REFERENCIAS_APROBADAS_AFL",
+    "useAsDefaultWhenNoReferenceSelected": true,
+    "approvalRequired": true,
+    "saveMode": "COPY_APPROVED_DERIVATIVE",
+    "folderPattern": "REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>",
+    "neverMoveOutputOriginal": true,
+    "excludedStates": [
+      "PRODUCIDO_NO_APROBADO",
+      "BORRADOR_INTERNO_REQUIERE_RECAPTURA"
+    ],
+    "privacy": "Resolver y mostrar enlace vivo en ejecución; no persistir Drive ID/URL privado en HOME público.",
+    "purpose": "Reutilizar piezas aprobadas como referencia de composición/dirección visual, nunca como fuente de datos de otra unidad."
   }
 }
