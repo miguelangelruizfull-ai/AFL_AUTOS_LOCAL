@@ -89,7 +89,7 @@ Formato:
 - 9:16.
 
 ARTEFACTO:
-- `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg` en `02_SALIDAS/AFL-279006/50_HISTORIAS`.
+- `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg` en `02_SALIDAS/AFL-279006/50_HISTORIAS/10_EN_REVISION`.
 
 Secuencia sugerida:
 1. HERO.
@@ -341,3 +341,25 @@ Estado después de esta revisión:
 - Siguiente recomendado por `CHATGPT_CURRENT`: `CAPTURA_COMERCIAL_COMPLETA` — requiere trabajo físico.
 - Después de subir material nuevo: `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`.
 - Publicación automática: `NO`.
+
+## ESTRUCTURA OPERATIVA DE HISTORIAS — 2026-10-02
+
+Contrato: `HISTORIA_9X16_AFL_V1`.
+
+    01_ENTRADAS/AFL-279006/
+    └── 05_SELECCION_TEMPORAL/
+
+    02_SALIDAS/AFL-279006/50_HISTORIAS/
+    ├── 00_BORRADORES/
+    ├── 10_EN_REVISION/       ← Historia V4 actual
+    ├── 20_APROBADAS/
+    ├── 30_VARIANTES/
+    └── 90_RECHAZADAS/
+
+Referencia central: `AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADAS/HISTORIAS`.
+
+- La Historia V4 actual conserva `PRODUCIDA_VERIFICADA / NO_PUBLICAR` y queda en `10_EN_REVISION`.
+- Aprobar requiere instrucción explícita de Miguel.
+- Una corrección crea nueva versión; no sobrescribir la anterior.
+- RAW/originales nunca entran a estas carpetas.
+- No publicar automáticamente.
