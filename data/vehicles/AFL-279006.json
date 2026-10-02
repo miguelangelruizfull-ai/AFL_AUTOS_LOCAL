@@ -149,7 +149,7 @@
     "stories": "PRODUCIDA_VERIFICADA_NO_PUBLICAR",
     "covers": "PRODUCIDA_VERIFICADA_NO_APROBAR_NO_PUBLICAR",
     "reel": "PENDIENTE",
-    "tiktok": "PENDIENTE",
+    "tiktok": "PRODUCIDO_NO_APROBADO",
     "whatsapp": "PUBLICADO",
     "sendPackage": "PUBLICADO"
   },
@@ -244,8 +244,13 @@
       "key": "tiktok",
       "label": "TikTok",
       "folder": "80_TIKTOK",
-      "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1sHHOdLTFBNFHiZddSN5BTmYR3NaBPuT6"
+      "status": "PRODUCIDO_NO_APROBADO",
+      "url": "https://drive.google.com/drive/folders/1sHHOdLTFBNFHiZddSN5BTmYR3NaBPuT6",
+      "artifactPackage": "AFL-279006_TIKTOK_PHOTOMOTION_9X16_2026-10-02.zip",
+      "preview": "AFL-279006_TIKTOK_PREVIEW_9X16_2026-10-02.jpg",
+      "format": "1080x1920",
+      "durationSeconds": 14.57,
+      "audio": "SILENT_MASTER_ADD_COMMERCIAL_MUSIC_AT_PUBLISH"
     },
     {
       "key": "whatsapp",
@@ -283,11 +288,11 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-10-02",
-    "lastCompleted": "HISTORIA_V4_9X16_PRODUCIDA_VERIFICADA_POR_CHATGPT_CURRENT; derivado 1080x1920 guardado en 50_HISTORIAS; unidad completa y zonas seguras verificadas; no publicado.",
+    "lastCompleted": "TIKTOK_PHOTOMOTION_9X16_PRODUCIDO_NO_APROBADO; 14.57 s, 1080x1920, construido solo con fotografías reales verificadas de AFL-279006; paquete y preview verificados en 80_TIKTOK; sin precio visible, sin audio incrustado y sin publicación. VIDEO_REAL_9_16 sigue pendiente.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Ejecutar trabajo físico de captura comercial completa: 22 fotos obligatorias + walkaround vertical real 9:16; subir únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA. Después MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL. No publicar automáticamente.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-10-02T13:17:00-06:00"
+    "lastVerifiedAt": "2026-10-02T17:37:36-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
@@ -599,44 +604,41 @@
   },
   "contentLab": {
     "operation": "CONTENIDO_EXPRESS_AFL",
-    "function": "Crear flyer",
-    "status": "FLYER_PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO",
-    "requestedAt": "2026-10-02T17:23:00-06:00",
-    "startedAt": "2026-10-02T17:23:00-06:00",
-    "completedAt": "2026-10-02T17:29:50-06:00",
-    "lastVerifiedAt": "2026-10-02T17:29:50-06:00",
-    "movedAt": null,
+    "function": "Crear TikTok",
+    "status": "TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO",
+    "completedAt": "2026-10-02T17:37:36-06:00",
+    "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
     "timezone": "America/Mexico_City",
-    "result": "Flyer 4:5 producido con la fotografía HERO real validada de AFL-279006 y logo AFL temporal canónico. La V1 temporal fue sustituida por una versión mejorada verificada; se conserva únicamente la derivada final en SALIDAS. Precio omitido por falta de autorización pública específica. Checkpoint CAPTURA_PENDIENTE conservado. Sin publicación.",
-    "filesMoved": 0,
-    "filesProduced": 1,
+    "result": "TikTok photo-motion 9:16 producido con fotografías reales verificadas de AFL-279006 y logo AFL temporal canónico. Master silencioso para selección posterior de audio comercial vigente. Precio público omitido. Checkpoint físico conservado. Sin publicación.",
+    "filesProduced": 2,
     "deliverables": [
       {
-        "key": "flyer4x5",
-        "status": "PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO_NO_PUBLICAR",
-        "artifact": "AFL-279006_FLYER_4X5_V2_MEJORADA.jpg",
-        "format": "1080x1350",
-        "sourceHero": "IMG_20260909_141002470_RETOQUE_V2.jpg",
-        "brandAsset": "01_LOGO_AFL_AUTOS_TEMPORAL_CANONICO_3X_TRANSPARENTE.png",
+        "key": "tiktokPhotoMotion",
+        "status": "PRODUCIDO_NO_APROBADO_NO_PUBLICAR",
+        "artifactPackage": "AFL-279006_TIKTOK_PHOTOMOTION_9X16_2026-10-02.zip",
+        "preview": "AFL-279006_TIKTOK_PREVIEW_9X16_2026-10-02.jpg",
+        "format": "1080x1920",
+        "durationSeconds": 14.57,
+        "vehicle_photo_provenance": "SAME_AFL_ID",
+        "synthetic_vehicle_views": 0,
+        "other_vehicle_photos": 0,
+        "stock_vehicle_photos": 0,
+        "generic_icons": 0,
         "vehicle_fidelity": "POSITIVE",
         "brand_asset_fidelity": "POSITIVE",
         "publishable_data_control": "POSITIVE",
         "premium_authenticity": "POSITIVE",
-        "generic_template_risk": "LOW",
         "approved_reference_alignment": "POSITIVE",
+        "generic_template_risk": "LOW",
         "user_approval": "NO"
       }
     ],
-    "reposUpdated": [
-      "Vehiculos",
-      "AFL_AUTOS_LOCAL"
-    ],
-    "nextAction": "REVISION_MIGUEL_FLYER; opcional MEJORAR_FLYER",
+    "nextAction": "REVISION_MIGUEL_TIKTOK_PHOTOMOTION",
     "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "blockings": [
       "APROBACION_MIGUEL_PENDIENTE",
+      "VIDEO_REAL_9_16_PENDIENTE",
       "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
-      "VIDEO_REAL_PENDIENTE",
       "NO_PUBLICAR"
     ]
   },
