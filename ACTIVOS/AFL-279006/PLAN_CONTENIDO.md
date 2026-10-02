@@ -142,7 +142,7 @@ Material:
 
 ## 7. TIKTOK
 
-ESTADO: PENDIENTE
+ESTADO: NO_APROBADA_PHOTOMOTION / VIDEO_REAL_PENDIENTE
 
 Formato:
 - vertical 9:16.
@@ -363,3 +363,20 @@ Referencia central: `AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADA
 - Una corrección crea nueva versión; no sobrescribir la anterior.
 - RAW/originales nunca entran a estas carpetas.
 - No publicar automáticamente.
+
+
+## CIERRE — TIKTOK PHOTO-MOTION RECHAZADO — 2026-10-02
+
+- Decisión de Miguel: RECHAZAR ESTA VERSIÓN.
+- Estado anterior: PRODUCIDO_NO_APROBADO.
+- Estado nuevo: NO_APROBADA / NO_PUBLICAR.
+- Artefacto rechazado archivado en `REFERENCIAS_NO_APROBADAS_AFL/TIKTOK/AFL-279006`.
+- Motivo explícito del usuario: NO_ESPECIFICADO.
+- Señales POSITIVE reutilizables: fidelidad de la unidad; fotografías reales del mismo AFL-ID; sin stock; sin vistas sintéticas; sin precio interno; logo canónico; formato 9:16.
+- Señales NEGATIVE: la dirección PHOTO-MOTION queda NO_APROBADA y no puede usarse como referencia aprobada ni asumirse como estilo deseado.
+- Siguiente hipótesis: producir una nueva versión TikTok cuando exista footage real vertical 9:16; conservar hook/copy únicamente como borrador sujeto a nueva revisión.
+- `may_use_as_approved_reference=false`.
+- `may_use_for_analysis=true`.
+- Checkpoint físico conservado: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Siguiente acción física: `CAPTURA_COMERCIAL_COMPLETA`.
+- Publicación automática: `NO`.
