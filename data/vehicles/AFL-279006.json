@@ -143,7 +143,7 @@
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
-    "images": "PENDIENTE",
+    "images": "PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO",
     "post": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
     "feed": "EN_PRODUCCION",
     "stories": "PRODUCIDA_VERIFICADA_NO_PUBLICAR",
@@ -197,8 +197,9 @@
       "key": "images",
       "label": "Imágenes comerciales",
       "folder": "20_IMAGENES_COMERCIALES",
-      "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1coBt16_8PRPkWeHXUHMzlAiYg3ZWV416"
+      "status": "PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO",
+      "url": "https://drive.google.com/drive/folders/1coBt16_8PRPkWeHXUHMzlAiYg3ZWV416",
+      "artifact": "AFL-279006_FLYER_4X5_V2_MEJORADA.jpg"
     },
     {
       "key": "post",
@@ -598,51 +599,59 @@
   },
   "contentLab": {
     "operation": "CONTENIDO_EXPRESS_AFL",
-    "function": "Crear portada",
-    "status": "PORTADA_PRODUCIDA_VERIFICADA_NO_APROBADA",
-    "requestedAt": "2026-10-02T17:06:00-06:00",
-    "startedAt": "2026-10-02T17:06:00-06:00",
-    "completedAt": "2026-10-02T17:13:22-06:00",
-    "lastVerifiedAt": "2026-10-02T17:13:22-06:00",
+    "function": "Crear flyer",
+    "status": "FLYER_PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO",
+    "requestedAt": "2026-10-02T17:23:00-06:00",
+    "startedAt": "2026-10-02T17:23:00-06:00",
+    "completedAt": "2026-10-02T17:29:50-06:00",
+    "lastVerifiedAt": "2026-10-02T17:29:50-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "Portada 4:5 producida con HERO real verificado de AFL-279006, logo AFL temporal canónico y dirección visual basada en referencias aprobadas. Precio omitido. Checkpoint CAPTURA_PENDIENTE conservado. Sin publicación.",
+    "result": "Flyer 4:5 producido con la fotografía HERO real validada de AFL-279006 y logo AFL temporal canónico. La V1 temporal fue sustituida por una versión mejorada verificada; se conserva únicamente la derivada final en SALIDAS. Precio omitido por falta de autorización pública específica. Checkpoint CAPTURA_PENDIENTE conservado. Sin publicación.",
     "filesMoved": 0,
     "filesProduced": 1,
     "deliverables": [
       {
-        "key": "cover4x5",
-        "status": "PRODUCIDA_VERIFICADA_NO_APROBADA_NO_PUBLICAR",
-        "artifact": "AFL-279006_PORTADA_4X5_V1_PREMIUM_NO_APROBADO.png",
+        "key": "flyer4x5",
+        "status": "PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO_NO_PUBLICAR",
+        "artifact": "AFL-279006_FLYER_4X5_V2_MEJORADA.jpg",
         "format": "1080x1350",
+        "sourceHero": "IMG_20260909_141002470_RETOQUE_V2.jpg",
+        "brandAsset": "01_LOGO_AFL_AUTOS_TEMPORAL_CANONICO_3X_TRANSPARENTE.png",
+        "vehicle_fidelity": "POSITIVE",
+        "brand_asset_fidelity": "POSITIVE",
+        "publishable_data_control": "POSITIVE",
         "premium_authenticity": "POSITIVE",
         "generic_template_risk": "LOW",
-        "approved_reference_alignment": "POSITIVE"
+        "approved_reference_alignment": "POSITIVE",
+        "user_approval": "NO"
       }
     ],
     "reposUpdated": [
+      "Vehiculos",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+    "nextAction": "REVISION_MIGUEL_FLYER; opcional MEJORAR_FLYER",
     "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "blockings": [
       "APROBACION_MIGUEL_PENDIENTE",
       "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
-      "VIDEO_REAL_PENDIENTE"
+      "VIDEO_REAL_PENDIENTE",
+      "NO_PUBLICAR"
     ]
   },
   "recommendation": {
     "schemaVersion": "1.0.0",
-    "updatedAt": "2026-10-02T17:13:22-06:00",
+    "updatedAt": "2026-10-02T17:29:50-06:00",
     "authority": "CHATGPT_CURRENT",
     "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
     "latestClosure": {
-      "status": "PORTADA_4X5_PRODUCIDA_NO_APROBADA",
-      "summary": "Portada 4:5 producida y verificada con material real existente; guardada en 60_PORTADAS sin publicar ni alterar el checkpoint.",
+      "status": "FLYER_4X5_MEJORADO_PRODUCIDO_NO_APROBADO",
+      "summary": "Flyer 4:5 mejorado producido con HERO real y logo canónico; versión final verificada en 20_IMAGENES_COMERCIALES. Sin precio visible, sin publicación y sin cambio de checkpoint.",
       "filesMoved": 0,
       "filesProduced": 1,
-      "captureEvidence": "12 fotos retocadas disponibles en 00_MATERIAL_DISPONIBLE_LOCAL; HERO usado IMG_20260909_141002470_RETOQUE_V2.jpg",
-      "lastVerifiedAt": "2026-10-02T17:13:22-06:00"
+      "captureEvidence": "HERO usado: IMG_20260909_141002470_RETOQUE_V2.jpg; 12 fotos retocadas disponibles.",
+      "lastVerifiedAt": "2026-10-02T17:29:50-06:00"
     },
     "availableNow": [
       "Feed V4 4:5 producido y verificado; conservado sin cambios.",
