@@ -217,7 +217,7 @@
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "evidenceStatus": "DRIVE_CANONICO_BASELINE_SIN_CAMBIOS; SESION_CAMPO_SIN_ARCHIVOS; MATERIAL_NUEVO_NO_VERIFICADO; DESTINO_NUEVA_CAPTURA_NO_LOCALIZADO",
     "lastEvidenceCheck": "2026-10-02",
-    "lastEvidenceCheckAt": "2026-10-02T11:50:34-06:00",
+    "lastEvidenceCheckAt": "2026-10-02T11:53:57-06:00",
     "nextPhysicalStep": "LAVADO_FISICO",
     "washStatus": "PENDIENTE_FISICO"
   },
@@ -236,7 +236,7 @@
       "destination": "NO_LOCALIZADO",
       "provisionalOutputs": "CONSERVADOS_NO_FINALES"
     },
-    "lastVerifiedAt": "2026-10-02T11:50:34-06:00",
+    "lastVerifiedAt": "2026-10-02T11:53:57-06:00",
     "lastOperationalAction": "ROOT_REVALIDACION_DRIVE_Y_CONTROL; PROVISIONALES_CONSERVADOS"
   },
   "editPolicy": {
@@ -441,7 +441,7 @@
     "requestedAtLocal": "2026-10-02T11:41:05.988-06:00",
     "startedAt": "2026-10-02T11:41:05.988-06:00",
     "completedAt": "2026-10-02T11:52:36-06:00",
-    "lastVerifiedAt": "2026-10-02T11:50:34-06:00",
+    "lastVerifiedAt": "2026-10-02T11:53:57-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
     "result": "Captura comercial bloqueada: Drive canónico conserva la línea base sin material nuevo verificable y la sesión de campo no contiene archivos. CONTROL reconciliado con PUENTE. No se movió ni produjo contenido.",
