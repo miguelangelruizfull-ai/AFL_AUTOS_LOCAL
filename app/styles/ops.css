@@ -28,3 +28,14 @@
 .lab-relation-card h3{margin:4px 0 8px}
 .lab-rules{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
 @media(max-width:900px){.lab-relation-grid{grid-template-columns:1fr}}
+
+
+/* AFL LAB HOME UX 2026-10-02 */
+.home-tabs-nav{position:sticky;top:0;z-index:6;padding:10px 0;background:rgba(18,24,33,.96);backdrop-filter:blur(10px)}
+.home-tabs-nav .btn{border-radius:999px}
+.lab-launch-summary{background:#0d131b;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:96px}
+.lab-launch-summary p{margin:6px 0 0}
+@media(max-width:620px){
+  .home-tabs-nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;padding-bottom:12px}
+  .home-tabs-nav .btn{flex:0 0 auto;min-width:max-content}
+}
