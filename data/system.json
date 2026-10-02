@@ -258,7 +258,22 @@
       ],
       "privatePriceSource": "commercial.priceInternal",
       "publicCommentUsesInternalPrice": false,
-      "privatePriceAuthorization": "AUTORIZADO_POR_MIGUEL_2026-09-27"
+      "privatePriceAuthorization": "AUTORIZADO_POR_MIGUEL_2026-09-27",
+      "timezone": "America/Mexico_City",
+      "businessHours": "LUN-SAB 08:00-21:00",
+      "salePriorityOrder": [
+        "CLIENTE_NEGOCIACION_ACTIVA",
+        "LLAMADA_O_VISITA_INTENCION_ALTA",
+        "MATERIAL_URGENTE_PARA_LEAD",
+        "PUBLICACION",
+        "ORGANIZACION_INTERNA"
+      ],
+      "callRecommendation": true,
+      "callRequiresCapturedPhone": true,
+      "callHighIntentOnly": true,
+      "autoCall": false,
+      "outsideHoursCallAction": "PROGRAMAR_LLAMADA",
+      "pricePlusPhoneDoesNotAutoQualify": true
     },
     "alternativeResponse": {
       "prompt": "data/prompts/respuesta-alternativa.json",
