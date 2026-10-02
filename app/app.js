@@ -1328,7 +1328,7 @@ function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder
     "",
     "CONTEXTO COMERCIAL VERIFICADO:",
     "- Disponibilidad: " + (commercial.availability || "PENDIENTE"),
-    "- Precio interno: " + (commercial.priceInternal == null ? "PENDIENTE" : money(commercial.priceInternal, commercial.currency || "MXN")),
+    "- Precio visible: SOLO si existe precio público/catalogable expresamente autorizado en la fuente vigente. PRECIO INTERNO = SOLO ADMIN / NO PUBLICABLE.",
     "- Fase: " + (c.phase || "PENDIENTE"),
     "- Estado: " + (c.state || (v.status && v.status.vehicle) || "PENDIENTE"),
     "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
