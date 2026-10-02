@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "key": "PRODUCCION_CREATIVA_POR_VEHICULO",
   "title": "Producción creativa por vehículo",
   "scope": "AFL_AUTOS_LOCAL vehicle detail",
@@ -38,7 +38,9 @@
     "originalsPolicy": "No mover, borrar ni alterar RAW/originales canónicos."
   },
   "commercialStrategy": [
-    "Usar únicamente datos comerciales y técnicos verificados del expediente.",
+    "Usar únicamente datos comerciales y técnicos verificados del expediente vigente.",
+    "Aplicar además el gate de publicabilidad: DATO_CONFIRMADO ≠ DATO_PUBLICABLE.",
+    "Nunca usar precio interno como precio visible. Precio solo con autorización pública específica para la pieza.",
     "Definir comprador probable por tipo de vehículo sin inventar demografía sensible.",
     "Construir hook, beneficio, prueba visible, manejo de objeción y CTA.",
     "Diferenciar texto de venta, texto sobreimpreso y copy final por plataforma.",
@@ -67,13 +69,46 @@
     "Evitar spam y etiquetas irrelevantes."
   ],
   "completion": [
-    "Entregar brief final, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida.",
-    "Si las herramientas disponibles permiten crear o editar la pieza final, producirla y guardar solo el derivado en SALIDAS.",
+    "Antes de producir, comprobar PUENTE, bloqueos de Content Lab y gates de publicabilidad/visual.",
+    "Si PRODUCCION_FINAL está BLOQUEADA o NO_PUBLICAR, no generar una pieza final publicable; entregar especificación o borrador interno solo si fue pedido explícitamente.",
+    "Entregar brief final, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida cuando el gate permita producir.",
+    "Si las herramientas disponibles permiten crear o editar la pieza final y los gates están abiertos, producirla y guardar solo el derivado en SALIDAS.",
     "Si no es posible generar el archivo final, entregar una especificación lista para edición y declarar la limitación.",
-    "No cambiar estados a LISTO/PUBLICADO sin evidencia real del entregable."
+    "No afirmar que un archivo fue subido a Drive sin escritura real y verificación posterior.",
+    "No cambiar estados a LISTO/APROBADO/PUBLICADO sin evidencia real del estado correspondiente."
   ],
   "privacy": [
     "No exponer VIN completo, documentos, odómetro privado, PII ni evidencia marcada como privada.",
     "No mezclar material de otros vehículos."
-  ]
+  ],
+  "mandatoryAuthorities": [
+    "Vehiculos/START_HERE.md y el PUENTE.md vigente de la unidad: verdad de identidad, datos variables y estado de producción.",
+    "AFL_AUTOS_CONTENT_SYSTEM/docs/EVIDENCE_AND_PUBLICATION_RULES.md: diferencia obligatoria entre DATO_CONFIRMADO y DATO_PUBLICABLE.",
+    "AFL_AUTOS_CONTENT_SYSTEM/formats/FLYERS_PORTADAS.md: estándar obligatorio para flyers, portadas e historias.",
+    "AFL_AUTOS_CONTENT_SYSTEM/docs/BRAND_ASSETS.md: logo oficial vigente.",
+    "AFL_AUTOS_CONTENT_SYSTEM/formats/ACTIVE_VISUAL_DIRECTION.md: dirección visual activa.",
+    "AFL_AUTOS_CONTENT_SYSTEM/formats/FLYER_ENGINE.md y formats/FLYER_FAMILIES.md: composición y familia visual.",
+    "AFL_AUTOS_CONTENT_LAB/productions/<AFL-ID>*.md cuando exista: checkpoint y bloqueos vigentes.",
+    "AFL_AUTOS_COMERCIAL/rules/FUENTES_DE_VERDAD.md y reglas comerciales aplicables."
+  ],
+  "publicationGate": {
+    "confirmedIsNotAutomaticallyPublicable": true,
+    "internalPrice": "commercial.priceInternal / PRECIO INTERNO nunca se imprime, publica ni usa como texto sobreimpreso. Solo sirve para operación interna.",
+    "publicPrice": "Mostrar precio únicamente cuando el PUENTE o una autorización explícita de Miguel para ESA pieza indique un precio publicable. Si PRECIO CATALOGO=OMITIR, omitir toda cifra aunque exista precio interno confirmado.",
+    "productionBlock": "Si PUENTE o Content Lab indican PRODUCCION_FINAL=BLOQUEADA, NO_PUBLICAR o SELECCION_FINAL bloqueada, no crear ni cerrar una pieza pública final. Solo puede prepararse especificación o BORRADOR_INTERNO/NO_PUBLICAR si Miguel lo pide explícitamente.",
+    "dataRule": "Cada dato debe pasar dos gates separados: CONFIRMADO y PUBLICABLE. Fallar cualquiera obliga a omitirlo.",
+    "approvalRule": "PRODUCIDO ≠ APROBADO ≠ PUBLICADO. No inferir aprobación por existir un archivo."
+  },
+  "visualProductionGate": {
+    "hero": "Antes de diseñar, validar que exista una foto HERO apta según ACTIVE_VISUAL_DIRECTION. Si no existe, marcar BLOQUEADA_POR_MATERIAL.",
+    "preparation": "Flujo obligatorio para pieza final: ORIGINAL → SELECCION → RETOQUE → LAVADO_VISUAL_SI_APLICA → VALIDACION_FIDELIDAD → PIEZA_FINAL.",
+    "finalRule": "No montar/cerrar una pieza final directamente sobre un original sin evidencia de la etapa de preparación visual.",
+    "brand": "Usar logo oficial cuando corresponda; no generar, rediseñar ni sustituir el logo.",
+    "story": "Historia 9:16 debe diseñarse verticalmente desde origen, con zonas seguras, HERO dominante, 1–3 datos publicables y CTA breve."
+  },
+  "verificationGate": {
+    "driveWrite": "No afirmar SUBIDO_A_DRIVE ni destino confirmado sin una escritura real y verificación posterior por lectura/listado.",
+    "fileStatus": "Un archivo local del chat no equivale a archivo guardado en Drive.",
+    "noFalseCompletion": "No declarar LISTO, APROBADO, PUBLICADO ni PUBLICADO_CONFIRMADO_POR_MIGUEL sin evidencia correspondiente."
+  }
 }
