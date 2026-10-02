@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2.0",
+  "schemaVersion": "1.3.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -44,7 +44,11 @@
     "Al continuar con producción, desplegar opciones de contenido por pieza.",
     "Si se crea 05_SELECCION_TEMPORAL, copiar seleccionados de trabajo; no mover RAW/originales.",
     "Cuando Miguel apruebe explícitamente una pieza, copiar el derivado aprobado a DRIVE:REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>; esa biblioteca es referencia creativa por defecto cuando no se elija otra.",
-    "PRODUCIDO_NO_APROBADO y BORRADOR_INTERNO_REQUIERE_RECAPTURA nunca se incorporan a referencias aprobadas."
+    "PRODUCIDO_NO_APROBADO y BORRADOR_INTERNO_REQUIERE_RECAPTURA nunca se incorporan a referencias aprobadas.",
+    "Para CONTENIDO_EXPRESS/Crear portada y piezas express, leer obligatoriamente AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md además del contrato HOME/Lab.",
+    "Antes de creatividad express, analizar mínimo 3 referencias aprobadas relevantes y preferentemente 5–6; extraer el ADN visual repetido de AFL Autos.",
+    "Aplicar PREMIUM_AUTENTICA_AFL y el gate anti-genérico antes de entregar una pieza para revisión; no depender de que Miguel escriba manualmente 'premium' o 'no genérica'.",
+    "Si generic_template_risk=HIGH, recomponer en la misma ejecución mientras la evidencia permita continuar."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -69,5 +73,39 @@
       "cambiar el checkpoint operativo solo por haber producido una pieza",
       "marcar APROBADO o PUBLICADO sin evidencia/autorización correspondiente"
     ]
+  },
+  "expressContract": {
+    "repository": "AFL_AUTOS_CONTENT_LAB",
+    "path": "contracts/CONTENIDO_EXPRESS.md",
+    "url": "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_LAB/blob/main/contracts/CONTENIDO_EXPRESS.md",
+    "appliesWhen": [
+      "CONTENIDO_EXPRESS",
+      "Crear portada",
+      "Crear flyer",
+      "Crear historia",
+      "Crear Reel",
+      "Crear TikTok",
+      "Marketplace",
+      "Paquete express"
+    ]
+  },
+  "creativeQualityGate": {
+    "id": "PREMIUM_AUTENTICA_AFL",
+    "approvedReferences": {
+      "source": "DRIVE:REFERENCIAS_APROBADAS_AFL",
+      "minimumRelevant": 3,
+      "preferredRelevant": "5-6",
+      "rule": "Analizar visualmente patrones repetidos del mismo tipo de pieza antes de componer; no basta una sola referencia."
+    },
+    "requirements": [
+      "Extraer ADN visual AFL repetido: marca integrada, vehículo HERO, profundidad, geometría dinámica, jerarquía, tipografía y acentos.",
+      "La composición debe responder a la toma HERO, color, postura y proporciones reales de la unidad; no usar plantilla intercambiable.",
+      "Usar logo AFL canónico/temporal autorizado; no generar ni aproximar el logotipo.",
+      "Evitar dirección basada únicamente en foto + overlay básico + píldora DISPONIBLE + CTA tipo botón.",
+      "Si al ocultar mentalmente el logo la pieza podría pertenecer sin cambios relevantes a cualquier lote/agencia, recomponer.",
+      "Antes de entregar para revisión, registrar premium_authenticity, approved_reference_alignment y generic_template_risk.",
+      "generic_template_risk debe ser LOW para considerar la composición lista para revisión."
+    ],
+    "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH -> RECOMPONER_ANTES_DE_ENTREGAR"
   }
 }
