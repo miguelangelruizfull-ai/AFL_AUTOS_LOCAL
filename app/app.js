@@ -1028,6 +1028,7 @@ function makeVehicleOpsMenu(v) {
   const quick = element("div", "actions");
   if (links.newCapture && links.newCapture.url) quick.append(linkButton("Subir nueva captura", links.newCapture.url, false));
   quick.append(
+    linkButton("Producción creativa", "#creative-production", false),
     linkButton("Ver checklist", "#field-checklist", false),
     linkButton("Opciones del vehículo", "#prompt-menu", false)
   );
@@ -1083,6 +1084,147 @@ function makePromptMenu(v) {
     grid.append(card);
   });
   panel.append(grid);
+  return panel;
+}
+
+const CREATIVE_PRODUCTION_PROMPT = "data/prompts/produccion-creativa-por-vehiculo.json";
+
+function creativeProductionPieces() {
+  return [
+    { key: "cover", label: "Crear portada", outputFolder: "60_PORTADAS", format: "Hero/portada comercial" },
+    { key: "flyer", label: "Crear flyer", outputFolder: "20_IMAGENES_COMERCIALES", format: "Pieza gráfica comercial" },
+    { key: "story", label: "Crear historia", outputFolder: "50_HISTORIAS", format: "Vertical 9:16" },
+    { key: "tiktok", label: "Crear TikTok", outputFolder: "80_TIKTOK", format: "Video vertical corto" },
+    { key: "marketplace", label: "Crear post Marketplace", outputFolder: "10_MARKETPLACE", format: "Ficha/post Marketplace" }
+  ];
+}
+
+function creativeMaterialPath(v, folder) {
+  const value = String(folder || "").trim();
+  if (!value) return v.drive.inputRoot;
+  if (/^https?:\/\//i.test(value)) return value;
+  if (value.indexOf(v.drive.inputRoot) === 0) return value;
+  return v.drive.inputRoot.replace(/\/$/, "") + "/" + value.replace(/^\//, "");
+}
+
+function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder) {
+  const c = v.checkpoint || {};
+  const commercial = v.commercial || {};
+  const reference = String(referenceFolder || "").trim();
+  const material = creativeMaterialPath(v, materialFolder);
+  const output = v.drive.outputRoot.replace(/\/$/, "") + "/" + piece.outputFolder;
+  const lines = [
+    "PRODUCCION_CREATIVA_AFL",
+    "CONTRATO: " + CREATIVE_PRODUCTION_PROMPT,
+    "",
+    "Opera únicamente el vehículo " + v.id + " (" + v.vehicle.publicTitle + ") dentro de AFL Autos.",
+    "No mezcles material de otra unidad y no publiques automáticamente.",
+    "",
+    "PIEZA SOLICITADA:",
+    "- Tipo: " + piece.label,
+    "- Formato/objetivo: " + piece.format,
+    "- Carpeta de material seleccionada: " + material,
+    "- Carpeta de referencias creativas: " + (reference || "NO_SELECCIONADA"),
+    "- Carpeta de salida: " + output,
+    "",
+    "CONTEXTO COMERCIAL VERIFICADO:",
+    "- Disponibilidad: " + (commercial.availability || "PENDIENTE"),
+    "- Precio interno: " + (commercial.priceInternal == null ? "PENDIENTE" : money(commercial.priceInternal, commercial.currency || "MXN")),
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || (v.status && v.status.vehicle) || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
+    "",
+    "ESTRATEGIA COMERCIAL OBLIGATORIA:",
+    "1. Revisa primero expediente y material seleccionado. Usa solo características, precio, disponibilidad y evidencias verificadas.",
+    "2. Define el ángulo de venta adecuado para esta unidad: hook, beneficio principal, prueba visible, objeción a resolver y CTA.",
+    "3. Separa: copy final, texto sobreimpreso y guía visual. No inventes versión, tracción, equipamiento ni condiciones.",
+    "",
+    "ANÁLISIS DE FOTOS Y VIDEO:",
+    "1. Inventaría fotos y videos útiles de la carpeta seleccionada y elige los mejores planos.",
+    "2. Si puedes visualizar los videos, analiza hook de los primeros segundos, ritmo, encuadre, estabilidad, iluminación, color, audio, silencios, texto, transiciones y cortes aprovechables.",
+    "3. Propón mejoras concretas: reencuadre, estabilización, corrección de color, limpieza de audio, subtítulos, velocidad, transiciones o efectos solo cuando aporten.",
+    "4. Si no puedes visualizar un archivo, dilo y no inventes su contenido.",
+    "",
+    "REFERENCIAS CREATIVAS:",
+    "Usa la carpeta de referencias como inspiración de composición, ritmo, efectos y estructura; no copies marcas de agua, logos ajenos ni material protegido.",
+    "",
+    "TENDENCIA Y POTENCIAL VIRAL:",
+    "Consulta tendencias vigentes al momento de ejecutar este prompt antes de recomendar formato, edición, audio o hashtags. Sugiere 2–3 patrones actuales que encajen con el vehículo y explica por qué. No garantices viralidad.",
+    "",
+    "SONIDO Y MÚSICA:",
+    "Recomienda hasta 3 sonidos o pistas vigentes y apropiados para la plataforma. Verifica disponibilidad/licencia cuando sea posible y consulta data/musica-usada.json para evitar repetir audio registrado. No reproduzcas letras.",
+    "",
+    "HASHTAGS:",
+    "Entrega hashtags específicos para intención de compra, categoría, marca/modelo, formato y ubicación solo cuando esté verificada. Evita spam.",
+    "",
+    "TERMINAR LA PIEZA:",
+    "Entrega el resultado final listo para producir: concepto, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y destino exacto.",
+    "Si las herramientas disponibles permiten crear o editar la pieza final, prodúcela y guarda solo el derivado en SALIDAS. Si no, entrega una especificación lista para edición y declara la limitación.",
+    "No marques LISTO o PUBLICADO sin evidencia real del archivo final."
+  ];
+  return lines.join("\n");
+}
+
+function makeCreativeProductionMenu(v) {
+  const panel = element("article", "panel wide prompt-menu-panel creative-production-panel no-print");
+  panel.id = "creative-production";
+  panel.append(
+    element("div", "eyebrow", "AFL LAB · PRODUCCIÓN CREATIVA"),
+    element("h2", "", "Crear contenido por pieza"),
+    element("p", "subtitle", "Selecciona el material del vehículo y, si existe, pega la ruta o URL de una carpeta de referencias creativas. Cada botón genera un prompt con estrategia comercial, análisis de video, tendencias, audio y hashtags.")
+  );
+
+  const config = element("div", "creative-config-grid");
+  const materialField = element("label", "creative-field");
+  materialField.append(element("span", "", "Carpeta de material disponible"));
+  const materialSelect = element("select", "status-select");
+  (v.drive.inputs || []).forEach(function(folder, index) {
+    const option = element("option", "", folder);
+    option.value = folder;
+    option.selected = index === 0;
+    materialSelect.append(option);
+  });
+  if (!(v.drive.inputs || []).length) {
+    const option = element("option", "", v.drive.inputRoot);
+    option.value = v.drive.inputRoot;
+    materialSelect.append(option);
+  }
+  materialField.append(materialSelect);
+
+  const referenceField = element("label", "creative-field");
+  referenceField.append(element("span", "", "Carpeta de referencias creativas"));
+  const referenceInput = element("input", "status-select");
+  referenceInput.type = "text";
+  referenceInput.placeholder = "Pega ruta o URL de Drive: flyers, videos, historias...";
+  referenceInput.autocomplete = "off";
+  referenceField.append(referenceInput);
+
+  const sourceActions = element("div", "creative-field");
+  sourceActions.append(element("span", "", "Accesos"));
+  const sourceButtons = element("div", "actions compact");
+  if (v.drive.inputUrl) sourceButtons.append(linkButton("Abrir ENTRADAS", v.drive.inputUrl, false));
+  sourceButtons.append(linkButton("Ver Multimedia", "MULTIMEDIA.html?vehicle=" + encodeURIComponent(v.id), false));
+  sourceActions.append(sourceButtons);
+  config.append(materialField, referenceField, sourceActions);
+  panel.append(config);
+
+  const grid = element("div", "prompt-menu-grid");
+  creativeProductionPieces().forEach(function(piece) {
+    const card = element("div", "prompt-menu-card");
+    card.append(
+      element("strong", "", piece.label),
+      element("p", "deliverable-note", piece.format + " · salida " + piece.outputFolder)
+    );
+    const status = element("span", "copy-status", "");
+    const actions = element("div", "actions");
+    actions.append(actionButton("Copiar prompt creativo", function() {
+      copyText(buildCreativeProductionPrompt(v, piece, materialSelect.value, referenceInput.value), status);
+    }, piece.key === "marketplace"));
+    card.append(actions, status);
+    grid.append(card);
+  });
+  panel.append(grid);
+  panel.append(element("p", "deliverable-note", "La web es estática: la carpeta de referencias se indica por ruta o URL. El prompt ejecutor debe verificar tendencias y disponibilidad de audio en el momento de producir."));
   return panel;
 }
 
@@ -1176,6 +1318,9 @@ function makeDeliverables(v) {
       copyText(JSON.stringify(payload, null, 2), status);
     }, false);
     if (d.url) controls.append(linkButton("Abrir carpeta", d.url, false));
+    if (["marketplace","images","post","stories","covers","reel","tiktok"].includes(d.key)) {
+      controls.append(linkButton("Abrir menú creativo", "#creative-production", false));
+    }
     controls.append(select, copy);
     card.append(top, element("p", "deliverable-note", channelNote(effectiveStatus)), controls, status);
     grid.append(card);
@@ -1260,6 +1405,7 @@ function vehicleDetail(v) {
   const opsMenu = makeVehicleOpsMenu(v);
   const authorizedEdit = makeAuthorizedEditPanel(v);
   const promptMenu = makePromptMenu(v);
+  const creativeProduction = makeCreativeProductionMenu(v);
   const channelNav = makeChannelNav(v);
   const whatsapp = makeWhatsappSheet(v);
   const outputs = makeDeliverables(v);
@@ -1315,7 +1461,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, recommendationPanel, opsMenu, authorizedEdit, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
+  grid.append(state, media, recommendationPanel, opsMenu, authorizedEdit, promptMenu, creativeProduction, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
