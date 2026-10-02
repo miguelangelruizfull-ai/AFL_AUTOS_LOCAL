@@ -105,6 +105,7 @@
     "outputUrl": "https://drive.google.com/drive/folders/1CnjBg93ISJcGXHoAVZTVlfb2tqUYv9Pw",
     "inputs": [
       "00_MATERIAL_DISPONIBLE_LOCAL",
+      "05_SELECCION_TEMPORAL",
       "10_APROBADOS",
       "20_NUEVA_CAPTURA",
       "90_RECHAZADOS",
@@ -126,7 +127,19 @@
     "controlDocument": "AFL-279006 — CONTROL OPERATIVO",
     "newCaptureUrl": "https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag",
     "controlDocumentUrl": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit",
-    "navigationStatus": "RECONCILIADO_CANONICO_2026-10-02"
+    "navigationStatus": "RECONCILIADO_CANONICO_2026-10-02",
+    "storyWorkflow": {
+      "structureVersion": "HISTORIA_9X16_AFL_V1",
+      "root": "02_SALIDAS/AFL-279006/50_HISTORIAS",
+      "drafts": "00_BORRADORES",
+      "review": "10_EN_REVISION",
+      "approved": "20_APROBADAS",
+      "variants": "30_VARIANTES",
+      "rejected": "90_RECHAZADAS",
+      "tempSelection": "01_ENTRADAS/AFL-279006/05_SELECCION_TEMPORAL",
+      "approvedReferenceAlias": "AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADAS/HISTORIAS",
+      "currentArtifactStage": "10_EN_REVISION"
+    }
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -206,7 +219,10 @@
       "label": "Historias",
       "folder": "50_HISTORIAS",
       "status": "PRODUCIDA_VERIFICADA_NO_PUBLICAR",
-      "url": "https://drive.google.com/drive/folders/1rqezDmGm3wkTbny3qklCIP08T1-q95Mi"
+      "url": "https://drive.google.com/drive/folders/1rqezDmGm3wkTbny3qklCIP08T1-q95Mi",
+      "workflowStructureVersion": "HISTORIA_9X16_AFL_V1",
+      "currentStage": "10_EN_REVISION",
+      "artifact": "AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg"
     },
     {
       "key": "covers",
@@ -616,7 +632,8 @@
       {
         "key": "storyV4",
         "status": "PRODUCIDA_VERIFICADA_NO_PUBLICAR",
-        "artifact": "AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg"
+        "artifact": "AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg",
+        "stage": "10_EN_REVISION"
       }
     ],
     "reposUpdated": [
