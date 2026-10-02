@@ -1,12 +1,16 @@
 # CHECKLIST CAMPO — AFL-279006
 
+Checklist vivo en Drive: https://docs.google.com/document/d/1GNLRaIrWk8P_UiMJrxFT538u7yPQd1iOmt65k5IaWbc/edit
+
 VEHICULO: Chevrolet Colorado Work Truck 2016
 COLOR: ROJO
 CAPTURA: COMPLETA / PENDIENTE DE EJECUCIÓN
-FECHA: 2026-09-28
-HORA: 10:00–11:00 America/Mexico_City
-WHATSAPP: PUBLICADO
+FASE: PRECAPTURA_CON_BORRADORES
+ESTADO: CAPTURA_PENDIENTE
+AGENDA: PENDIENTE_DE_NUEVA_FECHA_CONFIRMADA
+TIKTOK_PHOTOMOTION: NO_APROBADA / NO_PUBLICAR
 PUBLICACION_AUTOMATICA: NO
+ACTUALIZADO: 2026-10-02
 
 ## ANTES DE EMPEZAR
 
@@ -40,11 +44,11 @@ PUBLICACION_AUTOMATICA: NO
 - [ ] 21. Rin/neumático delantero.
 - [ ] 22. Rin/neumático trasero.
 
-Extras opcionales: emblemas, accesorios confirmados, pantalla/radio, laterales de caja, detalles de puertas y motor. Los extras no sustituyen las 22 fotos.
+Extras opcionales: emblemas, accesorios confirmados, pantalla/radio, laterales de caja, detalles de puertas, motor y arranque. No sustituyen las 22 fotos.
 
 ## VIDEO OBLIGATORIO — VERTICAL 9:16
 
-- [ ] Grabar un walkaround real de 20–30 s, estable y sin dedos en el lente.
+- [ ] Grabar un walkaround real de 20–30 s.
 - [ ] HERO.
 - [ ] Frontal a lateral.
 - [ ] Perfil.
@@ -54,21 +58,25 @@ Extras opcionales: emblemas, accesorios confirmados, pantalla/radio, laterales d
 - [ ] Caja abierta.
 - [ ] Interior/tablero.
 - [ ] Palanca manual.
-- [ ] Reproducir el video y comprobar continuidad, enfoque y exposición.
-
-Videos adicionales de interior o motor/arranque son opcionales; solo cuando sea seguro.
+- [ ] Reproducir el video y comprobar continuidad, estabilidad, enfoque y exposición.
 
 ## PRIVADO / CONDICIÓN
 
-- [ ] Si hace falta verificar, separar VIN, etiqueta técnica, odómetro y documentos como PRIVADO / NO_PUBLICAR.
-- [ ] Registrar daños, rayones, desgaste, estado de neumáticos y caja sin ocultarlos.
+- [ ] Si hace falta verificar, separar VIN, etiqueta técnica, odómetro y documentos como `PRIVADO / NO_PUBLICAR`.
+- [ ] Registrar daños, rayones, desgaste, corrosión, neumáticos y estado de caja sin ocultarlos.
 
 ## ANTES DE RETIRARSE
 
-- [ ] Contar las 22 fotos y verificar ambos perfiles, caja abierta/cerrada, interior y motor.
+- [ ] Contar las 22 fotos.
+- [ ] Confirmar ambos perfiles.
+- [ ] Confirmar caja abierta/cerrada.
+- [ ] Confirmar interior, tablero, palanca manual y motor.
+- [ ] Confirmar rin/neumático delantero y trasero.
 - [ ] Confirmar al menos un video 9:16 utilizable.
-- [ ] Cargar originales únicamente en [20_NUEVA_CAPTURA](https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-).
+- [ ] Cargar originales únicamente en [20_NUEVA_CAPTURA](https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag).
 
-Después de la carga: `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`. Cambiar a `CAPTURA_COMPLETA` solo al verificar todos los obligatorios; de otro modo conservar `CAPTURA_PENDIENTE`.
+Después de la carga: `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`.
 
-WhatsApp y `95_PARA_ENVIAR` ya están PUBLICADOS. La captura no modifica esas publicaciones. Marketplace y Feed siguen como borradores; no publicar automáticamente. No borrar originales.
+Cambiar a `CAPTURA_COMPLETA` solo al verificar todos los obligatorios; de otro modo conservar `CAPTURA_PENDIENTE`.
+
+WhatsApp y `95_PARA_ENVIAR` ya están PUBLICADOS. El TikTok photo-motion anterior está `NO_APROBADA`. No publicar automáticamente. No borrar originales.
