@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.3.0",
+  "schemaVersion": "1.3.1",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -48,7 +48,11 @@
     "Para CONTENIDO_EXPRESS/Crear portada y piezas express, leer obligatoriamente AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md además del contrato HOME/Lab.",
     "Antes de creatividad express, analizar mínimo 3 referencias aprobadas relevantes y preferentemente 5–6; extraer el ADN visual repetido de AFL Autos.",
     "Aplicar PREMIUM_AUTENTICA_AFL y el gate anti-genérico antes de entregar una pieza para revisión; no depender de que Miguel escriba manualmente 'premium' o 'no genérica'.",
-    "Si generic_template_risk=HIGH, recomponer en la misma ejecución mientras la evidencia permita continuar."
+    "Si generic_template_risk=HIGH, recomponer en la misma ejecución mientras la evidencia permita continuar.",
+    "Al terminar cualquier flyer, mostrar explícitamente la opción MEJORAR FLYER antes de cerrar la operación.",
+    "MEJORAR FLYER debe revisar composición, jerarquía, tipografía, contraste, CTA, integración de marca y tendencias de diseño automotriz/social vigentes como inspiración secundaria a REFERENCIAS_APROBADAS_AFL.",
+    "En flyers, revisar la limpieza aparente del vehículo; si hay polvo, lodo, manchas de agua o residuos temporales visibles, se permite RETOQUE_LIMPIEZA_DERIVADO solo sobre una copia, preservando RAW/original.",
+    "El retoque de limpieza no puede cambiar color, carrocería, rines, accesorios, geometría o equipamiento ni ocultar golpes, rayones, desgaste o defectos materiales."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -63,7 +67,8 @@
       "guardar derivados verificados en 02_SALIDAS del vehículo",
       "resolver y mostrar enlace vivo de la carpeta de material de la unidad",
       "crear/usar 05_SELECCION_TEMPORAL y copiar seleccionados de trabajo cuando sea necesario",
-      "copiar derivados explícitamente aprobados a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>"
+      "copiar derivados explícitamente aprobados a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>",
+      "crear una versión MEJORAR FLYER y aplicar retoque cosmético de limpieza solo sobre derivados, sin ocultar defectos ni alterar la identidad real del vehículo"
     ],
     "notAuthorized": [
       "publicar o programar automáticamente",
@@ -104,7 +109,8 @@
       "Evitar dirección basada únicamente en foto + overlay básico + píldora DISPONIBLE + CTA tipo botón.",
       "Si al ocultar mentalmente el logo la pieza podría pertenecer sin cambios relevantes a cualquier lote/agencia, recomponer.",
       "Antes de entregar para revisión, registrar premium_authenticity, approved_reference_alignment y generic_template_risk.",
-      "generic_template_risk debe ser LOW para considerar la composición lista para revisión."
+      "generic_template_risk debe ser LOW para considerar la composición lista para revisión.",
+      "Para flyers terminados, ofrecer MEJORAR FLYER y evaluar limpieza visual del vehículo; cualquier limpieza digital debe limitarse a suciedad superficial temporal y conservar defectos/condición real."
     ],
     "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH -> RECOMPONER_ANTES_DE_ENTREGAR"
   }
