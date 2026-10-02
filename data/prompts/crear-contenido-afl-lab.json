@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.4.0",
+  "schemaVersion": "1.5.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -59,7 +59,14 @@
     "Guardar la versión mejorada en SALIDAS y verificarla en Drive antes de eliminar cualquier versión previa.",
     "Después de verificar V2/mejorada, eliminar únicamente la V1 derivada temporal creada en esa misma ejecución y dejar la última versión, salvo instrucción explícita de conservar versiones.",
     "Si V2/mejorada falla, no puede verificarse o altera identidad/branding/datos, conservar V1 y no borrar nada.",
-    "Nunca eliminar RAW/originales, seleccionados fuente, referencias aprobadas, piezas aprobadas/publicadas ni históricos ajenos a la ejecución actual."
+    "Nunca eliminar RAW/originales, seleccionados fuente, referencias aprobadas, piezas aprobadas/publicadas ni históricos ajenos a la ejecución actual.",
+    "Después de terminar cualquier pieza gráfica, mostrar visualmente en el chat la última imagen derivada vigente antes del menú; no cerrar solo con enlace o texto.",
+    "El menú posterior a producción debe ser numerado y mantener como opción 2: MEJORAR DISEÑO.",
+    "MEJORAR DISEÑO recompone/refina jerarquía, composición, tipografía, espaciado, contraste, profundidad, integración de marca, CTA y acabado móvil, preservando vehículo real, datos autorizados y logo canónico; reejecuta gate anti-genérico.",
+    "El menú posterior a producción debe mantener como opción 3: MEJORAR Y LIMPIAR VISUALMENTE LA FOTO.",
+    "MEJORAR Y LIMPIAR VISUALMENTE LA FOTO crea solo un derivado: puede corregir exposición, color, contraste, nitidez, encuadre y suciedad superficial temporal; RAW/original intacto.",
+    "La opción 3 nunca puede cambiar color real, carrocería, cabina, rines, llantas, accesorios, geometría o equipamiento ni ocultar golpes, rayones, desgaste, corrosión, faltantes o defectos materiales.",
+    "Después de ejecutar opción 2 o 3, guardar/verificar la nueva derivada y volver a mostrar la imagen resultante en chat con el menú numerado."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -160,5 +167,36 @@
       "relistar destino y confirmar que queda la última"
     ],
     "deleteGuard": "DELETE_V1_ONLY_IF_IMPROVED_VERIFIED_AND_V1_CREATED_IN_SAME_RUN_AND_NOT_RAW_APPROVED_PUBLISHED"
+  },
+  "postProductionMenu": {
+    "enabled": true,
+    "showLatestImageInChat": true,
+    "repeatAfterImprovement": true,
+    "numbered": true,
+    "fixedActions": {
+      "2": {
+        "key": "MEJORAR_DISENO",
+        "label": "Mejorar diseño",
+        "behavior": "Refinar o recomponer la pieza vigente con ADN AFL, mejor jerarquía, composición, tipografía, espaciado, contraste, profundidad, integración de marca, CTA y acabado móvil. Preservar vehículo real, datos publicables y logo canónico. Exigir generic_template_risk=LOW."
+      },
+      "3": {
+        "key": "MEJORAR_LIMPIAR_FOTO",
+        "label": "Mejorar y limpiar visualmente la foto",
+        "behavior": "Crear un nuevo derivado con corrección conservadora de exposición, balance de color, contraste, nitidez, encuadre y suciedad superficial temporal. No modificar RAW/original ni ocultar daños, desgaste o defectos materiales; no cambiar identidad física del vehículo."
+      }
+    },
+    "minimumMenu": [
+      "1. Aprobar esta pieza",
+      "2. Mejorar diseño",
+      "3. Mejorar y limpiar visualmente la foto",
+      "4. Cambiar foto HERO",
+      "5. Ver galería / seleccionar fotos",
+      "6. Crear/usar 05_SELECCION_TEMPORAL",
+      "7. Crear otra versión",
+      "8. Crear otra pieza express",
+      "9. Subir/aportar nuevo material",
+      "10. Continuar captura física cuando siga pendiente",
+      "11. Rechazar esta pieza"
+    ]
   }
 }
