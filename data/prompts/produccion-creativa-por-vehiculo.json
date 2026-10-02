@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "key": "PRODUCCION_CREATIVA_POR_VEHICULO",
+  "title": "Producción creativa por vehículo",
+  "scope": "AFL_AUTOS_LOCAL vehicle detail",
+  "noAutoPublish": true,
+  "purpose": "Crear prompts por pieza usando material seleccionado, referencias creativas y estrategia comercial verificable.",
+  "pieceTypes": {
+    "cover": {
+      "label": "Portada",
+      "outputFolder": "60_PORTADAS",
+      "target": "Hero/portada comercial"
+    },
+    "flyer": {
+      "label": "Flyer",
+      "outputFolder": "20_IMAGENES_COMERCIALES",
+      "target": "Pieza gráfica comercial"
+    },
+    "story": {
+      "label": "Historia",
+      "outputFolder": "50_HISTORIAS",
+      "target": "Historia vertical 9:16"
+    },
+    "tiktok": {
+      "label": "TikTok",
+      "outputFolder": "80_TIKTOK",
+      "target": "Video vertical corto"
+    },
+    "marketplace": {
+      "label": "Marketplace",
+      "outputFolder": "10_MARKETPLACE",
+      "target": "Ficha/post para Marketplace"
+    }
+  },
+  "sourceSelection": {
+    "materialFolder": "Obligatoria. Debe provenir de las entradas del vehículo o de una ruta/URL autorizada.",
+    "referenceFolder": "Opcional. Puede ser una ruta/URL de Drive con flyers, videos u otras referencias creativas.",
+    "originalsPolicy": "No mover, borrar ni alterar RAW/originales canónicos."
+  },
+  "commercialStrategy": [
+    "Usar únicamente datos comerciales y técnicos verificados del expediente.",
+    "Definir comprador probable por tipo de vehículo sin inventar demografía sensible.",
+    "Construir hook, beneficio, prueba visible, manejo de objeción y CTA.",
+    "Diferenciar texto de venta, texto sobreimpreso y copy final por plataforma.",
+    "No prometer viralidad, resultados de venta ni características no verificadas."
+  ],
+  "videoAnalysis": [
+    "Inventariar videos y fotos útiles antes de editar.",
+    "Si el video es visualizable, analizar hook inicial, planos, ritmo, estabilidad, luz, color, encuadre, audio, silencios, texto, transiciones y momentos recortables.",
+    "Proponer mejoras concretas: recorte, reencuadre, estabilización, corrección de color, limpieza de audio, subtítulos, speed ramp o transiciones solo cuando aporten.",
+    "Si el video no puede visualizarse, declararlo y no inventar contenido."
+  ],
+  "trendPolicy": {
+    "freshness": "Comprobar tendencias vigentes al momento de ejecutar el prompt antes de recomendar formatos, edición, audio o hashtags.",
+    "recommendations": "Dar de 2 a 3 patrones de ejecución actuales y explicar por qué encajan con el vehículo y la plataforma.",
+    "virality": "No afirmar ni garantizar que una pieza será viral."
+  },
+  "audioPolicy": [
+    "Recomendar hasta 3 sonidos o pistas adecuadas y vigentes cuando sea posible.",
+    "Verificar disponibilidad/licencia en la plataforma de destino.",
+    "Consultar data/musica-usada.json para evitar repetir audio ya registrado cuando aplique.",
+    "No reproducir letras protegidas."
+  ],
+  "hashtagPolicy": [
+    "Entregar hashtags específicos, no una nube genérica.",
+    "Mezclar intención de compra, categoría, marca/modelo, formato y ubicación solo si está verificada.",
+    "Evitar spam y etiquetas irrelevantes."
+  ],
+  "completion": [
+    "Entregar brief final, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida.",
+    "Si las herramientas disponibles permiten crear o editar la pieza final, producirla y guardar solo el derivado en SALIDAS.",
+    "Si no es posible generar el archivo final, entregar una especificación lista para edición y declarar la limitación.",
+    "No cambiar estados a LISTO/PUBLICADO sin evidencia real del entregable."
+  ],
+  "privacy": [
+    "No exponer VIN completo, documentos, odómetro privado, PII ni evidencia marcada como privada.",
+    "No mezclar material de otros vehículos."
+  ]
+}
