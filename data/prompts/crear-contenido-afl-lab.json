@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.3.1",
+  "schemaVersion": "1.4.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -52,7 +52,14 @@
     "Al terminar cualquier flyer, mostrar explícitamente la opción MEJORAR FLYER antes de cerrar la operación.",
     "MEJORAR FLYER debe revisar composición, jerarquía, tipografía, contraste, CTA, integración de marca y tendencias de diseño automotriz/social vigentes como inspiración secundaria a REFERENCIAS_APROBADAS_AFL.",
     "En flyers, revisar la limpieza aparente del vehículo; si hay polvo, lodo, manchas de agua o residuos temporales visibles, se permite RETOQUE_LIMPIEZA_DERIVADO solo sobre una copia, preservando RAW/original.",
-    "El retoque de limpieza no puede cambiar color, carrocería, rines, accesorios, geometría o equipamiento ni ocultar golpes, rayones, desgaste o defectos materiales."
+    "El retoque de limpieza no puede cambiar color, carrocería, rines, accesorios, geometría o equipamiento ni ocultar golpes, rayones, desgaste o defectos materiales.",
+    "Toda pieza gráfica CONTENIDO_EXPRESS debe ejecutar MEJORA_OBLIGATORIA_POST_V1 en la misma operación cuando V1 sea técnicamente válida.",
+    "V1 es un derivado temporal. La segunda pasada debe editar V1 conservando exactamente vehículo real, ángulo, color, proporciones, accesorios visibles, datos autorizados y logo AFL canónico.",
+    "La mejora debe elevar composición, jerarquía, espaciado, alineación, contraste, profundidad, integración de marca, CTA y acabado móvil; no agregar precio ni claims no autorizados.",
+    "Guardar la versión mejorada en SALIDAS y verificarla en Drive antes de eliminar cualquier versión previa.",
+    "Después de verificar V2/mejorada, eliminar únicamente la V1 derivada temporal creada en esa misma ejecución y dejar la última versión, salvo instrucción explícita de conservar versiones.",
+    "Si V2/mejorada falla, no puede verificarse o altera identidad/branding/datos, conservar V1 y no borrar nada.",
+    "Nunca eliminar RAW/originales, seleccionados fuente, referencias aprobadas, piezas aprobadas/publicadas ni históricos ajenos a la ejecución actual."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -68,7 +75,8 @@
       "resolver y mostrar enlace vivo de la carpeta de material de la unidad",
       "crear/usar 05_SELECCION_TEMPORAL y copiar seleccionados de trabajo cuando sea necesario",
       "copiar derivados explícitamente aprobados a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>",
-      "crear una versión MEJORAR FLYER y aplicar retoque cosmético de limpieza solo sobre derivados, sin ocultar defectos ni alterar la identidad real del vehículo"
+      "crear una versión MEJORAR FLYER y aplicar retoque cosmético de limpieza solo sobre derivados, sin ocultar defectos ni alterar la identidad real del vehículo",
+      "eliminar únicamente la V1 derivada temporal creada en la misma ejecución después de que la versión mejorada haya sido subida y verificada en Drive"
     ],
     "notAuthorized": [
       "publicar o programar automáticamente",
@@ -110,8 +118,47 @@
       "Si al ocultar mentalmente el logo la pieza podría pertenecer sin cambios relevantes a cualquier lote/agencia, recomponer.",
       "Antes de entregar para revisión, registrar premium_authenticity, approved_reference_alignment y generic_template_risk.",
       "generic_template_risk debe ser LOW para considerar la composición lista para revisión.",
-      "Para flyers terminados, ofrecer MEJORAR FLYER y evaluar limpieza visual del vehículo; cualquier limpieza digital debe limitarse a suciedad superficial temporal y conservar defectos/condición real."
+      "Para flyers terminados, ofrecer MEJORAR FLYER y evaluar limpieza visual del vehículo; cualquier limpieza digital debe limitarse a suciedad superficial temporal y conservar defectos/condición real.",
+      "Ejecutar MEJORA_OBLIGATORIA_POST_V1 y dejar solo la última derivada cuando la mejora esté verificada en Drive; conservar V1 si la mejora falla."
     ],
     "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH -> RECOMPONER_ANTES_DE_ENTREGAR"
+  },
+  "automaticImprovementPass": {
+    "id": "MEJORA_OBLIGATORIA_POST_V1",
+    "enabled": true,
+    "appliesTo": [
+      "Crear portada",
+      "Crear flyer",
+      "Crear historia",
+      "Marketplace",
+      "imagen comercial",
+      "pieza gráfica de Paquete express"
+    ],
+    "versionPolicy": {
+      "v1": "BORRADOR_DERIVADO_TEMPORAL",
+      "improved": "CANDIDATO_DE_REVISION",
+      "keepOnlyLatestAfterVerifiedImprovement": true,
+      "preserveRawOriginals": true,
+      "preserveApprovedPublished": true,
+      "preservePreviousHistoryOutsideCurrentRun": true
+    },
+    "promptTemplate": "Edita la pieza V1 manteniendo exactamente la misma unidad real, ángulo, color, proporciones, accesorios visibles, identidad AFL y datos verificados. Mejora composición, jerarquía tipográfica, espaciado, alineación, contraste, profundidad, integración de marca y acabado móvil. Mantén el vehículo como HERO dominante. Conserva el mensaje comercial esencial y refina el módulo inferior/CTA para que se vea intencional, premium y propio de AFL Autos. No agregues precio ni características no autorizadas. No reconstruyas ni sustituyas el vehículo, no cambies carrocería, cabina, rines, accesorios, condición visible o logotipo. Si la composición sigue pareciendo plantilla genérica, recompón antes de cerrar.",
+    "requiredGates": {
+      "vehicle_fidelity": "POSITIVE",
+      "brand_asset_fidelity": "POSITIVE",
+      "publishable_data_control": "POSITIVE",
+      "premium_authenticity": "POSITIVE",
+      "approved_reference_alignment": "POSITIVE",
+      "generic_template_risk": "LOW"
+    },
+    "driveLifecycle": [
+      "crear V1 temporal",
+      "crear mejora desde V1",
+      "subir mejora a carpeta SALIDAS correspondiente",
+      "verificar mejora por readback/listado Drive",
+      "eliminar V1 temporal solo después de verificación",
+      "relistar destino y confirmar que queda la última"
+    ],
+    "deleteGuard": "DELETE_V1_ONLY_IF_IMPROVED_VERIFIED_AND_V1_CREATED_IN_SAME_RUN_AND_NOT_RAW_APPROVED_PUBLISHED"
   }
 }
