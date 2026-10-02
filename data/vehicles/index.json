@@ -41,7 +41,7 @@
       "priceInternal": null,
       "currency": "MXN",
       "availability": "PENDIENTE",
-      "nextAction": "CAPTURA_COMPLEMENTARIA_Y_CONFIRMAR_LOTE_REAL_30",
+      "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
       "image": "assets/thumbs/AFL-183080.jpg",
       "detail": "data/vehicles/AFL-183080.json",
       "publish": false,
@@ -51,11 +51,11 @@
       "authorizedEdit": true,
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
-        "phase": "SELECCION_FINAL_PARCIAL_CAPTURA_PENDIENTE",
-        "lastCompleted": "SELECCION_FINAL_PARCIAL: 25 APROBADAS; VIDEO_9_16_AUSENTE; 44_HISTORICAS_SIN_LOCALIZAR; DRIVE_CANONICO_RECONCILIADO",
-        "nextAction": "CAPTURA_COMPLEMENTARIA_Y_CONFIRMAR_LOTE_REAL_30",
+        "phase": "CAPTURA_COMPLEMENTARIA_PARCIAL",
+        "lastCompleted": "1_NUEVA_CAPTURA_VERIFICADA_HERO_3_4_FRONTAL; MARCA_DE_AGUA_VISIBLE; FUENTE_ORIGINAL_CONSERVADA",
+        "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-10-01T21:35:00-06:00"
+        "lastVerifiedAt": "2026-10-01T22:04:44-06:00"
       },
       "relations": {
         "vehicleAuthorityIndexed": true,
@@ -72,7 +72,18 @@
         "rejected": 2,
         "duplicates": 0,
         "historicalCountUnreconciled": 44,
-        "driveSearchStatus": "AGOTADA_SIN_HALLAZGOS_ADICIONALES"
+        "driveSearchStatus": "AGOTADA_SIN_HALLAZGOS_ADICIONALES",
+        "captureCoverageConfirmed": [
+          "HERO_3_4_FRONTAL"
+        ],
+        "captureCoveragePending": [
+          "PERFIL_COMPLETO",
+          "3_4_TRASERO",
+          "INTERIOR_TABLERO",
+          "CAJA",
+          "MOTOR",
+          "VIDEO_VERTICAL_9_16"
+        ]
       }
     },
     {
