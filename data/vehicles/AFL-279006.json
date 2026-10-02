@@ -100,9 +100,9 @@
   },
   "drive": {
     "inputRoot": "01_ENTRADAS/AFL-279006",
-    "inputUrl": "https://drive.google.com/drive/folders/1gOTd4dH0gEku8gwhSY4HsDb0pawqzcd3",
+    "inputUrl": "https://drive.google.com/drive/folders/1rGCi_HjuHe7FyTqasaU7KDQOOH89IRw-",
     "outputRoot": "02_SALIDAS/AFL-279006",
-    "outputUrl": null,
+    "outputUrl": "https://drive.google.com/drive/folders/1CnjBg93ISJcGXHoAVZTVlfb2tqUYv9Pw",
     "inputs": [
       "00_MATERIAL_DISPONIBLE_LOCAL",
       "10_APROBADOS",
@@ -124,9 +124,9 @@
       "95_PARA_ENVIAR"
     ],
     "controlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "newCaptureUrl": null,
+    "newCaptureUrl": "https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag",
     "controlDocumentUrl": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit",
-    "navigationStatus": "RECONCILIAR_ENLACES_LEGACY"
+    "navigationStatus": "RECONCILIADO_CANONICO_2026-10-02"
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -171,77 +171,77 @@
       "label": "Contenido disponible",
       "folder": "00_CONTENIDO_DISPONIBLE",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1YlbZRy8_YvnNdUN2h0IWmWKxHRn9jiPs"
+      "url": "https://drive.google.com/drive/folders/1z7x5SUXjg2rKrw9kWtZjlnnFQ-Uvsnz3"
     },
     {
       "key": "marketplace",
       "label": "Marketplace",
       "folder": "10_MARKETPLACE",
       "status": "EN_PRODUCCION",
-      "url": "https://drive.google.com/drive/folders/1CVD3zkzj3RTN9ZqjZ6N0VCHv5ibsnzqE"
+      "url": "https://drive.google.com/drive/folders/1aukgwXT4HfWpkNETLA2FPrIdkV9Vxmsn"
     },
     {
       "key": "images",
       "label": "Imágenes comerciales",
       "folder": "20_IMAGENES_COMERCIALES",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1K36PRof8nxFp2KmvRdoG45Bp3842aFzT"
+      "url": "https://drive.google.com/drive/folders/1coBt16_8PRPkWeHXUHMzlAiYg3ZWV416"
     },
     {
       "key": "post",
       "label": "Post",
       "folder": "30_POST",
       "status": "PUBLICADO_CONFIRMADO_POR_MIGUEL",
-      "url": "https://drive.google.com/drive/folders/16xMBQIiojE2Ugg05pvmbP0ZLMY6186S_"
+      "url": "https://drive.google.com/drive/folders/1saHlJivl4CE1wKSTvzu4TSIsj437oK9U"
     },
     {
       "key": "feed",
       "label": "Feed",
       "folder": "40_FEED",
       "status": "EN_PRODUCCION",
-      "url": "https://drive.google.com/drive/folders/1FDvj03RfScOy-SKOyjCrOfX6ZR2CDRw8"
+      "url": "https://drive.google.com/drive/folders/1VA9UWVsTNagDeZdfRrPYZ6AY9sW5-xgu"
     },
     {
       "key": "stories",
       "label": "Historias",
       "folder": "50_HISTORIAS",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1pR1tPQTSQUMJ2NjtjzOCC9wPIwreT1ES"
+      "url": "https://drive.google.com/drive/folders/1rqezDmGm3wkTbny3qklCIP08T1-q95Mi"
     },
     {
       "key": "covers",
       "label": "Portadas",
       "folder": "60_PORTADAS",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1H7ZL5fuA3iclLKDj9fXVDWfNax96D-8O"
+      "url": "https://drive.google.com/drive/folders/1UPrMHkFoNqxndexVq1-FuP7uf6gRftoQ"
     },
     {
       "key": "reel",
       "label": "Reel",
       "folder": "70_REEL",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/16jBksEfg4enxYOgSIWt5RxKbBfPKo5MI"
+      "url": "https://drive.google.com/drive/folders/1wzRE-a4AmC6FxVOjwsOBTHDC_nqGIJ8x"
     },
     {
       "key": "tiktok",
       "label": "TikTok",
       "folder": "80_TIKTOK",
       "status": "PENDIENTE",
-      "url": "https://drive.google.com/drive/folders/1I2pSaLjhYqKphUd1zDJsR1yqXWyXnrzd"
+      "url": "https://drive.google.com/drive/folders/1sHHOdLTFBNFHiZddSN5BTmYR3NaBPuT6"
     },
     {
       "key": "whatsapp",
       "label": "WhatsApp oculto",
       "folder": "90_WHATSAPP_OCULTO",
       "status": "PUBLICADO",
-      "url": "https://drive.google.com/drive/folders/1K1Kt-pkq1uNdErq4Jt3pxTih94UEwB1M"
+      "url": "https://drive.google.com/drive/folders/1fd7PKr9Z68Tq3C9f20p3knv_MFecaix1"
     },
     {
       "key": "sendPackage",
       "label": "Para enviar",
       "folder": "95_PARA_ENVIAR",
       "status": "PUBLICADO",
-      "url": "https://drive.google.com/drive/folders/1PMhiN4lqT5aBj1YmDXC2cYqOtwR2oaX8"
+      "url": "https://drive.google.com/drive/folders/1GcnOleGMkToPbirrCbyM9dmqOcqojl4u"
     }
   ],
   "fieldWork": {
@@ -251,8 +251,8 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "lastEvidenceCheck": {
-      "checkedAt": "2026-10-02T11:49:56-06:00",
-      "folder": "10_CAPTURA_COMERCIAL_2026-09-28_AFL-279006/{01_FOTOS_NUEVAS,02_VIDEOS_NUEVOS,03_NOTAS_Y_EVIDENCIA_CAMPO}",
+      "checkedAt": "2026-10-02T12:19:00-06:00",
+      "folder": "01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA",
       "result": "VACIA_REVALIDADA_CANONICA",
       "materialNewUploaded": false,
       "stateTransition": false,
@@ -264,12 +264,12 @@
   "checkpoint": {
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
-    "updated": "2026-09-27",
-    "lastCompleted": "WHATSAPP_PUBLICADO + SEND_PACKAGE_PUBLICADO; checkpoint de captura conservado.",
-    "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
-    "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
+    "updated": "2026-10-02",
+    "lastCompleted": "REVISION_V4_COMPLETADA_POR_CHATGPT_CURRENT; dirección V4 revisada y criterios 9:16 definidos; checkpoint de captura conservado.",
+    "nextAction": "ADAPTAR_V4_HISTORIA_9X16",
+    "resumeFrom": "Adaptar el V4 a Historia 9:16 conservando la unidad completa dentro de la ventana segura: no recortar frente, caja ni ruedas; priorizar extensión vertical del fondo; mantener jerarquía visual; reubicar logotipo y CTA fuera de zonas de interfaz; no publicar.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
+    "lastVerifiedAt": "2026-10-02T12:19:00-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
@@ -324,7 +324,7 @@
       {
         "key": "newCapture",
         "label": "Subir nueva captura",
-        "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-"
+        "url": "https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag"
       },
       {
         "key": "vehicleOptions",
@@ -334,7 +334,7 @@
       {
         "key": "outputs",
         "label": "Abrir SALIDAS",
-        "url": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1"
+        "url": "https://drive.google.com/drive/folders/1CnjBg93ISJcGXHoAVZTVlfb2tqUYv9Pw"
       },
       {
         "key": "control",
@@ -419,8 +419,8 @@
   "operationalLinks": {
     "newCapture": {
       "label": "Subir nueva captura",
-      "url": null,
-      "status": "PENDIENTE_RECONCILIAR"
+      "url": "https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag",
+      "status": "RECONCILIADO_CANONICO"
     },
     "vehicleOptions": {
       "label": "Opciones de AFL-279006",
@@ -428,8 +428,8 @@
     },
     "outputs": {
       "label": "Abrir SALIDAS",
-      "url": null,
-      "status": "PENDIENTE_RECONCILIAR"
+      "url": "https://drive.google.com/drive/folders/1CnjBg93ISJcGXHoAVZTVlfb2tqUYv9Pw",
+      "status": "RECONCILIADO_CANONICO"
     },
     "control": {
       "label": "CONTROL OPERATIVO",
@@ -581,21 +581,21 @@
   },
   "contentLab": {
     "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-    "status": "BLOQUEADO",
+    "status": "LISTO_PARA_ADAPTACION_9X16",
     "requestedAt": "2026-10-02T17:38:45.964Z",
     "requestedAtLocal": "2026-10-02T11:38:45.964-06:00",
     "startedAt": "2026-10-02T11:42:52-06:00",
     "completedAt": "2026-10-02T11:47:05-06:00",
-    "lastVerifiedAt": "2026-10-02T11:49:56-06:00",
+    "lastVerifiedAt": "2026-10-02T12:19:00-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "V4 feed ya producido y verificado en Drive; captura comercial canónica sin material nuevo (0 fotos, 0 videos, 0 notas). No se generó contenido adicional ni se movieron archivos. Pendientes revisión/aprobación humana de V4 y captura comercial física.",
+    "result": "V4 feed real revisado: dirección visual utilizable sin modificar ni publicar el original. Se definió adaptación 9:16 con unidad completa en ventana segura. Captura física sigue pendiente; estructura canónica 01_ENTRADAS/02_SALIDAS de AFL-279006 quedó reconciliada.",
     "filesMoved": 0,
     "filesProduced": 0,
     "deliverables": [
       {
         "key": "feedV4",
-        "status": "PRODUCIDO_VERIFICADO_PENDIENTE_REVISION_MIGUEL_NO_PUBLICAR"
+        "status": "PRODUCIDO_VERIFICADO_REVISADO_DIRECCION_APTA_PARA_9X16_NO_PUBLICAR"
       },
       {
         "key": "captureCommercial",
@@ -612,6 +612,10 @@
       {
         "key": "sendPackage",
         "status": "PUBLICADO_EXISTENTE_SIN_CAMBIOS"
+      },
+      {
+        "key": "storyV4",
+        "status": "DIRECCION_9X16_DEFINIDA_PENDIENTE_RENDER_NO_PUBLICAR"
       }
     ],
     "reposUpdated": [
@@ -619,48 +623,47 @@
       "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "REVISION_APROBACION_V4",
+    "nextAction": "ADAPTAR_V4_HISTORIA_9X16",
     "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "blockings": [
-      "APROBACION_MIGUEL_V4_PENDIENTE",
       "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
       "VIDEO_REAL_PENDIENTE",
-      "HOME_ENLACES_OPERATIVOS_LEGACY_NO_RESUELVEN"
+      "HISTORIA_V4_9X16_PENDIENTE_RENDER"
     ]
   },
   "recommendation": {
     "schemaVersion": "1.0.0",
-    "updatedAt": "2026-10-02T12:00:01-06:00",
+    "updatedAt": "2026-10-02T12:19:00-06:00",
     "authority": "CHATGPT_CURRENT",
     "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
     "latestClosure": {
-      "status": "BLOQUEADO",
-      "summary": "V4 feed ya producido y verificado; la captura comercial canónica continúa sin material nuevo. No se movieron ni produjeron archivos en la última ejecución.",
+      "status": "REVISION_V4_COMPLETADA",
+      "summary": "V4 real revisado; dirección 9:16 definida con unidad completa en ventana segura. No se modificó/publicó el V4. 01_ENTRADAS y 02_SALIDAS canónicos de AFL-279006 fueron creados y reconciliados.",
       "filesMoved": 0,
       "filesProduced": 0,
       "captureEvidence": "0 fotos nuevas / 0 videos nuevos / 0 notas nuevas",
-      "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
+      "lastVerifiedAt": "2026-10-02T12:19:00-06:00"
     },
     "availableNow": [
-      "Feed V4 4:5 producido y verificado, pendiente de revisión de Miguel.",
+      "Feed V4 4:5 producido, verificado y revisado; dirección 9:16 definida; no publicado en esta ejecución.",
       "12 derivados RETOQUE_V2 y bases V3 existentes para continuidad visual.",
       "Facebook Post publicado confirmado.",
       "WhatsApp catálogo publicado.",
       "Paquete para enviar publicado."
     ],
     "nextRecommended": {
-      "key": "REVISION_APROBACION_V4",
-      "label": "Revisar y decidir V4",
-      "reason": "Es el candidato visual vigente y ya existe en Drive; revisarlo evita producir derivados sobre una dirección todavía no aprobada.",
+      "key": "ADAPTAR_V4_HISTORIA_9X16",
+      "label": "Producir Historia V4 9:16",
+      "reason": "La revisión visual del V4 ya se completó y la dirección de adaptación quedó definida; puede producirse el derivado vertical sin inventar video ni alterar la unidad.",
       "canExecuteNow": true,
       "requiresPhysicalCapture": false,
-      "instruction": "Revisa el feed V4 vigente. Si Miguel lo aprueba, registra APROBADO_POR_MIGUEL sin publicar automáticamente y habilita ADAPTAR_V4_HISTORIA_9X16. Si requiere cambios, registra correcciones exactas antes de producir derivados."
+      "instruction": "Adaptar el V4 a 9:16 conservando la pickup completa dentro de ventana segura, extendiendo fondo vertical cuando haga falta y reubicando logo/CTA fuera de zonas de interfaz. No publicar automáticamente."
     },
     "afterNextRecommended": {
-      "key": "ADAPTAR_V4_HISTORIA_9X16",
-      "label": "Crear Historia 9:16 desde la dirección V4",
-      "condition": "SOLO_DESPUES_DE_APROBACION_O_CORRECCION_V4",
-      "reason": "La historia V4 aún no está producida; existe base segura 9:16 y material fotográfico suficiente para una adaptación sin inventar footage."
+      "key": "CAPTURA_COMERCIAL_COMPLETA",
+      "label": "Completar captura física y video real 9:16",
+      "condition": "TRABAJO_DE_CAMPO",
+      "reason": "Sigue siendo necesaria para portadas finales, Reel, TikTok y selección final con material nuevo."
     },
     "fieldRecommended": {
       "key": "CAPTURA_COMERCIAL_COMPLETA",
@@ -671,9 +674,9 @@
       {
         "key": "HISTORIA_V4_9X16",
         "label": "Historia V4 9:16",
-        "status": "FALTA",
-        "canCreateNow": false,
-        "gate": "REVISION_APROBACION_V4"
+        "status": "LISTA_PARA_PRODUCCION",
+        "canCreateNow": true,
+        "gate": "REVISION_V4_COMPLETADA"
       },
       {
         "key": "PORTADAS",
@@ -707,32 +710,23 @@
     "optionsRecommended": [
       {
         "order": 1,
-        "key": "REVISION_APROBACION_V4",
-        "label": "Revisar/aprobar V4",
+        "key": "ADAPTAR_V4_HISTORIA_9X16",
+        "label": "Producir Historia V4 9:16",
         "recommended": true,
         "canExecuteNow": true,
-        "instruction": "Revisar V4 y registrar aprobación o correcciones; no publicar automáticamente."
+        "instruction": "Usar la dirección V4 revisada; conservar unidad completa en ventana segura y no publicar automáticamente."
       },
       {
         "order": 2,
-        "key": "ADAPTAR_V4_HISTORIA_9X16",
-        "label": "Crear Historia V4 9:16",
-        "recommended": false,
-        "canExecuteNow": false,
-        "gate": "REVISION_APROBACION_V4",
-        "instruction": "Después de aprobar/corregir V4, adaptar la dirección visual a 9:16 conservando la unidad completa en ventana segura."
-      },
-      {
-        "order": 3,
         "key": "CAPTURA_COMERCIAL_COMPLETA",
         "label": "Completar captura + video real",
         "recommended": false,
         "canExecuteNow": false,
         "gate": "TRABAJO_DE_CAMPO",
-        "instruction": "Ejecutar checklist físico de 22 fotos y walkaround vertical real; preservar originales."
+        "instruction": "Ejecutar checklist físico de 22 fotos y walkaround vertical real; cargar únicamente en 20_NUEVA_CAPTURA."
       },
       {
-        "order": 4,
+        "order": 3,
         "key": "REVISION_MATERIAL_NUEVO",
         "label": "Revisar material nuevo y cerrar selección",
         "recommended": false,
