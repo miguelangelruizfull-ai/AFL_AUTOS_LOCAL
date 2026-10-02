@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "updated": "2026-09-27",
+  "schemaVersion": "1.1.0",
+  "updated": "2026-10-02",
   "module": "COPY_PAGE_V2",
   "autoSend": false,
   "autoPublish": false,
@@ -17,7 +17,10 @@
     "PII_NO_PUBLICA",
     "VENTA_UNICAMENTE_EN_MEXICO",
     "NO_PROMETER_EXPORTACION",
-    "NO_PUBLICAR_AUTOMATICAMENTE"
+    "NO_PUBLICAR_AUTOMATICAMENTE",
+    "VENTA_PRIORIDAD_OPERATIVA",
+    "RESPETAR_HORARIO_OPERATIVO",
+    "LLAMADA_SOLO_SI_AVANZA_VENTA"
   ],
   "routes": {
     "root": "index.html",
@@ -74,5 +77,39 @@
     "privateRule": "En Inbox/Messenger, WhatsApp y Llamada, si commercial.priceInternal contiene una cifra vigente en el expediente y la intención requiere precio, puede incluirse la cifra exacta en la respuesta.",
     "publicCommentRule": "Un comentario público nunca toma commercial.priceInternal como autorización de publicación. Si el catálogo omite precio, mover la atención a inbox sin mostrar la cifra.",
     "noPersistence": "Dar precio en una conversación privada no autoriza escribir commercial.catalogPrice, whatsapp.price ni publicar automáticamente."
+  },
+  "businessHours": {
+    "timezone": "America/Mexico_City",
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "open": "08:00",
+    "close": "21:00",
+    "label": "lunes a sábado, 8:00–21:00"
+  },
+  "salesPriority": {
+    "order": [
+      "CLIENTE_NEGOCIACION_ACTIVA",
+      "LLAMADA_O_VISITA_INTENCION_ALTA",
+      "MATERIAL_URGENTE_PARA_LEAD",
+      "PUBLICACION",
+      "ORGANIZACION_INTERNA"
+    ],
+    "rule": "La venta y el avance verificable del lead tienen prioridad sobre publicación u organización interna."
+  },
+  "callPolicy": {
+    "autoCall": false,
+    "requiresCapturedPhone": true,
+    "sessionOnlyPhone": true,
+    "highIntentOnly": true,
+    "callNowWithinBusinessHours": true,
+    "outsideBusinessHours": "PROGRAMAR_LLAMADA",
+    "explicitVisitKeepsVisitFlow": true,
+    "evidenceRule": "No se afirma que llamar convierta mejor sin resultados comparables; se usa como siguiente acción humana cuando reduce fricción en un lead de alta intención."
   }
 }
