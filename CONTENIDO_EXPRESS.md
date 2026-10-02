@@ -160,3 +160,60 @@ Devolver en una sola respuesta:
 8. enlace vivo de la carpeta de material disponible;
 9. opciones: subir/aportar material, seleccionar carpeta, usar temporal o continuar producción;
 10. después de una aprobación explícita, enlace de la referencia aprobada guardada.
+
+## Flujo específico — Historia 9:16
+
+La función **Historia** reutiliza la navegación validada de **Crear portada**, pero añade un ciclo propio para secuencia vertical y revisión móvil.
+
+Flujo funcional:
+
+    MATERIAL_DISPONIBLE
+    → SUBIR / OTRA_CARPETA / 05_SELECCION_TEMPORAL / CONTINUAR
+    → VALIDAR_HERO_Y_DATOS_PUBLICABLES
+    → DEFINIR_SECUENCIA_9X16
+    → PRODUCIR_BORRADOR
+    → REVISION
+    → APROBACION_EXPLICITA
+    → APROBADAS + COPIA_A_REFERENCIAS
+    → OPCIONES_DE_CONTINUACION
+
+### Estructura Drive por vehículo
+
+    01_ENTRADAS/<AFL-ID>/
+    └── 05_SELECCION_TEMPORAL/
+
+    02_SALIDAS/<AFL-ID>/50_HISTORIAS/
+    ├── 00_BORRADORES/
+    ├── 10_EN_REVISION/
+    ├── 20_APROBADAS/
+    ├── 30_VARIANTES/
+    └── 90_RECHAZADAS/
+
+Biblioteca de referencia aprobada:
+
+    AFL_AUTOS_REFERENCIAS_CREATIVAS/
+    └── 04_REFERENCIAS_AFL_APROBADAS/
+        └── HISTORIAS/
+
+`04_REFERENCIAS_AFL_APROBADAS` es la implementación Drive actual del alias lógico `REFERENCIAS_APROBADAS_AFL`.
+
+### Estados
+
+- `BORRADOR_INTERNO_REQUIERE_RECAPTURA` → `00_BORRADORES`.
+- `PRODUCIDO_NO_APROBADO` / `PRODUCIDA_VERIFICADA_NO_PUBLICAR` → `10_EN_REVISION`.
+- `APROBADO_POR_MIGUEL` → `20_APROBADAS` y copia adicional a `04_REFERENCIAS_AFL_APROBADAS/HISTORIAS`.
+- Variantes derivadas de una pieza vigente → `30_VARIANTES`.
+- `RECHAZADO_POR_MIGUEL / NO_PUBLICAR / REQUIERE_REDISENO` → `90_RECHAZADAS`.
+
+### Gate de Historia
+
+1. Resolver y mostrar el enlace vivo del material disponible.
+2. Permitir subir material, elegir otra carpeta, usar `05_SELECCION_TEMPORAL` o continuar.
+3. Validar `ORIGINAL → SELECCION → RETOQUE → LAVADO_VISUAL_SI_APLICA → VALIDACION_FIDELIDAD`.
+4. Diseñar 9:16 desde origen; no recortar automáticamente un feed.
+5. Mantener HERO, título y CTA fuera de overlays críticos.
+6. Usar 1–3 datos publicables por frame.
+7. Secuencia base: `IDENTIDAD/HERO → DIFERENCIADOR → ACCION`.
+8. No pasar a `20_APROBADAS` sin aprobación expresa.
+9. Después de aprobación, copiar la pieza a la biblioteca `HISTORIAS`; conservar el original dentro de SALIDAS.
+10. No publicar automáticamente.
