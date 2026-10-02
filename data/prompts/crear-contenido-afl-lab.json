@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -38,7 +38,13 @@
     "Actualizar solo repositorios derivados realmente afectados.",
     "Persistir resumen sanitizado en JSON del vehiculo e index HOME cuando la operación produzca cambios persistentes.",
     "No publicar automaticamente.",
-    "No exponer VIN completo, odometro, documentos, PII ni IDs/URLs privadas."
+    "No exponer VIN completo, odometro, documentos, PII ni IDs/URLs privadas.",
+    "Mostrar siempre en la respuesta el enlace vivo de la carpeta de archivos disponibles de la unidad; resolverlo desde Drive y no persistir URL/ID privado en HOME público.",
+    "Después de inventariar material ofrecer: subir/aportar archivos, seleccionar otra carpeta, crear/usar 05_SELECCION_TEMPORAL o continuar con la producción.",
+    "Al continuar con producción, desplegar opciones de contenido por pieza.",
+    "Si se crea 05_SELECCION_TEMPORAL, copiar seleccionados de trabajo; no mover RAW/originales.",
+    "Cuando Miguel apruebe explícitamente una pieza, copiar el derivado aprobado a DRIVE:REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>; esa biblioteca es referencia creativa por defecto cuando no se elija otra.",
+    "PRODUCIDO_NO_APROBADO y BORRADOR_INTERNO_REQUIERE_RECAPTURA nunca se incorporan a referencias aprobadas."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -50,7 +56,10 @@
       "retocar y preparar derivados sin alterar la realidad del vehículo",
       "crear copy y estrategia con datos confirmados y publicables",
       "crear portada, flyer, historia, TikTok, Marketplace u otros derivados solicitados",
-      "guardar derivados verificados en 02_SALIDAS del vehículo"
+      "guardar derivados verificados en 02_SALIDAS del vehículo",
+      "resolver y mostrar enlace vivo de la carpeta de material de la unidad",
+      "crear/usar 05_SELECCION_TEMPORAL y copiar seleccionados de trabajo cuando sea necesario",
+      "copiar derivados explícitamente aprobados a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>"
     ],
     "notAuthorized": [
       "publicar o programar automáticamente",
