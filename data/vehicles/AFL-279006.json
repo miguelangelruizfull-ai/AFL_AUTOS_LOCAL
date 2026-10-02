@@ -96,7 +96,10 @@
       "Etiqueta técnica",
       "Odómetro",
       "Documentos"
-    ]
+    ],
+    "checklistDriveUrl": "https://docs.google.com/document/d/1GNLRaIrWk8P_UiMJrxFT538u7yPQd1iOmt65k5IaWbc/edit",
+    "scheduleStatus": "PENDIENTE_DE_NUEVA_FECHA_CONFIRMADA",
+    "executionRule": "22_FOTOS_OBLIGATORIAS_PLUS_WALKAROUND_REAL_9_16_20_30S"
   },
   "drive": {
     "inputRoot": "01_ENTRADAS/AFL-279006",
@@ -139,7 +142,8 @@
       "tempSelection": "01_ENTRADAS/AFL-279006/05_SELECCION_TEMPORAL",
       "approvedReferenceAlias": "AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADAS/HISTORIAS",
       "currentArtifactStage": "10_EN_REVISION"
-    }
+    },
+    "checklistUrl": "https://docs.google.com/document/d/1GNLRaIrWk8P_UiMJrxFT538u7yPQd1iOmt65k5IaWbc/edit"
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -294,7 +298,7 @@
     "phase": "PRECAPTURA_CON_BORRADORES",
     "state": "CAPTURA_PENDIENTE",
     "updated": "2026-10-02",
-    "lastCompleted": "TIKTOK_PHOTOMOTION_RECHAZADO_POR_MIGUEL; NO_APROBADA / NO_PUBLICAR; archivado en REFERENCIAS_NO_APROBADAS_AFL/TIKTOK/AFL-279006; motivo explícito no especificado; VIDEO_REAL_9_16 pendiente.",
+    "lastCompleted": "CHECKLIST_CAPTURA_SINCRONIZADO_REPO_DRIVE; URL canónica 20_NUEVA_CAPTURA corregida; 22 fotos + video real 9:16; TikTok photo-motion permanece NO_APROBADA.",
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Ejecutar trabajo físico de captura comercial completa: 22 fotos obligatorias + walkaround vertical real 9:16; subir únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA. Después MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL. No publicar automáticamente.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
