@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.5.0",
+  "schemaVersion": "1.6.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -76,7 +76,8 @@
     "MEJORA_OBLIGATORIA_POST_V1 aplica a todos los vehículos actuales y futuros; no se configura por AFL-ID.",
     "Todo nuevo vehículo que use CONTENIDO_EXPRESS hereda automáticamente V1_TEMPORAL -> MEJORA -> VERIFICAR_DRIVE -> ELIMINAR_V1_TEMPORAL -> CONSERVAR_ULTIMA.",
     "La regla latest-only aplica a portada, flyer, feed, post, historia, imagen comercial, Marketplace y cualquier pieza gráfica Express.",
-    "MEJORAR FLYER después del cierre significa una iteración adicional sobre la última versión; no sustituye la mejora automática obligatoria."
+    "MEJORAR FLYER después del cierre significa una iteración adicional sobre la última versión; no sustituye la mejora automática obligatoria.",
+    "LOGOTIPO OFICIAL OBLIGATORIO GLOBAL: antes de producir cualquier pieza gráfica desde cualquier prompt del HOME, leer AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md y resolver DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL. Usar archivo real suministrado por Miguel: 65808.png por defecto; 65809.png variante monocromática; 65806.png variante color alternativa. Inspeccionar el activo y conservar símbolo, letras, colores y proporciones; no regenerar, aproximar ni sustituir por texto AFL AUTOS. Si falta el activo, detener solo la composición de marca y resolverlo antes de entregar. Verificar logo_oficial_presente=TRUE y brand_asset_fidelity=POSITIVE en cada versión. No persistir IDs/URLs privadas en HOME/JSON público."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -165,7 +166,7 @@
       "preserveApprovedPublished": true,
       "preservePreviousHistoryOutsideCurrentRun": true
     },
-    "promptTemplate": "Edita la pieza V1 manteniendo exactamente la misma unidad real y usando exclusivamente las fotografías reales/verificadas del mismo AFL-ID ya presentes en la pieza o material autorizado. No agregues fotografías, ángulos, interiores, caja, rines, motor, detalles ni vistas sintéticas o de otra unidad. No uses fotografías de referencia como producto. No agregues iconos o pictogramas genéricos salvo autorización explícita. Mejora composición, jerarquía tipográfica, espaciado, alineación, contraste, profundidad, integración de marca y acabado móvil. Mantén el vehículo como HERO dominante. Conserva el mensaje comercial esencial y refina el módulo inferior/CTA para que se vea intencional, premium y propio de AFL Autos. No agregues precio ni características no autorizadas. No reconstruyas ni sustituyas el vehículo, no cambies carrocería, cabina, rines, accesorios, condición visible o logotipo. Si la composición sigue pareciendo plantilla genérica o si cualquier foto/vista no puede trazarse al material real de la misma unidad, recompón antes de cerrar.",
+    "promptTemplate": "Edita la pieza V1 manteniendo exactamente la misma unidad real y usando exclusivamente las fotografías reales/verificadas del mismo AFL-ID ya presentes en la pieza o material autorizado. No agregues fotografías, ángulos, interiores, caja, rines, motor, detalles ni vistas sintéticas o de otra unidad. No uses fotografías de referencia como producto. No agregues iconos o pictogramas genéricos salvo autorización explícita. Mejora composición, jerarquía tipográfica, espaciado, alineación, contraste, profundidad, integración de marca y acabado móvil. Mantén el vehículo como HERO dominante. Conserva el mensaje comercial esencial y refina el módulo inferior/CTA para que se vea intencional, premium y propio de AFL Autos. No agregues precio ni características no autorizadas. No reconstruyas ni sustituyas el vehículo, no cambies carrocería, cabina, rines, accesorios, condición visible o logotipo. Si la composición sigue pareciendo plantilla genérica o si cualquier foto/vista no puede trazarse al material real de la misma unidad, recompón antes de cerrar. LOGOTIPO OFICIAL OBLIGATORIO GLOBAL: antes de producir cualquier pieza gráfica desde cualquier prompt del HOME, leer AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md y resolver DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL. Usar archivo real suministrado por Miguel: 65808.png por defecto; 65809.png variante monocromática; 65806.png variante color alternativa. Inspeccionar el activo y conservar símbolo, letras, colores y proporciones; no regenerar, aproximar ni sustituir por texto AFL AUTOS. Si falta el activo, detener solo la composición de marca y resolverlo antes de entregar. Verificar logo_oficial_presente=TRUE y brand_asset_fidelity=POSITIVE en cada versión. No persistir IDs/URLs privadas en HOME/JSON público.",
     "requiredGates": {
       "vehicle_fidelity": "POSITIVE",
       "brand_asset_fidelity": "POSITIVE",
@@ -222,5 +223,18 @@
       "10. Continuar captura física cuando siga pendiente",
       "11. Rechazar esta pieza"
     ]
+  },
+  "brandAssets": {
+    "required": true,
+    "scope": "ALL_HOME_PROMPTS_ALL_VEHICLES",
+    "source": "DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL",
+    "contract": "AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md",
+    "default": "65808.png",
+    "variants": [
+      "65809.png",
+      "65806.png"
+    ],
+    "allowGeneratedLogo": false,
+    "allowTextSubstitution": false
   }
 }
