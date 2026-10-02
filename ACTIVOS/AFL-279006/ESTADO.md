@@ -264,3 +264,19 @@ WHATSAPP: PUBLICADO
 30_POST: PUBLICADO_CONFIRMADO_POR_MIGUEL
 40_FEED: EN_PRODUCCION_BORRADOR_PRECAPTURA
 PUBLICAR_AUTOMATICAMENTE_OTRAS_PIEZAS: NO
+
+
+## REGLA LISTA/FICHA + RECOMENDACIÓN — 2026-10-02
+
+- `lista.html` y la ficha HOME deben mostrar el último cierre verificable de Content Lab.
+- Mostrar primero `SIGUIENTE_RECOMENDADO`; después, opciones adicionales.
+- Autoridad de recomendación: `CHATGPT_CURRENT` usando PUENTE + Drive + checkpoint.
+- Siguiente recomendado actual: `REVISION_APROBACION_V4`.
+- Después de aprobación/corrección V4: `ADAPTAR_V4_HISTORIA_9X16`.
+- Trabajo de campo paralelo: `CAPTURA_COMERCIAL_COMPLETA + VIDEO_REAL_9_16`.
+- Faltantes visibles en ficha/lista: Historia V4 9:16, portadas finales, Reel con video real, TikTok con video real y captura comercial completa.
+- V4 existente: no recrear antes de revisión.
+- Publicación automática: `NO`.
+- Superficie pública: `SANITIZED_ONLY`; datos privados sólo se muestran en chat cuando Miguel lo autorice explícitamente.
+- Enlaces heredados de nueva captura y SALIDAS: `PENDIENTE_RECONCILIAR`; no mostrar botones rotos.
+- Actualizado: `2026-10-02T12:00:01-06:00`.
