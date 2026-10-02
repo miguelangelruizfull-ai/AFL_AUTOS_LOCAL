@@ -156,7 +156,7 @@ function buildContentLabPrompt(v) {
 }
 
 
-const CONTENT_EXPRESS_CONTRACT = "CONTENIDO_EXPRESS.md";
+const CONTENT_EXPRESS_CONTRACT = "AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md";
 const APPROVED_REFERENCES_ALIAS = "DRIVE:REFERENCIAS_APROBADAS_AFL";
 const TEMP_SELECTION_FOLDER = "05_SELECCION_TEMPORAL";
 
@@ -177,7 +177,9 @@ function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder)
 
   return [
     "CONTENIDO_EXPRESS_AFL",
-    "CONTRATO: " + CONTENT_EXPRESS_CONTRACT,
+    "CONTRATO CANÓNICO EXPRESS: " + CONTENT_EXPRESS_CONTRACT,
+    "CONTRATO HOME/LAB: AFL_AUTOS_CONTENT_LAB/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md",
+    "LAUNCHER HOME: AFL_AUTOS_LOCAL/data/prompts/crear-contenido-afl-lab.json",
     "",
     "AUTORIZACIÓN:",
     "La selección de esta función desde HOME/ficha constituye autorización explícita de Miguel para CREAR el derivado solicitado con el material verificable disponible. El checkpoint operativo puede conservarse en captura/revisión y no veta esta creación manual. No autoriza publicación, programación ni uso de precio interno como precio visible. No hagas barridos generales de repositorios o Drive.",
@@ -203,10 +205,13 @@ function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder)
     "2. NAVEGACIÓN: inventaría material y ofrece: SUBIR/APORTAR NUEVO MATERIAL, SELECCIONAR OTRA CARPETA, CREAR/USAR " + TEMP_SELECTION_FOLDER + " o CONTINUAR CON PRODUCCIÓN. Si la carpeta está vacía, no cierres sin estas opciones.",
     "3. CAPTURA EXPRESS: inventaría fotos/videos, identifica tomas útiles y genera una captura comercial factual con lo visible y verificado.",
     "4. ESTRATEGIA: sin esperar otro proceso, define hook, beneficio principal, prueba visible, objeción y CTA específicos para esta unidad.",
-    "5. CREATIVIDAD: aplica una composición comercial clara, móvil primero y fiel al vehículo. Usa la carpeta de referencias solo como inspiración.",
+    "5. CREATIVIDAD PREMIUM AFL: antes de componer, lee el contrato express completo y analiza visualmente referencias aprobadas relevantes del mismo tipo de pieza: mínimo 3 cuando existan y preferentemente 5–6. Extrae el ADN visual repetido de AFL (marca integrada, vehículo HERO, profundidad, geometría dinámica, jerarquía, tipografía y acentos) y aplícalo sin copiar literalmente una pieza ni transferir datos de otra unidad.",
+    "5.1 GATE ANTI-GENÉRICO: la pieza no puede depender de una plantilla genérica de agencia/lote. Si al quitar mentalmente el logo pudiera pertenecer sin cambios relevantes a cualquier vendedor, o si la dirección se reduce a foto + rectángulo semitransparente + píldora + CTA tipo botón, recompón antes de entregar. Ejecuta el gate premium del contrato CONTENIDO_EXPRESS.md y exige generic_template_risk=LOW para considerar la composición lista para revisión.",
+    "5.2 ESPECIFICIDAD: la composición debe responder a la toma HERO, color, postura y proporciones reales de esta unidad; conservar fidelidad del vehículo y usar el logo AFL canónico/temporal autorizado, nunca uno generado o aproximado.",
     "6. PRODUCCIÓN: al continuar, despliega las opciones de contenido y crea la función solicitada. Si es Paquete express, produce o deja lista la especificación de todas las piezas útiles con la evidencia disponible.",
     "7. VIDEO/TENDENCIAS: cuando aplique, analiza hook, ritmo, encuadre, estabilidad, luz, color, audio, subtítulos y cortes. Verifica tendencias/audio vigentes antes de recomendarlos.",
     "8. APROBACIÓN/REFERENCIAS: solo después de aprobación explícita, copia el derivado aprobado a " + APPROVED_REFERENCES_ALIAS + "/<TIPO_DE_PIEZA>. PRODUCIDO_NO_APROBADO no entra.",
+    "8.1 MEMORIA VISUAL: registra premium_authenticity, generic_template_risk y approved_reference_alignment en la evaluación de la pieza cuando aplique.",
     "9. CIERRE: entrega captura, estrategia, copy, texto sobreimpreso, formato/duración, shot list/cut sheet, efectos, audio, hashtags, nombre de archivo, destino, enlace de material y opciones de continuación.",
     "",
     "REGLAS DE VELOCIDAD:",
@@ -381,7 +386,7 @@ function makeContentExpressPanel(vehicles) {
     }, true),
     linkButton("Abrir lista de vehículos", "lista.html", false)
   );
-  panel.append(actions, status, element("p", "deliverable-note", "Contrato autorizado: CONTENIDO_EXPRESS.md · sin publicación automática."));
+  panel.append(actions, status, element("p", "deliverable-note", "Contrato autorizado: AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md · gate premium/anti-genérico obligatorio · sin publicación automática."));
   return panel;
 }
 
