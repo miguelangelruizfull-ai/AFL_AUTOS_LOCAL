@@ -296,7 +296,7 @@
         "state": "CAPTURA_PENDIENTE",
         "lastVerified": "2026-10-02",
         "evidence": "DRIVE_CANONICO_BASELINE_SIN_CAMBIOS; SESION_CAMPO_SIN_ARCHIVOS; MATERIAL_NUEVO_NO_VERIFICADO; DESTINO_NUEVA_CAPTURA_NO_LOCALIZADO",
-        "lastVerifiedAt": "2026-10-02T11:50:34-06:00",
+        "lastVerifiedAt": "2026-10-02T11:53:57-06:00",
         "lastOperationalAction": "ROOT_REVALIDACION_DRIVE_Y_CONTROL; PROVISIONALES_CONSERVADOS"
       },
       "color": null,
@@ -326,7 +326,7 @@
         "requestedAtLocal": "2026-10-02T11:41:05.988-06:00",
         "startedAt": "2026-10-02T11:41:05.988-06:00",
         "completedAt": "2026-10-02T11:52:36-06:00",
-        "lastVerifiedAt": "2026-10-02T11:50:34-06:00",
+        "lastVerifiedAt": "2026-10-02T11:53:57-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
         "result": "Captura comercial bloqueada: sin material nuevo verificable; sesión de campo sin archivos. No se movió ni produjo contenido.",
