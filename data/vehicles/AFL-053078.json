@@ -31,7 +31,7 @@
     "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
-    "outputsDrive": "RAIZ_CANONICA_PREPARADA_SIN_ENTREGABLES",
+    "outputsDrive": "VERIFICADA_RAIZ_CANONICA_VACIA",
     "publish": false
   },
   "commercial": {
@@ -61,7 +61,7 @@
     },
     "currentReviewed": 20,
     "historicalIntakeFiles": 105,
-    "lastVerifiedAt": "2026-10-02T12:06:00-06:00"
+    "lastVerifiedAt": "2026-10-02T12:12:12-06:00"
   },
   "capture": {
     "scheduled": false,
@@ -119,12 +119,13 @@
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
     ],
-    "currentStructureVerified": "LEGACY_VEHICULOS_CODIGO_20_JPEG_MAS_CONTROL + CANONICAL_INPUT_OUTPUT_ROOTS_PREPARADOS",
+    "currentStructureVerified": "CANONICA_VERIFICADA: 01_ENTRADAS/AFL-053078/20_NUEVA_CAPTURA VACIA; 02_SALIDAS/AFL-053078 VACIA; LOTE PREVIO CONSERVADO",
     "workflowFoldersVerified": false,
     "canonicalInputRootPrepared": true,
     "canonicalOutputRootPrepared": true,
     "newCaptureFolderPrepared": true,
-    "originalsMoved": false
+    "originalsMoved": false,
+    "lastVerifiedAt": "2026-10-02T12:12:12-06:00"
   },
   "outputs": {
     "marketplace": "PENDIENTE",
@@ -235,7 +236,9 @@
     "canonicalState": "CAPTURA_PENDIENTE",
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
-    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta recibir video vertical, cerrar revisión del material nuevo y confirmar faltantes técnicos/documentales."
+    "completionRule": "No cambiar a CAPTURA_COMPLETA hasta recibir video vertical, cerrar revisión del material nuevo y confirmar faltantes técnicos/documentales.",
+    "lastVerifiedAt": "2026-10-02T12:12:12-06:00",
+    "evidence": "20_NUEVA_CAPTURA_VACIA + 02_SALIDAS_VACIA + SIN_VIDEO_REAL"
   },
   "ui": {
     "thumbnail": "assets/thumbs/AFL-053078.jpg",
@@ -273,7 +276,7 @@
     "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
     "resumeFrom": "Capturar video vertical 9:16 y evidencia faltante para versión/trim, tracción y documentación; después registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL.",
     "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-10-02T12:06:00-06:00",
+    "lastVerifiedAt": "2026-10-02T12:12:12-06:00",
     "evidence": "LEGACY_SOURCE_20_JPEG_MAS_CONTROL; 01_ENTRADAS_AFL_053078_PREPARADO; 20_NUEVA_CAPTURA_PREPARADO; 02_SALIDAS_AFL_053078_PREPARADO; 0_VIDEO; CAPTURA_FISICA_PENDIENTE",
     "lastOperationalAction": "REVALIDACION_FUENTES_MINIMAS + PREPARACION_DESTINOS_CANONICOS; SIN_MOVER_ORIGINALES"
   },
@@ -520,10 +523,10 @@
     "requestedAt": "2026-10-02T17:22:45.308Z",
     "startedAt": "2026-10-02T11:22:45.308-06:00",
     "completedAt": "2026-10-02T11:37:37-06:00",
-    "lastVerifiedAt": "2026-10-02T11:40:12-06:00",
+    "lastVerifiedAt": "2026-10-02T12:12:12-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "Revisión del lote actual cerrada: 20 fotos verificadas; 18 candidatas comerciales y 2 evidencias privadas excluidas. No hay video. Producción final bloqueada por captura complementaria y confirmación de versión/tracción/documentación.",
+    "result": "Rutas canónicas verificadas: 20_NUEVA_CAPTURA existe y está vacío; 02_SALIDAS/AFL-053078 existe y está vacío. Sin evidencia nueva, se conserva CAPTURA_PENDIENTE y CAPTURA_COMERCIAL_COMPLEMENTARIA como siguiente acción.",
     "filesMoved": 0,
     "filesProduced": 0,
     "deliverables": [
