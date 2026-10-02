@@ -190,7 +190,7 @@
         "lastCompleted": "WHATSAPP_PUBLICADO + SEND_PACKAGE_PUBLICADO; checkpoint de captura conservado.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-10-02T11:47:49-06:00"
+        "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
@@ -230,7 +230,7 @@
         "requestedAtLocal": "2026-10-02T11:38:45.964-06:00",
         "startedAt": "2026-10-02T11:42:52-06:00",
         "completedAt": "2026-10-02T11:47:05-06:00",
-        "lastVerifiedAt": "2026-10-02T11:47:49-06:00",
+        "lastVerifiedAt": "2026-10-02T11:49:56-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
         "result": "V4 feed ya producido y verificado en Drive; captura comercial canónica sin material nuevo (0 fotos, 0 videos, 0 notas). No se generó contenido adicional ni se movieron archivos. Pendientes revisión/aprobación humana de V4 y captura comercial física.",
