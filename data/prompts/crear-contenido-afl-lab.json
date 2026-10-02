@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.5.0",
+  "schemaVersion": "1.6.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -66,7 +66,13 @@
     "El menú posterior a producción debe mantener como opción 3: MEJORAR Y LIMPIAR VISUALMENTE LA FOTO.",
     "MEJORAR Y LIMPIAR VISUALMENTE LA FOTO crea solo un derivado: puede corregir exposición, color, contraste, nitidez, encuadre y suciedad superficial temporal; RAW/original intacto.",
     "La opción 3 nunca puede cambiar color real, carrocería, cabina, rines, llantas, accesorios, geometría o equipamiento ni ocultar golpes, rayones, desgaste, corrosión, faltantes o defectos materiales.",
-    "Después de ejecutar opción 2 o 3, guardar/verificar la nueva derivada y volver a mostrar la imagen resultante en chat con el menú numerado."
+    "Después de ejecutar opción 2 o 3, guardar/verificar la nueva derivada y volver a mostrar la imagen resultante en chat con el menú numerado.",
+    "GATE GLOBAL DE FIDELIDAD FOTOGRÁFICA: toda foto, recorte, detalle o vista del vehículo debe provenir de material real y verificable del mismo AFL-ID; prohibido usar stock, fotografías de referencias, otra unidad o fotografías sintéticas como si fueran de la unidad.",
+    "Si solo existe una toma real útil, diseñar con esa toma; nunca inventar interior, caja, rines, motor, segunda fila, frontal, trasera, lateral, accesorios, acercamientos ni otros ángulos para rellenar el layout.",
+    "REFERENCIAS_APROBADAS_AFL aporta únicamente dirección de arte (composición, tipografía, color, textura y jerarquía); nunca material fotográfico de producto para la unidad actual.",
+    "ICONOS_GENERICOS=OFF por defecto: no agregar pictogramas, badges de transmisión/motor/tracción ni iconos de ubicación/chat/calendario salvo solicitud explícita de Miguel o patrón material en una referencia aprobada pertinente.",
+    "Antes de mostrar una pieza verificar vehicle_photo_provenance=SAME_AFL_ID, synthetic_vehicle_views=0, other_vehicle_photos=0, stock_vehicle_photos=0 y generic_icons=0 salvo excepción autorizada.",
+    "Si una generación o mejora inventa una foto, vista o detalle del vehículo, o altera identidad física, descartar y rehacer antes de entregar."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -126,9 +132,12 @@
       "Antes de entregar para revisión, registrar premium_authenticity, approved_reference_alignment y generic_template_risk.",
       "generic_template_risk debe ser LOW para considerar la composición lista para revisión.",
       "Para flyers terminados, ofrecer MEJORAR FLYER y evaluar limpieza visual del vehículo; cualquier limpieza digital debe limitarse a suciedad superficial temporal y conservar defectos/condición real.",
-      "Ejecutar MEJORA_OBLIGATORIA_POST_V1 y dejar solo la última derivada cuando la mejora esté verificada en Drive; conservar V1 si la mejora falla."
+      "Ejecutar MEJORA_OBLIGATORIA_POST_V1 y dejar solo la última derivada cuando la mejora esté verificada en Drive; conservar V1 si la mejora falla.",
+      "Toda imagen vehicular usada debe ser real, verificable y pertenecer al mismo AFL-ID; no usar stock, vistas sintéticas ni fotos de otra unidad.",
+      "No crear collage con fotos secundarias inexistentes; si solo hay una toma real, resolver la riqueza visual con diseño gráfico y no con material inventado.",
+      "Desactivar iconografía genérica por defecto; usarla solo con autorización explícita o evidencia clara en referencias aprobadas pertinentes."
     ],
-    "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH -> RECOMPONER_ANTES_DE_ENTREGAR"
+    "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH O SI_FOTO_NO_REAL_O_NO_VERIFICADA_DE_LA_UNIDAD == TRUE O SI_GENERACION_INVENTA_VISTA_O_DETALLE == TRUE -> RECOMPONER_ANTES_DE_ENTREGAR"
   },
   "automaticImprovementPass": {
     "id": "MEJORA_OBLIGATORIA_POST_V1",
@@ -149,14 +158,19 @@
       "preserveApprovedPublished": true,
       "preservePreviousHistoryOutsideCurrentRun": true
     },
-    "promptTemplate": "Edita la pieza V1 manteniendo exactamente la misma unidad real, ángulo, color, proporciones, accesorios visibles, identidad AFL y datos verificados. Mejora composición, jerarquía tipográfica, espaciado, alineación, contraste, profundidad, integración de marca y acabado móvil. Mantén el vehículo como HERO dominante. Conserva el mensaje comercial esencial y refina el módulo inferior/CTA para que se vea intencional, premium y propio de AFL Autos. No agregues precio ni características no autorizadas. No reconstruyas ni sustituyas el vehículo, no cambies carrocería, cabina, rines, accesorios, condición visible o logotipo. Si la composición sigue pareciendo plantilla genérica, recompón antes de cerrar.",
+    "promptTemplate": "Edita la pieza V1 manteniendo exactamente la misma unidad real y usando exclusivamente las fotografías reales/verificadas del mismo AFL-ID ya presentes en la pieza o material autorizado. No agregues fotografías, ángulos, interiores, caja, rines, motor, detalles ni vistas sintéticas o de otra unidad. No uses fotografías de referencia como producto. No agregues iconos o pictogramas genéricos salvo autorización explícita. Mejora composición, jerarquía tipográfica, espaciado, alineación, contraste, profundidad, integración de marca y acabado móvil. Mantén el vehículo como HERO dominante. Conserva el mensaje comercial esencial y refina el módulo inferior/CTA para que se vea intencional, premium y propio de AFL Autos. No agregues precio ni características no autorizadas. No reconstruyas ni sustituyas el vehículo, no cambies carrocería, cabina, rines, accesorios, condición visible o logotipo. Si la composición sigue pareciendo plantilla genérica o si cualquier foto/vista no puede trazarse al material real de la misma unidad, recompón antes de cerrar.",
     "requiredGates": {
       "vehicle_fidelity": "POSITIVE",
       "brand_asset_fidelity": "POSITIVE",
       "publishable_data_control": "POSITIVE",
       "premium_authenticity": "POSITIVE",
       "approved_reference_alignment": "POSITIVE",
-      "generic_template_risk": "LOW"
+      "generic_template_risk": "LOW",
+      "vehicle_photo_provenance": "SAME_AFL_ID",
+      "synthetic_vehicle_views": 0,
+      "other_vehicle_photos": 0,
+      "stock_vehicle_photos": 0,
+      "generic_icons": "0_UNLESS_EXPLICITLY_AUTHORIZED"
     },
     "driveLifecycle": [
       "crear V1 temporal",
@@ -177,7 +191,7 @@
       "2": {
         "key": "MEJORAR_DISENO",
         "label": "Mejorar diseño",
-        "behavior": "Refinar o recomponer la pieza vigente con ADN AFL, mejor jerarquía, composición, tipografía, espaciado, contraste, profundidad, integración de marca, CTA y acabado móvil. Preservar vehículo real, datos publicables y logo canónico. Exigir generic_template_risk=LOW."
+        "behavior": "Refinar o recomponer la pieza vigente con ADN AFL, mejor jerarquía, composición, tipografía, espaciado, contraste, profundidad, integración de marca, CTA y acabado móvil. Usar exclusivamente fotografías reales/verificadas del mismo AFL-ID ya disponibles; no inventar vistas ni detalles ni incorporar fotos de referencia/stock/otra unidad. No agregar iconografía genérica salvo autorización explícita. Preservar vehículo real, datos publicables y logo canónico. Exigir generic_template_risk=LOW."
       },
       "3": {
         "key": "MEJORAR_LIMPIAR_FOTO",
