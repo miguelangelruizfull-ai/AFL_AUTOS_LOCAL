@@ -23,9 +23,9 @@
         "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CANONICO_RECONCILIADO + REVISION_LOTE_ACTUAL_CERRADA_20_DE_20 + 18_CANDIDATAS_COMERCIALES + 2_EVIDENCIAS_PRIVADAS_EXCLUIDAS + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
         "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerified": "2026-10-02T11:40:12-06:00",
+        "lastVerified": "2026-10-02T12:12:12-06:00",
         "lastVerifiedAt": "2026-10-02T12:06:00-06:00",
-        "evidence": "CANONICAL_DRIVE_ROOTS_PREPARED; 20_NUEVA_CAPTURA_PREPARED; 0_VIDEO; CAPTURA_FISICA_PENDIENTE",
+        "evidence": "DRIVE_CANONICO_VERIFICADO; 20_NUEVA_CAPTURA_VACIA; 02_SALIDAS_VACIA; SIN_EVIDENCIA_NUEVA",
         "lastOperationalAction": "REVALIDACION_FUENTES_MINIMAS + PREPARACION_DESTINOS_CANONICOS; SIN_MOVER_ORIGINALES"
       },
       "relations": {
@@ -41,10 +41,10 @@
         "requestedAt": "2026-10-02T17:22:45.308Z",
         "startedAt": "2026-10-02T11:22:45.308-06:00",
         "completedAt": "2026-10-02T11:37:37-06:00",
-        "lastVerifiedAt": "2026-10-02T11:40:12-06:00",
+        "lastVerifiedAt": "2026-10-02T12:12:12-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
-        "result": "Lote actual revisado 20/20; 18 candidatas comerciales, 2 privadas excluidas y 0 videos. Captura complementaria pendiente.",
+        "result": "Drive canónico verificado y vacío para material nuevo/salidas; captura física complementaria continúa pendiente. No se avanzó a MATERIAL_NUEVO_SUBIDO ni REVISION_MATERIAL.",
         "filesMoved": 0,
         "filesProduced": 0,
         "deliverables": [
