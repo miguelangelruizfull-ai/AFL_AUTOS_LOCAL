@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "key": "PRODUCCION_CREATIVA_POR_VEHICULO",
   "title": "Producción creativa por vehículo",
   "scope": "AFL_AUTOS_LOCAL vehicle detail",
@@ -69,13 +69,15 @@
     "Evitar spam y etiquetas irrelevantes."
   ],
   "completion": [
-    "Antes de producir, comprobar PUENTE, bloqueos de Content Lab y gates de publicabilidad/visual.",
-    "Si PRODUCCION_FINAL está BLOQUEADA o NO_PUBLICAR, no generar una pieza final publicable; entregar especificación o borrador interno solo si fue pedido explícitamente.",
-    "Entregar brief final, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida cuando el gate permita producir.",
-    "Si las herramientas disponibles permiten crear o editar la pieza final y los gates están abiertos, producirla y guardar solo el derivado en SALIDAS.",
-    "Si no es posible generar el archivo final, entregar una especificación lista para edición y declarar la limitación.",
-    "No afirmar que un archivo fue subido a Drive sin escritura real y verificación posterior.",
-    "No cambiar estados a LISTO/APROBADO/PUBLICADO sin evidencia real del estado correspondiente."
+    "Antes de producir, leer PUENTE, reglas activas de Content System y confirmar que la solicitud HOME autoriza creación.",
+    "Una solicitud explícita desde HOME autoriza producir aunque el checkpoint operativo siga bloqueado; conservar ese checkpoint sin usarlo como veto creativo.",
+    "Si el material actual permite una representación fiel, producir el derivado y marcarlo PRODUCIDO_NO_APROBADO hasta aprobación real.",
+    "Si el material no supera el gate HERO/calidad pero aún permite un boceto útil, crear solo BORRADOR_INTERNO_REQUIERE_RECAPTURA cuando la herramienta lo permita; nunca presentarlo como aprobado/publicable.",
+    "Si falta un dato, omitir solo el dato dependiente y continuar con los elementos verificables.",
+    "Precio interno nunca se incorpora a copy/arte. Precio visible solo con autorización pública específica.",
+    "Entregar brief, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida.",
+    "Guardar únicamente derivados en SALIDAS y verificar la escritura antes de afirmar SUBIDO_A_DRIVE.",
+    "No cambiar estados a APROBADO/LISTO/PUBLICADO sin evidencia real."
   ],
   "privacy": [
     "No exponer VIN completo, documentos, odómetro privado, PII ni evidencia marcada como privada.",
@@ -94,8 +96,8 @@
   "publicationGate": {
     "confirmedIsNotAutomaticallyPublicable": true,
     "internalPrice": "commercial.priceInternal / PRECIO INTERNO nunca se imprime, publica ni usa como texto sobreimpreso. Solo sirve para operación interna.",
-    "publicPrice": "Mostrar precio únicamente cuando el PUENTE o una autorización explícita de Miguel para ESA pieza indique un precio publicable. Si PRECIO CATALOGO=OMITIR, omitir toda cifra aunque exista precio interno confirmado.",
-    "productionBlock": "Si PUENTE o Content Lab indican PRODUCCION_FINAL=BLOQUEADA, NO_PUBLICAR o SELECCION_FINAL bloqueada, no crear ni cerrar una pieza pública final. Solo puede prepararse especificación o BORRADOR_INTERNO/NO_PUBLICAR si Miguel lo pide explícitamente.",
+    "publicPrice": "Mostrar precio únicamente cuando el PUENTE o una autorización explícita de Miguel para ESA pieza indique un precio público/catalogable. commercial.priceInternal / PRECIO INTERNO nunca se transmite al arte, copy público ni texto sobreimpreso.",
+    "productionBlock": "Los bloqueos de checkpoint (CAPTURA_PENDIENTE / SELECCION_FINAL_BLOQUEADA / PRODUCCION_FINAL_BLOQUEADA) impiden avanzar automáticamente el flujo, pero NO cancelan una creación solicitada explícitamente desde HOME. Produce un derivado con lo verificable disponible y conserva el checkpoint. Solo aplica hard block si no existe material utilizable o sería necesario inventar/alterar.",
     "dataRule": "Cada dato debe pasar dos gates separados: CONFIRMADO y PUBLICABLE. Fallar cualquiera obliga a omitirlo.",
     "approvalRule": "PRODUCIDO ≠ APROBADO ≠ PUBLICADO. No inferir aprobación por existir un archivo."
   },
@@ -110,5 +112,21 @@
     "driveWrite": "No afirmar SUBIDO_A_DRIVE ni destino confirmado sin una escritura real y verificación posterior por lectura/listado.",
     "fileStatus": "Un archivo local del chat no equivale a archivo guardado en Drive.",
     "noFalseCompletion": "No declarar LISTO, APROBADO, PUBLICADO ni PUBLICADO_CONFIRMADO_POR_MIGUEL sin evidencia correspondiente."
+  },
+  "creationAuthorization": {
+    "homeSelectionAuthorizesCreation": true,
+    "explicitPieceRequestAuthorizesCreation": true,
+    "rule": "Una solicitud explícita de Crear contenido/Crear historia/Crear flyer/etc. desde HOME autoriza producir el derivado con el material verificable disponible aunque el checkpoint operativo siga en captura o revisión.",
+    "checkpointPreservation": "La creación no cambia por sí sola CAPTURA_PENDIENTE, REVISION_MATERIAL, SELECCION_FINAL ni el siguiente paso físico. El flujo operativo continúa en paralelo.",
+    "deliverableStates": [
+      "PRODUCIDO_NO_APROBADO",
+      "BORRADOR_INTERNO_REQUIERE_RECAPTURA"
+    ],
+    "hardBlocks": [
+      "no existe material utilizable de la unidad",
+      "la pieza exigiría inventar o alterar físicamente el vehículo",
+      "solo existe evidencia privada/no publicable para completar el arte",
+      "el formato solicitado no puede representarse fielmente con el material disponible"
+    ]
   }
 }
