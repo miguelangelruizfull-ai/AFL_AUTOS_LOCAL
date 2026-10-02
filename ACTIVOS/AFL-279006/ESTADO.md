@@ -280,3 +280,22 @@ PUBLICAR_AUTOMATICAMENTE_OTRAS_PIEZAS: NO
 - Superficie pública: `SANITIZED_ONLY`; datos privados sólo se muestran en chat cuando Miguel lo autorice explícitamente.
 - Enlaces heredados de nueva captura y SALIDAS: `PENDIENTE_RECONCILIAR`; no mostrar botones rotos.
 - Actualizado: `2026-10-02T12:00:01-06:00`.
+
+## CIERRE — REVISION V4 + DIRECCIÓN 9:16 — 2026-10-02T12:19:00-06:00
+
+- V4 real revisado: `FLYER_FEED_CHEVROLET_COLORADO_2016_V4_FIDELIDAD.jpg`.
+- Resultado: dirección visual utilizable; el V4 feed no se modifica ni se publica en esta ejecución.
+- Siguiente recomendado: `ADAPTAR_V4_HISTORIA_9X16`.
+- Dirección 9:16: conservar la unidad completa dentro de ventana segura; no recortar frente, caja ni ruedas; preferir extensión vertical de cielo/suelo frente a recorte lateral; mantener jerarquía CHEVROLET / COLORADO / 2016; reubicar logotipo y CTA fuera de zonas de interfaz; no alterar geometría, color ni equipamiento.
+- Estado del vehículo: `CAPTURA_PENDIENTE` — sin cambio.
+- Checkpoint físico: `PRECAPTURA_CON_BORRADORES` — sin cambio.
+- Trabajo de campo paralelo: `CAPTURA_COMERCIAL_COMPLETA + VIDEO_REAL_9_16`.
+- Evidencia nueva de campo: 0 fotos / 0 videos / 0 notas.
+- Drive canónico reconciliado:
+  - `01_ENTRADAS/AFL-279006`: https://drive.google.com/drive/folders/1rGCi_HjuHe7FyTqasaU7KDQOOH89IRw-
+  - `20_NUEVA_CAPTURA`: https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag
+  - `02_SALIDAS/AFL-279006`: https://drive.google.com/drive/folders/1CnjBg93ISJcGXHoAVZTVlfb2tqUYv9Pw
+  - `50_HISTORIAS`: https://drive.google.com/drive/folders/1rqezDmGm3wkTbny3qklCIP08T1-q95Mi
+- Material histórico `CHEVROLET_colorado_roja_2016`: conservado sin mover ni borrar originales.
+- Publicación automática: `NO`.
+
