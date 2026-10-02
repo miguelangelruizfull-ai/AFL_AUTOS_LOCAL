@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.6.0",
+  "schemaVersion": "1.5.0",
   "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
@@ -72,7 +72,11 @@
     "REFERENCIAS_APROBADAS_AFL aporta únicamente dirección de arte (composición, tipografía, color, textura y jerarquía); nunca material fotográfico de producto para la unidad actual.",
     "ICONOS_GENERICOS=OFF por defecto: no agregar pictogramas, badges de transmisión/motor/tracción ni iconos de ubicación/chat/calendario salvo solicitud explícita de Miguel o patrón material en una referencia aprobada pertinente.",
     "Antes de mostrar una pieza verificar vehicle_photo_provenance=SAME_AFL_ID, synthetic_vehicle_views=0, other_vehicle_photos=0, stock_vehicle_photos=0 y generic_icons=0 salvo excepción autorizada.",
-    "Si una generación o mejora inventa una foto, vista o detalle del vehículo, o altera identidad física, descartar y rehacer antes de entregar."
+    "Si una generación o mejora inventa una foto, vista o detalle del vehículo, o altera identidad física, descartar y rehacer antes de entregar.",
+    "MEJORA_OBLIGATORIA_POST_V1 aplica a todos los vehículos actuales y futuros; no se configura por AFL-ID.",
+    "Todo nuevo vehículo que use CONTENIDO_EXPRESS hereda automáticamente V1_TEMPORAL -> MEJORA -> VERIFICAR_DRIVE -> ELIMINAR_V1_TEMPORAL -> CONSERVAR_ULTIMA.",
+    "La regla latest-only aplica a portada, flyer, feed, post, historia, imagen comercial, Marketplace y cualquier pieza gráfica Express.",
+    "MEJORAR FLYER después del cierre significa una iteración adicional sobre la última versión; no sustituye la mejora automática obligatoria."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -143,12 +147,15 @@
     "id": "MEJORA_OBLIGATORIA_POST_V1",
     "enabled": true,
     "appliesTo": [
+      "ALL_GRAPHIC_CONTENT_EXPRESS",
       "Crear portada",
       "Crear flyer",
+      "Crear feed",
+      "Crear post",
       "Crear historia",
       "Marketplace",
-      "imagen comercial",
-      "pieza gráfica de Paquete express"
+      "Imagen comercial",
+      "Paquete express"
     ],
     "versionPolicy": {
       "v1": "BORRADOR_DERIVADO_TEMPORAL",
@@ -180,7 +187,10 @@
       "eliminar V1 temporal solo después de verificación",
       "relistar destino y confirmar que queda la última"
     ],
-    "deleteGuard": "DELETE_V1_ONLY_IF_IMPROVED_VERIFIED_AND_V1_CREATED_IN_SAME_RUN_AND_NOT_RAW_APPROVED_PUBLISHED"
+    "deleteGuard": "DELETE_V1_ONLY_IF_IMPROVED_VERIFIED_AND_V1_CREATED_IN_SAME_RUN_AND_NOT_RAW_APPROVED_PUBLISHED",
+    "scope": "ALL_VEHICLES_CURRENT_AND_FUTURE",
+    "vehicleSelector": "ANY_AFL_ID",
+    "manualExtraIteration": "MEJORAR_PIEZA_OTRA_VEZ"
   },
   "postProductionMenu": {
     "enabled": true,
