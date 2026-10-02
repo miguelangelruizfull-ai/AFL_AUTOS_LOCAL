@@ -190,7 +190,7 @@
       "updated": "2026-10-02",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "TIKTOK_PHOTOMOTION_RECHAZADO_POR_MIGUEL; NO_APROBADA / NO_PUBLICAR; video real 9:16 pendiente.",
+        "lastCompleted": "CHECKLIST_CAPTURA_SINCRONIZADO_REPO_DRIVE; 22 fotos + video real 9:16; TikTok photo-motion NO_APROBADA.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
         "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
@@ -234,7 +234,9 @@
         "status": "NO_APROBADA",
         "result": "Versión photo-motion rechazada; no entra a referencias aprobadas. Motivo explícito no especificado.",
         "approvedReference": false,
-        "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA"
+        "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
+        "checklistStatus": "SINCRONIZADO",
+        "captureRequired": "22_FOTOS_PLUS_VIDEO_REAL_9_16_20_30S"
       },
       "recommendation": {
         "updatedAt": "2026-10-02",
