@@ -54,7 +54,9 @@
     "createContentWithAflLabContract": "AFL_AUTOS_CONTENT_LAB/contracts/HOME_CREAR_CONTENIDO_AFL_LAB_V1.md",
     "jsonDrivenVehicleList": "lista.html",
     "contentLabHomeOnly": true,
-    "contentLabUxMenu": true
+    "contentLabUxMenu": true,
+    "vehicleRecommendationOnList": true,
+    "vehicleRecommendationOnFicha": true
   },
   "rootAccess": [
     {
@@ -281,6 +283,23 @@
         "LLAMADA"
       ],
       "publicCommentUsesInternalPrice": false
+    },
+    "vehicleRecommendationSurface": {
+      "enabled": true,
+      "showOnList": true,
+      "showOnFicha": true,
+      "showLatestClosure": true,
+      "showMissingContent": true,
+      "showRecommendedOptions": true,
+      "recommendedActionFirst": true,
+      "recommendationAuthority": "CHATGPT_CURRENT",
+      "sourceOrder": [
+        "Vehiculos/PUENTE.md",
+        "Google Drive/CONTROL OPERATIVO",
+        "checkpoint/contentLab"
+      ],
+      "publicExposure": "SANITIZED_ONLY",
+      "privateDisplay": "ONLY_IN_CHAT_WHEN_EXPLICITLY_AUTHORIZED"
     }
   },
   "rootGlobal": {
