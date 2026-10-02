@@ -481,58 +481,138 @@ function makeLabPanel(system) {
   return panel;
 }
 
-function makeHomeTabs(system) {
-  const wrap = element("div", "home-tabs");
-  const nav = element("div", "home-tabs-nav");
-  const rootButton = actionButton("ROOT", function(){ activate("root"); }, true);
-  const labButton = actionButton("AFL Autos Lab", function(){ activate("lab"); }, false);
-  const responsesButton = actionButton("Generador respuestas", function(){ activate("responses"); }, false);
-  const quickButton = actionButton("Respuestas rápidas", function(){ activate("quick"); }, false);
-  const alternativeButton = actionButton("Otra respuesta", function(){ activate("alternative"); }, false);
-  nav.append(rootButton, labButton, responsesButton, quickButton, alternativeButton);
+function makeLabLauncherPanel(vehicles) {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "production";
 
-  const rootPanel = element("div", "home-tab-panel");
-  rootPanel.dataset.tab = "root";
-  const rootActions = element("div", "root-actions");
-  (system.rootAccess || []).forEach(function(item) {
-    rootActions.append(linkButton(item.label, item.url, item.label === "Nuevo vehículo"));
-  });
-  rootPanel.append(
-    element("p", "subtitle", "Accesos públicos/canónicos del ROOT. Los enlaces privados de Drive permanecen fuera del JSON público."),
-    rootActions
+  panel.append(
+    element("div", "eyebrow", "AFL AUTOS LAB · PRODUCCIÓN"),
+    element("h2", "", "Crear contenido con AFL Lab"),
+    element("p", "subtitle", "Selecciona una unidad. La orden conserva el flujo canónico PUENTE → Drive/CONTROL → producción → repos afectados → HOME sanitizado.")
   );
 
-  const quickPanel = element("div", "home-tab-panel");
-  quickPanel.dataset.tab = "quick";
-  quickPanel.hidden = true;
+  const form = element("div", "authorized-edit-grid");
+  const vehicleBox = element("label", "form-field");
+  vehicleBox.append(element("span", "", "Vehículo"));
+  const select = element("select");
+  const placeholder = element("option", "", "Seleccionar vehículo…");
+  placeholder.value = "";
+  select.append(placeholder);
+
+  (vehicles.vehicles || []).forEach(function(v) {
+    const option = element("option", "", v.id + " · " + (v.title || "Vehículo"));
+    option.value = v.id;
+    option.dataset.detail = v.detail || ("data/vehicles/" + v.id + ".json");
+    select.append(option);
+  });
+  vehicleBox.append(select);
+
+  const checkpointBox = element("div", "lab-launch-summary");
+  checkpointBox.append(
+    element("strong", "", "Checkpoint"),
+    element("p", "deliverable-note", "Selecciona una unidad para ver fase, estado y siguiente acción.")
+  );
+  form.append(vehicleBox, checkpointBox);
+  panel.append(form);
+
+  const status = element("span", "copy-status", "");
+  const actions = element("div", "actions");
+  const prepare = actionButton("Preparar orden AFL Lab", async function() {
+    if (!select.value) {
+      status.textContent = "Selecciona un vehículo.";
+      return;
+    }
+    const selected = (vehicles.vehicles || []).find(function(v) { return v.id === select.value; });
+    try {
+      const detailPath = (select.selectedOptions[0] && select.selectedOptions[0].dataset.detail) || (selected && selected.detail) || ("data/vehicles/" + select.value + ".json");
+      const fullVehicle = await getJSON(detailPath);
+      copyText(buildContentLabPrompt(fullVehicle), status);
+    } catch (error) {
+      if (selected) copyText(buildContentLabPrompt(selected), status);
+      else status.textContent = "No se pudo preparar la orden.";
+    }
+  }, true);
+  actions.append(prepare, linkButton("Lista de vehículos", "lista.html", false));
+  panel.append(actions, status);
+
+  function refreshSummary() {
+    checkpointBox.replaceChildren();
+    const v = (vehicles.vehicles || []).find(function(item) { return item.id === select.value; });
+    if (!v) {
+      checkpointBox.append(
+        element("strong", "", "Checkpoint"),
+        element("p", "deliverable-note", "Selecciona una unidad para ver fase, estado y siguiente acción.")
+      );
+      return;
+    }
+    const cp = v.checkpoint || {};
+    checkpointBox.append(
+      element("strong", "", v.id + " · " + (v.title || "Vehículo")),
+      element("p", "deliverable-note", "Fase: " + labelStatus(cp.phase || "PENDIENTE")),
+      element("p", "deliverable-note", "Estado: " + labelStatus(cp.state || v.status || "PENDIENTE")),
+      element("p", "deliverable-note", "Siguiente: " + labelStatus(cp.nextAction || v.nextAction || "PENDIENTE"))
+    );
+  }
+  select.addEventListener("change", refreshSummary);
+
+  return panel;
+}
+
+function makeLabUxMenu(system, vehicles) {
+  const wrap = element("div", "home-tabs");
+  const nav = element("div", "home-tabs-nav");
+
+  const buttons = {
+    production: actionButton("Producción", function(){ activate("production"); }, true),
+    responses: actionButton("Respuestas", function(){ activate("responses"); }, false),
+    alternative: actionButton("Otra respuesta", function(){ activate("alternative"); }, false),
+    tools: actionButton("Herramientas", function(){ activate("tools"); }, false),
+    systems: actionButton("Flujo y sistemas", function(){ activate("systems"); }, false)
+  };
+  nav.append(buttons.production, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
+
+  const productionPanel = makeLabLauncherPanel(vehicles);
+  const responsesPanel = makeResponseGeneratorPanel();
+  const alternativePanel = makeAlternativeResponsePanel(system);
+
+  const toolsPanel = element("div", "home-tab-panel");
+  toolsPanel.dataset.tab = "tools";
+  toolsPanel.hidden = true;
+  toolsPanel.append(
+    element("div", "eyebrow", "AFL AUTOS LAB · HERRAMIENTAS"),
+    element("h2", "", "Acciones rápidas"),
+    element("p", "subtitle", "Edición autorizada, precio, disponibilidad, datos técnicos, WhatsApp, estado, sincronización y publicación confirmada.")
+  );
   const quickGrid = element("div", "quick-response-grid");
   (system.quickResponses || []).forEach(function(item) {
     const card = element("div", "quick-response-card");
     card.append(element("strong", "", item.label), element("p", "deliverable-note", item.description || ""));
     const status = element("span", "copy-status", "");
-    card.append(actionButton("Copiar respuesta/prompt", function(){ copyText(item.prompt || "", status); }, item.key === "editAuthorized"), status);
+    card.append(actionButton("Copiar acción", function(){ copyText(item.prompt || "", status); }, item.key === "editAuthorized"), status);
     quickGrid.append(card);
   });
-  quickPanel.append(quickGrid);
+  toolsPanel.append(quickGrid);
 
-  const labPanel = makeLabPanel(system);
-  const responsesPanel = makeResponseGeneratorPanel();
-  const alternativePanel = makeAlternativeResponsePanel(system);
+  const systemsPanel = makeLabPanel(system);
+  systemsPanel.dataset.tab = "systems";
+
+  const panels = {
+    production: productionPanel,
+    responses: responsesPanel,
+    alternative: alternativePanel,
+    tools: toolsPanel,
+    systems: systemsPanel
+  };
 
   function activate(name) {
-    rootPanel.hidden = name !== "root";
-    labPanel.hidden = name !== "lab";
-    responsesPanel.hidden = name !== "responses";
-    quickPanel.hidden = name !== "quick";
-    alternativePanel.hidden = name !== "alternative";
-    rootButton.classList.toggle("primary", name === "root");
-    labButton.classList.toggle("primary", name === "lab");
-    responsesButton.classList.toggle("primary", name === "responses");
-    quickButton.classList.toggle("primary", name === "quick");
-    alternativeButton.classList.toggle("primary", name === "alternative");
+    Object.keys(panels).forEach(function(key) {
+      panels[key].hidden = key !== name;
+      buttons[key].classList.toggle("primary", key === name);
+    });
   }
 
-  wrap.append(nav, rootPanel, labPanel, responsesPanel, quickPanel, alternativePanel);
+  activate("production");
+  wrap.append(nav, productionPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
   return wrap;
 }
 
@@ -1196,69 +1276,44 @@ function bindFilters() {
 async function renderHome() {
   const data = await Promise.all([
     getJSON("data/system.json"),
-    getJSON("data/vehicles/index.json"),
-    getJSON("data/programador.json"),
-    getJSON("data/intake/inventory-checklist.json")
+    getJSON("data/vehicles/index.json")
   ]);
   const system = data[0];
   const vehicles = data[1];
-  const programador = data[2];
-  const inventoryChecklist = data[3] || {units:[]};
 
   const shell = element("div", "shell");
 
   const header = element("header", "header");
   const intro = element("div");
   intro.append(
-    element("div", "eyebrow", "AFL AUTOS · JSON FRAMEWORK"),
-    element("h1", "", "ROOT Console"),
-    element("p", "subtitle", "Interfaz generada desde JSON público sanitizado. Drive conserva multimedia; Google Calendar conserva trabajo de campo y Meta Business Suite la programación social.")
+    element("div", "eyebrow", "AFL AUTOS"),
+    element("h1", "", "AFL Autos Lab"),
+    element("p", "subtitle", "Centro UX para producción, respuestas y herramientas operativas. Vehículos/PUENTE conserva la verdad de cada unidad; HOME muestra únicamente derivados sanitizados.")
   );
   const stats = element("div", "stats");
-  stats.append(stat("Activos", vehicles.vehicles.length), stat("Modo", "JSON"), stat("Publicar", "NO AUTO"));
+  stats.append(
+    stat("Vehículos", (vehicles.vehicles || []).length),
+    stat("Modo", "AFL LAB"),
+    stat("Publicar", "NO AUTO")
+  );
   header.append(intro, stats);
 
-  const consoleSection = element("section", "root-console");
-  const consoleCard = element("div", "console-card");
-  const consoleHead = element("div", "console-head");
-  const consoleTitle = element("div");
-  consoleTitle.append(element("div", "eyebrow", "SYSTEM"), element("h2", "", "Contrato " + system.schemaVersion));
-  consoleHead.append(consoleTitle, element("span", "console-status", "JSON ACTIVO"));
-  const homeTabs = makeHomeTabs(system);
-  consoleCard.append(consoleHead, homeTabs);
-  consoleSection.append(consoleCard);
+  const labSection = element("section", "root-console");
+  const card = element("div", "console-card");
+  const head = element("div", "console-head");
+  const title = element("div");
+  title.append(
+    element("div", "eyebrow", "MENÚ UX"),
+    element("h2", "", "Funciones AFL Lab")
+  );
+  head.append(title, element("span", "console-status", "LAB ACTIVO"));
+  card.append(head, makeLabUxMenu(system, vehicles));
+  labSection.append(card);
 
-  const schedule = element("section", "programador");
-  programador.events.slice(0, 3).forEach(function(e) { schedule.append(scheduleCard(e)); });
-  const inventoryRelation = inventoryChecklistSection(inventoryChecklist);
+  const footer = element("footer", "footer", "AFL_AUTOS_LOCAL · AFL Lab · " + system.updated);
 
-  const toolbar = element("section", "toolbar");
-  const searchLabel = element("label", "search");
-  const input = element("input");
-  input.id = "search";
-  input.type = "search";
-  input.placeholder = "Buscar código, vehículo o estado…";
-  searchLabel.append(input);
-  const filters = element("div", "filters");
-  [["all","Todos"],["CAPTURA_PENDIENTE","Captura"],["REVISION_MATERIAL","Revisión"]].forEach(function(pair, i) {
-    const b = element("button", "filter" + (i === 0 ? " active" : ""), pair[1]);
-    b.dataset.filter = pair[0];
-    filters.append(b);
-  });
-  toolbar.append(searchLabel, filters);
-
-  const grid = element("main", "grid");
-  grid.id = "grid";
-  vehicles.vehicles.forEach(function(v) { grid.append(vehicleCard(v)); });
-
-  const empty = element("div", "empty", "No hay vehículos que coincidan.");
-  empty.id = "empty";
-
-  const footer = element("footer", "footer", "AFL_AUTOS_LOCAL · JSON-driven · " + system.updated);
-
-  shell.append(header, consoleSection, schedule, inventoryRelation, toolbar, grid, empty, footer);
+  shell.append(header, labSection, footer);
   root.replaceChildren(shell);
-  bindFilters();
 }
 
 async function renderVehicle(id) {
