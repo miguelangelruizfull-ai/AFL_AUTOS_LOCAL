@@ -928,6 +928,81 @@ function buildOperationalPrompt(v, item) {
   return lines.join("\n");
 }
 
+function makeRecommendationPanel(v) {
+  const rec = v.recommendation || {};
+  const next = rec.nextRecommended || {};
+  const closure = rec.latestClosure || v.contentLab || {};
+  const panel = element("article", "panel wide recommendation-panel");
+  panel.id = "recommended-content";
+  panel.append(
+    element("div", "eyebrow", "SIGUIENTE RECOMENDADO · AFL LAB"),
+    element("h2", "", next.label || labelStatus((v.contentLab && v.contentLab.nextAction) || (v.checkpoint && v.checkpoint.nextAction) || "PENDIENTE")),
+    element("p", "subtitle", next.reason || "La recomendación se deriva del checkpoint y la evidencia vigente.")
+  );
+
+  const summary = element("div", "checkpoint-grid");
+  summary.append(
+    kv("AFL Lab", labelStatus(closure.status || (v.contentLab && v.contentLab.status) || "SIN_ESTADO")),
+    kv("Siguiente", labelStatus(next.key || (v.contentLab && v.contentLab.nextAction) || "PENDIENTE")),
+    kv("Después", labelStatus((rec.afterNextRecommended && rec.afterNextRecommended.key) || "PENDIENTE")),
+    kv("Verificado", closure.lastVerifiedAt || (v.contentLab && v.contentLab.lastVerifiedAt) || "PENDIENTE")
+  );
+  panel.append(summary);
+
+  if (closure.summary || closure.result) {
+    panel.append(element("p", "deliverable-note", "Último cierre: " + (closure.summary || closure.result)));
+  }
+  if (rec.rule) {
+    panel.append(element("p", "deliverable-note", "Regla: " + rec.rule));
+  }
+
+  if ((rec.availableNow || []).length) {
+    panel.append(element("h3", "", "Qué tenemos"));
+    panel.append(makeList(rec.availableNow, false));
+  }
+
+  if ((rec.missingContent || []).length) {
+    panel.append(element("h3", "", "Contenido que falta"));
+    const missing = element("div", "deliverables-grid");
+    rec.missingContent.forEach(function(item) {
+      const card = element("div", "deliverable-card");
+      card.append(
+        element("strong", "", item.label || item.key),
+        element("p", "deliverable-note", "Estado: " + labelStatus(item.status || "PENDIENTE") + (item.gate ? " · Gate: " + labelStatus(item.gate) : "")),
+        statusChip(item.status || "PENDIENTE")
+      );
+      missing.append(card);
+    });
+    panel.append(missing);
+  }
+
+  if ((rec.optionsRecommended || []).length) {
+    panel.append(element("h3", "", "Opciones recomendadas"));
+    const options = element("div", "prompt-menu-grid");
+    rec.optionsRecommended.slice().sort(function(a,b){ return (a.order||99)-(b.order||99); }).forEach(function(item) {
+      const card = element("div", "prompt-menu-card");
+      card.append(
+        element("strong", "", (item.recommended ? "RECOMENDADA · " : "") + (item.label || item.key)),
+        element("p", "deliverable-note", (item.canExecuteNow ? "Puede ejecutarse ahora. " : "") + (item.gate ? "Gate: " + labelStatus(item.gate) + ". " : "") + (item.instruction || ""))
+      );
+      const copyStatus = element("span", "copy-status", "");
+      const actions = element("div", "actions");
+      actions.append(actionButton("Copiar prompt", function() {
+        copyText(buildOperationalPrompt(v, {
+          key: item.key,
+          label: item.label || item.key,
+          description: item.instruction || "",
+          instruction: item.instruction || ""
+        }), copyStatus);
+      }, !!item.recommended));
+      card.append(actions, copyStatus);
+      options.append(card);
+    });
+    panel.append(options);
+  }
+  return panel;
+}
+
 function makeVehicleOpsMenu(v) {
   const panel = element("article", "panel wide no-print");
   panel.id = "vehicle-ops";
@@ -1181,6 +1256,7 @@ function vehicleDetail(v) {
     makeList(v.capture.requiredVideo.shots, false)
   );
 
+  const recommendationPanel = makeRecommendationPanel(v);
   const opsMenu = makeVehicleOpsMenu(v);
   const authorizedEdit = makeAuthorizedEditPanel(v);
   const promptMenu = makePromptMenu(v);
@@ -1239,7 +1315,7 @@ function vehicleDetail(v) {
   );
   fieldActions.append(fieldButtons, fieldStatus);
 
-  grid.append(state, media, opsMenu, authorizedEdit, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
+  grid.append(state, media, recommendationPanel, opsMenu, authorizedEdit, promptMenu, capture, video, channelNav, whatsapp, outputs, drive, fieldActions);
   section.append(grid);
   return section;
 }
