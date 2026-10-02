@@ -108,7 +108,7 @@
     "controlDocument": "AFL-338663 — CONTROL OPERATIVO"
   },
   "outputs": {
-    "marketplace": "BORRADOR_PROVISIONAL_RETOCADO",
+    "marketplace": "PRODUCIDO_NO_APROBADO",
     "images": "BORRADOR_PROVISIONAL_RETOCADO",
     "post": "BORRADOR_PROVISIONAL_RETOCADO",
     "feed": "PENDIENTE",
@@ -152,7 +152,7 @@
       "key": "marketplace",
       "label": "Marketplace",
       "folder": "10_MARKETPLACE",
-      "status": "BORRADOR_PROVISIONAL_RETOCADO"
+      "status": "PRODUCIDO_NO_APROBADO"
     },
     {
       "key": "images",
@@ -436,37 +436,32 @@
   },
   "contentLab": {
     "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-    "status": "BLOQUEADO",
-    "requestedAt": "2026-10-02T17:41:05.988Z",
-    "requestedAtLocal": "2026-10-02T11:41:05.988-06:00",
-    "startedAt": "2026-10-02T11:41:05.988-06:00",
-    "completedAt": "2026-10-02T11:52:36-06:00",
-    "lastVerifiedAt": "2026-10-02T11:53:57-06:00",
+    "status": "PARCIAL",
+    "requestedAt": "2026-10-02T17:10:00-06:00",
+    "startedAt": "2026-10-02T17:10:00-06:00",
+    "completedAt": "2026-10-02T17:10:00-06:00",
+    "lastVerifiedAt": "2026-10-02T17:10:00-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "Captura comercial bloqueada: Drive canónico conserva la línea base sin material nuevo verificable y la sesión de campo no contiene archivos. CONTROL reconciliado con PUENTE. No se movió ni produjo contenido.",
+    "result": "Marketplace Express producido con material histórico/local verificado: portada 4:5 y paquete de copy/shot list. Sin precio público. Se conserva CAPTURA_PENDIENTE y NO_PUBLICAR; HERO final sigue pendiente de lavado y captura comercial.",
     "filesMoved": 0,
-    "filesProduced": 0,
+    "filesProduced": 2,
     "deliverables": [
       {
-        "key": "capturePlan",
-        "status": "LISTO"
-      },
-      {
-        "key": "physicalCapture",
-        "status": "BLOQUEADO_TRABAJO_FISICO"
-      },
-      {
-        "key": "materialReview",
-        "status": "BLOQUEADO_SIN_MATERIAL_NUEVO"
-      },
-      {
-        "key": "finalProduction",
-        "status": "BLOQUEADO_CAPTURA"
+        "key": "marketplaceCover",
+        "status": "PRODUCIDO_NO_APROBADO"
       },
       {
         "key": "marketplacePost",
-        "status": "BORRADOR_PROVISIONAL_CONSERVADO"
+        "status": "PRODUCIDO_NO_APROBADO"
+      },
+      {
+        "key": "physicalCapture",
+        "status": "PENDIENTE_TRABAJO_FISICO"
+      },
+      {
+        "key": "finalHero",
+        "status": "PENDIENTE_CAPTURA_COMERCIAL"
       },
       {
         "key": "whatsapp",
@@ -474,15 +469,14 @@
       }
     ],
     "reposUpdated": [
-      "Vehiculos",
-      "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "LAVADO_FISICO_Y_CAPTURA_COMERCIAL",
+    "nextAction": "REVISION_MIGUEL_PIEZA_MARKETPLACE; mantener LAVADO_FISICO_Y_CAPTURA_COMERCIAL para cerrar captura",
     "blockings": [
-      "CAPTURA_FISICA_PENDIENTE",
-      "MATERIAL_NUEVO_NO_VERIFICADO",
-      "DESTINO_NUEVA_CAPTURA_NO_LOCALIZADO",
+      "APROBACION_MIGUEL_PENDIENTE",
+      "HERO_FINAL_POST_LAVADO_PENDIENTE",
+      "CAJA_TRASERA_PENDIENTE",
+      "TRANSMISION_EXACTA_PENDIENTE",
       "COLOR_COMERCIAL_EXACTO_PENDIENTE",
       "NO_PUBLICAR"
     ]
