@@ -102,7 +102,7 @@
     "inputRoot": "01_ENTRADAS/AFL-279006",
     "inputUrl": "https://drive.google.com/drive/folders/1gOTd4dH0gEku8gwhSY4HsDb0pawqzcd3",
     "outputRoot": "02_SALIDAS/AFL-279006",
-    "outputUrl": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1",
+    "outputUrl": null,
     "inputs": [
       "00_MATERIAL_DISPONIBLE_LOCAL",
       "10_APROBADOS",
@@ -124,8 +124,9 @@
       "95_PARA_ENVIAR"
     ],
     "controlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "newCaptureUrl": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-",
-    "controlDocumentUrl": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit"
+    "newCaptureUrl": null,
+    "controlDocumentUrl": "https://docs.google.com/document/d/1F8NObkJi9fixcsmSrLrmz4GX9-ejVHqvSMWRZbERwIs/edit",
+    "navigationStatus": "RECONCILIAR_ENLACES_LEGACY"
   },
   "outputs": {
     "marketplace": "EN_PRODUCCION",
@@ -418,7 +419,8 @@
   "operationalLinks": {
     "newCapture": {
       "label": "Subir nueva captura",
-      "url": "https://drive.google.com/drive/folders/1tqYlaV-fh3AzwaUiDUMb9n4Ym4OnbXw-"
+      "url": null,
+      "status": "PENDIENTE_RECONCILIAR"
     },
     "vehicleOptions": {
       "label": "Opciones de AFL-279006",
@@ -426,7 +428,8 @@
     },
     "outputs": {
       "label": "Abrir SALIDAS",
-      "url": "https://drive.google.com/drive/folders/1OsedwLkSZvCvaefURlWl7vTNNIf_0za1"
+      "url": null,
+      "status": "PENDIENTE_RECONCILIAR"
     },
     "control": {
       "label": "CONTROL OPERATIVO",
@@ -624,5 +627,121 @@
       "VIDEO_REAL_PENDIENTE",
       "HOME_ENLACES_OPERATIVOS_LEGACY_NO_RESUELVEN"
     ]
+  },
+  "recommendation": {
+    "schemaVersion": "1.0.0",
+    "updatedAt": "2026-10-02T12:00:01-06:00",
+    "authority": "CHATGPT_CURRENT",
+    "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
+    "latestClosure": {
+      "status": "BLOQUEADO",
+      "summary": "V4 feed ya producido y verificado; la captura comercial canónica continúa sin material nuevo. No se movieron ni produjeron archivos en la última ejecución.",
+      "filesMoved": 0,
+      "filesProduced": 0,
+      "captureEvidence": "0 fotos nuevas / 0 videos nuevos / 0 notas nuevas",
+      "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
+    },
+    "availableNow": [
+      "Feed V4 4:5 producido y verificado, pendiente de revisión de Miguel.",
+      "12 derivados RETOQUE_V2 y bases V3 existentes para continuidad visual.",
+      "Facebook Post publicado confirmado.",
+      "WhatsApp catálogo publicado.",
+      "Paquete para enviar publicado."
+    ],
+    "nextRecommended": {
+      "key": "REVISION_APROBACION_V4",
+      "label": "Revisar y decidir V4",
+      "reason": "Es el candidato visual vigente y ya existe en Drive; revisarlo evita producir derivados sobre una dirección todavía no aprobada.",
+      "canExecuteNow": true,
+      "requiresPhysicalCapture": false,
+      "instruction": "Revisa el feed V4 vigente. Si Miguel lo aprueba, registra APROBADO_POR_MIGUEL sin publicar automáticamente y habilita ADAPTAR_V4_HISTORIA_9X16. Si requiere cambios, registra correcciones exactas antes de producir derivados."
+    },
+    "afterNextRecommended": {
+      "key": "ADAPTAR_V4_HISTORIA_9X16",
+      "label": "Crear Historia 9:16 desde la dirección V4",
+      "condition": "SOLO_DESPUES_DE_APROBACION_O_CORRECCION_V4",
+      "reason": "La historia V4 aún no está producida; existe base segura 9:16 y material fotográfico suficiente para una adaptación sin inventar footage."
+    },
+    "fieldRecommended": {
+      "key": "CAPTURA_COMERCIAL_COMPLETA",
+      "label": "Completar captura física y video real 9:16",
+      "reason": "Desbloquea material final, portadas, Reel y TikTok y permite actualizar borradores con evidencia nueva."
+    },
+    "missingContent": [
+      {
+        "key": "HISTORIA_V4_9X16",
+        "label": "Historia V4 9:16",
+        "status": "FALTA",
+        "canCreateNow": false,
+        "gate": "REVISION_APROBACION_V4"
+      },
+      {
+        "key": "PORTADAS",
+        "label": "Portadas finales",
+        "status": "FALTA",
+        "canCreateNow": false,
+        "gate": "CAPTURA_COMERCIAL_COMPLETA"
+      },
+      {
+        "key": "REEL_VIDEO_REAL",
+        "label": "Reel con video real",
+        "status": "BLOQUEADO",
+        "canCreateNow": false,
+        "gate": "VIDEO_REAL_9_16"
+      },
+      {
+        "key": "TIKTOK_VIDEO_REAL",
+        "label": "TikTok con video real",
+        "status": "BLOQUEADO",
+        "canCreateNow": false,
+        "gate": "VIDEO_REAL_9_16"
+      },
+      {
+        "key": "CAPTURA_COMERCIAL_COMPLETA",
+        "label": "Captura comercial completa",
+        "status": "PENDIENTE_FISICO",
+        "canCreateNow": false,
+        "gate": "TRABAJO_DE_CAMPO"
+      }
+    ],
+    "optionsRecommended": [
+      {
+        "order": 1,
+        "key": "REVISION_APROBACION_V4",
+        "label": "Revisar/aprobar V4",
+        "recommended": true,
+        "canExecuteNow": true,
+        "instruction": "Revisar V4 y registrar aprobación o correcciones; no publicar automáticamente."
+      },
+      {
+        "order": 2,
+        "key": "ADAPTAR_V4_HISTORIA_9X16",
+        "label": "Crear Historia V4 9:16",
+        "recommended": false,
+        "canExecuteNow": false,
+        "gate": "REVISION_APROBACION_V4",
+        "instruction": "Después de aprobar/corregir V4, adaptar la dirección visual a 9:16 conservando la unidad completa en ventana segura."
+      },
+      {
+        "order": 3,
+        "key": "CAPTURA_COMERCIAL_COMPLETA",
+        "label": "Completar captura + video real",
+        "recommended": false,
+        "canExecuteNow": false,
+        "gate": "TRABAJO_DE_CAMPO",
+        "instruction": "Ejecutar checklist físico de 22 fotos y walkaround vertical real; preservar originales."
+      },
+      {
+        "order": 4,
+        "key": "REVISION_MATERIAL_NUEVO",
+        "label": "Revisar material nuevo y cerrar selección",
+        "recommended": false,
+        "canExecuteNow": false,
+        "gate": "MATERIAL_NUEVO_SUBIDO",
+        "instruction": "Cuando exista material nuevo, clasificarlo, cerrar selección final y desbloquear derivados faltantes."
+      }
+    ],
+    "publicExposure": "SANITIZED_ONLY",
+    "privateDisplayPolicy": "CHAT_ONLY_BY_EXPLICIT_AUTHORIZATION"
   }
 }
