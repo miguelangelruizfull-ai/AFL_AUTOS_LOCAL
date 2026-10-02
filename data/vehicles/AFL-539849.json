@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2.0",
-  "updated": "2026-09-30",
+  "updated": "2026-10-02",
   "id": "AFL-539849",
   "vehicle": {
     "make": "Jeep",
@@ -73,5 +73,45 @@
     "driveIndexed": true,
     "derivedRepositoriesIndexed": true,
     "publicExposure": "SANITIZED_ONLY"
+  },
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "PARCIAL",
+    "requestedAt": "2026-10-02T17:47:17.277-06:00",
+    "requestedAtUtc": "2026-10-02T23:47:17.277Z",
+    "startedAt": "2026-10-02T17:47:56-06:00",
+    "completedAt": null,
+    "lastVerifiedAt": "2026-10-02T17:49:21-06:00",
+    "movedAt": null,
+    "timezone": "America/Mexico_City",
+    "result": "Continuación verificada: dos audiovisuales V3 existentes y 15 fotos retocadas localizados en Drive. Material disponible para creación manual; pendiente elegir entregable. Checkpoint operativo conservado. Sin producción nueva, movimientos, aprobación ni publicación.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "facebookReelV3",
+        "artifact": "FACEBOOK_REEL_JEEP_WRANGLER_2017_V3.mp4",
+        "status": "EXISTENTE_LOCALIZADO_PENDIENTE_APROBACION_NO_PUBLICAR"
+      },
+      {
+        "key": "tiktokV3",
+        "artifact": "TIKTOK_JEEP_WRANGLER_2017_V3.mp4",
+        "status": "EXISTENTE_LOCALIZADO_PENDIENTE_APROBACION_NO_PUBLICAR"
+      },
+      {
+        "key": "retouchedPhotos",
+        "count": 15,
+        "status": "EXISTENTES_LOCALIZADAS"
+      }
+    ],
+    "reposUpdated": [
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "ELEGIR_ENTREGABLE_MANUAL_O_REVISAR_AUDIOVISUAL_V3",
+    "blockings": [
+      "APROBACION_MIGUEL_PENDIENTE",
+      "PRECIO_PUBLICO_PENDIENTE_OMITIR",
+      "DISPONIBILIDAD_PENDIENTE_NO_AFIRMAR"
+    ]
   }
 }
