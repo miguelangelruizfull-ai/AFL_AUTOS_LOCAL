@@ -300,3 +300,30 @@ Actualizado: `2026-10-02T12:00:01-06:00`
 5. Producir/actualizar portadas, Reel, TikTok y demás derivados desbloqueados.
 
 Regla: no producir derivados finales sobre una dirección V4 no aprobada; no inventar video; no publicar automáticamente.
+
+## DIRECCIÓN VISUAL HISTORIA V4 9:16 — 2026-10-02T12:19:00-06:00
+
+Fuente revisada:
+- `09_PAQUETE_REDES_V4_2026-09-13/FLYER_FEED_CHEVROLET_COLORADO_2016_V4_FIDELIDAD.jpg`.
+
+Decisión:
+- La dirección V4 es válida como base visual.
+- El V4 feed original se conserva sin cambios y no se publica por esta operación.
+- El derivado Historia V4 9:16 queda habilitado para producción.
+
+Reglas de adaptación 9:16:
+1. Mantener la Chevrolet Colorado completa dentro de la ventana segura; deben permanecer visibles frente, caja y ruedas.
+2. No resolver el formato con recorte lateral agresivo. Priorizar extensión vertical coherente de cielo y suelo.
+3. Mantener la jerarquía visual `CHEVROLET / COLORADO / 2016` y la indicación `CABINA EXTENDIDA • ESTÁNDAR`.
+4. Reubicar logotipo y CTA hacia zonas interiores seguras para que no interfieran con la interfaz de Historia.
+5. No alterar geometría de carrocería, color, emblemas ni equipamiento visible.
+6. No inventar video ni elementos del vehículo.
+7. Guardar el futuro derivado terminado en `02_SALIDAS/AFL-279006/50_HISTORIAS`.
+8. No publicar automáticamente.
+
+Estado después de esta revisión:
+- `HISTORIA_V4_9X16`: LISTA_PARA_PRODUCCION / PENDIENTE_RENDER.
+- `CAPTURA_COMERCIAL_COMPLETA`: PENDIENTE_FISICO.
+- `VIDEO_REAL_9_16`: PENDIENTE.
+- Siguiente recomendado: `ADAPTAR_V4_HISTORIA_9X16`.
+
