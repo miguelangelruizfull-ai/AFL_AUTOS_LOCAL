@@ -173,7 +173,7 @@ function card(v){
         (v.folderCount?'<span class="chip">'+esc(v.folderCount)+' carpeta'+(v.folderCount===1?'':'s')+'</span>':'')+
         '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
       '</div>'+
-      (detail?'<a class="open" href="'+detail+'#recommended-content">Abrir ficha y recomendación ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
+      (detail?'<a class="open" href="'+detail+'#recommended-content">Abrir ficha y recomendación ↗</a><br><a class="open" href="'+detail+'#creative-production">Crear contenido ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
     '</div>'+
   '</article>';
 }
