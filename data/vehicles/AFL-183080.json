@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2.0",
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "id": "AFL-183080",
   "vehicle": {
     "make": "Chevrolet",
@@ -24,10 +24,10 @@
     ]
   },
   "status": {
-    "vehicle": "REVISION_MATERIAL",
-    "materialReview": "PARCIAL_RECONCILIADA",
-    "classification": "PARCIAL_RECONCILIADA",
-    "captureType": null,
+    "vehicle": "CAPTURA_PENDIENTE",
+    "materialReview": "SELECCION_FINAL_PARCIAL",
+    "classification": "SELECCION_FINAL_PARCIAL",
+    "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
     "outputsDrive": "PREPARADAS",
@@ -75,6 +75,21 @@
         "canonicalOutputChecked": true,
         "additionalMissingLocated": 0
       }
+    },
+    "selectionFinal": {
+      "status": "PARCIAL",
+      "basis": "25_APROBADAS_PERSISTIDAS",
+      "approvedPhotos": 25,
+      "mandatoryCoverage": "NO_VERIFICADA_COMPLETA",
+      "realVideo": false,
+      "requiredMissing": [
+        "VIDEO_VERTICAL_9_16"
+      ],
+      "blockers": [
+        "44_FOTOS_HISTORICAS_SIN_LOCALIZAR",
+        "COBERTURA_TOMAS_OBLIGATORIAS_NO_VERIFICADA_CON_LOTE_CANONICO"
+      ],
+      "lastVerifiedAt": "2026-10-01T21:35:00-06:00"
     }
   },
   "capture": {
@@ -242,14 +257,14 @@
   ],
   "fieldWork": {
     "status": "PENDIENTE",
-    "canonicalState": "REVISION_MATERIAL",
+    "canonicalState": "CAPTURA_PENDIENTE",
     "nextAfterUpload": "MATERIAL_NUEVO_SUBIDO",
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios"
   },
   "ui": {
-    "thumbnail": null,
-    "thumbnailPublicUrl": null,
+    "thumbnail": "assets/thumbs/AFL-183080.jpg",
+    "thumbnailPublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-183080.jpg",
     "showInHome": true,
     "showInVehicle": true,
     "showInPrintChecklist": true,
@@ -276,14 +291,14 @@
     "autoPublish": false
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_RECONCILIACION_DRIVE_AGOTADA",
-    "state": "REVISION_MATERIAL",
-    "updated": "2026-09-30",
-    "lastCompleted": "BUSQUEDA_3_CUENTAS_DRIVE + PAPELERA + ENTRADA_CANONICA + SALIDA_CANONICA + FUENTE_ORIGINAL; 0_FOTOS_ADICIONALES_LOCALIZADAS",
-    "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
-    "resumeFrom": "La búsqueda Drive quedó agotada con la evidencia accesible: 30 fotos localizadas, 44 del conteo histórico sin localizar. Confirmar explícitamente que 30 es el lote real vigente o aportar otra carpeta/fuente para continuar la reconciliación. Mantener REVISION_MATERIAL y no producir piezas finales mientras exista esta discrepancia.",
+    "phase": "SELECCION_FINAL_PARCIAL_CAPTURA_PENDIENTE",
+    "state": "CAPTURA_PENDIENTE",
+    "updated": "2026-10-01",
+    "lastCompleted": "REVISION_MATERIAL/SELECCION_FINAL ejecutada sobre evidencia persistida: 25 APROBADAS conservadas como selección provisional; estructura canónica 01_ENTRADAS reparada; 02_SALIDAS reconciliada; VIDEO 9:16 AUSENTE; 44 fotos históricas continúan sin localizar.",
+    "nextAction": "CAPTURA_COMPLEMENTARIA_Y_CONFIRMAR_LOTE_REAL_30",
+    "resumeFrom": "Conservar las 25 aprobadas como selección provisional. Falta video vertical 9:16 y la cobertura completa de tomas obligatorias no puede cerrarse con evidencia aislada suficiente; 44 fotos históricas permanecen sin localizar. Subir captura complementaria a 20_NUEVA_CAPTURA y confirmar que 30 es el lote real vigente o aportar fuente adicional. No producir piezas finales.",
     "driveControlDocument": "AFL-183080 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-09-30T22:20:35-06:00"
+    "lastVerifiedAt": "2026-10-01T21:35:00-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
