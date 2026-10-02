@@ -83,10 +83,13 @@ Mantener originales separados de retoques/derivados.
 
 ## 4. HISTORIA
 
-ESTADO: PENDIENTE
+ESTADO: PRODUCIDA_VERIFICADA / NO_PUBLICAR
 
 Formato:
 - 9:16.
+
+ARTEFACTO:
+- `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg` en `02_SALIDAS/AFL-279006/50_HISTORIAS`.
 
 Secuencia sugerida:
 1. HERO.
@@ -327,3 +330,14 @@ Estado después de esta revisión:
 - `VIDEO_REAL_9_16`: PENDIENTE.
 - Siguiente recomendado: `ADAPTAR_V4_HISTORIA_9X16`.
 
+## CIERRE HISTORIA V4 9:16 — 2026-10-02T13:17:00-06:00
+
+- `HISTORIA_V4_9X16`: `PRODUCIDA_VERIFICADA / NO_PUBLICAR`.
+- Artefacto: `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg`.
+- Resolución: `1080x1920` (`9:16`).
+- Fuente: V4 feed real verificado; original conservado sin sobrescritura.
+- Composición: unidad completa dentro de ventana segura; sin recortar frente, caja ni ruedas; extensión vertical del fondo; jerarquía, logotipo y CTA conservados en zona segura.
+- Checkpoint físico: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE` — sin cambio.
+- Siguiente recomendado por `CHATGPT_CURRENT`: `CAPTURA_COMERCIAL_COMPLETA` — requiere trabajo físico.
+- Después de subir material nuevo: `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL`.
+- Publicación automática: `NO`.
