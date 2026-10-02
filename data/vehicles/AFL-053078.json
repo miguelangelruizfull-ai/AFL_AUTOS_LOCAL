@@ -31,7 +31,7 @@
     "captureType": "COMPLEMENTARIA",
     "captureExecution": "PENDIENTE",
     "whatsapp": "OCULTO",
-    "outputsDrive": "NO_VERIFICADAS_EN_RAIZ_ACTUAL",
+    "outputsDrive": "RAIZ_CANONICA_PREPARADA_SIN_ENTREGABLES",
     "publish": false
   },
   "commercial": {
@@ -61,7 +61,7 @@
     },
     "currentReviewed": 20,
     "historicalIntakeFiles": 105,
-    "lastVerifiedAt": "2026-10-02T11:35:34-06:00"
+    "lastVerifiedAt": "2026-10-02T12:06:00-06:00"
   },
   "capture": {
     "scheduled": false,
@@ -119,8 +119,12 @@
       "90_WHATSAPP_OCULTO",
       "95_PARA_ENVIAR"
     ],
-    "currentStructureVerified": "RAIZ_PLANA_20_JPEG_MAS_CONTROL",
-    "workflowFoldersVerified": false
+    "currentStructureVerified": "LEGACY_VEHICULOS_CODIGO_20_JPEG_MAS_CONTROL + CANONICAL_INPUT_OUTPUT_ROOTS_PREPARADOS",
+    "workflowFoldersVerified": false,
+    "canonicalInputRootPrepared": true,
+    "canonicalOutputRootPrepared": true,
+    "newCaptureFolderPrepared": true,
+    "originalsMoved": false
   },
   "outputs": {
     "marketplace": "PENDIENTE",
@@ -268,7 +272,10 @@
     "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CANONICO_RECONCILIADO + REVISION_LOTE_ACTUAL_CERRADA_20_DE_20 + 18_CANDIDATAS_COMERCIALES + 2_EVIDENCIAS_PRIVADAS_EXCLUIDAS + PRECIO_Y_DISPONIBILIDAD_CONFIRMADOS + MINIATURA_PUBLICA",
     "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
     "resumeFrom": "Capturar video vertical 9:16 y evidencia faltante para versión/trim, tracción y documentación; después registrar MATERIAL_NUEVO_SUBIDO y ejecutar REVISION_MATERIAL.",
-    "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO"
+    "driveControlDocument": "AFL-053078 — CONTROL OPERATIVO",
+    "lastVerifiedAt": "2026-10-02T12:06:00-06:00",
+    "evidence": "LEGACY_SOURCE_20_JPEG_MAS_CONTROL; 01_ENTRADAS_AFL_053078_PREPARADO; 20_NUEVA_CAPTURA_PREPARADO; 02_SALIDAS_AFL_053078_PREPARADO; 0_VIDEO; CAPTURA_FISICA_PENDIENTE",
+    "lastOperationalAction": "REVALIDACION_FUENTES_MINIMAS + PREPARACION_DESTINOS_CANONICOS; SIN_MOVER_ORIGINALES"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
