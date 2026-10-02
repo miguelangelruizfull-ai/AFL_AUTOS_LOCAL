@@ -369,3 +369,31 @@ Comportamiento:
 - evita duplicados entre HOME y la lista.
 
 La autoridad privada continúa en `Vehiculos/PUENTE.md` y la resolución privada en `Vehiculos/.../RELACIONES.json`.
+
+
+## PRIORIDAD COMERCIAL GLOBAL — VENTA / LLAMADA / HORARIO
+
+Aplica a **todos los vehículos** sin reescribir el checkpoint físico de cada unidad.
+
+Orden operativo cuando compiten tareas:
+
+1. cliente o negociación activa;
+2. llamada o visita de intención alta;
+3. material urgente necesario para responder al lead;
+4. publicación;
+5. organización interna.
+
+Horario comercial: `lunes a sábado, 08:00–21:00`, zona `America/Mexico_City`.
+
+Regla de llamada:
+
+- no llamar automáticamente;
+- si ya existe teléfono en la sesión y la intención es alta, evaluar llamada como siguiente acción cuando reduzca fricción comercial;
+- dentro del horario puede mostrarse `LLAMAR_AHORA`;
+- fuera del horario usar `PROGRAMAR_LLAMADA`;
+- una solicitud explícita de visita conserva `PROPONER_VISITA`;
+- no volver a pedir un teléfono ya capturado;
+- preguntar precio + tener teléfono no convierte por sí solo el estado en `LEAD_CALIFICADO`;
+- no afirmar que la llamada vende más que la visita sin medición comparable.
+
+La política se implementa globalmente en Copy Page/Home y por eso no requiere editar todos los expedientes de vehículo. Los datos variables de cada unidad siguen gobernados por `Vehiculos/PUENTE.md`.
