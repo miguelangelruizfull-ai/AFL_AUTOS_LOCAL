@@ -190,10 +190,10 @@
       "updated": "2026-10-02",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "HISTORIA_V4_9X16_PRODUCIDA_VERIFICADA_POR_CHATGPT_CURRENT; derivado 1080x1920 guardado en 50_HISTORIAS; unidad completa y zonas seguras verificadas; no publicado.",
+        "lastCompleted": "TIKTOK_PHOTOMOTION_9X16_PRODUCIDO_NO_APROBADO; 14.57 s, 1080x1920, construido solo con fotografías reales verificadas de AFL-279006; paquete y preview verificados en 80_TIKTOK; sin precio visible, sin audio incrustado y sin publicación. VIDEO_REAL_9_16 sigue pendiente.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-10-02T13:17:00-06:00",
+        "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
         "updated": "2026-10-02",
         "resumeFrom": "Ejecutar trabajo físico de captura comercial completa: 22 fotos obligatorias + walkaround vertical real 9:16; subir únicamente a 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA. Después MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL. No publicar automáticamente."
       },
@@ -230,72 +230,69 @@
       },
       "contentLab": {
         "operation": "CONTENIDO_EXPRESS_AFL",
-        "function": "Crear flyer",
-        "status": "FLYER_PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO",
-        "requestedAt": "2026-10-02T17:23:00-06:00",
-        "startedAt": "2026-10-02T17:23:00-06:00",
-        "completedAt": "2026-10-02T17:29:50-06:00",
-        "lastVerifiedAt": "2026-10-02T17:29:50-06:00",
-        "movedAt": null,
+        "function": "Crear TikTok",
+        "status": "TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO",
+        "completedAt": "2026-10-02T17:37:36-06:00",
+        "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
         "timezone": "America/Mexico_City",
-        "result": "Flyer 4:5 producido con la fotografía HERO real validada de AFL-279006 y logo AFL temporal canónico. La V1 temporal fue sustituida por una versión mejorada verificada; se conserva únicamente la derivada final en SALIDAS. Precio omitido por falta de autorización pública específica. Checkpoint CAPTURA_PENDIENTE conservado. Sin publicación.",
-        "filesMoved": 0,
-        "filesProduced": 1,
+        "result": "TikTok photo-motion 9:16 producido con fotografías reales verificadas de AFL-279006 y logo AFL temporal canónico. Master silencioso para selección posterior de audio comercial vigente. Precio público omitido. Checkpoint físico conservado. Sin publicación.",
+        "filesProduced": 2,
         "deliverables": [
           {
-            "key": "flyer4x5",
-            "status": "PRODUCIDO_MEJORADO_VERIFICADO_NO_APROBADO_NO_PUBLICAR",
-            "artifact": "AFL-279006_FLYER_4X5_V2_MEJORADA.jpg",
-            "format": "1080x1350",
-            "sourceHero": "IMG_20260909_141002470_RETOQUE_V2.jpg",
-            "brandAsset": "01_LOGO_AFL_AUTOS_TEMPORAL_CANONICO_3X_TRANSPARENTE.png",
+            "key": "tiktokPhotoMotion",
+            "status": "PRODUCIDO_NO_APROBADO_NO_PUBLICAR",
+            "artifactPackage": "AFL-279006_TIKTOK_PHOTOMOTION_9X16_2026-10-02.zip",
+            "preview": "AFL-279006_TIKTOK_PREVIEW_9X16_2026-10-02.jpg",
+            "format": "1080x1920",
+            "durationSeconds": 14.57,
+            "vehicle_photo_provenance": "SAME_AFL_ID",
+            "synthetic_vehicle_views": 0,
+            "other_vehicle_photos": 0,
+            "stock_vehicle_photos": 0,
+            "generic_icons": 0,
             "vehicle_fidelity": "POSITIVE",
             "brand_asset_fidelity": "POSITIVE",
             "publishable_data_control": "POSITIVE",
             "premium_authenticity": "POSITIVE",
-            "generic_template_risk": "LOW",
             "approved_reference_alignment": "POSITIVE",
+            "generic_template_risk": "LOW",
             "user_approval": "NO"
           }
         ],
-        "reposUpdated": [
-          "Vehiculos",
-          "AFL_AUTOS_LOCAL"
-        ],
-        "nextAction": "REVISION_MIGUEL_FLYER; opcional MEJORAR_FLYER",
+        "nextAction": "REVISION_MIGUEL_TIKTOK_PHOTOMOTION",
         "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "blockings": [
           "APROBACION_MIGUEL_PENDIENTE",
+          "VIDEO_REAL_9_16_PENDIENTE",
           "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
-          "VIDEO_REAL_PENDIENTE",
           "NO_PUBLICAR"
         ]
       },
       "recommendation": {
-        "updatedAt": "2026-10-02T17:29:50-06:00",
+        "updatedAt": "2026-10-02T17:37:36-06:00",
         "authority": "CHATGPT_CURRENT",
         "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
         "latestClosure": {
-          "status": "FLYER_4X5_MEJORADO_PRODUCIDO_NO_APROBADO",
-          "summary": "Flyer 4:5 mejorado producido y verificado en SALIDAS; checkpoint físico CAPTURA_PENDIENTE sin cambio.",
+          "status": "TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO",
+          "summary": "TikTok photo-motion 9:16 producido y verificado en 80_TIKTOK con fotografías reales de la unidad; sin precio, audio incrustado ni publicación. Video real 9:16 sigue pendiente.",
           "filesMoved": 0,
-          "filesProduced": 1,
-          "captureEvidence": "HERO usado: IMG_20260909_141002470_RETOQUE_V2.jpg",
-          "lastVerifiedAt": "2026-10-02T17:29:50-06:00"
+          "filesProduced": 2,
+          "captureEvidence": "12 fotografías reales disponibles; video real de campo pendiente.",
+          "lastVerifiedAt": "2026-10-02T17:37:36-06:00"
         },
         "nextRecommended": {
-          "key": "CAPTURA_COMERCIAL_COMPLETA",
-          "label": "Completar captura física y video real 9:16",
-          "reason": "La Historia V4 9:16 ya quedó producida y verificada; portadas finales, Reel, TikTok y la selección final siguen dependiendo de material de campo.",
-          "canExecuteNow": false,
-          "requiresPhysicalCapture": true,
-          "instruction": "Realizar 22 fotos obligatorias + walkaround vertical real 9:16 y subir únicamente a 20_NUEVA_CAPTURA. Después ejecutar REVISION_MATERIAL."
+          "key": "REVISION_MIGUEL_TIKTOK_PHOTOMOTION",
+          "label": "Revisar TikTok photo-motion",
+          "reason": "El derivado ya está producido y no requiere esperar la captura física para revisión; aprobarlo o pedir ajustes no modifica el checkpoint.",
+          "canExecuteNow": true,
+          "requiresPhysicalCapture": false,
+          "instruction": "Revisar hook, cortes, textos y CTA. Aprobar o solicitar ajuste. No publicar automáticamente."
         },
         "afterNextRecommended": {
-          "key": "REVISION_MATERIAL_NUEVO",
-          "label": "Revisar material nuevo y cerrar selección",
-          "condition": "MATERIAL_NUEVO_SUBIDO",
-          "reason": "Ejecutar únicamente cuando exista material nuevo en 20_NUEVA_CAPTURA."
+          "key": "CAPTURA_COMERCIAL_COMPLETA",
+          "label": "Completar captura física y video real 9:16",
+          "condition": "TRABAJO_DE_CAMPO",
+          "reason": "Permite crear una futura versión TikTok/Reel basada en footage real y completar el expediente."
         },
         "fieldRecommended": {
           "key": "CAPTURA_COMERCIAL_COMPLETA",
@@ -320,7 +317,7 @@
           {
             "key": "TIKTOK_VIDEO_REAL",
             "label": "TikTok con video real",
-            "status": "BLOQUEADO",
+            "status": "PENDIENTE_FISICO_VARIANTE_VIDEO_REAL",
             "canCreateNow": false,
             "gate": "VIDEO_REAL_9_16"
           },
