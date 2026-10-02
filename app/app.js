@@ -796,14 +796,63 @@ function makeLabUxMenu(system, vehicles) {
   const nav = element("div", "home-tabs-nav");
 
   const buttons = {
-    production: actionButton("Producción", function(){ activate("production"); }, true),
+    production: actionButton("Producción AFL Lab", function(){ activate("production"); }, true),
     express: actionButton("Contenido Express", function(){ activate("express"); }, false),
-    responses: actionButton("Respuestas", function(){ activate("responses"); }, false),
-    alternative: actionButton("Otra respuesta", function(){ activate("alternative"); }, false),
-    tools: actionButton("Herramientas", function(){ activate("tools"); }, false),
+    responses: actionButton("Responder cliente", function(){ activate("responses"); }, false),
+    alternative: actionButton("Otra redacción", function(){ activate("alternative"); }, false),
+    tools: actionButton("Actualizar / operar", function(){ activate("tools"); }, false),
     systems: actionButton("Flujo y sistemas", function(){ activate("systems"); }, false)
   };
   nav.append(buttons.production, buttons.express, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
+
+  const guide = element("article", "panel wide no-print");
+  guide.append(
+    element("div", "eyebrow", "MENÚ HOME · GUÍA RÁPIDA"),
+    element("h2", "", "Elige por objetivo, no por nombre de herramienta"),
+    element("p", "subtitle", "Cada opción indica cuándo conviene usarla y qué debe producir. Ninguna opción publica automáticamente.")
+  );
+  const guideGrid = element("div", "quick-response-grid");
+  [
+    {
+      label: "1. Producción AFL Lab",
+      when: "Cuando necesitas producción completa y trazable para una unidad.",
+      output: "PUENTE → Drive/CONTROL → producción → repos afectados → HOME."
+    },
+    {
+      label: "2. Contenido Express",
+      when: "Cuando ya hay material utilizable y necesitas una pieza o paquete rápido.",
+      output: "Selección de material → estrategia → derivado creativo → salida, sin publicar."
+    },
+    {
+      label: "3. Responder cliente",
+      when: "Cuando recibiste una pregunta real por comentario, Messenger, WhatsApp o llamada.",
+      output: "Respuesta por canal respetando política de precio y datos confirmados."
+    },
+    {
+      label: "4. Otra redacción",
+      when: "Cuando la primera respuesta no convence o necesitas una alternativa breve.",
+      output: "Nueva redacción sobre la misma intención; no crea ni modifica expediente."
+    },
+    {
+      label: "5. Actualizar / operar",
+      when: "Cuando Miguel autoriza cambiar un dato, auditar sincronización o registrar programación/publicación.",
+      output: "Acción controlada + sincronización de las superficies dependientes."
+    },
+    {
+      label: "6. Flujo y sistemas",
+      when: "Cuando necesitas entender autoridad, repositorios, reglas o relación entre sistemas.",
+      output: "Contexto técnico y navegación; no sustituye el checkpoint de una unidad."
+    }
+  ].forEach(function(item) {
+    const card = element("div", "quick-response-card");
+    card.append(
+      element("strong", "", item.label),
+      element("p", "deliverable-note", "Úsalo cuando: " + item.when),
+      element("p", "deliverable-note", "Salida esperada: " + item.output)
+    );
+    guideGrid.append(card);
+  });
+  guide.append(guideGrid);
 
   const productionPanel = makeLabLauncherPanel(vehicles);
   const expressPanel = makeContentExpressPanel(vehicles);
@@ -848,7 +897,7 @@ function makeLabUxMenu(system, vehicles) {
   }
 
   activate("production");
-  wrap.append(nav, productionPanel, expressPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
+  wrap.append(guide, nav, productionPanel, expressPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
   return wrap;
 }
 
