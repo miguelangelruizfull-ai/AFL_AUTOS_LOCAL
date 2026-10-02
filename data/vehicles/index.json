@@ -184,17 +184,17 @@
       "whatsapp": "PUBLICADO",
       "priceInternal": 325000,
       "currency": "MXN",
-      "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+      "nextAction": "ADAPTAR_V4_HISTORIA_9X16",
       "image": "assets/thumbs/AFL-279006.jpg",
       "detail": "data/vehicles/AFL-279006.json",
       "publish": true,
       "updated": "2026-10-02",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "WHATSAPP_PUBLICADO + SEND_PACKAGE_PUBLICADO; checkpoint de captura conservado.",
-        "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
+        "lastCompleted": "REVISION_V4_COMPLETADA_POR_CHATGPT_CURRENT; dirección V4 revisada y criterios 9:16 definidos; checkpoint de captura conservado.",
+        "nextAction": "ADAPTAR_V4_HISTORIA_9X16",
         "state": "CAPTURA_PENDIENTE",
-        "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
+        "lastVerifiedAt": "2026-10-02T12:19:00-06:00"
       },
       "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-279006.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
@@ -229,21 +229,21 @@
       },
       "contentLab": {
         "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-        "status": "BLOQUEADO",
+        "status": "LISTO_PARA_ADAPTACION_9X16",
         "requestedAt": "2026-10-02T17:38:45.964Z",
         "requestedAtLocal": "2026-10-02T11:38:45.964-06:00",
         "startedAt": "2026-10-02T11:42:52-06:00",
         "completedAt": "2026-10-02T11:47:05-06:00",
-        "lastVerifiedAt": "2026-10-02T11:49:56-06:00",
+        "lastVerifiedAt": "2026-10-02T12:19:00-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
-        "result": "V4 feed ya producido y verificado en Drive; captura comercial canónica sin material nuevo (0 fotos, 0 videos, 0 notas). No se generó contenido adicional ni se movieron archivos. Pendientes revisión/aprobación humana de V4 y captura comercial física.",
+        "result": "V4 real revisado; dirección 9:16 definida sin modificar/publicar el V4. Captura física continúa pendiente. Estructura canónica de Drive reconciliada.",
         "filesMoved": 0,
         "filesProduced": 0,
         "deliverables": [
           {
             "key": "feedV4",
-            "status": "PRODUCIDO_VERIFICADO_PENDIENTE_REVISION_MIGUEL_NO_PUBLICAR"
+            "status": "PRODUCIDO_VERIFICADO_REVISADO_DIRECCION_APTA_PARA_9X16_NO_PUBLICAR"
           },
           {
             "key": "captureCommercial",
@@ -260,6 +260,10 @@
           {
             "key": "sendPackage",
             "status": "PUBLICADO_EXISTENTE_SIN_CAMBIOS"
+          },
+          {
+            "key": "storyV4",
+            "status": "DIRECCION_9X16_DEFINIDA_PENDIENTE_RENDER_NO_PUBLICAR"
           }
         ],
         "reposUpdated": [
@@ -267,40 +271,39 @@
           "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "REVISION_APROBACION_V4",
+        "nextAction": "ADAPTAR_V4_HISTORIA_9X16",
         "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "blockings": [
-          "APROBACION_MIGUEL_V4_PENDIENTE",
           "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
           "VIDEO_REAL_PENDIENTE",
-          "HOME_ENLACES_OPERATIVOS_LEGACY_NO_RESUELVEN"
+          "HISTORIA_V4_9X16_PENDIENTE_RENDER"
         ]
       },
       "recommendation": {
-        "updatedAt": "2026-10-02T12:00:01-06:00",
+        "updatedAt": "2026-10-02T12:19:00-06:00",
         "authority": "CHATGPT_CURRENT",
         "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
         "latestClosure": {
-          "status": "BLOQUEADO",
-          "summary": "V4 feed ya producido y verificado; la captura comercial canónica continúa sin material nuevo. No se movieron ni produjeron archivos en la última ejecución.",
+          "status": "REVISION_V4_COMPLETADA",
+          "summary": "V4 real revisado; dirección 9:16 definida. Drive canónico 01_ENTRADAS/02_SALIDAS reconciliado. Sin publicación nueva.",
           "filesMoved": 0,
           "filesProduced": 0,
           "captureEvidence": "0 fotos nuevas / 0 videos nuevos / 0 notas nuevas",
-          "lastVerifiedAt": "2026-10-02T11:49:56-06:00"
+          "lastVerifiedAt": "2026-10-02T12:19:00-06:00"
         },
         "nextRecommended": {
-          "key": "REVISION_APROBACION_V4",
-          "label": "Revisar y decidir V4",
-          "reason": "Es el candidato visual vigente y ya existe en Drive; revisarlo evita producir derivados sobre una dirección todavía no aprobada.",
+          "key": "ADAPTAR_V4_HISTORIA_9X16",
+          "label": "Producir Historia V4 9:16",
+          "reason": "La revisión del V4 quedó completada y la dirección vertical está definida.",
           "canExecuteNow": true,
           "requiresPhysicalCapture": false,
-          "instruction": "Revisa el feed V4 vigente. Si Miguel lo aprueba, registra APROBADO_POR_MIGUEL sin publicar automáticamente y habilita ADAPTAR_V4_HISTORIA_9X16. Si requiere cambios, registra correcciones exactas antes de producir derivados."
+          "instruction": "Adaptar a 9:16 conservando la unidad completa en ventana segura; no publicar automáticamente."
         },
         "afterNextRecommended": {
-          "key": "ADAPTAR_V4_HISTORIA_9X16",
-          "label": "Crear Historia 9:16 desde la dirección V4",
-          "condition": "SOLO_DESPUES_DE_APROBACION_O_CORRECCION_V4",
-          "reason": "La historia V4 aún no está producida; existe base segura 9:16 y material fotográfico suficiente para una adaptación sin inventar footage."
+          "key": "CAPTURA_COMERCIAL_COMPLETA",
+          "label": "Completar captura física y video real 9:16",
+          "condition": "TRABAJO_DE_CAMPO",
+          "reason": "Sigue pendiente para portadas finales, Reel, TikTok y selección final."
         },
         "fieldRecommended": {
           "key": "CAPTURA_COMERCIAL_COMPLETA",
@@ -311,9 +314,9 @@
           {
             "key": "HISTORIA_V4_9X16",
             "label": "Historia V4 9:16",
-            "status": "FALTA",
-            "canCreateNow": false,
-            "gate": "REVISION_APROBACION_V4"
+            "status": "LISTA_PARA_PRODUCCION",
+            "canCreateNow": true,
+            "gate": "REVISION_V4_COMPLETADA"
           },
           {
             "key": "PORTADAS",
@@ -347,38 +350,29 @@
         "optionsRecommended": [
           {
             "order": 1,
-            "key": "REVISION_APROBACION_V4",
-            "label": "Revisar/aprobar V4",
+            "key": "ADAPTAR_V4_HISTORIA_9X16",
+            "label": "Producir Historia V4 9:16",
             "recommended": true,
             "canExecuteNow": true,
-            "instruction": "Revisar V4 y registrar aprobación o correcciones; no publicar automáticamente."
+            "instruction": "Conservar unidad completa en ventana segura; no publicar automáticamente."
           },
           {
             "order": 2,
-            "key": "ADAPTAR_V4_HISTORIA_9X16",
-            "label": "Crear Historia V4 9:16",
-            "recommended": false,
-            "canExecuteNow": false,
-            "gate": "REVISION_APROBACION_V4",
-            "instruction": "Después de aprobar/corregir V4, adaptar la dirección visual a 9:16 conservando la unidad completa en ventana segura."
-          },
-          {
-            "order": 3,
             "key": "CAPTURA_COMERCIAL_COMPLETA",
             "label": "Completar captura + video real",
             "recommended": false,
             "canExecuteNow": false,
             "gate": "TRABAJO_DE_CAMPO",
-            "instruction": "Ejecutar checklist físico de 22 fotos y walkaround vertical real; preservar originales."
+            "instruction": "22 fotos + walkaround 9:16; cargar en 20_NUEVA_CAPTURA."
           },
           {
-            "order": 4,
+            "order": 3,
             "key": "REVISION_MATERIAL_NUEVO",
             "label": "Revisar material nuevo y cerrar selección",
             "recommended": false,
             "canExecuteNow": false,
             "gate": "MATERIAL_NUEVO_SUBIDO",
-            "instruction": "Cuando exista material nuevo, clasificarlo, cerrar selección final y desbloquear derivados faltantes."
+            "instruction": "Procesar solo cuando exista material nuevo."
           }
         ],
         "publicExposure": "SANITIZED_ONLY"
