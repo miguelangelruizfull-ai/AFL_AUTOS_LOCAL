@@ -380,3 +380,18 @@ Referencia central: `AFL_AUTOS_REFERENCIAS_CREATIVAS/04_REFERENCIAS_AFL_APROBADA
 - Checkpoint físico conservado: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
 - Siguiente acción física: `CAPTURA_COMERCIAL_COMPLETA`.
 - Publicación automática: `NO`.
+
+
+## CHECKLIST CANÓNICO DE CAMPO — 2026-10-02
+
+Checklist de Drive: https://docs.google.com/document/d/1GNLRaIrWk8P_UiMJrxFT538u7yPQd1iOmt65k5IaWbc/edit
+
+- Captura obligatoria: 22 fotos.
+- Video obligatorio: walkaround real 9:16 de 20–30 s.
+- Destino único de carga: https://drive.google.com/drive/folders/1T1tGd0PJj5AZNHVa1DWq2CWGoksstKag
+- Estado: CAPTURA_PENDIENTE.
+- Agenda: pendiente de nueva fecha confirmada.
+- Después de carga: MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL → SELECCION_FINAL.
+- Reel y nuevo TikTok con footage real se producen después de validar el video.
+- TikTok photo-motion anterior: NO_APROBADA / NO_PUBLICAR.
+- No publicar automáticamente.
