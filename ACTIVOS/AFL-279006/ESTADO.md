@@ -329,3 +329,20 @@ PUBLICAR_AUTOMATICAMENTE_OTRAS_PIEZAS: NO
 - Checkpoint físico: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE` — sin cambio.
 - Siguiente acción física: `CAPTURA_COMERCIAL_COMPLETA` — sin cambio.
 - Publicación automática: `NO`.
+
+## CIERRE — TIKTOK PHOTO-MOTION 9:16
+
+- Acción ejecutada: `CREAR_TIKTOK` mediante CONTENIDO_EXPRESS_AFL.
+- Entregable: `TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO`.
+- Formato: `1080x1920 / 9:16 / 30 fps / 14.57 s`.
+- Fuente visual: fotografías reales verificadas de `AFL-279006`; sin stock, sin fotografías de otra unidad y sin vistas sintéticas.
+- Audio: master silencioso; selección de audio comercial vigente se realiza al publicar, con aprobación separada.
+- Precio visible: omitido.
+- Drive: paquete ZIP con MP4 + manifiesto y preview verificados en `02_SALIDAS/AFL-279006/80_TIKTOK`.
+- Calidad: `vehicle_photo_provenance=SAME_AFL_ID`; `synthetic_vehicle_views=0`; `other_vehicle_photos=0`; `stock_vehicle_photos=0`; `generic_icons=0`; `premium_authenticity=POSITIVE`; `approved_reference_alignment=POSITIVE`; `generic_template_risk=LOW`.
+- Aprobación: pendiente de Miguel.
+- Publicación automática: `NO`.
+- Checkpoint físico conservado: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Siguiente acción física conservada: `CAPTURA_COMERCIAL_COMPLETA`.
+- Video real vertical 9:16: pendiente; una futura variante con footage real sigue bloqueada hasta nueva captura.
+
