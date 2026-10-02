@@ -152,6 +152,198 @@ function buildContentLabPrompt(v) {
   ].join("\n");
 }
 
+
+const CONTENT_EXPRESS_CONTRACT = "CONTENIDO_EXPRESS.md";
+
+function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder) {
+  const c = v.checkpoint || {};
+  const commercial = v.commercial || {};
+  const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
+  const reference = String(referenceFolder || "").trim();
+  const material = creativeMaterialPath(v, materialFolder);
+  const pieces = creativeProductionPieces();
+  const piece = pieces.find(function(item) { return item.key === pieceKey; });
+  const requested = piece ? piece.label : "Paquete express";
+  const output = piece
+    ? v.drive.outputRoot.replace(/\/$/, "") + "/" + piece.outputFolder
+    : pieces.map(function(item) {
+        return item.label + " → " + v.drive.outputRoot.replace(/\/$/, "") + "/" + item.outputFolder;
+      }).join("\n- ");
+
+  return [
+    "CONTENIDO_EXPRESS_AFL",
+    "CONTRATO: " + CONTENT_EXPRESS_CONTRACT,
+    "",
+    "AUTORIZACIÓN:",
+    "Ejecuta el flujo Contenido Express autorizado para una sola unidad. No hagas barridos generales de repositorios o Drive.",
+    "",
+    "VEHÍCULO:",
+    "- AFL-ID: " + v.id,
+    "- Unidad: " + title,
+    "- Función solicitada: " + requested,
+    "- Carpeta de material: " + material,
+    "- Carpeta de referencias creativas: " + (reference || "NO_SELECCIONADA"),
+    "- Salida: " + output,
+    "",
+    "CONTEXTO VIGENTE:",
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || (v.status && v.status.vehicle) || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
+    "- Disponibilidad: " + (commercial.availability || "PENDIENTE"),
+    "- Precio interno: " + (commercial.priceInternal == null ? "PENDIENTE" : money(commercial.priceInternal, commercial.currency || "MXN")),
+    "",
+    "FLUJO EXPRESS OBLIGATORIO — MISMA EJECUCIÓN:",
+    "1. MATERIAL: revisa únicamente el expediente/PUENTE necesario para validar datos vigentes y la carpeta seleccionada. No mezcles unidades.",
+    "2. CAPTURA EXPRESS: inventaría fotos/videos, identifica tomas útiles y genera una captura comercial factual con lo visible y verificado.",
+    "3. ESTRATEGIA: sin esperar otro proceso, define hook, beneficio principal, prueba visible, objeción y CTA específicos para esta unidad.",
+    "4. CREATIVIDAD: aplica una composición comercial clara, móvil primero y fiel al vehículo. Usa la carpeta de referencias solo como inspiración.",
+    "5. PRODUCCIÓN: crea la función solicitada. Si es Paquete express, produce o deja lista la especificación de todas las piezas útiles con la evidencia disponible.",
+    "6. VIDEO/TENDENCIAS: cuando aplique, analiza hook, ritmo, encuadre, estabilidad, luz, color, audio, subtítulos y cortes. Verifica tendencias/audio vigentes antes de recomendarlos.",
+    "7. CIERRE: entrega captura, estrategia, copy, texto sobreimpreso, formato/duración, shot list/cut sheet, efectos, audio, hashtags, nombre de archivo y destino.",
+    "",
+    "REGLAS DE VELOCIDAD:",
+    "- No detener captura → estrategia → producción si la evidencia es suficiente.",
+    "- No pedir de nuevo datos ya verificados.",
+    "- Si falta un dato, bloquea solo la afirmación dependiente y continúa con lo demás.",
+    "- Si falta una toma física indispensable, especifica exactamente cuál; no inventes la toma.",
+    "",
+    "SEGURIDAD Y ESTADO:",
+    "- No alterar RAW/originales.",
+    "- Guardar solo derivados en SALIDAS.",
+    "- HOME recibe únicamente resumen sanitizado.",
+    "- No exponer VIN completo, PII, documentos privados, odómetro privado ni enlaces privados.",
+    "- No marcar LISTO/PUBLICADO sin evidencia real.",
+    "- No publicar automáticamente."
+  ].join("\n");
+}
+
+function makeContentExpressPanel(vehicles) {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "express";
+  panel.hidden = true;
+
+  panel.append(
+    element("div", "eyebrow", "AFL AUTOS · CONTENIDO EXPRESS"),
+    element("h2", "", "Fotos → captura → estrategia → contenido"),
+    element("p", "subtitle", "Selecciona vehículo, función y carpetas. La orden ejecuta captura comercial, estrategia y producción en una sola corrida sin barridos generales.")
+  );
+
+  const form = element("div", "creative-config-grid");
+
+  const vehicleField = element("label", "creative-field");
+  vehicleField.append(element("span", "", "Vehículo"));
+  const vehicleSelect = element("select", "status-select");
+  const vehiclePlaceholder = element("option", "", "Seleccionar vehículo…");
+  vehiclePlaceholder.value = "";
+  vehicleSelect.append(vehiclePlaceholder);
+  (vehicles.vehicles || []).forEach(function(v) {
+    const option = element("option", "", v.id + " · " + (v.title || "Vehículo"));
+    option.value = v.id;
+    option.dataset.detail = v.detail || ("data/vehicles/" + v.id + ".json");
+    vehicleSelect.append(option);
+  });
+  vehicleField.append(vehicleSelect);
+
+  const functionField = element("label", "creative-field");
+  functionField.append(element("span", "", "Función"));
+  const functionSelect = element("select", "status-select");
+  const pack = element("option", "", "Paquete express");
+  pack.value = "package";
+  functionSelect.append(pack);
+  creativeProductionPieces().forEach(function(piece) {
+    const option = element("option", "", piece.label);
+    option.value = piece.key;
+    functionSelect.append(option);
+  });
+  functionField.append(functionSelect);
+
+  const materialField = element("label", "creative-field");
+  materialField.append(element("span", "", "Carpeta de material"));
+  const materialSelect = element("select", "status-select");
+  const materialPlaceholder = element("option", "", "Selecciona primero el vehículo");
+  materialPlaceholder.value = "";
+  materialSelect.append(materialPlaceholder);
+  materialField.append(materialSelect);
+
+  const referenceField = element("label", "creative-field");
+  referenceField.append(element("span", "", "Carpeta de creatividad / referencias"));
+  const referenceInput = element("input", "status-select");
+  referenceInput.type = "text";
+  referenceInput.placeholder = "Ruta o URL opcional: flyers, historias, videos...";
+  referenceInput.autocomplete = "off";
+  referenceField.append(referenceInput);
+
+  form.append(vehicleField, functionField, materialField, referenceField);
+  panel.append(form);
+
+  let loadedVehicle = null;
+  const status = element("span", "copy-status", "");
+
+  async function loadSelectedVehicle() {
+    loadedVehicle = null;
+    materialSelect.replaceChildren();
+    if (!vehicleSelect.value) {
+      const o = element("option", "", "Selecciona primero el vehículo");
+      o.value = "";
+      materialSelect.append(o);
+      return null;
+    }
+
+    const summary = (vehicles.vehicles || []).find(function(v) { return v.id === vehicleSelect.value; });
+    const detailPath = (vehicleSelect.selectedOptions[0] && vehicleSelect.selectedOptions[0].dataset.detail) ||
+      (summary && summary.detail) || ("data/vehicles/" + vehicleSelect.value + ".json");
+
+    try {
+      loadedVehicle = await getJSON(detailPath);
+    } catch (error) {
+      loadedVehicle = summary || null;
+    }
+
+    const drive = (loadedVehicle && loadedVehicle.drive) || {};
+    const folders = Array.isArray(drive.inputs) && drive.inputs.length
+      ? drive.inputs
+      : (drive.inputRoot ? [drive.inputRoot] : []);
+
+    if (!folders.length) {
+      const o = element("option", "", "Carpeta no registrada; usar raíz de entrada");
+      o.value = drive.inputRoot || "";
+      materialSelect.append(o);
+    } else {
+      folders.forEach(function(folder, index) {
+        const o = element("option", "", folder);
+        o.value = folder;
+        o.selected = index === 0;
+        materialSelect.append(o);
+      });
+    }
+    status.textContent = loadedVehicle
+      ? "Unidad cargada. Selecciona función y prepara la orden express."
+      : "No se pudo cargar el expediente de la unidad.";
+    return loadedVehicle;
+  }
+
+  vehicleSelect.addEventListener("change", loadSelectedVehicle);
+
+  const actions = element("div", "actions");
+  actions.append(
+    actionButton("Preparar Contenido Express", async function() {
+      if (!vehicleSelect.value) {
+        status.textContent = "Selecciona un vehículo.";
+        return;
+      }
+      const v = loadedVehicle || await loadSelectedVehicle();
+      if (!v) {
+        status.textContent = "No se pudo cargar el vehículo.";
+        return;
+      }
+      copyText(buildContentExpressPrompt(v, functionSelect.value, materialSelect.value, referenceInput.value), status);
+    }, true),
+    linkButton("Abrir lista de vehículos", "lista.html", false)
+  );
+  panel.append(actions, status, element("p", "deliverable-note", "Contrato autorizado: CONTENIDO_EXPRESS.md · sin publicación automática."));
+  return panel;
+}
+
 function contentLabHomeSummary(v) {
   const lab = v.contentLab || {};
   if (!lab.status && !lab.requestedAt && !lab.startedAt && !lab.completedAt) {
@@ -564,14 +756,16 @@ function makeLabUxMenu(system, vehicles) {
 
   const buttons = {
     production: actionButton("Producción", function(){ activate("production"); }, true),
+    express: actionButton("Contenido Express", function(){ activate("express"); }, false),
     responses: actionButton("Respuestas", function(){ activate("responses"); }, false),
     alternative: actionButton("Otra respuesta", function(){ activate("alternative"); }, false),
     tools: actionButton("Herramientas", function(){ activate("tools"); }, false),
     systems: actionButton("Flujo y sistemas", function(){ activate("systems"); }, false)
   };
-  nav.append(buttons.production, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
+  nav.append(buttons.production, buttons.express, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
 
   const productionPanel = makeLabLauncherPanel(vehicles);
+  const expressPanel = makeContentExpressPanel(vehicles);
   const responsesPanel = makeResponseGeneratorPanel();
   const alternativePanel = makeAlternativeResponsePanel(system);
 
@@ -598,6 +792,7 @@ function makeLabUxMenu(system, vehicles) {
 
   const panels = {
     production: productionPanel,
+    express: expressPanel,
     responses: responsesPanel,
     alternative: alternativePanel,
     tools: toolsPanel,
@@ -612,7 +807,7 @@ function makeLabUxMenu(system, vehicles) {
   }
 
   activate("production");
-  wrap.append(nav, productionPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
+  wrap.append(nav, productionPanel, expressPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
   return wrap;
 }
 
