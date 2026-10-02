@@ -98,8 +98,8 @@ function detectIntent(message){
   return "OTRA_PREGUNTA";
 }
 function priority(intent){
-  if(["PRECIO","DISPONIBILIDAD","VISITA","DOCUMENTACION","NEGOCIACION","CONTACTO"].includes(intent)) return "ALTA";
-  if(["FOTOS_VIDEO","MOTOR_ESPECIFICACIONES","UBICACION"].includes(intent)) return "MEDIA";
+  if(["PRECIO","DISPONIBILIDAD","VISITA","DOCUMENTACION","NEGOCIACION","CONTACTO","UBICACION"].includes(intent)) return "ALTA";
+  if(["FOTOS_VIDEO","MOTOR_ESPECIFICACIONES"].includes(intent)) return "MEDIA";
   return "BAJA";
 }
 function publicPrice(v){
@@ -129,6 +129,40 @@ function availability(v){
 function vehicleTitle(v){ return v ? ((v.vehicle&&v.vehicle.publicTitle)||v.title||v.id) : "UNIDAD_NO_VERIFICADA"; }
 function outsideMexico(p){ return p.captured && p.country && p.country!=="México" && p.country!=="NO_DETERMINADO"; }
 
+function businessClock(){
+  const cfg=CONFIG.businessHours||{};
+  const timeZone=cfg.timezone||"America/Mexico_City";
+  const parts=new Intl.DateTimeFormat("en-US",{timeZone:timeZone,weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());
+  const part=function(type){const x=parts.find(function(p){return p.type===type;});return x?x.value:"";};
+  const dayMap={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:0};
+  const day=dayMap[part("weekday")];
+  const hour=Number(part("hour")||0), minute=Number(part("minute")||0), now=hour*60+minute;
+  const parse=function(v,fallback){const a=String(v||fallback).split(":").map(Number);return (a[0]||0)*60+(a[1]||0);};
+  const openAt=parse(cfg.open,"08:00"), closeAt=parse(cfg.close,"21:00");
+  const days=Array.isArray(cfg.days)?cfg.days:[1,2,3,4,5,6];
+  const open=days.includes(day)&&now>=openAt&&now<closeAt;
+  return {open:open,timeZone:timeZone,localTime:String(hour).padStart(2,"0")+":"+String(minute).padStart(2,"0"),label:open?"DENTRO_DE_HORARIO":"FUERA_DE_HORARIO"};
+}
+function callAction(ctx){
+  if(!ctx.phone||!ctx.phone.captured||!ctx.phone.normalized||ctx.priority!=="ALTA") return null;
+  return ctx.clock&&ctx.clock.open?"LLAMAR_AHORA":"PROGRAMAR_LLAMADA";
+}
+function salesFollow(ctx,language){
+  const en=language==="en";
+  if(ctx.phone&&ctx.phone.captured&&ctx.priority==="ALTA"){
+    if(ctx.clock&&ctx.clock.open) return en?" Can I call you now to resolve the remaining details and coordinate the visit?":" ¿Te llamo ahora para resolver lo que falta y coordinar la visita?";
+    return en?" We can schedule a call during the next business window to coordinate the visit.":" Si te parece, programamos una llamada en el próximo horario operativo para coordinar la visita.";
+  }
+  if(ctx.availability==="DISPONIBLE") return en?" What day works for you to come see it?":" ¿Qué día te queda bien para venir a verla?";
+  return en?" Would you like me to send the approved photos of the vehicle?":" ¿Quieres que te comparta las fotos autorizadas de la unidad?";
+}
+function dialUrl(ctx){
+  if(!ctx.phone||!ctx.phone.normalized) return null;
+  let n=String(ctx.phone.normalized).replace(/\D/g,"");
+  if(ctx.phone.country==="México"&&n.length===10) n="52"+n;
+  return n?"tel:+"+n:null;
+}
+
 function responseType(channel,intent,verified){
   if(channel==="WHATSAPP") return "WHATSAPP_PRIVADA";
   if(channel==="MESSENGER") return "INBOX_MESSENGER_PRIVADA";
@@ -146,7 +180,7 @@ function responseES(ctx){
     if(ctx.price){
       const amount=new Intl.NumberFormat("es-MX",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value);
       if(ctx.channel==="COMENTARIO") return vehicleTitle(ctx.vehicle)+" tiene un precio público vigente de "+amount+". Si te interesa, te envío por inbox la información confirmada de la unidad.";
-      const follow=ctx.availability==="DISPONIBLE" ? " ¿Qué día te queda bien para venir a verla?" : " ¿Quieres que te comparta las fotos autorizadas de la unidad?";
+      const follow=salesFollow(ctx,"es");
       return "El precio vigente confirmado de "+vehicleTitle(ctx.vehicle)+" es "+amount+"."+follow;
     }
     if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "Te mando por inbox el precio vigente y la información confirmada de "+vehicleTitle(ctx.vehicle)+".";
@@ -172,7 +206,10 @@ function responseES(ctx){
     }
     return "Voy a verificar la unidad exacta antes de confirmarte motor, transmisión o tracción.";
   }
-  if(ctx.intent==="CONTACTO") return ctx.phone.captured ? "Ya tenemos registrado tu contacto; no necesitas volver a enviarlo. Continúo con el siguiente paso de tu solicitud." : "Podemos continuar por este medio y, si facilita el siguiente paso, pasar la atención a WhatsApp.";
+  if(ctx.intent==="CONTACTO"){
+    if(ctx.phone.captured) return ctx.clock&&ctx.clock.open ? "Ya tenemos registrado tu contacto; no necesitas volver a enviarlo. ¿Te llamo ahora para continuar?" : "Ya tenemos registrado tu contacto; no necesitas volver a enviarlo. Podemos programar una llamada en el próximo horario operativo.";
+    return "Podemos continuar por este medio y pasar a llamada o WhatsApp solo si ayuda a avanzar la venta.";
+  }
   return "Gracias por tu mensaje. Voy a verificar la unidad y la información vigente para responderte correctamente.";
 }
 
@@ -185,7 +222,7 @@ function responseEN(ctx){
     if(ctx.price){
       const amount=new Intl.NumberFormat("en-US",{style:"currency",currency:ctx.price.currency,maximumFractionDigits:0}).format(ctx.price.value);
       if(ctx.channel==="COMENTARIO") return vehicleTitle(ctx.vehicle)+" has a current public price of "+amount+". I can send you the confirmed vehicle information by inbox.";
-      const follow=ctx.availability==="DISPONIBLE" ? " What day works for you to come see it?" : " Would you like me to send the approved photos of the vehicle?";
+      const follow=salesFollow(ctx,"en");
       return "The current confirmed price of "+vehicleTitle(ctx.vehicle)+" is "+amount+"."+follow;
     }
     if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "I’ll send you the current price and confirmed information for "+vehicleTitle(ctx.vehicle)+" by inbox.";
@@ -197,30 +234,36 @@ function responseEN(ctx){
   if(ctx.intent==="NEGOCIACION") return "Any discount or special negotiation must be reviewed directly with an advisor after the vehicle and current terms are confirmed.";
   if(ctx.intent==="DOCUMENTACION") return "I’m confirming the authorized documentation information for that exact vehicle before giving you the details.";
   if(ctx.intent==="MOTOR_ESPECIFICACIONES") return "I’m verifying the exact vehicle before confirming engine, transmission, or drivetrain details.";
-  if(ctx.intent==="CONTACTO") return ctx.phone.captured ? "We already have your contact information, so you do not need to send it again. I’ll continue with the next step." : "We can continue here and move to WhatsApp only if it helps with the next step.";
+  if(ctx.intent==="CONTACTO"){
+    if(ctx.phone.captured) return ctx.clock&&ctx.clock.open ? "We already have your contact information. Can I call you now to continue?" : "We already have your contact information. We can schedule a call during the next business window.";
+    return "We can continue here and move to a call or WhatsApp only when it helps advance the sale.";
+  }
   return "Thank you for your message. I’m verifying the exact vehicle and current information so I can answer correctly.";
 }
 
 function nextAction(ctx){
   if(outsideMexico(ctx.phone)) return "CONFIRMAR_COMPRA_EN_MEXICO";
-  if(ctx.intent==="NEGOCIACION") return "ESCALAR_NEGOCIACION_HUMANA";
+  if(ctx.intent==="NEGOCIACION") return callAction(ctx)||"ESCALAR_NEGOCIACION_HUMANA";
   if(ctx.intent==="VISITA") return "PROPONER_VISITA";
   if(ctx.intent==="FOTOS_VIDEO") return ctx.vehicle&&ctx.vehicle.media&&Number(ctx.vehicle.media.whatsappSelectedPhotos||0)>0 ? "ENVIAR_FOTOS" : "PREPARAR_FOTOS";
   if(ctx.intent==="PRECIO"){
     if(ctx.price){
       if(ctx.channel==="COMENTARIO") return "RESPONDER_PRECIO_PUBLICO";
-      if(ctx.availability==="DISPONIBLE") return "PROPONER_VISITA";
+      if(ctx.availability==="DISPONIBLE") return callAction(ctx)||"PROPONER_VISITA";
       if(ctx.vehicle&&ctx.vehicle.media&&Number(ctx.vehicle.media.whatsappSelectedPhotos||0)>0) return "ENVIAR_FOTOS";
       return "RESPONDER_EN_CANAL";
     }
     if(ctx.channel==="COMENTARIO" && privatePrice(ctx.vehicle)) return "MOVER_A_INBOX_PRECIO";
     return "CONFIRMAR_PRECIO";
   }
-  if(ctx.intent==="DISPONIBILIDAD") return ctx.availability?"RESPONDER_DISPONIBILIDAD":"CONFIRMAR_DISPONIBILIDAD";
+  if(ctx.intent==="DISPONIBILIDAD"){
+    if(ctx.availability==="DISPONIBLE") return callAction(ctx)||"PROPONER_VISITA";
+    return ctx.availability?"RESPONDER_DISPONIBILIDAD":"CONFIRMAR_DISPONIBILIDAD";
+  }
   if(ctx.intent==="DOCUMENTACION") return "CONFIRMAR_DOCUMENTACION";
   if(ctx.intent==="MOTOR_ESPECIFICACIONES") return ctx.vehicle?"RESPONDER_ESPECIFICACIONES_CONFIRMADAS":"CONFIRMAR_UNIDAD";
-  if(ctx.intent==="CONTACTO" && ctx.channel!=="WHATSAPP") return ctx.phone.captured?"ABRIR_WHATSAPP_CLIENTE":"RESPONDER_EN_CANAL";
-  if(ctx.intent==="UBICACION") return "ENVIAR_UBICACION";
+  if(ctx.intent==="CONTACTO") return callAction(ctx)||"RESPONDER_EN_CANAL";
+  if(ctx.intent==="UBICACION") return "PROPONER_VISITA";
   return ctx.vehicle?"RESPONDER_EN_CANAL":"CONFIRMAR_UNIDAD";
 }
 
@@ -228,7 +271,8 @@ function routeFor(action,ctx){
   const id=ctx.vehicle&&ctx.vehicle.id;
   const vehicleUrl=id?"index.html?vehicle="+encodeURIComponent(id)+"#prompt-menu":"index.html";
   if(["ENVIAR_FOTOS","PREPARAR_FOTOS","ENVIAR_VIDEO","PREPARAR_VIDEO"].includes(action)) return {label:"Abrir Multimedia",url:"MULTIMEDIA.html"};
-  if(["PROPONER_VISITA","PROGRAMAR_SEGUIMIENTO"].includes(action)) return {label:"Abrir Programador",url:"PROGRAMADOR.html"};
+  if(action==="LLAMAR_AHORA"&&dialUrl(ctx)) return {label:"Llamar al lead",url:dialUrl(ctx)};
+  if(["PROPONER_VISITA","PROGRAMAR_SEGUIMIENTO","PROGRAMAR_LLAMADA"].includes(action)) return {label:"Abrir Programador",url:"PROGRAMADOR.html"};
   if(["CONFIRMAR_UNIDAD","CONFIRMAR_PRECIO","CONFIRMAR_DISPONIBILIDAD","CONFIRMAR_DOCUMENTACION","RESPONDER_ESPECIFICACIONES_CONFIRMADAS"].includes(action)) return {label:id?"Abrir vehículo":"Abrir ROOT / inventario",url:vehicleUrl};
   if(action==="ABRIR_WHATSAPP_CLIENTE" && ctx.phone.captured && ctx.phone.normalized) return {label:"Abrir WhatsApp del lead",url:"https://wa.me/"+ctx.phone.normalized};
   return null;
@@ -294,9 +338,10 @@ function render(){
     const price=priceForChannel(vehicleData,channel.value), avail=availability(vehicleData);
     const verified=Boolean(price||avail||(vehicleData&&intent==="MOTOR_ESPECIFICACIONES"));
     const ctx={channel:channel.value,message:raw,lang:lang,phone:phoneCtx,intent:intent,vehicle:vehicleData,price:price,availability:avail};
+    ctx.clock=businessClock();
     ctx.type=responseType(ctx.channel,intent,verified);
     ctx.priority=priority(intent);
-    ctx.stage=phoneCtx.captured&&ctx.priority==="ALTA"?"LEAD_CALIFICADO":"CONVERSACION";
+    ctx.stage=["VISITA","NEGOCIACION"].includes(intent)?"LEAD_CALIFICADO":(phoneCtx.captured&&ctx.priority==="ALTA"?"CONVERSACION_PRIORITARIA":"CONVERSACION");
     ctx.next=nextAction(ctx);
     ctx.response=lang.code==="en"?responseEN(ctx):responseES(ctx);
     ctx.route=routeFor(ctx.next,ctx);
@@ -312,6 +357,8 @@ function render(){
     [
       ["Idioma",ctx.lang.label+" · "+ctx.lang.confidence],
       ["Intención",ctx.intent],["Tipo",ctx.type],["Prioridad",ctx.priority],["Etapa",ctx.stage],
+      ["Horario AFL",ctx.clock.label+" · "+ctx.clock.localTime+" · "+ctx.clock.timeZone],
+      ["Prioridad venta",ctx.priority==="ALTA"?"CLIENTE / VENTA":"FLUJO NORMAL"],
       ["Unidad",vehicleTitle(ctx.vehicle)],
       ["Teléfono",ctx.phone.captured?"CAPTURADO · BLOQUEADO PARA REPREGUNTA":"NO DETECTADO"],
       ["LADA / Área",ctx.phone.area||"NO APLICA"],["País",ctx.phone.country||"NO DETERMINADO"],["Región probable",ctx.phone.region||"NO DETERMINADA"]
@@ -328,6 +375,8 @@ function render(){
     action.append(element("div","eyebrow","Recomendado ahora"),element("h3","",ctx.next));
     const notes=[];
     if(ctx.phone.captured) notes.push("Contacto ya capturado: no volver a pedirlo.");
+    if(ctx.priority==="ALTA") notes.push("Prioridad operativa: cliente/venta antes que publicación u organización interna.");
+    if(ctx.phone.captured&&ctx.priority==="ALTA") notes.push(ctx.clock.open?"Dentro de horario: la llamada puede ejecutarse ahora si es la siguiente acción.":"Fuera de horario: programar llamada para la siguiente ventana operativa.");
     if(!ctx.vehicle && ["PRECIO","DISPONIBILIDAD","DOCUMENTACION","MOTOR_ESPECIFICACIONES"].includes(ctx.intent)) notes.push("La unidad exacta no está verificada.");
     if(outsideMexico(ctx.phone)) notes.push("Lead fuera de México: confirmar si la compra se realizará en México.");
     if(ctx.price && ctx.price.scope==="PRIVATE_INTERNAL") notes.push("Precio interno vigente autorizado para canal privado; no convertirlo en precio de catálogo ni publicación.");
@@ -346,7 +395,8 @@ function render(){
     og.append(link("ROOT / vehículos","index.html",false));
     if(ctx.vehicle&&ctx.vehicle.id) og.append(link("Abrir unidad","index.html?vehicle="+encodeURIComponent(ctx.vehicle.id)+"#prompt-menu",false));
     if(ctx.intent==="FOTOS_VIDEO"||["ENVIAR_FOTOS","PREPARAR_FOTOS"].includes(ctx.next)) og.append(link("Multimedia","MULTIMEDIA.html",false));
-    if(ctx.next==="PROPONER_VISITA"||ctx.next==="PROGRAMAR_SEGUIMIENTO") og.append(link("Programador","PROGRAMADOR.html",false));
+    if(["PROPONER_VISITA","PROGRAMAR_SEGUIMIENTO","PROGRAMAR_LLAMADA"].includes(ctx.next)) og.append(link("Programador","PROGRAMADOR.html",false));
+    if(ctx.next==="LLAMAR_AHORA"&&dialUrl(ctx)) og.append(link("Llamar ahora",dialUrl(ctx),false));
     og.append(link("Nuevo vehículo","NUEVO_VEHICULO.html",false));
     options.append(og);
     right.append(summary,response,action,learn,options);
