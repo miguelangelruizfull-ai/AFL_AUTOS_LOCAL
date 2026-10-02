@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.4.0",
+  "schemaVersion": "1.5.0",
   "key": "PRODUCCION_CREATIVA_POR_VEHICULO",
   "title": "Producción creativa por vehículo",
   "scope": "AFL_AUTOS_LOCAL vehicle detail",
@@ -45,7 +45,8 @@
       "CREAR_O_USAR_05_SELECCION_TEMPORAL",
       "CONTINUAR_CON_PRODUCCION"
     ],
-    "defaultReferenceLibrary": "DRIVE:REFERENCIAS_APROBADAS_AFL"
+    "defaultReferenceLibrary": "DRIVE:REFERENCIAS_APROBADAS_AFL",
+    "approvedReferenceInspection": "OBLIGATORIO. Antes de producir, inventariar y visualizar las referencias aprobadas disponibles en DRIVE:REFERENCIAS_APROBADAS_AFL. Extraer solo dirección de diseño: composición, jerarquía, tipografía, paleta, tratamiento de fondo, bloques/diagonales, proporción HERO, profundidad, ritmo visual y CTA. Nunca copiar datos, teléfonos, precios, equipamiento, logos ajenos ni identidad técnica de otro vehículo."
   },
   "commercialStrategy": [
     "Usar únicamente datos comerciales y técnicos verificados del expediente vigente.",
@@ -92,7 +93,10 @@
     "Entregar brief, copy, texto sobreimpreso, dimensiones/duración, shot list o cut sheet, efectos/transiciones, audio sugerido, hashtags, nombre de archivo y carpeta de salida.",
     "Guardar únicamente derivados en SALIDAS y verificar la escritura antes de afirmar SUBIDO_A_DRIVE.",
     "Después de aprobación explícita de Miguel, copiar el derivado aprobado a REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA> y mostrar el enlace vivo; PRODUCIDO_NO_APROBADO no se copia.",
-    "No cambiar estados a APROBADO/LISTO/PUBLICADO sin evidencia real."
+    "No cambiar estados a APROBADO/LISTO/PUBLICADO sin evidencia real.",
+    "Antes de diseñar, revisar 2–3 referencias aprobadas aplicables y sintetizar los rasgos visuales que elevan la calidad sin copiar datos ni composición literal.",
+    "Después del primer borrador, ejecutar una comparación visual contra las referencias aprobadas; si la pieza se ve plana, genérica o claramente inferior, iterar diseño antes de cerrar.",
+    "La fidelidad del vehículo y la calidad visual son gates simultáneos: una pieza fiel pero pobremente resuelta no debe cerrarse como versión final de revisión si puede mejorarse sin alterar la unidad."
   ],
   "privacy": [
     "No exponer VIN completo, documentos, odómetro privado, PII ni evidencia marcada como privada.",
@@ -156,7 +160,10 @@
       "BORRADOR_INTERNO_REQUIERE_RECAPTURA"
     ],
     "privacy": "Resolver y mostrar enlace vivo en ejecución; no persistir Drive ID/URL privado en HOME público.",
-    "purpose": "Reutilizar piezas aprobadas como referencia de composición/dirección visual, nunca como fuente de datos de otra unidad."
+    "purpose": "Reutilizar piezas aprobadas como referencia de composición/dirección visual, nunca como fuente de datos de otra unidad.",
+    "visualUse": "Usar referencias aprobadas como benchmark obligatorio de calidad gráfica. Priorizar jerarquía tipográfica fuerte, HERO dominante, composición editorial, contraste, profundidad, integración de marca y CTA. No extraer datos técnicos/comerciales.",
+    "crossVehicleRule": "Se permite aprender dirección visual de piezas aprobadas de otros vehículos, pero está prohibido transferir marca/modelo/año, versión, motor, tracción, precio, teléfonos, ubicación, equipamiento o cualquier dato de esa otra unidad.",
+    "qualityReview": "Antes de cerrar una pieza, comparar visualmente con 2–3 referencias aprobadas aplicables y documentar mentalmente qué rasgos de calidad se adoptaron o descartaron."
   },
   "storyWorkflow": {
     "contract": "AFL_AUTOS_CONTENT_LAB/contracts/HISTORIA_9X16_AFL_V1.md",
@@ -193,6 +200,23 @@
       "DIFERENCIADOR",
       "ACCION_CTA"
     ],
-    "noAutoPublish": true
+    "noAutoPublish": true,
+    "visualQuality": "Historia 9:16 debe tener calidad gráfica comparable a referencias AFL aprobadas: jerarquía fuerte, lectura vertical, integración del HERO con capas/geometría, tipografía de impacto, contraste, logo y CTA resueltos. Evitar una solución excesivamente simple si queda por debajo del benchmark aprobado."
+  },
+  "visualQualityGate": {
+    "required": true,
+    "benchmark": "Comparar el borrador contra 2–3 referencias aprobadas vigentes y contra ACTIVE_VISUAL_DIRECTION antes de entregar.",
+    "principles": [
+      "La pieza debe verse diseñada y resuelta, no como una fotografía con texto simplemente colocado encima.",
+      "El vehículo/HERO debe integrarse al layout con escala, profundidad y jerarquía intencionales, conservando fidelidad física.",
+      "Usar tipografía de alto impacto y contraste fuerte; la escala del modelo/configuración debe sostener la primera y segunda lectura.",
+      "Usar geometría, diagonales, ventanas, capas, textura o iluminación editorial solo cuando construyan jerarquía y calidad; no decorar por decorar.",
+      "Base visual AFL: negro, blanco y verde lima; otros acentos solo si la campaña o referencia aprobada lo justifican.",
+      "CTA claro, visible y comercial, pero subordinado al vehículo y al modelo.",
+      "La composición debe funcionar a tamaño móvil y en la zona segura real de la plataforma.",
+      "Si el borrador se percibe plano, genérico, vacío o visualmente inferior a las referencias aprobadas, iterar antes de guardarlo como PRODUCIDO_NO_APROBADO."
+    ],
+    "comparisonRule": "La referencia aprobada funciona como benchmark de calidad visual, no como plantilla literal. Reutilizar principios, no copiar una composición completa ni trasladar información de otra unidad.",
+    "iterationRule": "Antes del cierre, realizar al menos una pasada de mejora visual después de comparar el borrador con las referencias aprobadas. Si no puede alcanzarse calidad comparable sin alterar la unidad o inventar datos, conservar como BORRADOR_INTERNO_REQUIERE_RECAPTURA y declarar la limitación."
   }
 }
