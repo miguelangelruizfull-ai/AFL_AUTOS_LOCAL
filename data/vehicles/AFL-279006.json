@@ -250,7 +250,7 @@
     "uploadFolder": "20_NUEVA_CAPTURA",
     "completionRule": "No cambiar a CAPTURA_COMPLETA hasta revisar material nuevo y cubrir faltantes obligatorios",
     "lastEvidenceCheck": {
-      "checkedAt": "2026-10-02T11:42:52-06:00",
+      "checkedAt": "2026-10-02T11:47:49-06:00",
       "folder": "10_CAPTURA_COMERCIAL_2026-09-28_AFL-279006/{01_FOTOS_NUEVAS,02_VIDEOS_NUEVOS,03_NOTAS_Y_EVIDENCIA_CAMPO}",
       "result": "VACIA_REVALIDADA_CANONICA",
       "materialNewUploaded": false,
@@ -268,7 +268,7 @@
     "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
     "resumeFrom": "Realizar trabajo de campo con el checklist comercial completo de 22 fotos y video vertical 9:16; usar el enlace Subir nueva captura para cargar material únicamente en 01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA.",
     "driveControlDocument": "AFL-279006 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-10-02T11:42:52-06:00"
+    "lastVerifiedAt": "2026-10-02T11:47:49-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el último checkpoint sin depender de la memoria del chat.",
@@ -583,7 +583,7 @@
     "requestedAtLocal": "2026-10-02T11:38:45.964-06:00",
     "startedAt": "2026-10-02T11:42:52-06:00",
     "completedAt": "2026-10-02T11:47:05-06:00",
-    "lastVerifiedAt": null,
+    "lastVerifiedAt": "2026-10-02T11:47:49-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
     "result": "V4 feed ya producido y verificado en Drive; captura comercial canónica sin material nuevo (0 fotos, 0 videos, 0 notas). No se generó contenido adicional ni se movieron archivos. Pendientes revisión/aprobación humana de V4 y captura comercial física.",
