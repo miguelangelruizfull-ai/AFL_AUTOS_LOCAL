@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "vehicles": [
     {
       "id": "AFL-053078",
@@ -36,26 +36,26 @@
     {
       "id": "AFL-183080",
       "title": "2017 Chevrolet Colorado",
-      "status": "REVISION_MATERIAL",
+      "status": "CAPTURA_PENDIENTE",
       "whatsapp": "OCULTO",
       "priceInternal": null,
       "currency": "MXN",
       "availability": "PENDIENTE",
-      "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
-      "image": null,
+      "nextAction": "CAPTURA_COMPLEMENTARIA_Y_CONFIRMAR_LOTE_REAL_30",
+      "image": "assets/thumbs/AFL-183080.jpg",
       "detail": "data/vehicles/AFL-183080.json",
       "publish": false,
-      "imagePublicUrl": null,
+      "imagePublicUrl": "https://miguelangelruizfull-ai.github.io/AFL_AUTOS_LOCAL/assets/thumbs/AFL-183080.jpg",
       "recommendationAuthority": "CHATGPT_CURRENT",
-      "updated": "2026-09-30",
+      "updated": "2026-10-01",
       "authorizedEdit": true,
       "authorizedEditPrompt": "data/prompts/editar-informacion-autorizada.json",
       "checkpoint": {
-        "phase": "REVISION_MATERIAL_RECONCILIACION_DRIVE_AGOTADA",
-        "lastCompleted": "BUSQUEDA_DRIVE_3_CUENTAS_Y_PAPELERA_COMPLETA; 0_ADICIONALES; 30_LOCALIZADAS / 44_SIN_LOCALIZAR",
-        "nextAction": "CONFIRMAR_LOTE_REAL_30_O_APORTAR_FUENTE_44",
-        "state": "REVISION_MATERIAL",
-        "lastVerifiedAt": "2026-09-30T22:20:35-06:00"
+        "phase": "SELECCION_FINAL_PARCIAL_CAPTURA_PENDIENTE",
+        "lastCompleted": "SELECCION_FINAL_PARCIAL: 25 APROBADAS; VIDEO_9_16_AUSENTE; 44_HISTORICAS_SIN_LOCALIZAR; DRIVE_CANONICO_RECONCILIADO",
+        "nextAction": "CAPTURA_COMPLEMENTARIA_Y_CONFIRMAR_LOTE_REAL_30",
+        "state": "CAPTURA_PENDIENTE",
+        "lastVerifiedAt": "2026-10-01T21:35:00-06:00"
       },
       "relations": {
         "vehicleAuthorityIndexed": true,
