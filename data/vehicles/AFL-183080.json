@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2.0",
-  "updated": "2026-10-01",
+  "updated": "2026-10-02",
   "id": "AFL-183080",
   "vehicle": {
     "make": "Chevrolet",
@@ -28,7 +28,7 @@
     "materialReview": "SELECCION_FINAL_PARCIAL",
     "classification": "SELECCION_FINAL_PARCIAL",
     "captureType": "COMPLEMENTARIA",
-    "captureExecution": "EN_CURSO",
+    "captureExecution": "EN_CURSO_BLOQUEADO_CAPTURA_FISICA",
     "whatsapp": "OCULTO",
     "outputsDrive": "PREPARADAS",
     "publish": false
@@ -95,7 +95,7 @@
         "5_TOMAS_OBLIGATORIAS_NO_VERIFICADAS",
         "VIDEO_VERTICAL_9_16_AUSENTE"
       ],
-      "lastVerifiedAt": "2026-10-01T22:04:44-06:00",
+      "lastVerifiedAt": "2026-10-02T11:48:10-06:00",
       "confirmedCoverage": [
         "HERO_3_4_FRONTAL"
       ],
@@ -318,12 +318,12 @@
   "checkpoint": {
     "phase": "CAPTURA_COMPLEMENTARIA_PARCIAL",
     "state": "CAPTURA_PENDIENTE",
-    "updated": "2026-10-01",
-    "lastCompleted": "CAPTURA_COMPLEMENTARIA: 1 imagen verificada como HERO 3/4 frontal y registrada en 20_NUEVA_CAPTURA; fuente original conservada; marca de agua visible, no apta aún como material comercial final.",
+    "updated": "2026-10-02",
+    "lastCompleted": "CAPTURA_COMPLEMENTARIA_VERIFICADA: HERO 3/4 frontal disponible como cobertura; no hay material nuevo adicional; producción final bloqueada por captura física.",
     "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
-    "resumeFrom": "HERO 3/4 frontal ya confirmado. Mantener CAPTURA_PENDIENTE. Capturar o aportar perfil completo, 3/4 trasero, interior/tablero, caja, motor y video vertical 9:16; confirmar además que 30 es el lote real vigente o aportar fuente para las 44 históricas sin localizar. No producir piezas finales.",
+    "resumeFrom": "HERO 3/4 frontal confirmada. Capturar o aportar perfil completo, 3/4 trasero, interior/tablero, caja, motor y video vertical 9:16; confirmar que 30 es el lote real vigente o aportar fuente para las 44 históricas sin localizar. No producir piezas finales.",
     "driveControlDocument": "AFL-183080 — CONTROL OPERATIVO",
-    "lastVerifiedAt": "2026-10-01T22:04:44-06:00"
+    "lastVerifiedAt": "2026-10-02T11:48:10-06:00"
   },
   "promptProtocol": {
     "purpose": "Continuar una unidad desde el checkpoint persistido y permitir cambios autorizados sin depender de memoria del chat.",
@@ -496,5 +496,54 @@
   },
   "relations": {
     "driveIndexed": true
+  },
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "BLOQUEADO",
+    "requestedAt": "2026-10-02T17:40:19.966Z",
+    "requestedAtLocal": "2026-10-02T11:40:19.966-06:00",
+    "startedAt": "2026-10-02T11:42:05-06:00",
+    "completedAt": "2026-10-02T11:48:50-06:00",
+    "lastVerifiedAt": "2026-10-02T11:48:10-06:00",
+    "movedAt": null,
+    "timezone": "America/Mexico_City",
+    "result": "Drive/CONTROL verificados: 20_NUEVA_CAPTURA conserva sólo la HERO 3/4 frontal ya registrada. No están las cinco tomas restantes ni el video 9:16; la producción final queda bloqueada por captura física. Permanecen 30 fotos localizadas y 44 históricas sin reconciliar.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "hero3QFrontal",
+        "status": "VERIFICADA_COBERTURA_NO_FINAL_COMERCIAL"
+      },
+      {
+        "key": "captureComplementary",
+        "status": "PARCIAL_BLOQUEADA_CAPTURA_FISICA"
+      },
+      {
+        "key": "video9x16",
+        "status": "PENDIENTE_CAPTURA_FISICA"
+      },
+      {
+        "key": "finalProduction",
+        "status": "BLOQUEADO_CAPTURA_FISICA"
+      },
+      {
+        "key": "whatsapp",
+        "status": "OCULTO_NO_PUBLICAR"
+      }
+    ],
+    "reposUpdated": [
+      "Vehiculos",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
+    "blockings": [
+      "5_TOMAS_OBLIGATORIAS_PENDIENTES",
+      "VIDEO_VERTICAL_9_16_AUSENTE",
+      "44_FOTOS_HISTORICAS_SIN_LOCALIZAR",
+      "CONFIRMACION_LOTE_30_PENDIENTE",
+      "HERO_CON_MARCA_DE_AGUA_NO_FINAL_COMERCIAL"
+    ]
   }
 }
