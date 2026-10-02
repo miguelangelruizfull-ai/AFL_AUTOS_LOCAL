@@ -53,7 +53,7 @@ h1{font-size:2rem;color:#111827}
     </div>
   </div>
 
-  <div class="notice">Fuentes públicas: <strong>data/vehicles/index.json</strong> + <strong>data/drive-vehicles-index.json</strong>. Índice sanitizado: no publica IDs ni URLs privadas de Drive.</div>
+  <div class="notice">Fuentes públicas: <strong>data/vehicles/index.json</strong> + <strong>data/drive-vehicles-index.json</strong>. El botón <strong>DRIVE</strong> abre la carpeta general autorizada <strong>Vehículos y Código</strong>; el índice no publica enlaces privados por vehículo.</div>
   <div class="meta-row">
     <span>Última sincronización del índice: <strong id="updated">cargando…</strong></span>
     <span id="summary">Cargando inventario…</span>
@@ -77,6 +77,7 @@ const empty=document.getElementById("empty");
 const errorBox=document.getElementById("error");
 const updated=document.getElementById("updated");
 const summary=document.getElementById("summary");
+const DRIVE_VEHICLES_URL="https://drive.google.com/drive/folders/1ym-MGs4DUH5m2ZCRSiscuSK5fsE2AG-c";
 let vehicles=[];
 
 function esc(value){
@@ -102,7 +103,7 @@ function card(v){
       '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · '+esc(v.nextAction):'')+'</div>'+
       '<div class="relations">'+
         chip("PUENTE",authorityIndexed)+
-        chip("DRIVE",driveIndexed)+
+        (driveIndexed?'<a class="chip ok" href="'+DRIVE_VEHICLES_URL+'" target="_blank" rel="noopener noreferrer" title="Abrir carpeta Vehículos y Código en Drive" style="text-decoration:none">DRIVE ↗</a>':chip("DRIVE",false))+
         (v.folderCount?'<span class="chip">'+esc(v.folderCount)+' carpeta'+(v.folderCount===1?'':'s')+'</span>':'')+
         '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
       '</div>'+
