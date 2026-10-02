@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.2.0",
-  "updated": "2026-09-30",
+  "updated": "2026-10-02",
   "id": "AFL-789142",
   "vehicle": {
     "make": "Dodge",
@@ -21,9 +21,9 @@
   },
   "status": {
     "vehicle": "REVISION_MATERIAL",
-    "materialReview": "COMPLETADA_LOTE_ACTUAL",
-    "classification": "COMPLETADA_LOTE_ACTUAL",
-    "captureExecution": "PENDIENTE",
+    "materialReview": "REVALIDACION_DRIVE_PENDIENTE_RECONCILIAR",
+    "classification": "HISTORICA_NO_REPRODUCIBLE_EN_RAIZ_REGISTRADA",
+    "captureExecution": "PARCIAL_VIDEO_VERTICAL_LOCALIZADO",
     "whatsapp": "OCULTO",
     "publish": false
   },
@@ -43,7 +43,13 @@
     "privateNoPublish": 2,
     "duplicates": 0,
     "rejected": 0,
-    "realVideo": false
+    "realVideo": false,
+    "observedSecondaryRootVideo": 1,
+    "observedVideoVertical": true,
+    "observedVideoDurationSeconds": 19.273,
+    "observedVideoResolution": "720x1280",
+    "observedVideoIdentity": "DODGE_DURANGO_ROJA_VERIFICADA",
+    "driveReconciliation": "PENDIENTE"
   },
   "outputs": {
     "marketplace": "PENDIENTE",
@@ -64,12 +70,12 @@
     "showInVehicle": true
   },
   "checkpoint": {
-    "phase": "REVISION_MATERIAL_IDENTIDAD_CONFIRMADA",
+    "phase": "REVISION_MATERIAL_DRIVE_REVALIDADO",
     "state": "REVISION_MATERIAL",
-    "updated": "2026-09-30",
-    "lastCompleted": "VIN_VERIFICADO_PRIVADO + AFL_ID_CONFIRMADO + 19_FOTOS_COMERCIALES + 2_PRIVADAS + HERO",
-    "nextAction": "CONFIRMAR_DATOS_COMERCIALES",
-    "resumeFrom": "Confirmar disponibilidad, precio y datos técnicos; evaluar captura complementaria."
+    "updated": "2026-10-02",
+    "lastCompleted": "VIDEO_VERTICAL_DURANGO_LOCALIZADO_Y_VERIFICADO_VISUALMENTE; SIN_MOVIMIENTOS; CLASIFICACION_DRIVE_HISTORICA_PENDIENTE_RECONCILIAR",
+    "nextAction": "RECONCILIAR_DRIVE_Y_CONFIRMAR_DATOS_COMERCIALES",
+    "resumeFrom": "Reconciliar las dos raíces AFL-789142, confirmar datos comerciales y después decidir promoción/revisión del video vertical y captura complementaria."
   },
   "relations": {
     "vehicleAuthorityIndexed": true,
@@ -77,5 +83,56 @@
     "driveIndexed": true,
     "derivedRepositoriesIndexed": true,
     "publicExposure": "SANITIZED_ONLY"
-  }
+  },
+  "contentLab": {
+    "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
+    "status": "BLOQUEADO",
+    "requestedAt": "2026-10-02T18:50:16.301Z",
+    "requestedAtLocal": "2026-10-02T12:50:16.301-06:00",
+    "startedAt": "2026-10-02T12:51:13-06:00",
+    "completedAt": "2026-10-02T12:54:36-06:00",
+    "lastVerifiedAt": "2026-10-02T12:54:36-06:00",
+    "movedAt": null,
+    "timezone": "America/Mexico_City",
+    "result": "Se localizó y verificó un video vertical real de la Durango roja, pero Drive presenta dos raíces con el mismo AFL-ID y la clasificación histórica de fotos no se reproduce en la raíz registrada. Producción final bloqueada hasta reconciliar Drive y confirmar datos comerciales.",
+    "filesMoved": 0,
+    "filesProduced": 0,
+    "deliverables": [
+      {
+        "key": "materialReview",
+        "status": "REVALIDADA_CON_INCONSISTENCIA_DRIVE"
+      },
+      {
+        "key": "videoVertical9x16",
+        "status": "LOCALIZADO_VERIFICADO_UNIDAD_PENDIENTE_RECONCILIACION_Y_APROBACION"
+      },
+      {
+        "key": "commercialData",
+        "status": "PENDIENTE_CONFIRMACION"
+      },
+      {
+        "key": "finalProduction",
+        "status": "BLOQUEADO_DATOS_Y_DRIVE"
+      },
+      {
+        "key": "whatsapp",
+        "status": "OCULTO_NO_PUBLICAR"
+      }
+    ],
+    "reposUpdated": [
+      "Vehiculos",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_LOCAL"
+    ],
+    "nextAction": "RECONCILIAR_DRIVE_Y_CONFIRMAR_DATOS_COMERCIALES",
+    "blockings": [
+      "DOS_RAICES_DRIVE_MISMO_AFL_ID",
+      "CLASIFICACION_HISTORICA_19_COMERCIALES_2_PRIVADAS_NO_REPRODUCIBLE_ACTUALMENTE",
+      "DISPONIBILIDAD_PENDIENTE",
+      "PRECIO_PENDIENTE",
+      "VERSION_MOTOR_TRANSMISION_TRACCION_DOCUMENTACION_PENDIENTES",
+      "NO_PUBLICAR"
+    ]
+  },
+  "driveStatus": "RECONCILIACION_PENDIENTE_DOS_RAICES"
 }
