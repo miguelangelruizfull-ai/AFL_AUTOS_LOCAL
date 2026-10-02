@@ -4,6 +4,21 @@ Estado: **AUTORIZADO**
 Fecha de autorización: **2026-10-02**
 Ámbito: **AFL_AUTOS_LOCAL / AFL Lab**
 
+## Autorización desde HOME
+
+Seleccionar una función de contenido en HOME o en la ficha abierta desde `lista.html` constituye autorización explícita de Miguel para **crear el derivado solicitado** con el material verificable disponible.
+
+`AUTORIZADO_CREAR ≠ APROBADO ≠ PUBLICADO`
+
+El checkpoint operativo puede permanecer en captura/revisión y continuar en paralelo. No usarlo como veto para una solicitud manual de creación.
+
+Límites:
+- no publicar/programar automáticamente;
+- no usar `commercial.priceInternal` / `PRECIO INTERNO` como precio visible;
+- no inventar datos o tomas faltantes;
+- no cambiar el checkpoint solo por producir una pieza;
+- no marcar APROBADO/PUBLICADO sin evidencia.
+
 ## Objetivo
 
 Reducir el flujo de creación de contenido a una sola ejecución por vehículo después de subir las fotos o videos necesarios:
@@ -35,9 +50,10 @@ A partir del material ya subido:
 - Detectar qué planos sirven para exterior, interior, detalles, equipo, prueba visible y cierre.
 - Extraer únicamente hechos visibles o ya verificados.
 - Registrar un resumen de captura comercial utilizable por la estrategia.
-- No inventar versión, motor, tracción, equipamiento, kilometraje, precio, condición ni ubicación.
+- No inventar versión, motor, tracción, equipamiento, kilometraje, precio público, condición ni ubicación.
+- `PRECIO INTERNO` es SOLO ADMIN y no debe aparecer en copy, texto sobreimpreso ni arte.
 
-Si una toma física indispensable no existe, indicar exactamente cuál falta sin frenar las tareas que sí pueden ejecutarse.
+Si una toma física indispensable no existe, indicar exactamente cuál falta sin frenar las tareas que sí pueden ejecutarse. Si el material actual permite una pieza fiel, producirla; si solo permite una prueba insuficiente para publicación, marcarla `BORRADOR_INTERNO_REQUIERE_RECAPTURA`.
 
 ## Fase 2 — Estrategia comercial por vehículo
 
