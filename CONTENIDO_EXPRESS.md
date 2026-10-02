@@ -34,6 +34,36 @@ No se debe detener el flujo entre captura, estrategia y producción cuando la ev
 3. Función de contenido: paquete express, portada, flyer, historia, TikTok o Marketplace.
 4. Carpeta de referencias creativas, opcional.
 
+
+## Navegación obligatoria de material
+
+Antes de producir cualquier pieza, el ejecutor debe resolver la carpeta operativa exacta del vehículo y **mostrar en la respuesta un enlace vivo a la carpeta de archivos disponibles**. Ese enlace se obtiene en tiempo de ejecución desde Drive autorizado; no se persisten IDs ni URLs privadas en HOME o JSON público.
+
+Después de inventariar el material, mostrar estas rutas de continuación sin obligar a reiniciar el flujo:
+
+1. **Subir o aportar nuevo material** a la carpeta de entrada de la unidad.
+2. **Seleccionar otra carpeta existente** de la misma unidad.
+3. **Crear/usar selección temporal** en `01_ENTRADAS/<AFL-ID>/05_SELECCION_TEMPORAL` y copiar allí solo los archivos de trabajo seleccionados.
+4. **Continuar con la producción** usando la carpeta actualmente seleccionada.
+
+Reglas:
+- RAW/originales canónicos no se mueven, borran ni sustituyen.
+- Cuando el origen esté fuera del espacio de la unidad, copiar únicamente seleccionados/derivados de trabajo; no mover el original.
+- La carpeta temporal es operativa, no una nueva fuente de verdad.
+- Si la carpeta seleccionada está vacía, no terminar solo con “sin material”: devolver el enlace de la carpeta, las opciones anteriores y el faltante físico exacto.
+- Al elegir **Continuar con la producción**, desplegar las opciones de contenido disponibles para esa unidad.
+
+## Aprobación y biblioteca de referencias
+
+Drive mantiene una biblioteca reutilizable llamada `REFERENCIAS_APROBADAS_AFL`.
+
+- Si Miguel **aprueba explícitamente** una portada, flyer, historia u otra pieza producida, copiar el derivado aprobado a `REFERENCIAS_APROBADAS_AFL/<TIPO_DE_PIEZA>`; crear el subdirectorio cuando todavía no exista.
+- El archivo original de `02_SALIDAS/<AFL-ID>/...` permanece en su lugar; la biblioteca recibe una copia de referencia.
+- `PRODUCIDO_NO_APROBADO` y `BORRADOR_INTERNO_REQUIERE_RECAPTURA` nunca entran en la biblioteca.
+- Cuando no se indique otra carpeta creativa, `REFERENCIAS_APROBADAS_AFL` es la referencia por defecto.
+- Una referencia aprobada sirve como inspiración de composición, jerarquía y dirección visual; nunca autoriza copiar vehículo, datos, precio, logos ajenos o características de otra unidad.
+- En el cierre posterior a una aprobación, mostrar el enlace vivo de la biblioteca o del subdirectorio creado, sin persistir ese URL privado en HOME público.
+
 ## Regla de alcance rápido
 
 - Leer únicamente el expediente del vehículo seleccionado, su PUENTE cuando sea necesario para validar datos vigentes y la carpeta de material elegida.
@@ -126,4 +156,7 @@ Devolver en una sola respuesta:
 4. pieza(s) producida(s) o especificación final;
 5. archivos/destinos;
 6. bloqueos puntuales, si existen;
-7. siguiente acción mínima.
+7. siguiente acción mínima;
+8. enlace vivo de la carpeta de material disponible;
+9. opciones: subir/aportar material, seleccionar carpeta, usar temporal o continuar producción;
+10. después de una aprobación explícita, enlace de la referencia aprobada guardada.
