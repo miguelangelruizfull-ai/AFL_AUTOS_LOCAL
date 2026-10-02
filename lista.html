@@ -27,6 +27,10 @@ h1{font-size:2rem;color:#111827}
 .vehicle-id{font-weight:800;color:#0f62fe}
 .vehicle-name{font-weight:700;color:#374151;margin-top:2px}
 .vehicle-status{font-size:.82rem;color:#6b7280;margin-top:4px}
+.recommend-box{margin-top:9px;padding:9px 10px;border:1px solid #dbeafe;background:#f8fbff;border-radius:10px;font-size:.78rem}
+.recommend-box strong{color:#1d4ed8}.recommend-next{margin-top:3px;font-weight:800;color:#111827}.lab-result{margin-top:5px;color:#4b5563}
+.missing-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.missing{font-size:.68rem;font-weight:800;padding:3px 6px;border-radius:999px;background:#fff7ed;color:#9a3412}
+.rec-options{margin-top:7px}.rec-options summary{cursor:pointer;font-weight:800;color:#374151}.rec-options ol{padding-left:20px;margin-top:5px;color:#4b5563}
 .relations{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chip{font-size:.7rem;font-weight:800;border-radius:999px;padding:4px 7px;background:#f3f4f6;color:#4b5563}
 .chip.ok{background:#ecfdf5;color:#047857}
@@ -94,20 +98,36 @@ function card(v){
   const detail=v.detail ? ("index.html?vehicle="+encodeURIComponent(v.id)) : null;
   const driveIndexed=!!(v.driveInventory||rel.driveIndexed);
   const authorityIndexed=!!(v.vehicleAuthorityIndexed||rel.vehicleAuthorityIndexed);
-  return '<article class="vehicle-card" data-search="'+esc([v.id,v.title,v.status,v.nextAction].join(" ").toLowerCase())+'">'+
+  const rec=v.recommendation||{};
+  const next=rec.nextRecommended||{};
+  const closure=rec.latestClosure||v.contentLab||{};
+  const missing=Array.isArray(rec.missingContent)?rec.missingContent:[];
+  const options=Array.isArray(rec.optionsRecommended)?rec.optionsRecommended:[];
+  const recHtml=(next.label||closure.summary||closure.result||missing.length)?(
+    '<div class="recommend-box">'+
+      '<strong>Siguiente recomendado</strong>'+
+      '<div class="recommend-next">'+esc(next.label||v.nextAction||"PENDIENTE")+'</div>'+
+      (next.reason?'<div class="lab-result">'+esc(next.reason)+'</div>':'')+
+      ((closure.summary||closure.result)?'<div class="lab-result"><b>Último cierre:</b> '+esc(closure.summary||closure.result)+'</div>':'')+
+      (missing.length?'<div class="missing-list">'+missing.map(x=>'<span class="missing">'+esc(x.label||x.key)+' · '+esc(x.status||"PENDIENTE")+'</span>').join("")+'</div>':'')+
+      (options.length?'<details class="rec-options"><summary>Opciones recomendadas</summary><ol>'+options.map(x=>'<li>'+esc(x.label||x.key)+(x.recommended?' · RECOMENDADA':'')+'</li>').join("")+'</ol></details>':'')+
+    '</div>'
+  ):'';
+  return '<article class="vehicle-card" data-search="'+esc([v.id,v.title,v.status,v.nextAction,next.label,missing.map(x=>x.label).join(" ")].join(" ").toLowerCase())+'">'+
     '<img class="vehicle-thumb" src="'+esc(image)+'" alt="'+esc(v.id+" — "+v.title)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
     '<div class="thumb-placeholder" style="display:none">SIN MINIATURA</div>'+
     '<div class="vehicle-info">'+
       '<div class="vehicle-id">'+esc(v.id)+'</div>'+
       '<div class="vehicle-name">'+esc(v.title||"Vehículo")+'</div>'+
-      '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · '+esc(v.nextAction):'')+'</div>'+
+      '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · checkpoint: '+esc(v.nextAction):'')+'</div>'+
+      recHtml+
       '<div class="relations">'+
         chip("PUENTE",authorityIndexed)+
         (driveIndexed?'<a class="chip ok" href="'+DRIVE_VEHICLES_URL+'" target="_blank" rel="noopener noreferrer" title="Abrir carpeta Vehículos y Código en Drive" style="text-decoration:none">DRIVE ↗</a>':chip("DRIVE",false))+
         (v.folderCount?'<span class="chip">'+esc(v.folderCount)+' carpeta'+(v.folderCount===1?'':'s')+'</span>':'')+
         '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
       '</div>'+
-      (detail?'<a class="open" href="'+detail+'">Abrir ficha HOME ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
+      (detail?'<a class="open" href="'+detail+'#recommended-content">Abrir ficha y recomendación ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
     '</div>'+
   '</article>';
 }
