@@ -1,7 +1,7 @@
 {
-  "id": "COPY_PAGE_RESPUESTAS_V2_2",
-  "version": "2.2",
-  "updated": "2026-09-27",
+  "id": "COPY_PAGE_RESPUESTAS_V2_3",
+  "version": "2.3",
+  "updated": "2026-10-02",
   "purpose": "Generar una respuesta comercial segura y una siguiente acción para Comentarios, Inbox/Messenger, WhatsApp o Llamada.",
   "inputs": [
     "CANAL",
@@ -11,6 +11,7 @@
   ],
   "requiredProcessing": [
     "DETECTAR_IDIOMA",
+    "RESOLVER_HORARIO_OPERATIVO_AMERICA_MEXICO_CITY",
     "DETECTAR_TELEFONO_SI_EXISTE",
     "DETECTAR_LADA_O_CODIGO_DE_AREA_SIN_PERSISTIR_PII",
     "CLASIFICAR_INTENCION",
@@ -34,7 +35,13 @@
     "PII -> SOLO_SESION/ALMACENAMIENTO_PRIVADO",
     "CLIENTE_FUERA_DE_MEXICO -> CONFIRMAR_COMPRA_EN_MEXICO",
     "NO_PROMETER_EXPORTACION_ENVIO_O_ENTREGA_INTERNACIONAL",
-    "NO_PUBLICAR_AUTOMATICAMENTE"
+    "NO_PUBLICAR_AUTOMATICAMENTE",
+    "INTENCION_ALTA + TELEFONO_CAPTURADO + DENTRO_HORARIO -> EVALUAR_LLAMAR_AHORA_SI_REDUCE_FRICCION",
+    "INTENCION_ALTA + TELEFONO_CAPTURADO + FUERA_HORARIO -> PROGRAMAR_LLAMADA_SI_ES_LA_MEJOR_SIGUIENTE_ACCION",
+    "VISITA_EXPLICITA -> CONSERVAR_FLUJO_DE_VISITA",
+    "CONTACTO_CAPTURADO -> NO_VOLVER_A_PEDIR_TELEFONO",
+    "PREGUNTAR_PRECIO + TELEFONO_CAPTURADO != LEAD_CALIFICADO_AUTOMATICAMENTE",
+    "VENTA_Y_CLIENTE_ACTIVO -> PRIORIDAD_SOBRE_PUBLICACION_Y_ORGANIZACION"
   ],
   "outputs": [
     "RESPUESTA_PARA_LEAD",
@@ -60,7 +67,9 @@
     "CONFIRMAR_UNIDAD": "ROOT_VEHICULO",
     "CONFIRMAR_PRECIO": "ROOT_VEHICULO",
     "CONFIRMAR_DISPONIBILIDAD": "ROOT_VEHICULO",
-    "MOVER_A_WHATSAPP": "WHATSAPP_CLIENTE_SI_TELEFONO_CAPTURADO"
+    "MOVER_A_WHATSAPP": "WHATSAPP_CLIENTE_SI_TELEFONO_CAPTURADO",
+    "LLAMAR_AHORA": "TEL_CLIENTE_EN_SESION",
+    "PROGRAMAR_LLAMADA": "PROGRAMADOR"
   },
   "pricePolicy": {
     "authorization": "Miguel autoriza dar el precio vigente en Inbox/Messenger, WhatsApp y Llamada.",
@@ -77,5 +86,17 @@
     "verifiedPriceBehavior": "En canal privado no usar 'voy a confirmar el precio' cuando commercial.priceInternal ya contiene una cifra vigente y la intención requiere precio.",
     "afterPrice": "Después de informar el precio, continuar con exactamente una SIGUIENTE_ACCION comercial útil según disponibilidad, intención y etapa del lead.",
     "fallback": "Si no existe precio vigente en el expediente, usar CONFIRMAR_PRECIO sin inventar cifra."
+  },
+  "salesPriorityPolicy": {
+    "order": [
+      "CLIENTE_NEGOCIACION_ACTIVA",
+      "LLAMADA_O_VISITA_INTENCION_ALTA",
+      "MATERIAL_URGENTE_PARA_LEAD",
+      "PUBLICACION",
+      "ORGANIZACION_INTERNA"
+    ],
+    "businessHours": "LUN-SAB 08:00-21:00 America/Mexico_City",
+    "callRule": "Recomendar llamada únicamente cuando exista teléfono capturado, intención ALTA y la llamada facilite una siguiente acción comercial concreta; fuera de horario, programarla. No auto-llamar.",
+    "evidenceNote": "El histórico ayuda a priorizar precio/disponibilidad, pero no demuestra una tasa de cierre superior de llamada vs visita."
   }
 }
