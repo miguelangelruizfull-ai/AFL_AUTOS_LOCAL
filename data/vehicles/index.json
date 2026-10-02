@@ -190,7 +190,7 @@
       "updated": "2026-10-02",
       "checkpoint": {
         "phase": "PRECAPTURA_CON_BORRADORES",
-        "lastCompleted": "TIKTOK_PHOTOMOTION_9X16_PRODUCIDO_NO_APROBADO; 14.57 s, 1080x1920, construido solo con fotografías reales verificadas de AFL-279006; paquete y preview verificados en 80_TIKTOK; sin precio visible, sin audio incrustado y sin publicación. VIDEO_REAL_9_16 sigue pendiente.",
+        "lastCompleted": "TIKTOK_PHOTOMOTION_RECHAZADO_POR_MIGUEL; NO_APROBADA / NO_PUBLICAR; video real 9:16 pendiente.",
         "nextAction": "CAPTURA_COMERCIAL_COMPLETA",
         "state": "CAPTURA_PENDIENTE",
         "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
@@ -231,130 +231,43 @@
       "contentLab": {
         "operation": "CONTENIDO_EXPRESS_AFL",
         "function": "Crear TikTok",
-        "status": "TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO",
-        "completedAt": "2026-10-02T17:37:36-06:00",
-        "lastVerifiedAt": "2026-10-02T17:37:36-06:00",
-        "timezone": "America/Mexico_City",
-        "result": "TikTok photo-motion 9:16 producido con fotografías reales verificadas de AFL-279006 y logo AFL temporal canónico. Master silencioso para selección posterior de audio comercial vigente. Precio público omitido. Checkpoint físico conservado. Sin publicación.",
-        "filesProduced": 2,
-        "deliverables": [
-          {
-            "key": "tiktokPhotoMotion",
-            "status": "PRODUCIDO_NO_APROBADO_NO_PUBLICAR",
-            "artifactPackage": "AFL-279006_TIKTOK_PHOTOMOTION_9X16_2026-10-02.zip",
-            "preview": "AFL-279006_TIKTOK_PREVIEW_9X16_2026-10-02.jpg",
-            "format": "1080x1920",
-            "durationSeconds": 14.57,
-            "vehicle_photo_provenance": "SAME_AFL_ID",
-            "synthetic_vehicle_views": 0,
-            "other_vehicle_photos": 0,
-            "stock_vehicle_photos": 0,
-            "generic_icons": 0,
-            "vehicle_fidelity": "POSITIVE",
-            "brand_asset_fidelity": "POSITIVE",
-            "publishable_data_control": "POSITIVE",
-            "premium_authenticity": "POSITIVE",
-            "approved_reference_alignment": "POSITIVE",
-            "generic_template_risk": "LOW",
-            "user_approval": "NO"
-          }
-        ],
-        "nextAction": "REVISION_MIGUEL_TIKTOK_PHOTOMOTION",
-        "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA",
-        "blockings": [
-          "APROBACION_MIGUEL_PENDIENTE",
-          "VIDEO_REAL_9_16_PENDIENTE",
-          "CAPTURA_COMERCIAL_FISICA_PENDIENTE",
-          "NO_PUBLICAR"
-        ]
+        "status": "NO_APROBADA",
+        "result": "Versión photo-motion rechazada; no entra a referencias aprobadas. Motivo explícito no especificado.",
+        "approvedReference": false,
+        "fieldNextAction": "CAPTURA_COMERCIAL_COMPLETA"
       },
       "recommendation": {
-        "updatedAt": "2026-10-02T17:37:36-06:00",
+        "updatedAt": "2026-10-02",
         "authority": "CHATGPT_CURRENT",
-        "rule": "Después de cada ejecución operativa, lista.html y la ficha del vehículo deben mostrar el último cierre verificable, el siguiente recomendado primero, el contenido que falta y las demás opciones recomendadas. La recomendación se deriva de PUENTE + Drive + checkpoint; el menú estático no decide. No publicar automáticamente y mantener las superficies públicas sanitizadas.",
         "latestClosure": {
-          "status": "TIKTOK_PHOTOMOTION_PRODUCIDO_NO_APROBADO",
-          "summary": "TikTok photo-motion 9:16 producido y verificado en 80_TIKTOK con fotografías reales de la unidad; sin precio, audio incrustado ni publicación. Video real 9:16 sigue pendiente.",
-          "filesMoved": 0,
-          "filesProduced": 2,
-          "captureEvidence": "12 fotografías reales disponibles; video real de campo pendiente.",
-          "lastVerifiedAt": "2026-10-02T17:37:36-06:00"
+          "status": "TIKTOK_PHOTOMOTION_NO_APROBADA",
+          "summary": "Versión photo-motion rechazada por Miguel y archivada como referencia no aprobada; no publicar."
         },
         "nextRecommended": {
-          "key": "REVISION_MIGUEL_TIKTOK_PHOTOMOTION",
-          "label": "Revisar TikTok photo-motion",
-          "reason": "El derivado ya está producido y no requiere esperar la captura física para revisión; aprobarlo o pedir ajustes no modifica el checkpoint.",
-          "canExecuteNow": true,
-          "requiresPhysicalCapture": false,
-          "instruction": "Revisar hook, cortes, textos y CTA. Aprobar o solicitar ajuste. No publicar automáticamente."
-        },
-        "afterNextRecommended": {
           "key": "CAPTURA_COMERCIAL_COMPLETA",
-          "label": "Completar captura física y video real 9:16",
-          "condition": "TRABAJO_DE_CAMPO",
-          "reason": "Permite crear una futura versión TikTok/Reel basada en footage real y completar el expediente."
-        },
-        "fieldRecommended": {
-          "key": "CAPTURA_COMERCIAL_COMPLETA",
-          "label": "Completar captura física y video real 9:16",
-          "reason": "Desbloquea portadas finales, Reel, TikTok y la selección final con evidencia nueva."
+          "label": "Completar captura física + video real 9:16",
+          "reason": "La variante photo-motion fue rechazada y la versión con footage real sigue pendiente.",
+          "canExecuteNow": false,
+          "requiresPhysicalCapture": true
         },
         "missingContent": [
-          {
-            "key": "PORTADAS",
-            "label": "Portadas finales",
-            "status": "PRODUCIDA_NO_APROBADA",
-            "canCreateNow": true,
-            "gate": "APROBACION_MIGUEL"
-          },
           {
             "key": "REEL_VIDEO_REAL",
             "label": "Reel con video real",
             "status": "BLOQUEADO",
-            "canCreateNow": false,
             "gate": "VIDEO_REAL_9_16"
           },
           {
             "key": "TIKTOK_VIDEO_REAL",
             "label": "TikTok con video real",
-            "status": "PENDIENTE_FISICO_VARIANTE_VIDEO_REAL",
-            "canCreateNow": false,
+            "status": "PENDIENTE_FISICO",
             "gate": "VIDEO_REAL_9_16"
           },
           {
             "key": "CAPTURA_COMERCIAL_COMPLETA",
             "label": "Captura comercial completa",
             "status": "PENDIENTE_FISICO",
-            "canCreateNow": false,
             "gate": "TRABAJO_DE_CAMPO"
-          }
-        ],
-        "optionsRecommended": [
-          {
-            "order": 1,
-            "key": "CAPTURA_COMERCIAL_COMPLETA",
-            "label": "Completar captura + video real",
-            "recommended": true,
-            "canExecuteNow": false,
-            "gate": "TRABAJO_DE_CAMPO",
-            "instruction": "22 fotos obligatorias + walkaround vertical real 9:16; cargar únicamente en 20_NUEVA_CAPTURA."
-          },
-          {
-            "order": 2,
-            "key": "REVISION_MATERIAL_NUEVO",
-            "label": "Revisar material nuevo y cerrar selección",
-            "recommended": false,
-            "canExecuteNow": false,
-            "gate": "MATERIAL_NUEVO_SUBIDO",
-            "instruction": "Cuando exista material nuevo, clasificarlo y ejecutar REVISION_MATERIAL / SELECCION_FINAL."
-          },
-          {
-            "order": 3,
-            "key": "AUDITAR_SINCRONIZACION",
-            "label": "Auditar sincronización de AFL-279006",
-            "recommended": false,
-            "canExecuteNow": true,
-            "instruction": "Comparar Drive, JSON del vehículo, HOME y documentación operativa sin publicar."
           }
         ],
         "publicExposure": "SANITIZED_ONLY"
