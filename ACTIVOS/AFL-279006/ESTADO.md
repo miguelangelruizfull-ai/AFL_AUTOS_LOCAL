@@ -299,3 +299,17 @@ PUBLICAR_AUTOMATICAMENTE_OTRAS_PIEZAS: NO
 - Material histórico `CHEVROLET_colorado_roja_2016`: conservado sin mover ni borrar originales.
 - Publicación automática: `NO`.
 
+## CIERRE — HISTORIA V4 9:16 PRODUCIDA — 2026-10-02T13:17:00-06:00
+
+- Acción ejecutada: `ADAPTAR_V4_HISTORIA_9X16`.
+- Fuente V4: `09_PAQUETE_REDES_V4_2026-09-13/FLYER_FEED_CHEVROLET_COLORADO_2016_V4_FIDELIDAD.jpg`.
+- Salida: `AFL-279006_HISTORIA_V4_9X16_2026-10-02.jpg` en `02_SALIDAS/AFL-279006/50_HISTORIAS`.
+- Formato: `1080x1920` / `9:16`.
+- Validación: unidad completa visible; frente, caja y ruedas sin recorte; fondo extendido sólo en vertical; jerarquía `CHEVROLET / COLORADO / 2016` conservada; logotipo y CTA dentro de zona segura.
+- Historia: `PRODUCIDA_VERIFICADA_NO_PUBLICAR`.
+- Estado físico conservado: `PRECAPTURA_CON_BORRADORES / CAPTURA_PENDIENTE`.
+- Evidencia nueva de campo: `0 fotos / 0 videos / 0 notas`; `20_NUEVA_CAPTURA` continúa vacía.
+- Valor anterior siguiente recomendado: `ADAPTAR_V4_HISTORIA_9X16`.
+- Valor nuevo siguiente recomendado: `CAPTURA_COMERCIAL_COMPLETA`.
+- Acción física: 22 fotos obligatorias + walkaround vertical real 9:16; subir únicamente a `01_ENTRADAS/AFL-279006/20_NUEVA_CAPTURA`; después `MATERIAL_NUEVO_SUBIDO → REVISION_MATERIAL`.
+- Publicación automática: `NO`.
