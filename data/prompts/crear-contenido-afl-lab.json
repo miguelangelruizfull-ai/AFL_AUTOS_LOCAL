@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "updated": "2026-09-27",
+  "schemaVersion": "1.1.0",
+  "updated": "2026-10-02",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
   "trigger": "HOME_CARD_FUNCTION_SELECT",
@@ -27,12 +27,38 @@
   "publicResultField": "contentLab",
   "rules": [
     "Leer PUENTE completo antes de afirmar datos variables.",
-    "Groundear archivos y carpetas Drive antes de mover.",
+    "La selección Crear contenido con AFL Lab autoriza CREAR/PRODUCIR derivados; no autoriza PUBLICAR.",
+    "CAPTURA_PENDIENTE, SELECCION_FINAL_BLOQUEADA o PRODUCCION_FINAL_BLOQUEADA describen el flujo operativo y no cancelan una solicitud manual de creación desde HOME. Conservar el checkpoint y producir con el material verificable disponible.",
+    "Si falta un dato o toma, omitir solo la afirmación o recurso dependiente y continuar con lo demás cuando exista material suficiente.",
+    "commercial.priceInternal / PRECIO INTERNO es SOLO ADMIN y nunca debe imprimirse en copy, texto sobreimpreso o arte público. Precio visible solo con autorización pública específica.",
+    "Cargar reglas activas de AFL_AUTOS_CONTENT_SYSTEM antes de cerrar una pieza gráfica.",
+    "Groundear archivos y carpetas Drive antes de mover o guardar.",
     "No mover ni eliminar RAW/originales canonicos automaticamente.",
-    "Mover solo seleccionados, aprobados, derivados o entregables con destino inequivoco.",
+    "Mover/copiar solo seleccionados, aprobados, derivados o entregables con destino inequivoco.",
     "Actualizar solo repositorios derivados realmente afectados.",
-    "Persistir resumen sanitizado en JSON del vehiculo e index HOME.",
+    "Persistir resumen sanitizado en JSON del vehiculo e index HOME cuando la operación produzca cambios persistentes.",
     "No publicar automaticamente.",
     "No exponer VIN completo, odometro, documentos, PII ni IDs/URLs privadas."
-  ]
+  ],
+  "authorization": {
+    "source": "HOME_CARD_FUNCTION_SELECT",
+    "createContent": true,
+    "meaning": "Seleccionar Crear contenido con AFL Lab constituye autorización explícita de Miguel para producir derivados creativos de esa unidad con el material verificable disponible.",
+    "checkpointSeparation": "El checkpoint operativo de captura/revisión se conserva, pero no bloquea por sí solo una producción creativa solicitada manualmente desde HOME.",
+    "allowed": [
+      "seleccionar material de la unidad",
+      "retocar y preparar derivados sin alterar la realidad del vehículo",
+      "crear copy y estrategia con datos confirmados y publicables",
+      "crear portada, flyer, historia, TikTok, Marketplace u otros derivados solicitados",
+      "guardar derivados verificados en 02_SALIDAS del vehículo"
+    ],
+    "notAuthorized": [
+      "publicar o programar automáticamente",
+      "mostrar precio interno como precio público",
+      "inventar datos, tomas o equipamiento faltante",
+      "alterar o eliminar RAW/originales",
+      "cambiar el checkpoint operativo solo por haber producido una pieza",
+      "marcar APROBADO o PUBLICADO sin evidencia/autorización correspondiente"
+    ]
+  }
 }
