@@ -84,7 +84,7 @@
     "lastVerifiedAt": "2026-10-02T18:00:05-06:00",
     "movedAt": null,
     "timezone": "America/Mexico_City",
-    "result": "Portada rechazada por Miguel; copia preservada en referencias no aprobadas para análisis. Motivo específico no indicado. Fotos originales y audiovisuales V3 intactos; sin publicación.",
+    "result": "Portada rechazada por diseño y acabado; conservar para análisis. Siguiente versión debe recomponerse usando las portadas aprobadas recién cargadas, preservando foto real y logo canónico. Sin publicación.",
     "filesMoved": 0,
     "filesProduced": 1,
     "deliverables": [
@@ -127,6 +127,7 @@
     "filesCopied": 15,
     "copiedAt": "2026-10-02T17:52:56.816-06:00",
     "function": "Crear portada",
-    "rejectedAt": "2026-10-02T18:05:05-06:00"
+    "rejectedAt": "2026-10-02T18:05:05-06:00",
+    "rejectionReason": "DISEÑO_Y_ACABADO"
   }
 }
