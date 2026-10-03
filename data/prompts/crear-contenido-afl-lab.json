@@ -79,7 +79,8 @@
     "MEJORAR FLYER después del cierre significa una iteración adicional sobre la última versión; no sustituye la mejora automática obligatoria.",
     "LOGOTIPO OFICIAL OBLIGATORIO GLOBAL: antes de producir cualquier pieza gráfica desde cualquier prompt del HOME, leer AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md y resolver DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL. Usar archivo real suministrado por Miguel: 65808.png por defecto; 65809.png variante monocromática; 65806.png variante color alternativa. Inspeccionar el activo y conservar símbolo, letras, colores y proporciones; no regenerar, aproximar ni sustituir por texto AFL AUTOS. Si falta el activo, detener solo la composición de marca y resolverlo antes de entregar. Verificar logo_oficial_presente=TRUE y brand_asset_fidelity=POSITIVE en cada versión. No persistir IDs/URLs privadas en HOME/JSON público.",
     "DIRECCION_DE_ARTE_POR_VEHICULO_Y_CANAL: aplicar contracts/CONTENIDO_EXPRESS.md §1.3 a todas las unidades. Clasificar desde PUENTE y adaptar composición a familia, toma real y canal; priorizar referencias aprobadas pertinentes. Portadas WhatsApp/catálogo no requieren franja de datos ni CTA grande por defecto. Registrar vehicleType, designDirection, designRationale, referenceSelection y targetFormat; no inferir equipamiento ni fabricar escenarios.",
-    "PORTADA_MENU_ESPECIFICO: al terminar una portada Facebook/Marketplace/WhatsApp mostrar imagen vigente y menú 1 Aprobar esta portada, 2 Rechazar esta portada, 3 Mejorar solo el diseño; después Marketplace completo recomendado primero cuando haya evidencia suficiente, Carrusel Feed 4:5, Flyer comercial mejorado, otra Portada, Historias 9:16, Paquete WhatsApp, Imagen detalle de trabajo, Comparativo visual, aportar material, 05_SELECCION_TEMPORAL y captura física si sigue pendiente. La opción 3 conserva misma foto HERO real y logo oficial y cambia solo dirección de arte. Si photo-motion fue rechazado para esa unidad, no recomendar Reel/TikTok con fotografías por defecto."
+    "PORTADA_MENU_ESPECIFICO: al terminar una portada Facebook/Marketplace/WhatsApp mostrar imagen vigente y menú 1 Aprobar esta portada, 2 Rechazar esta portada, 3 Mejorar solo el diseño; después Marketplace completo recomendado primero cuando haya evidencia suficiente, Carrusel Feed 4:5, Flyer comercial mejorado, otra Portada, Historias 9:16, Paquete WhatsApp, Imagen detalle de trabajo, Comparativo visual, aportar material, 05_SELECCION_TEMPORAL y captura física si sigue pendiente. La opción 3 conserva misma foto HERO real y logo oficial y cambia solo dirección de arte. Si photo-motion fue rechazado para esa unidad, no recomendar Reel/TikTok con fotografías por defecto.",
+    "CONTEXTO GLOBAL PROTAGONISMO_Y_ACABADO: aplicar CONTENIDO_EXPRESS §1.4 a todos los vehículos actuales/futuros. Evaluar a tamaño móvil que el vehículo real domine frente a encabezado/logo/entorno; revisar acabado, nitidez, bordes, jerarquía e integración. Adaptar por tipo/canal/foto, sin plantilla universal ni cambios físicos. Consultar hasta 3 aprendizajes relevantes; un caso rechazado aporta restricciones, no aprobación."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -143,9 +144,25 @@
       "Toda imagen vehicular usada debe ser real, verificable y pertenecer al mismo AFL-ID; no usar stock, vistas sintéticas ni fotos de otra unidad.",
       "No crear collage con fotos secundarias inexistentes; si solo hay una toma real, resolver la riqueza visual con diseño gráfico y no con material inventado.",
       "Desactivar iconografía genérica por defecto; usarla solo con autorización explícita o evidencia clara en referencias aprobadas pertinentes.",
-      "Aplicar §1.3: verificar category_fit y channel_fit; adaptar densidad, tipografía y composición al tipo confirmado y al formato, manteniendo el HERO real dominante."
+      "Aplicar §1.3: verificar category_fit y channel_fit; adaptar densidad, tipografía y composición al tipo confirmado y al formato, manteniendo el HERO real dominante.",
+      "Antes de entregar, registrar hero_prominence, finish_quality y mobile_review; si protagonismo o acabado falla, recomponer con foto real y logo oficial, conforme a §1.4."
     ],
-    "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH O SI_FOTO_NO_REAL_O_NO_VERIFICADA_DE_LA_UNIDAD == TRUE O SI_GENERACION_INVENTA_VISTA_O_DETALLE == TRUE -> RECOMPONER_ANTES_DE_ENTREGAR"
+    "failureRule": "SI_GENERIC_TEMPLATE_RISK == HIGH O SI_FOTO_NO_REAL_O_NO_VERIFICADA_DE_LA_UNIDAD == TRUE O SI_GENERACION_INVENTA_VISTA_O_DETALLE == TRUE -> RECOMPONER_ANTES_DE_ENTREGAR",
+    "sharedContext": {
+      "contract": "AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md",
+      "sections": [
+        "1.3",
+        "1.4"
+      ],
+      "scope": "ALL_VEHICLES_CURRENT_AND_FUTURE",
+      "requiredChecks": [
+        "hero_prominence",
+        "finish_quality",
+        "mobile_review"
+      ],
+      "reuseRejectedLayout": false,
+      "technicalPassIsUserApproval": false
+    }
   },
   "automaticImprovementPass": {
     "id": "MEJORA_OBLIGATORIA_POST_V1",
