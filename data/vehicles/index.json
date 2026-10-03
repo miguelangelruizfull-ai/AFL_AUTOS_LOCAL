@@ -454,17 +454,17 @@
       },
       "contentLab": {
         "operation": "CONTENIDO_EXPRESS_AFL",
-        "status": "RECHAZADO",
-        "requestedAt": "2026-10-02T17:47:17.277-06:00",
-        "requestedAtUtc": "2026-10-02T23:47:17.277Z",
-        "startedAt": "2026-10-02T17:47:56-06:00",
-        "completedAt": "2026-10-02T18:00:05-06:00",
-        "lastVerifiedAt": "2026-10-02T18:00:05-06:00",
-        "movedAt": null,
+        "function": "Crear portada",
+        "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "requestedAt": "2026-10-02T18:17:40-06:00",
+        "startedAt": "2026-10-02T18:17:58-06:00",
+        "completedAt": "2026-10-02T18:20:02-06:00",
+        "lastVerifiedAt": "2026-10-02T18:20:02-06:00",
         "timezone": "America/Mexico_City",
-        "result": "Portada rechazada por diseño y acabado; conservar para análisis. Siguiente versión debe recomponerse usando las portadas aprobadas recién cargadas, preservando foto real y logo canónico. Sin publicación.",
+        "movedAt": null,
         "filesMoved": 0,
         "filesProduced": 1,
+        "result": "Nueva portada Jeep editorial 4:5 producida y verificada, con foto real y logo oficial. Pendiente de revisión; portada anterior rechazada conservada. Sin publicación.",
         "deliverables": [
           {
             "key": "facebookReelV3",
@@ -490,23 +490,32 @@
             "brand_asset_fidelity": "POSITIVE",
             "generic_template_risk": "LOW",
             "user_approval": "NO"
+          },
+          {
+            "key": "portadaEditorial4x5",
+            "artifact": "AFL-539849_PORTADA_4X5_JEEP_EDITORIAL_MEJORADA_2026-10-02.png",
+            "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+            "format": "1080x1350",
+            "user_approval": "NO",
+            "vehicle_fidelity": "POSITIVE",
+            "brand_asset_fidelity": "POSITIVE"
           }
         ],
         "reposUpdated": [
           "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "REDEFINIR_DISENO_CON_REFERENCIAS_APROBADAS",
+        "nextAction": "REVISION_PORTADA_EDITORIAL_MIGUEL",
         "blockings": [
           "APROBACION_MIGUEL_PENDIENTE",
           "PRECIO_PUBLICO_PENDIENTE_OMITIR",
           "DISPONIBILIDAD_PENDIENTE_NO_AFIRMAR"
         ],
-        "filesCopied": 15,
-        "copiedAt": "2026-10-02T17:52:56.816-06:00",
-        "function": "Crear portada",
-        "rejectedAt": "2026-10-02T18:05:05-06:00",
-        "rejectionReason": "DISEÑO_Y_ACABADO"
+        "previousRejection": {
+          "artifact": "AFL-539849_PORTADA_4X5_MEJORADA_2026-10-02.png",
+          "rejectedAt": "2026-10-02T18:05:05-06:00",
+          "reason": "DISEÑO_Y_ACABADO"
+        }
       }
     },
     {
