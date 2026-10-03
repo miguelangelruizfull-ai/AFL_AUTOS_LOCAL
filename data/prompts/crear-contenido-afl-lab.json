@@ -296,5 +296,43 @@
     ],
     "allowGeneratedLogo": false,
     "allowTextSubstitution": false
+  },
+  "coverProductionStandard": {
+    "authority": "AFL_AUTOS_CONTENT_SYSTEM/formats/PORTADAS_MULTIMARCA_V2.md",
+    "scope": "ALL_IMAGE_GENERATORS_ALL_VEHICLES",
+    "masterFormat": "1080x1350_4x5",
+    "fidelityMode": "REAL_VEHICLE_PIXELS_AND_OFFICIAL_LOGO_ASSET",
+    "sharedRules": [
+      "Usar foto HERO real de la misma unidad; no reconstruir integralmente el vehiculo cuando la fidelidad sea requisito.",
+      "Usar el logotipo oficial como archivo real; no regenerar, redibujar ni sustituir por texto.",
+      "Referencias aprobadas enseñan composicion, jerarquia, proporciones y legibilidad; no transfieren datos ni rasgos fisicos.",
+      "Reducir piso/techo sobrante antes de escalar agresivamente; conservar vehiculo completo y ruedas visibles cuando la toma las contenga.",
+      "Aplicar correccion fotografica global conservadora; preservar color, defectos y configuracion real.",
+      "AFL-ID aparece una sola vez.",
+      "Comparar al 100% contra el original antes de entregar."
+    ],
+    "generationAllowedFor": [
+      "fondos y texturas graficas no fotorrealistas",
+      "mascaras y expansion de entorno que no modifique la unidad",
+      "exploracion de direccion de arte"
+    ],
+    "generationForbiddenForFinalFidelity": [
+      "carroceria",
+      "parrilla",
+      "faros/calaveras",
+      "rines/llantas",
+      "cristales",
+      "emblemas",
+      "proporciones",
+      "logo AFL"
+    ],
+    "geometry1080x1350": {
+      "headerPx": 277,
+      "photoPx": 914,
+      "separatorPx": 5,
+      "footerPx": 154,
+      "sideMarginPx": "44-50",
+      "vehicleUsefulWidthPct": "85-92"
+    }
   }
 }
