@@ -462,7 +462,7 @@
       },
       "contentLab": {
         "operation": "CONTENIDO_EXPRESS_AFL",
-        "status": "COMPLETADO",
+        "status": "RECHAZADO",
         "requestedAt": "2026-10-02T17:47:17.277-06:00",
         "requestedAtUtc": "2026-10-02T23:47:17.277Z",
         "startedAt": "2026-10-02T17:47:56-06:00",
@@ -470,7 +470,7 @@
         "lastVerifiedAt": "2026-10-02T18:00:05-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
-        "result": "Portada 4:5 mejorada producida con foto real y logo canónico, guardada y verificada. Dos borradores generativos descartados por reinterpretar detalles. Sin precio ni disponibilidad afirmada. Pendiente aprobación; checkpoint operativo conservado.",
+        "result": "Portada rechazada por Miguel; copia preservada en referencias no aprobadas para análisis. Motivo específico no indicado. Fotos originales y audiovisuales V3 intactos; sin publicación.",
         "filesMoved": 0,
         "filesProduced": 1,
         "deliverables": [
@@ -492,7 +492,7 @@
           {
             "key": "portada4x5",
             "artifact": "AFL-539849_PORTADA_4X5_MEJORADA_2026-10-02.png",
-            "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+            "status": "RECHAZADO_POR_MIGUEL_NO_PUBLICAR",
             "format": "1080x1350",
             "vehicle_fidelity": "POSITIVE",
             "brand_asset_fidelity": "POSITIVE",
@@ -504,7 +504,7 @@
           "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "REVISION_MIGUEL_PORTADA",
+        "nextAction": "REDEFINIR_DISENO_CON_REFERENCIAS_APROBADAS",
         "blockings": [
           "APROBACION_MIGUEL_PENDIENTE",
           "PRECIO_PUBLICO_PENDIENTE_OMITIR",
@@ -512,7 +512,8 @@
         ],
         "filesCopied": 15,
         "copiedAt": "2026-10-02T17:52:56.816-06:00",
-        "function": "Crear portada"
+        "function": "Crear portada",
+        "rejectedAt": "2026-10-02T18:05:05-06:00"
       }
     },
     {
