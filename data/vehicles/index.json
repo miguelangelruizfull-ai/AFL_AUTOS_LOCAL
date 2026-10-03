@@ -461,18 +461,18 @@
         "publicExposure": "SANITIZED_ONLY"
       },
       "contentLab": {
-        "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-        "status": "PARCIAL",
+        "operation": "CONTENIDO_EXPRESS_AFL",
+        "status": "COMPLETADO",
         "requestedAt": "2026-10-02T17:47:17.277-06:00",
         "requestedAtUtc": "2026-10-02T23:47:17.277Z",
         "startedAt": "2026-10-02T17:47:56-06:00",
-        "completedAt": null,
-        "lastVerifiedAt": "2026-10-02T17:52:59-06:00",
+        "completedAt": "2026-10-02T18:00:05-06:00",
+        "lastVerifiedAt": "2026-10-02T18:00:05-06:00",
         "movedAt": null,
         "timezone": "America/Mexico_City",
-        "result": "Selección temporal preparada y verificada con 15 copias de las fotos retocadas de la unidad. Originales intactos. Menú de producción disponible; pendiente elegir pieza. Audiovisuales V3 existentes conservados sin aprobación ni publicación.",
+        "result": "Portada 4:5 mejorada producida con foto real y logo canónico, guardada y verificada. Dos borradores generativos descartados por reinterpretar detalles. Sin precio ni disponibilidad afirmada. Pendiente aprobación; checkpoint operativo conservado.",
         "filesMoved": 0,
-        "filesProduced": 0,
+        "filesProduced": 1,
         "deliverables": [
           {
             "key": "facebookReelV3",
@@ -488,19 +488,31 @@
             "key": "retouchedPhotos",
             "count": 15,
             "status": "EXISTENTES_LOCALIZADAS"
+          },
+          {
+            "key": "portada4x5",
+            "artifact": "AFL-539849_PORTADA_4X5_MEJORADA_2026-10-02.png",
+            "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+            "format": "1080x1350",
+            "vehicle_fidelity": "POSITIVE",
+            "brand_asset_fidelity": "POSITIVE",
+            "generic_template_risk": "LOW",
+            "user_approval": "NO"
           }
         ],
         "reposUpdated": [
+          "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "ELEGIR_PORTADA_FLYER_HISTORIA_TIKTOK_MARKETPLACE_O_PAQUETE_EXPRESS",
+        "nextAction": "REVISION_MIGUEL_PORTADA",
         "blockings": [
           "APROBACION_MIGUEL_PENDIENTE",
           "PRECIO_PUBLICO_PENDIENTE_OMITIR",
           "DISPONIBILIDAD_PENDIENTE_NO_AFIRMAR"
         ],
         "filesCopied": 15,
-        "copiedAt": "2026-10-02T17:52:56.816-06:00"
+        "copiedAt": "2026-10-02T17:52:56.816-06:00",
+        "function": "Crear portada"
       }
     },
     {
