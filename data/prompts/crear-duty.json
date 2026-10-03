@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "updated": "2026-10-03",
+  "key": "CREAR_DUTY_AFL",
+  "label": "Crear Duty",
+  "trigger": "HOME_BUTTON",
+  "visualAuthority": {
+    "repository": "AFL_AUTOS_CONTENT_SYSTEM",
+    "path": "library/moodboards/MOODBOARD_SUPER_DUTY_INDUSTRIAL_NEON_V1.md",
+    "status": "ACTIVE_REFERENCE / NO_FUENTE_TECNICA"
+  },
+  "unitAuthority": {
+    "locator": "Vehiculos/index/EXPEDIENTES_INDEX.json",
+    "truth": "Vehiculos/<puente_path>/PUENTE.md"
+  },
+  "brandAuthority": {
+    "contract": "AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md",
+    "source": "DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL",
+    "defaultAsset": "65808.png"
+  },
+  "defaultFormat": "HISTORIA_FACEBOOK_1080x1920",
+  "supportedFormats": [
+    "HISTORIA_FACEBOOK_1080x1920",
+    "FEED_VERTICAL_1080x1350",
+    "CUADRADO_1080x1080"
+  ],
+  "rules": [
+    "Confirmar en PUENTE que la unidad pertenece a la familia Ford Super Duty antes de aplicar esta función.",
+    "El moodboard aporta dirección visual; nunca aporta año, motor, caballaje, versión, precio, disponibilidad o equipamiento.",
+    "Usar únicamente fotografía real/verificable de la misma unidad y conservar color, carrocería, rines, llantas, accesorios, ejes, altura y proporciones.",
+    "Dirección visual: industrial premium, negro/grafito, blanco metálico y verde neón AFL; vehículo HERO en gran escala, preferentemente 3/4 frontal.",
+    "No copiar literalmente una de las referencias; adaptar composición a la foto real, carrocería y formato.",
+    "Usar únicamente logotipo AFL oficial; no regenerar ni aproximar el logo.",
+    "No inventar tomas, emblemas, carrocería, configuración ni datos técnicos.",
+    "No usar commercial.priceInternal como precio visible.",
+    "No publicar automáticamente.",
+    "Entregar como PRODUCIDO_NO_APROBADO hasta aprobación explícita."
+  ]
+}
