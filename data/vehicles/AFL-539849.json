@@ -47,7 +47,7 @@
     "post": "PENDIENTE",
     "feed": "PENDIENTE",
     "stories": "PENDIENTE",
-    "covers": "NUEVA_PORTADA_PENDIENTE_APROBACION_NO_PUBLICAR",
+    "covers": "RECHAZADO_POR_MIGUEL_NO_PUBLICAR",
     "reel": "PENDIENTE_APROBACION_MIGUEL",
     "tiktok": "PENDIENTE_APROBACION_MIGUEL",
     "whatsapp": "OCULTO",
@@ -77,16 +77,16 @@
   "contentLab": {
     "operation": "MEJORAR_SOLO_DISENO",
     "function": "Crear portada",
-    "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+    "status": "RECHAZADO",
     "requestedAt": "2026-10-02T18:22:20-06:00",
     "startedAt": "2026-10-02T18:22:32-06:00",
     "completedAt": "2026-10-02T18:23:44-06:00",
-    "lastVerifiedAt": "2026-10-02T18:23:44-06:00",
+    "lastVerifiedAt": "2026-10-02T18:25:25-06:00",
     "timezone": "America/Mexico_City",
     "movedAt": null,
     "filesMoved": 0,
     "filesProduced": 1,
-    "result": "Portada anterior rechazada y archivada para análisis. Nueva mejora solo de diseño guardada y verificada con la misma foto real y logo oficial; pendiente de aprobación, sin publicación.",
+    "result": "Portada de diseño refinado rechazada por Miguel; copia archivada y verificada para análisis. No usar como referencia aprobada ni publicar.",
     "deliverables": [
       {
         "key": "facebookReelV3",
@@ -125,7 +125,7 @@
       {
         "key": "portadaDisenoRefinado4x5",
         "artifact": "AFL-539849_PORTADA_4X5_DISENO_REFINADO_2026-10-02.png",
-        "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "status": "NO_APROBADA",
         "format": "1080x1350",
         "user_approval": "NO"
       }
@@ -134,7 +134,7 @@
       "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "REVISION_PORTADA_DISENO_REFINADO_MIGUEL",
+    "nextAction": "DEFINIR_NUEVA_DIRECCION_O_RECIBIR_FEEDBACK",
     "blockings": [
       "APROBACION_MIGUEL_PENDIENTE",
       "PRECIO_PUBLICO_PENDIENTE_OMITIR",
@@ -146,6 +146,9 @@
       "reason": "NO_ESPECIFICADO"
     },
     "filesCopied": 1,
-    "copiedAt": "2026-10-02T18:23:13.216-06:00"
+    "copiedAt": "2026-10-02T18:23:13.216-06:00",
+    "rejectedAt": "2026-10-02T18:24:58-06:00",
+    "rejectionReason": "NO_ESPECIFICADO",
+    "archiveCopiedAt": "2026-10-02T18:25:14.229-06:00"
   }
 }
