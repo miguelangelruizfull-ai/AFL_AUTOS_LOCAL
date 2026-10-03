@@ -2,235 +2,246 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Índice de Vehículos — AFL Autos</title>
+<title>Inventario AFL Autos</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#1f2937;line-height:1.5;overflow-x:hidden}
-img{max-width:100%}
-button,input,a{font:inherit}
-main{width:min(100%,1220px);margin:0 auto;padding:clamp(16px,3vw,30px) clamp(12px,2.5vw,22px) 48px}
-.header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:22px}
-.header>div:first-child{min-width:0;flex:1}
-h1{font-size:clamp(1.55rem,4vw,2rem);line-height:1.15;color:#111827}
-.subtitle{color:#6b7280;margin-top:7px;max-width:780px;overflow-wrap:anywhere}
-.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;text-decoration:none;border:1px solid #d1d5db;background:#fff;color:#111827;padding:9px 12px;border-radius:10px;font-weight:700;text-align:center}
-.btn:hover{background:#f9fafb}
-.notice{margin-bottom:12px;padding:11px 13px;border:1px solid #dbeafe;background:#eff6ff;border-radius:10px;color:#1e3a8a;font-size:.88rem;overflow-wrap:anywhere}
-.meta-row{display:flex;justify-content:space-between;gap:10px 18px;align-items:center;margin-bottom:16px;color:#6b7280;font-size:.82rem;flex-wrap:wrap}
-.meta-row strong{color:#374151}
-.toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;margin-bottom:18px}
-.search{width:100%;min-width:0;min-height:44px;border:1px solid #d1d5db;background:#fff;padding:11px 14px;border-radius:10px;font:inherit}
-.count{display:flex;align-items:center;color:#6b7280;font-weight:700;white-space:nowrap}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.vehicle-card{display:grid;grid-template-columns:clamp(104px,11vw,132px) minmax(0,1fr);gap:14px;align-items:start;min-width:0;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:12px;box-shadow:0 3px 12px rgba(0,0,0,.05);overflow:hidden}
-.vehicle-thumb,.thumb-placeholder{width:100%;aspect-ratio:4/3;height:auto;min-height:78px;border-radius:10px;background:#e5e7eb}
-.vehicle-thumb{object-fit:cover;display:block}
-.thumb-placeholder{display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:.72rem;font-weight:800;text-align:center;padding:8px}
-.vehicle-info{min-width:0;overflow-wrap:anywhere}
-.vehicle-id{font-weight:800;color:#0f62fe;word-break:break-word}
-.vehicle-name{font-weight:700;color:#374151;margin-top:2px}
-.vehicle-status{font-size:.82rem;color:#6b7280;margin-top:4px;overflow-wrap:anywhere}
-.recommend-box{margin-top:9px;padding:9px 10px;border:1px solid #dbeafe;background:#f8fbff;border-radius:10px;font-size:.78rem;overflow-wrap:anywhere}
-.recommend-box strong{color:#1d4ed8}
-.recommend-next{margin-top:3px;font-weight:800;color:#111827}
-.lab-result{margin-top:5px;color:#4b5563}
-.missing-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-.missing{max-width:100%;font-size:.68rem;font-weight:800;padding:3px 6px;border-radius:999px;background:#fff7ed;color:#9a3412;white-space:normal}
-.rec-options{margin-top:7px}
-.rec-options summary{cursor:pointer;font-weight:800;color:#374151}
-.rec-options ol{padding-left:20px;margin-top:5px;color:#4b5563}
-.relations{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;min-width:0}
-.chip{display:inline-flex;align-items:center;max-width:100%;font-size:.7rem;font-weight:800;border-radius:999px;padding:4px 7px;background:#f3f4f6;color:#4b5563;text-decoration:none;white-space:normal;overflow-wrap:anywhere}
-.chip.ok{background:#ecfdf5;color:#047857}
-.chip.warn{background:#fff7ed;color:#c2410c}
-.chip.public{background:#ecfdf5;color:#047857}
-.chip.private{background:#f3f4f6;color:#6b7280}
-.open{display:inline-block;max-width:100%;margin-top:9px;color:#0f62fe;text-decoration:none;font-weight:700;font-size:.84rem;overflow-wrap:anywhere}
-.empty,.error{display:none;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px;color:#6b7280}
-
-@media(max-width:940px){
-  .grid{grid-template-columns:1fr}
-  .header{flex-direction:column}
-  .actions{justify-content:flex-start}
-  .toolbar{grid-template-columns:1fr}
-  .count{justify-content:flex-start;white-space:normal}
-  .meta-row{align-items:flex-start}
-}
-
-@media(max-width:560px){
-  main{padding:14px 10px 34px}
-  .header{gap:14px;margin-bottom:16px}
-  .actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
-  .btn{width:100%;padding-inline:8px}
-  .notice{font-size:.82rem;padding:10px}
-  .meta-row{display:grid;grid-template-columns:1fr;font-size:.78rem}
-  .toolbar{gap:8px;margin-bottom:12px}
-  .vehicle-card{grid-template-columns:92px minmax(0,1fr);gap:10px;padding:10px;border-radius:12px}
-  .vehicle-thumb,.thumb-placeholder{min-height:69px}
-  .vehicle-name{font-size:.95rem}
-  .vehicle-status{font-size:.77rem}
-  .recommend-box{grid-column:1/-1;font-size:.76rem}
-  .relations{gap:4px}
-}
-
-@media(max-width:390px){
-  .actions{grid-template-columns:1fr}
-  .vehicle-card{grid-template-columns:1fr}
-  .vehicle-thumb,.thumb-placeholder{width:100%;aspect-ratio:16/9;max-height:190px}
-  .vehicle-info{width:100%}
-  .recommend-box{grid-column:auto}
-}
-
-@media(hover:none){
-  .btn,.open,.chip{touch-action:manipulation}
-}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#111827}
+main{width:min(1120px,100%);margin:auto;padding:18px 14px 48px}
+header{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:18px}
+h1{margin:0;font-size:clamp(1.6rem,5vw,2.2rem)}p{margin:.4rem 0;color:#6b7280}
+.actions,.row{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #d1d5db;background:#fff;color:#111827;border-radius:10px;min-height:44px;padding:10px 14px;font-weight:800;text-decoration:none;cursor:pointer}
+.btn.primary{background:#111827;color:#fff;border-color:#111827}.btn.blue{background:#0f62fe;color:#fff;border-color:#0f62fe}
+.panel{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px;box-shadow:0 3px 14px rgba(0,0,0,.05)}
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}.stat{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.78rem;color:#6b7280}
+.empty{text-align:center;padding:34px 16px}.empty strong{display:block;font-size:1.25rem;margin-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px}.id{font-weight:900;color:#0f62fe}.next{margin-top:8px;padding:9px;background:#eff6ff;border-radius:9px;font-size:.85rem}
+dialog{width:min(720px,calc(100% - 20px));border:0;border-radius:16px;padding:0;box-shadow:0 24px 80px rgba(0,0,0,.28)}dialog::backdrop{background:rgba(17,24,39,.55)}
+.modal{padding:18px}.modal h2{margin:0 0 4px}.hint{font-size:.8rem;color:#6b7280;margin-bottom:15px}
+.form{display:grid;gap:11px}.field label{display:block;font-size:.78rem;font-weight:800;margin-bottom:5px}.field input,.field textarea{width:100%;border:1px solid #d1d5db;border-radius:10px;padding:11px 12px;font:inherit}.field textarea{min-height:76px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.preview{margin-top:12px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:12px}.preview .afl{font-size:1.2rem;font-weight:900}.recommend{margin-top:8px;color:#1d4ed8;font-weight:800}
+.safe{margin-top:8px;font-size:.75rem;color:#047857}.danger{font-size:.75rem;color:#b45309}
+footer{margin-top:18px;font-size:.75rem;color:#6b7280}
+@media(max-width:700px){header{flex-direction:column}.actions{width:100%}.actions .btn{flex:1}.status{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main>
-  <div class="header">
-    <div>
-      <h1>Índice de Vehículos</h1>
-      <p class="subtitle">Vista ligera sincronizada con HOME y con el inventario sanitizado de Drive. Muestra una sola tarjeta por AFL-ID; PUENTE y relaciones privadas se resuelven desde ROOT sin exponer IDs o URLs privadas.</p>
+<header>
+  <div>
+    <h1>Inventario AFL Autos</h1>
+    <p>Inventario reiniciado. Alta rápida por AFL-ID y paquete comercial estratégico.</p>
+  </div>
+  <div class="actions">
+    <button class="btn primary" id="newVehicle">+ NUEVO VEHÍCULO</button>
+    <a class="btn" href="index.html">HOME</a>
+  </div>
+</header>
+
+<section class="status">
+  <div class="stat"><b id="total">0</b><span>vehículos en inventario</span></div>
+  <div class="stat"><b id="ready">0</b><span>listos para contenido</span></div>
+  <div class="stat"><b id="pending">0</b><span>con siguiente paso pendiente</span></div>
+</section>
+
+<section class="panel">
+  <div id="grid" class="grid"></div>
+  <div id="empty" class="empty">
+    <strong>Inventario vacío</strong>
+    <p>Agrega la primera unidad con VIN/etiqueta y material disponible.</p>
+    <button class="btn blue" id="emptyNew">CREAR PRIMER VEHÍCULO</button>
+  </div>
+</section>
+
+<dialog id="vehicleDialog">
+  <div class="modal">
+    <div class="row" style="justify-content:space-between;align-items:flex-start">
+      <div><h2>Nuevo vehículo</h2><div class="hint">Solo lo indispensable. El resto se obtiene del material.</div></div>
+      <button class="btn" id="closeDialog">Cerrar</button>
     </div>
-    <div class="actions">
-      <a class="btn" href="index.html">Abrir HOME</a>
-      <a class="btn" href="data/vehicles/index.json" target="_blank" rel="noopener noreferrer">Ver JSON público</a>
+
+    <div class="form">
+      <div class="field">
+        <label>VIN / etiqueta VIN</label>
+        <input id="vin" autocomplete="off" placeholder="Pega VIN de 17 caracteres o enlace privado a la etiqueta">
+        <div class="danger">El VIN completo no se agrega al inventario público.</div>
+      </div>
+
+      <div class="field">
+        <label>Material principal</label>
+        <input id="material" placeholder="Pega carpeta o enlace de Drive con fotos/video">
+      </div>
+
+      <div class="two">
+        <div class="field">
+          <label>Fotos complementarias · opcional</label>
+          <input id="complement" placeholder="Carpeta o enlaces">
+        </div>
+        <div class="field">
+          <label>Motor / etiqueta motor · opcional</label>
+          <input id="engine" placeholder="Foto, archivo o carpeta">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Atributos conocidos · opcional</label>
+        <textarea id="attributes" placeholder="Año, marca, modelo, versión, precio, kilometraje o cualquier dato confirmado"></textarea>
+      </div>
+    </div>
+
+    <div class="preview">
+      <div class="afl" id="aflId">AFL-PENDIENTE</div>
+      <div id="vinState" class="hint">Pega VIN o etiqueta para iniciar.</div>
+      <div class="recommend">Siguiente paso: <span id="recommended">VERIFICAR_VIN</span></div>
+      <div class="safe">Privacidad: VIN y enlaces privados se usan como fuente operativa; no deben publicarse en JSON/Home.</div>
+    </div>
+
+    <div class="row" style="margin-top:14px">
+      <button class="btn blue" id="copyPrompt">COPIAR ALTA + SIGUIENTE PASO</button>
+      <a class="btn" id="openDrive" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/drive/folders/1ym-MGs4DUH5m2ZCRSiscuSK5fsE2AG-c">ABRIR DRIVE</a>
     </div>
   </div>
+</dialog>
 
-  <div class="notice">Fuentes públicas: <strong>data/vehicles/index.json</strong> + <strong>data/drive-vehicles-index.json</strong>. El botón <strong>DRIVE</strong> abre la carpeta general autorizada <strong>Vehículos y Código</strong>; el índice no publica enlaces privados por vehículo.</div>
-  <div class="meta-row">
-    <span>Última sincronización del índice: <strong id="updated">cargando…</strong></span>
-    <span id="summary">Cargando inventario…</span>
-  </div>
-
-  <div class="toolbar">
-    <input id="search" class="search" type="search" placeholder="Buscar AFL-ID, vehículo o estado…" autocomplete="off">
-    <div id="count" class="count">Cargando…</div>
-  </div>
-
-  <section id="grid" class="grid" aria-live="polite"></section>
-  <div id="empty" class="empty">No hay vehículos que coincidan con la búsqueda.</div>
-  <div id="error" class="error">No se pudo cargar el índice de vehículos.</div>
+<footer>Fuente pública: <code>data/vehicles/index.json</code>. Las carpetas históricas de Drive no se importan automáticamente al nuevo inventario.</footer>
 </main>
 
-<script type="module">
+<script>
+const DRIVE_ROOT="https://drive.google.com/drive/folders/1ym-MGs4DUH5m2ZCRSiscuSK5fsE2AG-c";
+const dialog=document.getElementById("vehicleDialog");
+const vin=document.getElementById("vin");
+const material=document.getElementById("material");
+const complement=document.getElementById("complement");
+const engine=document.getElementById("engine");
+const attributes=document.getElementById("attributes");
+const aflId=document.getElementById("aflId");
+const vinState=document.getElementById("vinState");
+const recommended=document.getElementById("recommended");
 const grid=document.getElementById("grid");
-const search=document.getElementById("search");
-const count=document.getElementById("count");
 const empty=document.getElementById("empty");
-const errorBox=document.getElementById("error");
-const updated=document.getElementById("updated");
-const summary=document.getElementById("summary");
-const DRIVE_VEHICLES_URL="https://drive.google.com/drive/folders/1ym-MGs4DUH5m2ZCRSiscuSK5fsE2AG-c";
 let vehicles=[];
 
-function esc(value){
-  return String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch]));
+function cleanVin(value){
+  const raw=(value||"").trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
+  return raw.length===17 ? raw : null;
+}
+function route(){
+  const v=cleanVin(vin.value);
+  let id="AFL-PENDIENTE";
+  if(v){ id="AFL-"+v.slice(-6); vinState.textContent="VIN con formato válido; AFL-ID calculado localmente."; }
+  else if(vin.value.trim()){ vinState.textContent="Fuente recibida. Si es foto/enlace, el VIN debe verificarse al ejecutar el alta."; }
+  else vinState.textContent="Pega VIN o etiqueta para iniciar.";
+
+  let next="VERIFICAR_VIN";
+  if(vin.value.trim() && !material.value.trim()) next="CARGAR_MATERIAL";
+  if(vin.value.trim() && material.value.trim()) next="AUDITAR_MATERIAL_Y_GENERAR_PAQUETE_COMERCIAL";
+  aflId.textContent=id;
+  recommended.textContent=next;
+  return {id,next,vin:v};
+}
+[vin,material,complement,engine,attributes].forEach(el=>el.addEventListener("input",route));
+
+function buildPrompt(){
+  const s=route();
+  const vinSource=vin.value.trim()||"PENDIENTE";
+  return `NUEVO_VEHICULO_AFL — ALTA_RAPIDA
+
+Opera únicamente este vehículo.
+
+CARPETA RAÍZ:
+${DRIVE_ROOT}
+
+FUENTES PRIVADAS:
+- VIN / etiqueta VIN: ${vinSource}
+- Material principal: ${material.value.trim()||"PENDIENTE"}
+- Fotografías complementarias: ${complement.value.trim()||"NO_APORTADAS"}
+- Motor / etiqueta motor: ${engine.value.trim()||"NO_APORTADO"}
+- Atributos conocidos: ${attributes.value.trim()||"NO_APORTADOS"}
+
+AFL-ID PRECALCULADO: ${s.id}
+SIGUIENTE PASO PRECALCULADO: ${s.next}
+
+EJECUCIÓN:
+1. Verifica el VIN en fuente privada. No muestres ni publiques el VIN completo.
+2. Genera o confirma AFL-XXXXXX con los últimos 6 caracteres alfanuméricos del VIN.
+3. Comprueba duplicados antes de crear. Si el AFL-ID ya existe, detén creación duplicada y reporta reconciliación.
+4. Si es nuevo, crea AFL-XXXXXX bajo la carpeta raíz con:
+   00_CONTENIDO_DISPONIBLE
+   10_MARKETPLACE
+   20_IMAGENES_COMERCIALES
+   30_POST
+   40_FEED
+   50_HISTORIAS
+   60_PORTADAS
+   70_REEL
+   80_TIKTOK
+   90_WHATSAPP_OCULTO
+   95_PARA_ENVIAR
+5. Conserva originales intactos y separa evidencia privada de material publicable.
+6. Analiza fotos, videos, motor, interior, exterior y atributos. No inventes datos.
+7. Calcula automáticamente el siguiente paso:
+   - falta VIN -> VERIFICAR_VIN
+   - falta material -> CARGAR_MATERIAL
+   - material insuficiente -> CAPTURA_COMERCIAL_COMPLEMENTARIA con lista exacta de tomas
+   - material suficiente -> GENERAR_PAQUETE_COMERCIAL_ESTRATEGICO
+8. Para el paquete comercial estratégico genera, cuando haya evidencia suficiente:
+   - estrategia y comprador objetivo;
+   - argumentos y diferenciadores confirmados;
+   - Marketplace;
+   - WhatsApp;
+   - portada;
+   - feed/carrusel;
+   - historias;
+   - Reel/TikTok 9:16 con hook, guion, secuencia y CTA;
+   - respuestas comerciales;
+   - checklist de publicación.
+9. Antes de producir contenido final, consulta tendencias y mejores prácticas vigentes de los canales aplicables y adapta el paquete al vehículo.
+10. Todo queda NO_APROBADO / NO_PUBLICAR hasta aprobación.
+11. Agrega al inventario público únicamente datos sanitizados: AFL-ID, vehículo confirmado, estado, miniatura pública, disponibilidad autorizada y siguiente paso. Nunca VIN completo ni URL privada.
+12. Responde de forma compacta con:
+AFL-ID:
+VEHÍCULO:
+CARPETA:
+MATERIAL:
+FALTANTES:
+ESTADO:
+SIGUIENTE PASO RECOMENDADO:
+PAQUETE QUE PUEDE GENERARSE AHORA:
+BLOQUEOS:
+PUBLICACIÓN: NO_PUBLICAR hasta aprobación.`;
 }
 
-function chip(label,ok){
-  return '<span class="chip '+(ok?'ok':'warn')+'">'+esc(label)+'</span>';
+async function copyPrompt(){
+  const prompt=buildPrompt();
+  try{
+    await navigator.clipboard.writeText(prompt);
+    const b=document.getElementById("copyPrompt");
+    const old=b.textContent;b.textContent="COPIADO ✓";setTimeout(()=>b.textContent=old,1600);
+  }catch(e){ window.prompt("Copia este prompt:",prompt); }
 }
 
-function card(v){
-  const rel=v.relations||{};
-  const image=v.image||("assets/thumbs/"+encodeURIComponent(v.id)+".jpg");
-  const detail=v.detail ? ("index.html?vehicle="+encodeURIComponent(v.id)) : null;
-  const driveIndexed=!!(v.driveInventory||rel.driveIndexed);
-  const authorityIndexed=!!(v.vehicleAuthorityIndexed||rel.vehicleAuthorityIndexed);
-  const rec=v.recommendation||{};
-  const next=rec.nextRecommended||{};
-  const closure=rec.latestClosure||v.contentLab||{};
-  const missing=Array.isArray(rec.missingContent)?rec.missingContent:[];
-  const options=Array.isArray(rec.optionsRecommended)?rec.optionsRecommended:[];
-  const recHtml=(next.label||closure.summary||closure.result||missing.length)?(
-    '<div class="recommend-box">'+
-      '<strong>Siguiente recomendado</strong>'+
-      '<div class="recommend-next">'+esc(next.label||v.nextAction||"PENDIENTE")+'</div>'+
-      (next.reason?'<div class="lab-result">'+esc(next.reason)+'</div>':'')+
-      ((closure.summary||closure.result)?'<div class="lab-result"><b>Último cierre:</b> '+esc(closure.summary||closure.result)+'</div>':'')+
-      (missing.length?'<div class="missing-list">'+missing.map(x=>'<span class="missing">'+esc(x.label||x.key)+' · '+esc(x.status||"PENDIENTE")+'</span>').join("")+'</div>':'')+
-      (options.length?'<details class="rec-options"><summary>Opciones recomendadas</summary><ol>'+options.map(x=>'<li>'+esc(x.label||x.key)+(x.recommended?' · RECOMENDADA':'')+'</li>').join("")+'</ol></details>':'')+
-    '</div>'
-  ):'';
-  return '<article class="vehicle-card" data-search="'+esc([v.id,v.title,v.status,v.nextAction,next.label,missing.map(x=>x.label).join(" ")].join(" ").toLowerCase())+'">'+
-    '<img class="vehicle-thumb" src="'+esc(image)+'" alt="'+esc(v.id+" — "+v.title)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">'+
-    '<div class="thumb-placeholder" style="display:none">SIN MINIATURA</div>'+
-    '<div class="vehicle-info">'+
-      '<div class="vehicle-id">'+esc(v.id)+'</div>'+
-      '<div class="vehicle-name">'+esc(v.title||"Vehículo")+'</div>'+
-      '<div class="vehicle-status">'+esc(v.status||"PENDIENTE")+(v.nextAction?' · checkpoint: '+esc(v.nextAction):'')+'</div>'+
-      recHtml+
-      '<div class="relations">'+
-        chip("PUENTE",authorityIndexed)+
-        (driveIndexed?'<a class="chip ok" href="'+DRIVE_VEHICLES_URL+'" target="_blank" rel="noopener noreferrer" title="Abrir carpeta Vehículos y Código en Drive" style="text-decoration:none">DRIVE ↗</a>':chip("DRIVE",false))+
-        (v.folderCount?'<span class="chip">'+esc(v.folderCount)+' carpeta'+(v.folderCount===1?'':'s')+'</span>':'')+
-        '<span class="chip '+(v.publish?'public':'private')+'">'+(v.publish?'PUBLICABLE':'INTERNO SANITIZADO')+'</span>'+
-      '</div>'+
-      (detail?'<a class="open" href="'+detail+'#recommended-content">Abrir ficha y recomendación ↗</a><br><a class="open" href="'+detail+'#creative-production">Crear contenido ↗</a>':'<span class="open" style="color:#6b7280">Pendiente de expediente HOME</span>')+
-    '</div>'+
-  '</article>';
-}
-
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));}
 function render(){
-  const q=search.value.trim().toLowerCase();
-  const filtered=vehicles.filter(v=>!q||[v.id,v.title,v.status,v.nextAction,v.availability,v.whatsapp].join(" ").toLowerCase().includes(q));
-  grid.innerHTML=filtered.map(card).join("");
-  count.textContent=filtered.length+" / "+vehicles.length+" vehículos";
-  empty.style.display=filtered.length?"none":"block";
+  grid.innerHTML=vehicles.map(v=>`<article class="card"><div class="id">${esc(v.id)}</div><strong>${esc(v.title||"Vehículo")}</strong><p>${esc(v.status||"PENDIENTE")}</p><div class="next">Siguiente paso: <b>${esc(v.nextAction||"DEFINIR")}</b></div></article>`).join("");
+  empty.style.display=vehicles.length?"none":"block";
+  document.getElementById("total").textContent=vehicles.length;
+  document.getElementById("ready").textContent=vehicles.filter(v=>v.status==="LISTO_PARA_CONTENIDO").length;
+  document.getElementById("pending").textContent=vehicles.filter(v=>v.status!=="LISTO_PARA_CONTENIDO").length;
 }
-
-try{
-  const [homeResponse,driveResponse]=await Promise.all([
-    fetch("data/vehicles/index.json",{cache:"no-store"}),
-    fetch("data/drive-vehicles-index.json",{cache:"no-store"})
-  ]);
-  if(!homeResponse.ok) throw new Error("HOME HTTP "+homeResponse.status);
-  if(!driveResponse.ok) throw new Error("DRIVE INDEX HTTP "+driveResponse.status);
-  const homeData=await homeResponse.json();
-  const driveData=await driveResponse.json();
-
-  const homeById=new Map((Array.isArray(homeData.vehicles)?homeData.vehicles:[]).map(v=>[v.id,v]));
-  const driveVehicles=Array.isArray(driveData.vehicles)?driveData.vehicles:[];
-  vehicles=driveVehicles.map(d=>{
-    const h=homeById.get(d.id)||{};
-    return {
-      ...d,
-      ...h,
-      title:h.title||d.title,
-      status:h.status||d.status,
-      nextAction:h.nextAction||d.nextAction,
-      image:h.image||d.image,
-      detail:h.detail||d.detail,
-      publish:typeof h.publish==="boolean"?h.publish:d.publish,
-      vehicleAuthorityIndexed:!!d.vehicleAuthorityIndexed,
-      driveInventory:true,
-      folderCount:d.folderCount
-    };
-  });
-
-  for(const h of homeById.values()){
-    if(!vehicles.some(v=>v.id===h.id)) vehicles.push({...h,driveInventory:false,folderCount:0});
-  }
-
-  vehicles.sort((a,b)=>String(a.id).localeCompare(String(b.id)));
-  updated.textContent=driveData.updated||homeData.updated||"sin fecha";
-  const publicables=vehicles.filter(v=>v.publish).length;
-  const linked=vehicles.filter(v=>v.vehicleAuthorityIndexed || (v.relations&&v.relations.vehicleAuthorityIndexed)).length;
-  summary.textContent=vehicles.length+" AFL-ID · "+linked+" con PUENTE · "+publicables+" publicables";
+async function load(){
+  try{
+    const r=await fetch("data/vehicles/index.json",{cache:"no-store"});
+    const data=await r.json();
+    vehicles=Array.isArray(data.vehicles)?data.vehicles:[];
+  }catch(e){vehicles=[]}
   render();
-  search.addEventListener("input",render);
-}catch(error){
-  console.error(error);
-  count.textContent="Error";
-  errorBox.style.display="block";
 }
+document.getElementById("newVehicle").onclick=()=>dialog.showModal();
+document.getElementById("emptyNew").onclick=()=>dialog.showModal();
+document.getElementById("closeDialog").onclick=()=>dialog.close();
+document.getElementById("copyPrompt").onclick=copyPrompt;
+dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
+route();load();
 </script>
 </body>
 </html>
