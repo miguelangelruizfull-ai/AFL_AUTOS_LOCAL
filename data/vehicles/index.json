@@ -2,7 +2,16 @@
   "schemaVersion": "2.0",
   "updated": "2026-10-02",
   "inventoryEpoch": "RESET_2026-10-02",
-  "vehicles": [],
+  "vehicles": [
+    {
+      "id": "AFL-338732",
+      "title": "Chevrolet Silverado LTZ Texas Edition 2017",
+      "status": "CAPTURA_COMERCIAL_COMPLEMENTARIA",
+      "thumbnail": null,
+      "availability": "PENDIENTE_AUTORIZACION",
+      "nextAction": "CAPTURA_COMERCIAL_COMPLEMENTARIA"
+    }
+  ],
   "policy": {
     "publicExposure": "SANITIZED_ONLY",
     "privateVin": false,
