@@ -75,18 +75,18 @@
     "publicExposure": "SANITIZED_ONLY"
   },
   "contentLab": {
-    "operation": "CONTENIDO_EXPRESS_AFL",
+    "operation": "MEJORAR_SOLO_DISENO",
     "function": "Crear portada",
     "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
-    "requestedAt": "2026-10-02T18:17:40-06:00",
-    "startedAt": "2026-10-02T18:18:30-06:00",
-    "completedAt": "2026-10-02T18:20:02-06:00",
-    "lastVerifiedAt": "2026-10-02T18:20:02-06:00",
+    "requestedAt": "2026-10-02T18:22:20-06:00",
+    "startedAt": "2026-10-02T18:22:32-06:00",
+    "completedAt": "2026-10-02T18:23:44-06:00",
+    "lastVerifiedAt": "2026-10-02T18:23:44-06:00",
     "timezone": "America/Mexico_City",
     "movedAt": null,
     "filesMoved": 0,
     "filesProduced": 1,
-    "result": "Nueva portada Jeep editorial 4:5 producida y verificada, con foto real y logo oficial. Pendiente de revisión; portada anterior rechazada conservada. Sin publicación.",
+    "result": "Portada anterior rechazada y archivada para análisis. Nueva mejora solo de diseño guardada y verificada con la misma foto real y logo oficial; pendiente de aprobación, sin publicación.",
     "deliverables": [
       {
         "key": "facebookReelV3",
@@ -116,27 +116,36 @@
       {
         "key": "portadaEditorial4x5",
         "artifact": "AFL-539849_PORTADA_4X5_JEEP_EDITORIAL_MEJORADA_2026-10-02.png",
-        "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "status": "NO_APROBADA",
         "format": "1080x1350",
         "user_approval": "NO",
         "vehicle_fidelity": "POSITIVE",
         "brand_asset_fidelity": "POSITIVE"
+      },
+      {
+        "key": "portadaDisenoRefinado4x5",
+        "artifact": "AFL-539849_PORTADA_4X5_DISENO_REFINADO_2026-10-02.png",
+        "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "format": "1080x1350",
+        "user_approval": "NO"
       }
     ],
     "reposUpdated": [
       "AFL_AUTOS_CONTENT_LAB",
       "AFL_AUTOS_LOCAL"
     ],
-    "nextAction": "REVISION_PORTADA_EDITORIAL_MIGUEL",
+    "nextAction": "REVISION_PORTADA_DISENO_REFINADO_MIGUEL",
     "blockings": [
       "APROBACION_MIGUEL_PENDIENTE",
       "PRECIO_PUBLICO_PENDIENTE_OMITIR",
       "DISPONIBILIDAD_PENDIENTE_NO_AFIRMAR"
     ],
     "previousRejection": {
-      "artifact": "AFL-539849_PORTADA_4X5_MEJORADA_2026-10-02.png",
-      "rejectedAt": "2026-10-02T18:05:05-06:00",
-      "reason": "DISEÑO_Y_ACABADO"
-    }
+      "artifact": "AFL-539849_PORTADA_4X5_JEEP_EDITORIAL_MEJORADA_2026-10-02.png",
+      "rejectedAt": "2026-10-02T18:22:11-06:00",
+      "reason": "NO_ESPECIFICADO"
+    },
+    "filesCopied": 1,
+    "copiedAt": "2026-10-02T18:23:13.216-06:00"
   }
 }
