@@ -127,45 +127,35 @@
         ]
       },
       "contentLab": {
-        "operation": "MEJORAR_DISENO",
+        "operation": "APROBAR_PORTADA",
         "requestedFunction": "Crear portada",
         "status": "COMPLETADO",
-        "approvalStatus": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "approvalStatus": "APROBADA_POR_MIGUEL",
         "requestedAt": "2026-10-03T00:23:07Z",
         "startedAt": null,
         "firstRecordedAt": "2026-10-03T00:24:47Z",
-        "completedAt": "2026-10-03T00:27:14Z",
-        "lastVerifiedAt": "2026-10-03T00:27:14Z",
+        "completedAt": "2026-10-02T18:58:51-06:00",
+        "lastVerifiedAt": "2026-10-02T18:58:51-06:00",
         "timezone": "America/Mexico_City",
-        "result": "Portada V4 verificada: logo oficial integrado sin bloque aislado, título y año equilibrados, CTA en dos líneas. Misma foto real y nitidez de V3. Diseño pendiente de aprobación; CAPTURA_PENDIENTE conservada.",
+        "result": "Portada compartida aprobada por Miguel; guardada como referencia visual. CAPTURA_PENDIENTE y NO_PUBLICAR se conservan.",
         "filesProduced": 1,
         "filesMoved": 0,
         "deliverables": [
           {
             "key": "covers",
-            "fileName": "AFL-183080_PORTADA_4X5_V4_DISENO_2026-10-02.png",
-            "format": "1080x1350",
-            "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
-            "photoSource": "AFL-183080_005.jpg",
-            "brandAsset": "65808.png",
-            "quality": {
-              "premium_authenticity": "POSITIVE",
-              "generic_template_risk": "LOW",
-              "approved_reference_alignment": "POSITIVE",
-              "vehicle_photo_provenance": "SAME_AFL_ID",
-              "synthetic_vehicle_views": 0,
-              "stock_vehicle_photos": 0,
-              "additional_vehicle_photos": 0,
-              "logo_oficial_presente": true,
-              "brand_asset_fidelity": "POSITIVE"
-            }
+            "fileName": "AFL-183080_PORTADA_4X5_APROBADA_POR_MIGUEL_2026-10-02.jpg",
+            "format": "4:5",
+            "status": "APROBADA_POR_MIGUEL"
           }
         ],
-        "nextAction": "REVISION_MIGUEL_PORTADA_V4",
+        "nextAction": "CONTINUAR_CAPTURA_COMPLEMENTARIA_PENDIENTE_SIN_PUBLICAR_PORTADA_AUTOMATICAMENTE",
         "reposUpdated": [
-          "AFL_AUTOS_LOCAL"
+          "AFL_AUTOS_LOCAL",
+          "AFL_AUTOS_CONTENT_LAB",
+          "AFL_AUTOS_CONTENT_SYSTEM"
         ],
-        "autoPublish": false
+        "autoPublish": false,
+        "filesSaved": 2
       }
     },
     {
