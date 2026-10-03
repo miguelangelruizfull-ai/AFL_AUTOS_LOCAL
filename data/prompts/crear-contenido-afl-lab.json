@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.6.0",
-  "updated": "2026-10-02",
+  "schemaVersion": "1.7.0",
+  "updated": "2026-10-03",
   "key": "CREAR_CONTENIDO_CON_AFL_LAB",
   "label": "Crear contenido con AFL Lab",
   "trigger": "HOME_CARD_FUNCTION_SELECT",
@@ -70,8 +70,8 @@
     "GATE GLOBAL DE FIDELIDAD FOTOGRÁFICA: toda foto, recorte, detalle o vista del vehículo debe provenir de material real y verificable del mismo AFL-ID; prohibido usar stock, fotografías de referencias, otra unidad o fotografías sintéticas como si fueran de la unidad.",
     "Si solo existe una toma real útil, diseñar con esa toma; nunca inventar interior, caja, rines, motor, segunda fila, frontal, trasera, lateral, accesorios, acercamientos ni otros ángulos para rellenar el layout.",
     "REFERENCIAS_APROBADAS_AFL aporta únicamente dirección de arte (composición, tipografía, color, textura y jerarquía); nunca material fotográfico de producto para la unidad actual.",
-    "ICONOS_GENERICOS=OFF por defecto: no agregar pictogramas, badges de transmisión/motor/tracción ni iconos de ubicación/chat/calendario salvo solicitud explícita de Miguel o patrón material en una referencia aprobada pertinente.",
-    "Antes de mostrar una pieza verificar vehicle_photo_provenance=SAME_AFL_ID, synthetic_vehicle_views=0, other_vehicle_photos=0, stock_vehicle_photos=0 y generic_icons=0 salvo excepción autorizada.",
+    "ICONOGRAFIA_TECNICA_VERIFICADA: se permiten y recomiendan 4–6 iconos técnicos en flyers/posters cuando cada dato esté confirmado por PUENTE/fuente vigente y mejore la lectura móvil. No usar iconos decorativos genéricos como relleno. Estado: technical_icons=VERIFIED_ONLY; decorative_generic_icons=0.",
+    "Antes de mostrar una pieza verificar vehicle_photo_provenance=SAME_AFL_ID, synthetic_vehicle_views=0, other_vehicle_photos=0, stock_vehicle_photos=0, technical_icons=VERIFIED_ONLY cuando existan datos confirmados y decorative_generic_icons=0.",
     "Si una generación o mejora inventa una foto, vista o detalle del vehículo, o altera identidad física, descartar y rehacer antes de entregar.",
     "MEJORA_OBLIGATORIA_POST_V1 aplica a todos los vehículos actuales y futuros; no se configura por AFL-ID.",
     "Todo nuevo vehículo que use CONTENIDO_EXPRESS hereda automáticamente V1_TEMPORAL -> MEJORA -> VERIFICAR_DRIVE -> ELIMINAR_V1_TEMPORAL -> CONSERVAR_ULTIMA.",
@@ -80,7 +80,8 @@
     "LOGOTIPO OFICIAL OBLIGATORIO GLOBAL: antes de producir cualquier pieza gráfica desde cualquier prompt del HOME, leer AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md y resolver DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL. Usar archivo real suministrado por Miguel: 65808.png por defecto; 65809.png variante monocromática; 65806.png variante color alternativa. Inspeccionar el activo y conservar símbolo, letras, colores y proporciones; no regenerar, aproximar ni sustituir por texto AFL AUTOS. Si falta el activo, detener solo la composición de marca y resolverlo antes de entregar. Verificar logo_oficial_presente=TRUE y brand_asset_fidelity=POSITIVE en cada versión. No persistir IDs/URLs privadas en HOME/JSON público.",
     "DIRECCION_DE_ARTE_POR_VEHICULO_Y_CANAL: aplicar contracts/CONTENIDO_EXPRESS.md §1.3 a todas las unidades. Clasificar desde PUENTE y adaptar composición a familia, toma real y canal; priorizar referencias aprobadas pertinentes. Portadas WhatsApp/catálogo no requieren franja de datos ni CTA grande por defecto. Registrar vehicleType, designDirection, designRationale, referenceSelection y targetFormat; no inferir equipamiento ni fabricar escenarios.",
     "PORTADA_MENU_ESPECIFICO: al terminar una portada Facebook/Marketplace/WhatsApp mostrar imagen vigente y menú 1 Aprobar esta portada, 2 Rechazar esta portada, 3 Mejorar solo el diseño; después Marketplace completo recomendado primero cuando haya evidencia suficiente, Carrusel Feed 4:5, Flyer comercial mejorado, otra Portada, Historias 9:16, Paquete WhatsApp, Imagen detalle de trabajo, Comparativo visual, aportar material, 05_SELECCION_TEMPORAL y captura física si sigue pendiente. La opción 3 conserva misma foto HERO real y logo oficial y cambia solo dirección de arte. Si photo-motion fue rechazado para esa unidad, no recomendar Reel/TikTok con fotografías por defecto.",
-    "CONTEXTO GLOBAL PROTAGONISMO_Y_ACABADO: aplicar CONTENIDO_EXPRESS §1.4 a todos los vehículos actuales/futuros. Evaluar a tamaño móvil que el vehículo real domine frente a encabezado/logo/entorno; revisar acabado, nitidez, bordes, jerarquía e integración. Adaptar por tipo/canal/foto, sin plantilla universal ni cambios físicos. Consultar hasta 3 aprendizajes relevantes; un caso rechazado aporta restricciones, no aprobación."
+    "CONTEXTO GLOBAL PROTAGONISMO_Y_ACABADO: aplicar CONTENIDO_EXPRESS §1.4 a todos los vehículos actuales/futuros. Evaluar a tamaño móvil que el vehículo real domine frente a encabezado/logo/entorno; revisar acabado, nitidez, bordes, jerarquía e integración. Adaptar por tipo/canal/foto, sin plantilla universal ni cambios físicos. Consultar hasta 3 aprendizajes relevantes; un caso rechazado aporta restricciones, no aprobación.",
+    "CONTEXTO_OCTUBRE_2026: durante octubre consultar AFL_AUTOS_CONTENT_SYSTEM/library/moodboards/MOODBOARD_AFL_AUTOS_OCTUBRE_2026.md y combinarlo con la dirección específica del vehículo. Balance 80% identidad AFL / 20% octubre; ámbar/cobre y luz cálida como acento, sello OCTUBRE 2026 o ESPECIAL OCTUBRE discreto, sin Halloween por defecto."
   ],
   "authorization": {
     "source": "HOME_CARD_FUNCTION_SELECT",
@@ -143,7 +144,7 @@
       "Ejecutar MEJORA_OBLIGATORIA_POST_V1 y dejar solo la última derivada cuando la mejora esté verificada en Drive; conservar V1 si la mejora falla.",
       "Toda imagen vehicular usada debe ser real, verificable y pertenecer al mismo AFL-ID; no usar stock, vistas sintéticas ni fotos de otra unidad.",
       "No crear collage con fotos secundarias inexistentes; si solo hay una toma real, resolver la riqueza visual con diseño gráfico y no con material inventado.",
-      "Desactivar iconografía genérica por defecto; usarla solo con autorización explícita o evidencia clara en referencias aprobadas pertinentes.",
+      "Permitir iconografía técnica verificada en flyers/posters cuando comunique datos confirmados y mejore lectura; mantener decorative_generic_icons=0 y no usar iconos como relleno.",
       "Aplicar §1.3: verificar category_fit y channel_fit; adaptar densidad, tipografía y composición al tipo confirmado y al formato, manteniendo el HERO real dominante.",
       "Antes de entregar, registrar hero_prominence, finish_quality y mobile_review; si protagonismo o acabado falla, recomponer con foto real y logo oficial, conforme a §1.4."
     ],
@@ -198,7 +199,8 @@
       "synthetic_vehicle_views": 0,
       "other_vehicle_photos": 0,
       "stock_vehicle_photos": 0,
-      "generic_icons": "0_UNLESS_EXPLICITLY_AUTHORIZED"
+      "technical_icons": "VERIFIED_ONLY_WHEN_USED",
+      "decorative_generic_icons": 0
     },
     "driveLifecycle": [
       "crear V1 temporal",
@@ -334,5 +336,12 @@
       "sideMarginPx": "44-50",
       "vehicleUsefulWidthPct": "85-92"
     }
+  },
+  "seasonalContext": {
+    "active": "OCTUBRE_2026",
+    "authority": "AFL_AUTOS_CONTENT_SYSTEM/library/moodboards/MOODBOARD_AFL_AUTOS_OCTUBRE_2026.md",
+    "balance": "80% AFL / 20% octubre",
+    "halloweenByDefault": false,
+    "technicalIcons": "VERIFIED_ONLY"
   }
 }
