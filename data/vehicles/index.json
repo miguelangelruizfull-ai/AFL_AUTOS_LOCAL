@@ -127,22 +127,22 @@
         ]
       },
       "contentLab": {
-        "operation": "CONTENIDO_EXPRESS_AFL",
+        "operation": "MEJORAR_DISENO",
         "requestedFunction": "Crear portada",
         "status": "COMPLETADO",
         "approvalStatus": "PRODUCIDO_MEJORADO_NO_APROBADO",
-        "requestedAt": "2026-10-03T00:06:27Z",
+        "requestedAt": "2026-10-03T00:18:09Z",
         "firstRecordedAt": "2026-10-03T00:09:42Z",
-        "completedAt": "2026-10-03T00:14:33Z",
-        "lastVerifiedAt": "2026-10-03T00:14:33Z",
+        "completedAt": "2026-10-03T00:21:53Z",
+        "lastVerifiedAt": "2026-10-03T00:21:53Z",
         "timezone": "America/Mexico_City",
-        "result": "Portada 4:5 mejorada guardada y verificada; fotografía real AFL-183080_005.jpg y logo oficial 65808.png insertados directamente. Sin precio ni disponibilidad. Captura pendiente conservada. Carpeta seleccionada contiene 35 imágenes/0 videos; no se declara reconciliación ni captura completa.",
+        "result": "Portada V3: encabezado compacto, tipografía limpia y foto real con contraste/nitidez moderados. Información y fotografía validadas por Miguel; diseño pendiente de aprobación. Conserva CAPTURA_PENDIENTE y NO_PUBLICAR.",
         "filesProduced": 1,
         "filesMoved": 0,
         "deliverables": [
           {
             "key": "covers",
-            "fileName": "AFL-183080_PORTADA_4X5_MEJORADA_2026-10-02.png",
+            "fileName": "AFL-183080_PORTADA_4X5_V3_DISENO_NITIDEZ_2026-10-02.png",
             "format": "1080x1350",
             "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
             "photoSource": "AFL-183080_005.jpg",
@@ -160,12 +160,18 @@
             }
           }
         ],
-        "nextAction": "REVISION_MIGUEL_PORTADA",
+        "nextAction": "REVISION_MIGUEL_PORTADA_V3",
         "reposUpdated": [
           "AFL_AUTOS_LOCAL",
           "AFL_AUTOS_CONTENT_LAB"
         ],
-        "autoPublish": false
+        "autoPublish": false,
+        "userValidation": {
+          "information": "POSITIVE",
+          "photograph": "POSITIVE",
+          "design": "REVIEW",
+          "sharpness": "LIMITADA_POR_FOTO_ORIGINAL"
+        }
       }
     },
     {
