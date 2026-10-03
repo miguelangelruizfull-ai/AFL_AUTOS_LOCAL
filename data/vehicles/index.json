@@ -127,53 +127,45 @@
         ]
       },
       "contentLab": {
-        "operation": "CREAR_CONTENIDO_CON_AFL_LAB",
-        "status": "BLOQUEADO",
-        "requestedAt": "2026-10-02T17:40:19.966Z",
-        "requestedAtLocal": "2026-10-02T11:40:19.966-06:00",
-        "startedAt": "2026-10-02T11:42:05-06:00",
-        "completedAt": "2026-10-02T11:48:50-06:00",
-        "lastVerifiedAt": "2026-10-02T11:50:39-06:00",
-        "movedAt": null,
+        "operation": "CONTENIDO_EXPRESS_AFL",
+        "requestedFunction": "Crear portada",
+        "status": "COMPLETADO",
+        "approvalStatus": "PRODUCIDO_MEJORADO_NO_APROBADO",
+        "requestedAt": "2026-10-03T00:06:27Z",
+        "firstRecordedAt": "2026-10-03T00:09:42Z",
+        "completedAt": "2026-10-03T00:14:33Z",
+        "lastVerifiedAt": "2026-10-03T00:14:33Z",
         "timezone": "America/Mexico_City",
-        "result": "Drive/CONTROL verificados: 20_NUEVA_CAPTURA conserva sólo la HERO 3/4 frontal ya registrada. No están las cinco tomas restantes ni el video 9:16; la producción final queda bloqueada por captura física. Permanecen 30 fotos localizadas y 44 históricas sin reconciliar.",
+        "result": "Portada 4:5 mejorada guardada y verificada; fotografía real AFL-183080_005.jpg y logo oficial 65808.png insertados directamente. Sin precio ni disponibilidad. Captura pendiente conservada. Carpeta seleccionada contiene 35 imágenes/0 videos; no se declara reconciliación ni captura completa.",
+        "filesProduced": 1,
         "filesMoved": 0,
-        "filesProduced": 0,
         "deliverables": [
           {
-            "key": "hero3QFrontal",
-            "status": "VERIFICADA_COBERTURA_NO_FINAL_COMERCIAL"
-          },
-          {
-            "key": "captureComplementary",
-            "status": "PARCIAL_BLOQUEADA_CAPTURA_FISICA"
-          },
-          {
-            "key": "video9x16",
-            "status": "PENDIENTE_CAPTURA_FISICA"
-          },
-          {
-            "key": "finalProduction",
-            "status": "BLOQUEADO_CAPTURA_FISICA"
-          },
-          {
-            "key": "whatsapp",
-            "status": "OCULTO_NO_PUBLICAR"
+            "key": "covers",
+            "fileName": "AFL-183080_PORTADA_4X5_MEJORADA_2026-10-02.png",
+            "format": "1080x1350",
+            "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
+            "photoSource": "AFL-183080_005.jpg",
+            "brandAsset": "65808.png",
+            "quality": {
+              "premium_authenticity": "POSITIVE",
+              "generic_template_risk": "LOW",
+              "approved_reference_alignment": "POSITIVE",
+              "vehicle_photo_provenance": "SAME_AFL_ID",
+              "synthetic_vehicle_views": 0,
+              "stock_vehicle_photos": 0,
+              "additional_vehicle_photos": 0,
+              "logo_oficial_presente": true,
+              "brand_asset_fidelity": "POSITIVE"
+            }
           }
         ],
+        "nextAction": "REVISION_MIGUEL_PORTADA",
         "reposUpdated": [
-          "Vehiculos",
-          "AFL_AUTOS_CONTENT_LAB",
-          "AFL_AUTOS_LOCAL"
+          "AFL_AUTOS_LOCAL",
+          "AFL_AUTOS_CONTENT_LAB"
         ],
-        "nextAction": "CAPTURAR_O_APORTAR_5_TOMAS_RESTANTES_Y_VIDEO_9_16_Y_CONFIRMAR_LOTE_30",
-        "blockings": [
-          "5_TOMAS_OBLIGATORIAS_PENDIENTES",
-          "VIDEO_VERTICAL_9_16_AUSENTE",
-          "44_FOTOS_HISTORICAS_SIN_LOCALIZAR",
-          "CONFIRMACION_LOTE_30_PENDIENTE",
-          "HERO_CON_MARCA_DE_AGUA_NO_FINAL_COMERCIAL"
-        ]
+        "autoPublish": false
       }
     },
     {
