@@ -127,22 +127,23 @@
         ]
       },
       "contentLab": {
-        "operation": "MEJORAR_DISENO",
+        "operation": "CONTENIDO_EXPRESS_AFL",
         "requestedFunction": "Crear portada",
         "status": "COMPLETADO",
         "approvalStatus": "PRODUCIDO_MEJORADO_NO_APROBADO",
-        "requestedAt": "2026-10-03T00:18:09Z",
-        "firstRecordedAt": "2026-10-03T00:09:42Z",
-        "completedAt": "2026-10-03T00:21:53Z",
-        "lastVerifiedAt": "2026-10-03T00:21:53Z",
+        "requestedAt": "2026-10-02T18:19:47-06:00",
+        "startedAt": null,
+        "firstRecordedAt": "2026-10-03T00:24:47Z",
+        "completedAt": "2026-10-03T00:26:27.558Z",
+        "lastVerifiedAt": "2026-10-03T00:26:27.558Z",
         "timezone": "America/Mexico_City",
-        "result": "Portada V3: encabezado compacto, tipografía limpia y foto real con contraste/nitidez moderados. Información y fotografía validadas por Miguel; diseño pendiente de aprobación. Conserva CAPTURA_PENDIENTE y NO_PUBLICAR.",
+        "result": "Portada V4 4:5 con fotografía real AFL-183080_005.jpg, logo oficial 65808.png y encabezado grafito/verde. Segunda pasada mejorada y archivo verificado en SALIDAS. Sin precio ni disponibilidad visible. Pendiente de aprobación; conserva CAPTURA_PENDIENTE.",
         "filesProduced": 1,
         "filesMoved": 0,
         "deliverables": [
           {
             "key": "covers",
-            "fileName": "AFL-183080_PORTADA_4X5_V3_DISENO_NITIDEZ_2026-10-02.png",
+            "fileName": "AFL-183080_PORTADA_4X5_V4_MEJORADA_2026-10-02.png",
             "format": "1080x1350",
             "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
             "photoSource": "AFL-183080_005.jpg",
@@ -160,18 +161,11 @@
             }
           }
         ],
-        "nextAction": "REVISION_MIGUEL_PORTADA_V3",
+        "nextAction": "REVISION_MIGUEL_PORTADA_V4",
         "reposUpdated": [
-          "AFL_AUTOS_LOCAL",
-          "AFL_AUTOS_CONTENT_LAB"
+          "AFL_AUTOS_LOCAL"
         ],
-        "autoPublish": false,
-        "userValidation": {
-          "information": "POSITIVE",
-          "photograph": "POSITIVE",
-          "design": "REVIEW",
-          "sharpness": "LIMITADA_POR_FOTO_ORIGINAL"
-        }
+        "autoPublish": false
       }
     },
     {
