@@ -110,7 +110,8 @@
     "AFL_AUTOS_CONTENT_SYSTEM/formats/ACTIVE_VISUAL_DIRECTION.md: dirección visual activa.",
     "AFL_AUTOS_CONTENT_SYSTEM/formats/FLYER_ENGINE.md y formats/FLYER_FAMILIES.md: composición y familia visual.",
     "AFL_AUTOS_CONTENT_LAB/productions/<AFL-ID>*.md cuando exista: checkpoint y bloqueos vigentes.",
-    "AFL_AUTOS_COMERCIAL/rules/FUENTES_DE_VERDAD.md y reglas comerciales aplicables."
+    "AFL_AUTOS_COMERCIAL/rules/FUENTES_DE_VERDAD.md y reglas comerciales aplicables.",
+    "AFL_AUTOS_CONTENT_SYSTEM/formats/PORTADAS_MULTIMARCA_V2.md: protocolo universal obligatorio para portadas 4:5, fidelidad, geometría, capas y QA."
   ],
   "publicationGate": {
     "confirmedIsNotAutomaticallyPublicable": true,
@@ -218,5 +219,43 @@
     ],
     "comparisonRule": "La referencia aprobada funciona como benchmark de calidad visual, no como plantilla literal. Reutilizar principios, no copiar una composición completa ni trasladar información de otra unidad.",
     "iterationRule": "Antes del cierre, realizar al menos una pasada de mejora visual después de comparar el borrador con las referencias aprobadas. Si no puede alcanzarse calidad comparable sin alterar la unidad o inventar datos, conservar como BORRADOR_INTERNO_REQUIERE_RECAPTURA y declarar la limitación."
+  },
+  "coverProductionStandard": {
+    "authority": "AFL_AUTOS_CONTENT_SYSTEM/formats/PORTADAS_MULTIMARCA_V2.md",
+    "scope": "ALL_IMAGE_GENERATORS_ALL_VEHICLES",
+    "masterFormat": "1080x1350_4x5",
+    "fidelityMode": "REAL_VEHICLE_PIXELS_AND_OFFICIAL_LOGO_ASSET",
+    "sharedRules": [
+      "Usar foto HERO real de la misma unidad; no reconstruir integralmente el vehiculo cuando la fidelidad sea requisito.",
+      "Usar el logotipo oficial como archivo real; no regenerar, redibujar ni sustituir por texto.",
+      "Referencias aprobadas enseñan composicion, jerarquia, proporciones y legibilidad; no transfieren datos ni rasgos fisicos.",
+      "Reducir piso/techo sobrante antes de escalar agresivamente; conservar vehiculo completo y ruedas visibles cuando la toma las contenga.",
+      "Aplicar correccion fotografica global conservadora; preservar color, defectos y configuracion real.",
+      "AFL-ID aparece una sola vez.",
+      "Comparar al 100% contra el original antes de entregar."
+    ],
+    "generationAllowedFor": [
+      "fondos y texturas graficas no fotorrealistas",
+      "mascaras y expansion de entorno que no modifique la unidad",
+      "exploracion de direccion de arte"
+    ],
+    "generationForbiddenForFinalFidelity": [
+      "carroceria",
+      "parrilla",
+      "faros/calaveras",
+      "rines/llantas",
+      "cristales",
+      "emblemas",
+      "proporciones",
+      "logo AFL"
+    ],
+    "geometry1080x1350": {
+      "headerPx": 277,
+      "photoPx": 914,
+      "separatorPx": 5,
+      "footerPx": 154,
+      "sideMarginPx": "44-50",
+      "vehicleUsefulWidthPct": "85-92"
+    }
   }
 }
