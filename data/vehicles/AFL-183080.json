@@ -182,7 +182,7 @@
     "post": "PENDIENTE",
     "feed": "PENDIENTE",
     "stories": "PENDIENTE",
-    "covers": "PRODUCIDO_MEJORADO_NO_APROBADO",
+    "covers": "APROBADA_POR_MIGUEL",
     "reel": "PENDIENTE",
     "tiktok": "PENDIENTE",
     "whatsapp": "OCULTO",
@@ -253,7 +253,7 @@
       "key": "covers",
       "label": "Portadas",
       "folder": "60_PORTADAS",
-      "status": "PRODUCIDO_MEJORADO_NO_APROBADO"
+      "status": "APROBADA_POR_MIGUEL"
     },
     {
       "key": "reel",
@@ -498,44 +498,45 @@
     "driveIndexed": true
   },
   "contentLab": {
-    "operation": "MEJORAR_DISENO",
+    "operation": "APROBAR_PORTADA",
     "requestedFunction": "Crear portada",
     "status": "COMPLETADO",
-    "approvalStatus": "PRODUCIDO_MEJORADO_NO_APROBADO",
+    "approvalStatus": "APROBADA_POR_MIGUEL",
     "requestedAt": "2026-10-03T00:23:07Z",
     "startedAt": null,
     "firstRecordedAt": "2026-10-03T00:24:47Z",
-    "completedAt": "2026-10-03T00:27:14Z",
-    "lastVerifiedAt": "2026-10-03T00:27:14Z",
+    "completedAt": "2026-10-02T18:58:51-06:00",
+    "lastVerifiedAt": "2026-10-02T18:58:51-06:00",
     "timezone": "America/Mexico_City",
-    "result": "Portada V4 verificada: logo oficial integrado sin bloque aislado, título y año equilibrados, CTA en dos líneas. Misma foto real y nitidez de V3. Diseño pendiente de aprobación; CAPTURA_PENDIENTE conservada.",
+    "result": "Miguel aprobó la portada compartida. Se guardó el archivo recibido en 60_PORTADAS y se copió a REFERENCIAS_APROBADAS_AFL/PORTADAS. La referencia queda habilitada para composición/dirección visual, no como autorización para regenerar vehículo o logo. CAPTURA_PENDIENTE se conserva y no hay publicación automática.",
     "filesProduced": 1,
     "filesMoved": 0,
     "deliverables": [
       {
         "key": "covers",
-        "fileName": "AFL-183080_PORTADA_4X5_V4_DISENO_2026-10-02.png",
-        "format": "1080x1350",
-        "status": "PRODUCIDO_MEJORADO_NO_APROBADO",
-        "photoSource": "AFL-183080_005.jpg",
-        "brandAsset": "65808.png",
+        "fileName": "AFL-183080_PORTADA_4X5_APROBADA_POR_MIGUEL_2026-10-02.jpg",
+        "format": "4:5 / 1229x1536 recibido",
+        "status": "APROBADA_POR_MIGUEL",
+        "source": "IMAGEN_COMPARTIDA_POR_MIGUEL",
+        "referenceUse": {
+          "compositionReference": true,
+          "fidelityReference": false
+        },
         "quality": {
-          "premium_authenticity": "POSITIVE",
-          "generic_template_risk": "LOW",
-          "approved_reference_alignment": "POSITIVE",
-          "vehicle_photo_provenance": "SAME_AFL_ID",
-          "synthetic_vehicle_views": 0,
-          "stock_vehicle_photos": 0,
-          "additional_vehicle_photos": 0,
-          "logo_oficial_presente": true,
-          "brand_asset_fidelity": "POSITIVE"
+          "userApproval": true,
+          "mobileReadability": "POSITIVE",
+          "compositionReference": "POSITIVE",
+          "fidelityReference": "NOT_APPLICABLE_GENERATIVE_REFERENCE"
         }
       }
     ],
-    "nextAction": "REVISION_MIGUEL_PORTADA_V4",
+    "nextAction": "CONTINUAR_CAPTURA_COMPLEMENTARIA_PENDIENTE_SIN_PUBLICAR_PORTADA_AUTOMATICAMENTE",
     "reposUpdated": [
-      "AFL_AUTOS_LOCAL"
+      "AFL_AUTOS_LOCAL",
+      "AFL_AUTOS_CONTENT_LAB",
+      "AFL_AUTOS_CONTENT_SYSTEM"
     ],
-    "autoPublish": false
+    "autoPublish": false,
+    "filesSaved": 2
   }
 }
