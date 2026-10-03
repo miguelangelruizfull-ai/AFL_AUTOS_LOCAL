@@ -464,7 +464,7 @@
         "movedAt": null,
         "filesMoved": 0,
         "filesProduced": 1,
-        "result": "Portada de diseño refinado rechazada por Miguel; copia archivada y verificada para análisis. No usar como referencia aprobada ni publicar.",
+        "result": "Portada rechazada por protagonismo del Jeep y acabado. Próxima propuesta debe aumentar presencia del vehículo y mejorar integración gráfica; conservar foto real, logo oficial y checkpoint. No publicar.",
         "deliverables": [
           {
             "key": "facebookReelV3",
@@ -512,7 +512,7 @@
           "AFL_AUTOS_CONTENT_LAB",
           "AFL_AUTOS_LOCAL"
         ],
-        "nextAction": "DEFINIR_NUEVA_DIRECCION_O_RECIBIR_FEEDBACK",
+        "nextAction": "RECOMPONER_PROTAGONISMO_Y_ACABADO",
         "blockings": [
           "APROBACION_MIGUEL_PENDIENTE",
           "PRECIO_PUBLICO_PENDIENTE_OMITIR",
@@ -526,8 +526,9 @@
         "filesCopied": 1,
         "copiedAt": "2026-10-02T18:23:13.216-06:00",
         "rejectedAt": "2026-10-02T18:24:58-06:00",
-        "rejectionReason": "NO_ESPECIFICADO",
-        "archiveCopiedAt": "2026-10-02T18:25:14.229-06:00"
+        "rejectionReason": "PROTAGONISMO_Y_ACABADO",
+        "archiveCopiedAt": "2026-10-02T18:25:14.229-06:00",
+        "feedbackAt": "2026-10-02T18:32:04-06:00"
       }
     },
     {
