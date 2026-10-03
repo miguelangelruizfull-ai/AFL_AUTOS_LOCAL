@@ -1,3 +1,5 @@
+const HOME_OFFICIAL_LOGO_RULE = "REGLA GLOBAL DE LOGOTIPO OFICIAL — si esta operación crea o mejora una pieza gráfica: lee AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md; carga el archivo real desde DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL (65808.png por defecto; 65809.png monocromático; 65806.png color alternativo). No regeneres, redibujes, aproximes ni sustituyas el logo por texto. Conserva símbolo, letras, colores y proporciones; verifica logo_oficial_presente=TRUE y brand_asset_fidelity=POSITIVE antes de entregar cada versión. Si falta el activo, resuélvelo antes de componer la marca. Esta regla no autoriza crear una pieza en un canal COMENTARIO ni ampliar el alcance de una consulta o edición. No guardes IDs/URLs privadas en HOME/JSON público.";
+
 import { getJSON, money, labelStatus, element } from "./api.js";
 
 const root = document.getElementById("app");
@@ -103,7 +105,7 @@ function currentHomeRequestTime() {
   return { utc: now.toISOString(), local: local, timezone: "America/Mexico_City" };
 }
 
-function buildContentLabPrompt(v) {
+function buildContentLabPromptBase(v) {
   const c = v.checkpoint || {};
   const t = currentHomeRequestTime();
   const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
@@ -160,7 +162,7 @@ const CONTENT_EXPRESS_CONTRACT = "AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPR
 const APPROVED_REFERENCES_ALIAS = "DRIVE:REFERENCIAS_APROBADAS_AFL";
 const TEMP_SELECTION_FOLDER = "05_SELECCION_TEMPORAL";
 
-function buildContentExpressPrompt(v, pieceKey, materialFolder, referenceFolder) {
+function buildContentExpressPromptBase(v, pieceKey, materialFolder, referenceFolder) {
   const c = v.checkpoint || {};
   const commercial = v.commercial || {};
   const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
@@ -437,7 +439,7 @@ function makeHomeCardFunctionSelect(v) {
   return wrap;
 }
 
-function buildAuthorizedEditPrompt(v, field, newValue) {
+function buildAuthorizedEditPromptBase(v, field, newValue) {
   const fieldPath = String(field || "<CAMPO>").trim() || "<CAMPO>";
   const value = String(newValue || "<NUEVO_VALOR>").trim() || "<NUEVO_VALOR>";
   const c = v.checkpoint || {};
@@ -541,7 +543,7 @@ function makeAuthorizedEditPanel(v) {
   return panel;
 }
 
-function buildAlternativeResponsePrompt(system, mode, channel, question, aflId, vehicleName, price, cta) {
+function buildAlternativeResponsePromptBase(system, mode, channel, question, aflId, vehicleName, price, cta) {
   const promptPath = (system && system.features && system.features.alternativeResponsePrompt) || "data/prompts/respuesta-alternativa.json";
   const q = String(question || "").trim() || "<PREGUNTA_O_MENSAJE>";
   const id = String(aflId || "").trim();
@@ -1168,7 +1170,7 @@ function channelNote(status) {
   return notes[status] || labelStatus(status);
 }
 
-function buildOperationalPrompt(v, item) {
+function buildOperationalPromptBase(v, item) {
   const c = v.checkpoint || {};
   const protocol = v.promptProtocol || {};
   const lines = [
@@ -1397,7 +1399,7 @@ function creativeMaterialPath(v, folder) {
   return v.drive.inputRoot.replace(/\/$/, "") + "/" + value.replace(/^\//, "");
 }
 
-function buildMaterialNavigationPrompt(v, action, materialFolder) {
+function buildMaterialNavigationPromptBase(v, action, materialFolder) {
   const material = creativeMaterialPath(v, materialFolder);
   const upload = v.drive.inputRoot.replace(/\/$/, "") + "/20_NUEVA_CAPTURA";
   const temp = v.drive.inputRoot.replace(/\/$/, "") + "/" + TEMP_SELECTION_FOLDER;
@@ -1416,7 +1418,7 @@ function buildMaterialNavigationPrompt(v, action, materialFolder) {
   ].join("\n");
 }
 
-function buildCreativeProductionPrompt(v, piece, materialFolder, referenceFolder) {
+function buildCreativeProductionPromptBase(v, piece, materialFolder, referenceFolder) {
   const c = v.checkpoint || {};
   const commercial = v.commercial || {};
   const reference = String(referenceFolder || APPROVED_REFERENCES_ALIAS).trim() || APPROVED_REFERENCES_ALIAS;
@@ -1911,3 +1913,12 @@ try {
   shell.append(box);
   root.replaceChildren(shell);
 }
+
+// All Home prompt builders inherit official branding without extending their task scope.
+function buildContentLabPrompt(...args) { return buildContentLabPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildContentExpressPrompt(...args) { return buildContentExpressPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildAuthorizedEditPrompt(...args) { return buildAuthorizedEditPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildAlternativeResponsePrompt(...args) { return buildAlternativeResponsePromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildOperationalPrompt(...args) { return buildOperationalPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildMaterialNavigationPrompt(...args) { return buildMaterialNavigationPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildCreativeProductionPrompt(...args) { return buildCreativeProductionPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
