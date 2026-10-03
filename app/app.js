@@ -161,6 +161,9 @@ function buildContentLabPromptBase(v) {
 const CONTENT_EXPRESS_CONTRACT = "AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md";
 const APPROVED_REFERENCES_ALIAS = "DRIVE:REFERENCIAS_APROBADAS_AFL";
 const TEMP_SELECTION_FOLDER = "05_SELECCION_TEMPORAL";
+const CREATE_DUTY_LAUNCHER = "data/prompts/crear-duty.json";
+const SUPER_DUTY_MOODBOARD = "AFL_AUTOS_CONTENT_SYSTEM/library/moodboards/MOODBOARD_SUPER_DUTY_INDUSTRIAL_NEON_V1.md";
+const SUPER_DUTY_MOODBOARD_URL = "https://github.com/miguelangelruizfull-ai/AFL_AUTOS_CONTENT_SYSTEM/blob/main/library/moodboards/MOODBOARD_SUPER_DUTY_INDUSTRIAL_NEON_V1.md";
 
 function buildContentExpressPromptBase(v, pieceKey, materialFolder, referenceFolder) {
   const c = v.checkpoint || {};
@@ -389,6 +392,147 @@ function makeContentExpressPanel(vehicles) {
     linkButton("Abrir lista de vehículos", "lista.html", false)
   );
   panel.append(actions, status, element("p", "deliverable-note", "Contrato autorizado: AFL_AUTOS_CONTENT_LAB/contracts/CONTENIDO_EXPRESS.md · gate premium/anti-genérico obligatorio · sin publicación automática."));
+  return panel;
+}
+
+
+function buildCreateDutyPromptBase(v, targetFormat) {
+  const c = v.checkpoint || {};
+  const title = (v.vehicle && v.vehicle.publicTitle) || v.title || v.id;
+  const t = currentHomeRequestTime();
+  const format = String(targetFormat || "HISTORIA_FACEBOOK_1080x1920").trim();
+
+  return [
+    "CREAR_DUTY_AFL",
+    "",
+    "AFL-ID: " + v.id,
+    "VEHÍCULO: " + title,
+    "FORMATO_OBJETIVO: " + format,
+    "SOLICITUD_HOME_UTC: " + t.utc,
+    "SOLICITUD_HOME_LOCAL: " + t.local,
+    "ZONA_HORARIA: " + t.timezone,
+    "",
+    "LAUNCHER HOME: " + CREATE_DUTY_LAUNCHER,
+    "MOODBOARD VISUAL CANÓNICO: " + SUPER_DUTY_MOODBOARD,
+    "",
+    "AUTORIDADES:",
+    "- Vehículo/datos variables: Vehiculos/index/EXPEDIENTES_INDEX.json → PUENTE.md vigente.",
+    "- Dirección visual: " + SUPER_DUTY_MOODBOARD + ".",
+    "- Logo oficial: AFL_AUTOS_CONTENT_LAB/docs/BRAND_ASSETS.md + DRIVE:AFL_AUTOS_MULTIMEDIA/LOGOTIPOS_OFICIALES_AFL.",
+    "",
+    "CHECKPOINT HOME:",
+    "- Fase: " + (c.phase || "PENDIENTE"),
+    "- Estado: " + (c.state || (v.status && v.status.vehicle) || "PENDIENTE"),
+    "- Siguiente acción: " + (c.nextAction || "PENDIENTE"),
+    "",
+    "EJECUCIÓN:",
+    "1. Lee PUENTE.md completo y confirma que la unidad pertenece realmente a la familia Ford Super Duty. Si no pertenece, no apliques esta función y repórtalo.",
+    "2. Lee completo el moodboard Super Duty indicado. Úsalo únicamente como autoridad visual; jamás como fuente técnica.",
+    "3. Selecciona la mejor fotografía real/verificable de esta misma unidad. Prioriza una toma 3/4 frontal limpia y dominante cuando exista.",
+    "4. Produce una pieza con estética INDUSTRIAL PREMIUM: negro/grafito, blanco metálico, verde neón AFL, geometría dinámica, profundidad, textura industrial y tipografía condensada pesada.",
+    "5. Mantén el vehículo como HERO. Conserva exactamente color, carrocería, rines, llantas, accesorios, espejos, número de ejes, altura, emblemas visibles y proporciones reales.",
+    "6. No copies literalmente las referencias del moodboard. Adapta composición a la foto, configuración real y formato objetivo.",
+    "7. Sobreimpón solo datos técnicos/publicables confirmados por PUENTE. No inventes año, motor, cilindros, caballaje, versión, precio, disponibilidad ni equipamiento.",
+    "8. Usa únicamente el logotipo AFL oficial como archivo real; no regeneres, redibujes o sustituyas por texto.",
+    "9. No uses commercial.priceInternal como precio visible. No publiques automáticamente.",
+    "10. Entrega la pieza como PRODUCIDO_NO_APROBADO hasta aprobación explícita de Miguel.",
+    "",
+    "GATE FINAL:",
+    "- vehicle_photo_provenance=SAME_AFL_ID",
+    "- synthetic_vehicle_views=0",
+    "- other_vehicle_photos=0",
+    "- stock_vehicle_photos=0",
+    "- vehicle_fidelity=POSITIVE",
+    "- brand_asset_fidelity=POSITIVE",
+    "- generic_template_risk=LOW",
+    "- moodboard_alignment=POSITIVE",
+    "",
+    "CIERRE:",
+    "Muestra la imagen resultante en chat y devuelve AFL-ID, fuente PUENTE, foto HERO usada, formato, datos visibles, moodboard aplicado, estado PRODUCIDO_NO_APROBADO y siguiente opción: aprobar / mejorar diseño / cambiar foto HERO."
+  ].join("\n");
+}
+
+function makeDutyPanel(vehicles) {
+  const panel = element("div", "home-tab-panel");
+  panel.dataset.tab = "duty";
+  panel.hidden = true;
+
+  panel.append(
+    element("div", "eyebrow", "AFL AUTOS · SUPER DUTY"),
+    element("h2", "", "Crear Duty"),
+    element("p", "subtitle", "Genera una pieza Super Duty usando el moodboard industrial premium guardado en Content System y los datos reales del PUENTE de la unidad.")
+  );
+
+  const form = element("div", "creative-config-grid");
+
+  const vehicleField = element("label", "creative-field");
+  vehicleField.append(element("span", "", "Unidad Super Duty"));
+  const vehicleSelect = element("select", "status-select");
+  const placeholder = element("option", "", "Seleccionar vehículo…");
+  placeholder.value = "";
+  vehicleSelect.append(placeholder);
+
+  const summaries = Array.isArray(vehicles.vehicles) ? vehicles.vehicles.slice() : [];
+  summaries.sort(function(a, b) {
+    const aa = /SUPER\s*DUTY|F[- ]?250|F[- ]?350|F[- ]?450|F[- ]?550/i.test((a.title || "") + " " + (a.id || "")) ? 0 : 1;
+    const bb = /SUPER\s*DUTY|F[- ]?250|F[- ]?350|F[- ]?450|F[- ]?550/i.test((b.title || "") + " " + (b.id || "")) ? 0 : 1;
+    return aa - bb;
+  });
+
+  summaries.forEach(function(v) {
+    const option = element("option", "", v.id + " · " + (v.title || "Vehículo"));
+    option.value = v.id;
+    option.dataset.detail = v.detail || ("data/vehicles/" + v.id + ".json");
+    vehicleSelect.append(option);
+  });
+  vehicleField.append(vehicleSelect);
+
+  const formatField = element("label", "creative-field");
+  formatField.append(element("span", "", "Formato"));
+  const formatSelect = element("select", "status-select");
+  [
+    ["HISTORIA_FACEBOOK_1080x1920", "Historia Facebook · 1080×1920"],
+    ["FEED_VERTICAL_1080x1350", "Feed vertical · 1080×1350"],
+    ["CUADRADO_1080x1080", "Cuadrado · 1080×1080"]
+  ].forEach(function(item) {
+    const option = element("option", "", item[1]);
+    option.value = item[0];
+    formatSelect.append(option);
+  });
+  formatField.append(formatSelect);
+
+  form.append(vehicleField, formatField);
+  panel.append(form);
+
+  const status = element("span", "copy-status", "");
+  const actions = element("div", "actions");
+  actions.append(
+    actionButton("Crear Duty", async function() {
+      if (!vehicleSelect.value) {
+        status.textContent = "Selecciona una unidad.";
+        return;
+      }
+      const selected = summaries.find(function(v) { return v.id === vehicleSelect.value; });
+      const detailPath = (vehicleSelect.selectedOptions[0] && vehicleSelect.selectedOptions[0].dataset.detail) ||
+        (selected && selected.detail) || ("data/vehicles/" + vehicleSelect.value + ".json");
+      let v = selected;
+      try {
+        v = await getJSON(detailPath);
+      } catch (error) {}
+      if (!v) {
+        status.textContent = "No se pudo cargar la unidad.";
+        return;
+      }
+      copyText(buildCreateDutyPrompt(v, formatSelect.value), status);
+    }, true),
+    linkButton("Ver moodboard Super Duty", SUPER_DUTY_MOODBOARD_URL, false)
+  );
+  panel.append(
+    actions,
+    status,
+    element("p", "deliverable-note", "Visual: " + SUPER_DUTY_MOODBOARD + " · datos técnicos siempre desde PUENTE · sin publicación automática.")
+  );
+
   return panel;
 }
 
@@ -804,13 +948,14 @@ function makeLabUxMenu(system, vehicles) {
 
   const buttons = {
     production: actionButton("Producción AFL Lab", function(){ activate("production"); }, true),
+    duty: actionButton("Crear Duty", function(){ activate("duty"); }, false),
     express: actionButton("Contenido Express", function(){ activate("express"); }, false),
     responses: actionButton("Responder cliente", function(){ activate("responses"); }, false),
     alternative: actionButton("Otra redacción", function(){ activate("alternative"); }, false),
     tools: actionButton("Actualizar / operar", function(){ activate("tools"); }, false),
     systems: actionButton("Flujo y sistemas", function(){ activate("systems"); }, false)
   };
-  nav.append(buttons.production, buttons.express, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
+  nav.append(buttons.production, buttons.duty, buttons.express, buttons.responses, buttons.alternative, buttons.tools, buttons.systems);
 
   const guide = element("article", "panel wide no-print");
   guide.append(
@@ -826,27 +971,32 @@ function makeLabUxMenu(system, vehicles) {
       output: "PUENTE → Drive/CONTROL → producción → repos afectados → HOME."
     },
     {
-      label: "2. Contenido Express",
+      label: "2. Crear Duty",
+      when: "Cuando vas a crear una pieza para una Ford Super Duty con la identidad industrial premium definida.",
+      output: "PUENTE real de la unidad + moodboard Super Duty → pieza gráfica PRODUCIDO_NO_APROBADO."
+    },
+    {
+      label: "3. Contenido Express",
       when: "Cuando ya hay material utilizable y necesitas una pieza o paquete rápido.",
       output: "Selección de material → estrategia → derivado creativo → salida, sin publicar."
     },
     {
-      label: "3. Responder cliente",
+      label: "4. Responder cliente",
       when: "Cuando recibiste una pregunta real por comentario, Messenger, WhatsApp o llamada.",
       output: "Respuesta por canal respetando política de precio y datos confirmados."
     },
     {
-      label: "4. Otra redacción",
+      label: "5. Otra redacción",
       when: "Cuando la primera respuesta no convence o necesitas una alternativa breve.",
       output: "Nueva redacción sobre la misma intención; no crea ni modifica expediente."
     },
     {
-      label: "5. Actualizar / operar",
+      label: "6. Actualizar / operar",
       when: "Cuando Miguel autoriza cambiar un dato, auditar sincronización o registrar programación/publicación.",
       output: "Acción controlada + sincronización de las superficies dependientes."
     },
     {
-      label: "6. Flujo y sistemas",
+      label: "7. Flujo y sistemas",
       when: "Cuando necesitas entender autoridad, repositorios, reglas o relación entre sistemas.",
       output: "Contexto técnico y navegación; no sustituye el checkpoint de una unidad."
     }
@@ -862,6 +1012,7 @@ function makeLabUxMenu(system, vehicles) {
   guide.append(guideGrid);
 
   const productionPanel = makeLabLauncherPanel(vehicles);
+  const dutyPanel = makeDutyPanel(vehicles);
   const expressPanel = makeContentExpressPanel(vehicles);
   const responsesPanel = makeResponseGeneratorPanel();
   const alternativePanel = makeAlternativeResponsePanel(system);
@@ -889,6 +1040,7 @@ function makeLabUxMenu(system, vehicles) {
 
   const panels = {
     production: productionPanel,
+    duty: dutyPanel,
     express: expressPanel,
     responses: responsesPanel,
     alternative: alternativePanel,
@@ -904,7 +1056,7 @@ function makeLabUxMenu(system, vehicles) {
   }
 
   activate("production");
-  wrap.append(guide, nav, productionPanel, expressPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
+  wrap.append(guide, nav, productionPanel, dutyPanel, expressPanel, responsesPanel, alternativePanel, toolsPanel, systemsPanel);
   return wrap;
 }
 
@@ -1916,6 +2068,7 @@ try {
 
 // All Home prompt builders inherit official branding without extending their task scope.
 function buildContentLabPrompt(...args) { return buildContentLabPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
+function buildCreateDutyPrompt(...args) { return buildCreateDutyPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
 function buildContentExpressPrompt(...args) { return buildContentExpressPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
 function buildAuthorizedEditPrompt(...args) { return buildAuthorizedEditPromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
 function buildAlternativeResponsePrompt(...args) { return buildAlternativeResponsePromptBase(...args) + "\n\n" + HOME_OFFICIAL_LOGO_RULE; }
